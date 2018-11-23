@@ -69199,7 +69199,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: true,
-                    ajax: 'http://localhost:8000/admin/get_students?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get_students?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 1) {
@@ -69492,7 +69492,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: true,
-                    ajax: 'http://localhost:8000/admin/get_students?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get_students?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'last_name', name: 'last_name' }, { data: "father_job", name: 'father_job' }, { data: 'father_mobile', name: 'father_mobile' }, { data: 'father_tel', name: 'father_tel' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'mother_job', name: 'mother_job' }, { data: 'mother_mobile', name: 'mother_mobile' }, { data: 'mother_tel', name: 'mother_tel' }, { data: 'mother_qualified', name: 'mother_qualified' }, { data: 'mobile', name: 'mobile' }, { data: 'tel', name: 'tel' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -69737,7 +69737,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: true,
-                    ajax: 'http://localhost:8000/admin/get-student-absent?day=' + day + '&class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-student-absent?day=' + day + '&class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: 'users', name: 'users.name' }, { data: 'users', name: 'users.last_name' }, { data: 'attend_date', name: 'attend_date' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 3) {
@@ -70044,7 +70044,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: true,
-                    ajax: 'http://localhost:8000/admin/get-employee-absent?day=' + day,
+                    ajax: 'https://kamel-ouda.com/admin/get-employee-absent?day=' + day,
                     columns: [{ data: 'users', name: 'users.name' }, { data: 'users', name: 'users.last_name' }, { data: 'attend_date', name: 'attend_date' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 3) {
@@ -70331,7 +70331,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }],
                     processing: false,
                     serverSide: true,
-                    ajax: 'http://localhost:8000/admin/get-gender',
+                    ajax: 'https://kamel-ouda.com/admin/get-gender',
                     columns: [{ data: 'name', name: 'name' }, { data: 'maleStudents', name: 'maleStudents' }, { data: 'femaleStudents', name: 'femaleStudents' }]
                 });
             });
@@ -73909,7 +73909,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'http://localhost:8000/api/';
+__WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'https://kamel-ouda.com/api/';
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
