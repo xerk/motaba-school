@@ -17,6 +17,7 @@ import ParentRepo from './components/reports/Parents'
 import AbsentStudentRepo from './components/reports/AbsentStudent'
 import AbsentEmpRepo from './components/reports/AbsentEmp'
 import GenderRepo from './components/reports/Gender'
+const _ = require('lodash')
 import SecretNumber from './components/SecretNumber'
 import AddExpense from './components/AddExpense'
 import Committee from './components/Committee'
@@ -53,14 +54,20 @@ Vue.use(VueRouter)
 Vue.use(Croppa)  
 Vue.use(Datetime)
 Vue.use(vSelect)
-
 const router = new VueRouter({
     routes,
     mode: 'history'
 })
 
 
+
+Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
+    created() {
+        let recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', 'http://localhost:8000/js/lang.js')
+        document.head.appendChild(recaptchaScript)
+    },
     el: '#app',
     router: router,
     store: store,
@@ -85,4 +92,5 @@ const app = new Vue({
         AbsentEmpRepo,
         GenderRepo
     },
+    
 });

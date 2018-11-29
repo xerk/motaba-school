@@ -9,10 +9,10 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Setting Number</th>
-                                        <th>Gender</th>
-                                        <th>ClassRoom</th>
-                                        <th>Secret Number</th>
+                                        <th>{{ trans('results.Setting Number') }}</th>
+                                        <th>{{ trans('results.Gender') }}</th>
+                                        <th>{{ trans('results.ClassRoom') }}</th>
+                                        <th>{{ trans('results.Secret Number') }}</th>
                                     </tr>
                                 </thead>
                             </table>

@@ -84,3 +84,23 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/galary', 'LandingPageController@index')->name('galary');
 
 });
+
+// Localization
+Route::get('/js/lang.js', function () {
+    $strings = Cache::remember('lang.js', 0.01, function () {
+        $lang = Auth::user()->settings;
+        $files   = glob(resource_path('lang/' . $lang['locale'] . '/*.php'));
+        $strings = [];
+
+        foreach ($files as $file) {
+            $name           = basename($file, '.php');
+            $strings[$name] = require $file;
+        }
+
+        return $strings;
+    });
+
+    header('Content-Type: text/javascript');
+    echo('window.i18n = ' . json_encode($strings) . ';');
+    exit();
+})->name('assets.lang');

@@ -11,9 +11,9 @@
                                         <thead>
                                             <tr>
                                                 <th><input type="checkbox"></th>
-                                                <th>Name</th>
-                                                <th>Salary</th>
-                                                <th class="actions text-right">Actions</th>
+                                                <th>{{ trans('salary.Name')}}</th>
+                                                <th>{{ trans('salary.Salary')}}</th>
+                                                <th class="actions text-right">{{ trans('table.Actions')}}</th>
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
@@ -25,9 +25,9 @@
                                                     
                                                     <td class="no-sort no-click" id="bread-actions">
                                                                                                                
-                                                            <router-link tag="a" :to="{ name: 'paymentDetails', params: {id: item.id} }" title="Add new attention" class="btn btn-sm btn-info pull-right add"
+                                                            <router-link tag="a" :to="{ name: 'paymentDetails', params: {id: item.id} }" :title="trans('salary.Make Payment')" class="btn btn-sm btn-info pull-right add"
                                                                 data-id="2" id="add-2">
-                                                                    <i class="voyager-credit-card"></i> <span class="hidden-xs hidden-sm">Make Payment</span>
+                                                                    <i class="voyager-credit-card"></i> <span class="hidden-xs hidden-sm">{{ trans('salary.Make Payment')}}</span>
                                                             </router-link>
                                                     </td>
                                                 </tr>
@@ -40,24 +40,6 @@
                 </div>
             </div>
         </form>
-
-        <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><i class="voyager-trash"></i> delete qutions?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <form action="#" id="delete_form" method="POST">
-
-                            <input type="submit" class="btn btn-danger pull-right delete-confirm" value="confirm">
-                        </form>
-                        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">cancel</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
     </div>
 </template>
 <script>

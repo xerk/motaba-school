@@ -10,9 +10,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div :class="{'form-group': true, 'has-error': errors.has('type') }">
-                                        <label for="type">Attention Type</label>
+                                        <label for="type">{{ trans('attentions.Attention Type') }}</label>
                                         <select name="type-error" v-validate="'required'" v-model="type" id="type" class="form-control">
-                                            <option value="">Choose the type.</option>
+                                            <option value="">{{ trans('attentions.Choose the type') }}</option>
                                             <option :value="item" v-for="(item, index) in types" :key="index">{{ item.name }}</option>
                                         </select>
                                         <span v-show="errors.has('type-error')" class="help-block" style="color:#f96868">{{ errors.first('type-error') }}</span>
@@ -20,20 +20,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="end_date">End Date</label>
+                                        <label for="end_date">{{ trans('attentions.End Date') }}</label>
                                         <datetime :input-class="'form-control'" :auto="true" type="datetime" id="end_date" v-model="end_date"></datetime>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Body</label>
+                                <label for="email">{{ trans('attentions.Body') }}</label>
                                 <vue-editor v-model="type.body">
                                 </vue-editor>
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('attentions.Submit') }}</button>
                         </div>
                     </div>
                 </form>
@@ -41,7 +41,7 @@
             <div class="col-md-12" v-if="attentions != ''">
                 <div class="panel panel-bordered">
                     <div class="panel-title">
-                        <h3><i class="icon voyager-bell"></i> Attentions</h3>
+                        <h3><i class="icon voyager-bell"></i> {{ trans('attentions.Attentions') }}</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -49,11 +49,11 @@
                                 <thead>
                                     <tr>
                                         <th><input type="checkbox"></th>
-                                        <th>Students</th>
-                                        <th>Author</th>
-                                        <th>Attention Type</th>
-                                        <th>End Date</th>
-                                        <th class="actions text-right">Actions</th>
+                                        <th>{{ trans('attentions.Students') }}</th>
+                                        <th>{{ trans('attentions.Author') }}</th>
+                                        <th>{{ trans('attentions.Attention Type') }}</th>
+                                        <th>{{ trans('attentions.End Date') }}</th>
+                                        <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <transition-group tag="tbody" name="list" mode="in-out">
@@ -76,10 +76,10 @@
 
                                                     <router-link tag="a" :to="{ name: 'attentionsEdit', params: {id: $route.params.id, edit: item.id} }" title="edit attention" class="btn btn-sm btn-primary pull-right edit"
                                                         data-id="2" id="edit-2">
-                                                            <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">Edit</span>
+                                                            <i class="voyager-edit"></i> <span class="hidden-xs hidden-sm">{{ trans('table.Edit') }}</span>
                                                     </router-link>
-                                                    <router-link tage="a" :to="{ name: 'attentionsShow', params: { id: item.id } }" title="View" class="btn btn-sm btn-warning pull-right view">
-                                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">View</span>
+                                                    <router-link tage="a" :to="{ name: 'attentionsShow', params: { id: item.id } }" :title="trans('View')" class="btn btn-sm btn-warning pull-right view">
+                                                        <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">{{ trans('table.View') }}</span>
                                                     </router-link>
                                             </td>
                                         </tr>

@@ -14,7 +14,7 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="icon voyager-list"></i> Report Students
+            <i class="icon voyager-list"></i> Report Students {{trans('voyager::generic.viewing')}}
         </h1>
         @include('voyager::multilingual.language-selector')
     </div>

@@ -13,6 +13,7 @@
 @section('content')
     <div class="container">
         {{$dataTable->table(['id' => 'users'])}}
+        {{__('voyager::generic.viewing')}}
     </div>
     @stop
 

@@ -3,16 +3,16 @@
         <form @submit.prevent action="">
             <div class="page-content browse container-fluid">
                 <div class="attend-button">
-                    <button @click="submit(3)" type="submit" title="Absent" class="btn btn-sm btn-danger pull-right delete"
+                    <button @click="submit(3)" type="submit" :title="trans('attendance.Absent')" class="btn btn-sm btn-danger pull-right delete"
                         data-id="2" id="delete-2">
-                        <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">Absent</span>
+                        <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
                     </button>
-                    <button @click="submit(2)" type="submit" title="Holiday"
+                    <button @click="submit(2)" type="submit" :title="trans('attendance.Holiday')"
                         class="btn btn-sm  btn-primary pull-right edit">
-                        <i class="voyager-exclamation"></i> <span class="hidden-xs hidden-sm">Holiday</span>
+                        <i class="voyager-exclamation"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Holiday') }}</span>
                     </button>
-                    <button @click="submit(1)" type="submit" title="Attendants" class="btn btn-sm btn-success pull-right view">
-                        <i class="voyager-check"></i> <span class="hidden-xs hidden-sm">Attendants</span>
+                    <button @click="submit(1)" type="submit" :title="trans('attendance.Attendants')" class="btn btn-sm btn-success pull-right view">
+                        <i class="voyager-check"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Attendants') }}</span>
                     </button>
                 </div>
                 <div class="lecture-select-box">
@@ -23,10 +23,10 @@
                     </select>
                     <span v-show="errors.has('lecture')" class="help-block" style="color:#f96868">{{ errors.first('lecture') }}</span> -->
                     <!-- <span>{{ moment("1995-12-25") }}</span> -->
-                    <router-link @click.native="next" style="padding: 5px 10px;" title="Next" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/attendances', query: {'day': day+1,}}">
+                    <router-link @click.native="next" style="padding: 5px 10px;" :title="trans('table.Next')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/attendances', query: {'day': day+1,}}">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
                     </router-link>
-                    <router-link @click.native="prev" style="padding: 5px 10px;" title="Prev" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/attendances', query: {'day': day-1,}}">
+                    <router-link @click.native="prev" style="padding: 5px 10px;" :title="trans('table.Prev')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/attendances', query: {'day': day-1,}}">
                         <i class="voyager-double-left"></i> <span class="hidden-xs hidden-sm"></span>
                     </router-link>
                     <button class="btn btn-sm disabled" style="padding: 4px 15px;">{{ dateNow | moment("dddd, Do MM YY") }}</button>
@@ -40,12 +40,12 @@
                                     <table id="dataTable" class="table table-hover dataTable no-footer">
                                         <thead>
                                             <tr>
-                                                <th>Students</th>
+                                                <th>{{ trans('attendance.Employees') }}</th>
                                                 <!-- <th>Lecture</th> -->
-                                                <th>Date</th>
-                                                <th>Created At</th>
-                                                <th>Status</th>
-                                                <th class="actions text-right">Actions</th>
+                                                <th>{{ trans('attendance.Date') }}</th>
+                                                <th>{{ trans('attendance.Created At') }}</th>
+                                                <th>{{ trans('attendance.Status') }}</th>
+                                                <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
@@ -57,33 +57,33 @@
                                                     <td>{{ item.created_at }}</td>
                                                     <td>
                                                         <transition name="fade" mode="in-out"> 
-                                                            <span v-if="item.status == 4" class="label label-warning">Late</span>
+                                                            <span v-if="item.status == 4" class="label label-warning">{{ trans('attendance.Late') }}</span>
                                                         </transition>
                                                          <transition name="fade" mode="in-out"> 
-                                                            <span v-if="item.status == 3" class="label label-danger">Absent</span>
+                                                            <span v-if="item.status == 3" class="label label-danger">{{ trans('attendance.Absent') }}</span>
                                                         </transition>
                                                         <transition name="fade" mode="in-out">                                                         
-                                                            <span v-if="item.status == 2" class="label label-primary">Holiday</span>
+                                                            <span v-if="item.status == 2" class="label label-primary">{{ trans('attendance.Holiday') }}</span>
                                                         </transition>
                                                         <transition name="fade" mode="in-out"> 
-                                                            <span v-if="item.status == 1" class="label label-success">Existing</span>
+                                                            <span v-if="item.status == 1" class="label label-success">{{ trans('attendance.Existing') }}</span>
                                                         </transition>
                                                     </td>
                                                     <td class="no-sort no-click" id="bread-actions">
-                                                            <a v-show="item.status != 3" title="Absent" @click="action(item, 3)" class="btn btn-sm btn-danger pull-right delete"
+                                                            <a v-show="item.status != 3" :title="trans('attendance.Absent')" @click="action(item, 3)" class="btn btn-sm btn-danger pull-right delete"
                                                                 data-id="2" id="absent-2">
-                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">Absent</span>
+                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
                                                             </a>
-                                                            <a v-show="item.status != 4" title="Absent" @click="action(item, 4)" class="btn btn-sm btn-warning pull-right delete"
+                                                            <a v-show="item.status != 4" :title="trans('attendance.Late')" @click="action(item, 4)" class="btn btn-sm btn-warning pull-right delete"
                                                                 data-id="2" id="late-2">
-                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">Late</span>
+                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Late') }}</span>
                                                             </a>
-                                                            <a v-show="item.status != 2" title="Holiday"
+                                                            <a v-show="item.status != 2" :title="trans('attendance.Holiday')"
                                                                 class="btn btn-sm  btn-primary pull-right edit" @click="action(item, 2)">
-                                                                <i class="voyager-exclamation"></i> <span class="hidden-xs hidden-sm">Holiday</span>
+                                                                <i class="voyager-exclamation"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Holiday') }}</span>
                                                             </a>
-                                                            <a v-show="item.status != 1" title="Existing" class="btn btn-sm btn-success pull-right view" @click="action(item, 1)">
-                                                                <i class="voyager-check"></i> <span class="hidden-xs hidden-sm">Existing</span>
+                                                            <a v-show="item.status != 1" :title="trans('attendance.Existing')" class="btn btn-sm btn-success pull-right view" @click="action(item, 1)">
+                                                                <i class="voyager-check"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Existing') }}</span>
                                                             </a>
                                                     </td>
                                                 </tr>
@@ -96,24 +96,6 @@
                 </div>
             </div>
         </form>
-
-        <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><i class="voyager-trash"></i> delete qutions?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <form action="#" id="delete_form" method="POST">
-
-                            <input type="submit" class="btn btn-danger pull-right delete-confirm" value="confirm">
-                        </form>
-                        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">cancel</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
     </div>
 </template>
 <script>

@@ -23,5 +23,6 @@
 @stop
 
 @section('javascript')
+<script src="{{ asset('js/lang.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>
 @stop

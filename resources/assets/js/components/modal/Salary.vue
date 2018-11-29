@@ -12,42 +12,42 @@
                     <div class="modal-body">
                         <slot name="body">
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('additional') }">
-                                <label for="additional">Additional</label>
+                                <label for="additional">{{ trans('salary.Additional') }}</label>
                                 <input required v-model="model.additional"  type="number" v-validate="'numeric'" class="form-control" name="additional">
                                 <span v-show="errors.has('additional')" class="help-block" style="color:#f96868">{{ errors.first('additional') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bonus') }">
-                                <label for="bonus">Bonus</label>
+                                <label for="bonus">{{ trans('salary.Bonus') }}</label>
                                 <input required v-model="model.bonus" type="number" v-validate="'numeric'" class="form-control" name="bonus">
                                 <span v-show="errors.has('bonus')" class="help-block" style="color:#f96868">{{ errors.first('bonus') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('incentive') }">
-                                <label for="incentive">Incentive</label>
+                                <label for="incentive">{{ trans('salary.Incentive') }}</label>
                                 <input required v-model="model.incentive" type="number" v-validate="'numeric'" class="form-control" name="incentive">
                                 <span v-show="errors.has('incentive')" class="help-block" style="color:#f96868">{{ errors.first('incentive') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('reward') }">
-                                <label for="reward">Reward</label>
+                                <label for="reward">{{ trans('salary.Reward') }}</label>
                                 <input required v-model="model.reward" type="number" v-validate="'numeric'" class="form-control" name="reward">
                                 <span v-show="errors.has('reward')" class="help-block" style="color:#f96868">{{ errors.first('reward') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('discount') }">
-                                <label for="discount">Discount</label>
+                                <label for="discount">{{ trans('salary.Discount') }}</label>
                                 <input required v-model="model.discount" type="number" v-validate="'numeric'" class="form-control" name="discount">
                                 <span v-show="errors.has('discount')" class="help-block" style="color:#f96868">{{ errors.first('discount') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('allowance') }">
-                                <label for="allowance">Allowance</label>
+                                <label for="allowance">{{ trans('salary.Allowance') }}</label>
                                 <input required v-model="model.allowance" type="number" v-validate="'numeric'" class="form-control" name="allowance">
                                 <span v-show="errors.has('allowance')" class="help-block" style="color:#f96868">{{ errors.first('allowance') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('loan') }">
-                                <label for="loan">Loan</label>
+                                <label for="loan">{{ trans('salary.Loan') }}</label>
                                 <input required v-model="model.loan" type="number" v-validate="'numeric'" class="form-control" name="loan">
                                 <span v-show="errors.has('loan')" class="help-block" style="color:#f96868">{{ errors.first('loan') }}</span>
                             </div>
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('penalty') }">
-                                <label for="penalty">Penalty</label>
+                                <label for="penalty">{{ trans('salary.Penalty') }}</label>
                                 <input required v-model="model.penalty" type="number" v-validate="'numeric'" class="form-control" name="penalty">
                                 <span v-show="errors.has('penalty')" class="help-block" style="color:#f96868">{{ errors.first('penalty') }}</span>
                             </div>
@@ -56,12 +56,12 @@
                     <div class="modal-footer">
                         <slot name="footer">
                             <button class="btn btn-default" @click="$emit('close')">
-                                Cancel
+                                {{ trans('table.Cancel') }}
                             </button>
                             <!-- <slot tag="button" name="button" class="btn btn-danger delete-confirm" @click="submit">
                                 Yest, Save it!
                             </slot> -->
-                            <button slot="button" @click="submit" class="btn btn-success">Yes, Save it!</button>
+                            <button slot="button" @click="submit" class="btn btn-success">{{ trans('table.Yes, Save it!') }}</button>
                         </slot>
                     </div>
                 </div>

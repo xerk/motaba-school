@@ -9,8 +9,8 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Class Name</th>
-                                        <th>Expenses Cost</th>
+                                        <th>{{trans('expenses.Class Name') }}</th>
+                                        <th>{{trans('expenses.Expenses Cost') }}</th>
                                     </tr>
                                 </thead>
                             </table>

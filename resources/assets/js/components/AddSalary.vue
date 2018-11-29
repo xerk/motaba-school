@@ -9,10 +9,10 @@
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Full Name</th>
-                                        <th>Last name</th>
-                                        <th>Cost</th>
-                                        <th>Absent Per Day</th>
+                                        <th>{{ trans('salary.Full Name') }}</th>
+                                        <th>{{ trans('salary.Last name') }}</th>
+                                        <th>{{ trans('salary.Cost') }}</th>
+                                        <th>{{ trans('salary.Absent Per Day') }}</th>
                                     </tr>
                                 </thead>
                             </table>

@@ -10,9 +10,9 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div :class="{'form-group': true, 'has-error': errors.has('type') }">
-                                        <label for="type">Attention Type</label>
+                                        <label for="type">{{ trans('attentions.Attention Type') }}</label>
                                             <select name="type-error" v-validate="'required'" v-model="attention.attention_type_id" id="type" class="form-control">
-                                                <option value="">Choose the type.</option>
+                                                <option value="">{{ trans('attentions.Choose the type') }}</option>
                                                 <option  v-for="(item, index) in types" :value="item.id" :key="index">{{ item.name }}</option>
                                             </select>
                                             <span v-show="errors.has('type-error')" class="help-block" style="color:#f96868">{{ errors.first('type-error') }}</span>
@@ -20,22 +20,22 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="end_date">End Date</label>
+                                        <label for="end_date">{{ trans('attentions.End Date') }}</label>
                                         <datetime :input-class="'form-control'" :auto="true" type="datetime" id="end_date" v-model="attention.end_date"></datetime>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="body">Body</label>
+                                <label for="body">{{ trans('attentions.Body') }}</label>
                                 <vue-editor v-model="attention.body">
                                 </vue-editor>
                             </div>
                         </div>
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary">Update & Continue Editing</button>
+                            <button type="submit" class="btn btn-primary">{{ trans('attentions.Update & Continue Editing') }}</button>
                             <router-link :to="{ name: 'attentionsShow', params: {id: $route.params.edit} }" @click.native="validateBeforeSubmit" type="submit" class="btn btn-primary">
-                                Update Attention
+                                {{ trans('attentions.Update Attention') }}
                             </router-link>
                         </div>
                     </div>

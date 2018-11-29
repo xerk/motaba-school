@@ -10,7 +10,7 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="icon voyager-bell"></i> Expenses
+            <i class="icon voyager-bell"></i> {{ __('expenses.name') }}
         </h1>
         @include('voyager::multilingual.language-selector')
     </div>
@@ -24,4 +24,5 @@
 
 @section('javascript')
 <script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ route('assets.lang') }}"></script>
 @stop

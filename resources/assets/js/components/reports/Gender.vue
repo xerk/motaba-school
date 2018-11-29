@@ -63,7 +63,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: true,
-                    ajax: `https://kamel-ouda.com/admin/get-gender`,
+                    ajax: `http://localhost:8000/admin/get-gender`,
                     columns: [
                         { data: 'name', name: 'name' },
                         { data: 'maleStudents', name: 'maleStudents' },

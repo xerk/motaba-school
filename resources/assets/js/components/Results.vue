@@ -9,8 +9,8 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th class="text-center" rowspan="2" width="5%"></th>
-                                        <th class="text-center" style="    vertical-align: middle;" rowspan="2">Full Name</th>
-                                        <th class="text-center" rowspan="2">Last name</th>
+                                        <th class="text-center" style="    vertical-align: middle;" rowspan="2">{{ trans('results.Full Name') }}</th>
+                                        <th class="text-center" rowspan="2">{{ trans('results.Last name') }}</th>
                                         <th class="text-center"> {{ typeExams.name }}</th>
                                     </tr>
                                     <tr>

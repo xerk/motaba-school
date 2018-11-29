@@ -16,6 +16,7 @@
 @stop
 
 @section('javascript')
+<script src="{{ asset('js/lang.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.17/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>

@@ -12,17 +12,17 @@
                     <div class="modal-body">
                         <slot name="body">
                             <div :class="{'form-group col-md-12': true, 'has-error': errors.has('payment-amount') }">
-                                <label for="payment-amount">Payment Amount</label>
+                                <label for="payment-amount">{{ trans('expenses.Payment Amount') }}</label>
                                 <input required v-model="list.pay"  type="number" v-validate="'numeric'" class="form-control" name="payment-amount">
                                 <span v-show="errors.has('payment-amount')" class="help-block" style="color:#f96868">{{ errors.first('payment-amount') }}</span>
                             </div>
                             <div :class="{'form-group col-md-12': true, 'has-error': errors.has('cost') }">
-                                <label for="cost">Cost</label>
+                                <label for="cost">{{ trans('expenses.Cost') }}</label>
                                 <input required v-model="list.cost" type="number" v-validate="'numeric'" class="form-control" name="cost">
                                 <span v-show="errors.has('cost')" class="help-block" style="color:#f96868">{{ errors.first('cost') }}</span>
                             </div>
                             <div :class="{'form-group col-md-12': true, 'has-error': errors.has('discount') }">
-                                <label for="discount">Discount</label>
+                                <label for="discount">{{ trans('expenses.Discount') }}</label>
                                 <input required v-model="list.discount" type="number" v-validate="'numeric'" class="form-control" name="discount">
                                 <span v-show="errors.has('discount')" class="help-block" style="color:#f96868">{{ errors.first('discount') }}</span>
                             </div>
@@ -31,12 +31,12 @@
                     <div class="modal-footer">
                         <slot name="footer">
                             <button class="btn btn-default" @click="$emit('close')">
-                                Cancel
+                                {{trans('table.Cancel')}}
                             </button>
                             <!-- <slot tag="button" name="button" class="btn btn-danger delete-confirm" @click="submit">
                                 Yest, Save it!
                             </slot> -->
-                            <button slot="button" @click="submit" class="btn btn-success">Yes, Save it!</button>
+                            <button slot="button" @click="submit" class="btn btn-success">{{trans('table.Yes, Save it!')}}</button>
                         </slot>
                     </div>
                 </div>

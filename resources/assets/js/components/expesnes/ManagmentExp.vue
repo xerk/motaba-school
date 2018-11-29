@@ -10,7 +10,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">Basic Expenses:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Basic Expenses') }}:</span>                                
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-primary">
@@ -23,7 +23,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">Total Cost:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Total Cost') }}:</span>                                
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -36,7 +36,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">Total Pay:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Total Pay') }}:</span>                                
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -49,7 +49,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">Total Discount:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Total Discount') }}:</span>                                
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -62,7 +62,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">Remaining:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Remaining') }}:</span>                                
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-9">
                 <div>
-                    <a class="btn btn-sm btn-primary" @click="paymentClickModal" title="make a payment"><i class="voyager-credit-card"></i> Make Payment</a>
+                    <a class="btn btn-sm btn-primary" @click="paymentClickModal" :title="trans('expenses.Make Payment')"><i class="voyager-credit-card"></i> {{ trans('expenses.Make Payment') }}</a>
                 </div>
                 <div class="panel panel-bordered" v-if="user.expenses != ''">
                     <div class="panel-body">
@@ -85,11 +85,11 @@
                             <table id="dataTable" class="table table-hover dataTable no-footer">
                                 <thead>
                                     <tr>
-                                        <th>Created At</th>
-                                        <th>Pay</th>
-                                        <th>Cost</th>
-                                        <th>Discount</th>
-                                        <th class="actions text-right">Actions</th>
+                                        <th>{{ trans('expenses.Created At') }}</th>
+                                        <th>{{ trans('expenses.Pay') }}</th>
+                                        <th>{{ trans('expenses.Cost') }}</th>
+                                        <th>{{ trans('expenses.Discount') }}</th>
+                                        <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -102,10 +102,10 @@
                                         <td><b>${{ item.discount }}</b></td>
                                         <td class="actions">
                                             <a href.prevent="" @click="showModalPayment = true" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
-                                                <i class="voyager-edit"></i> Delete
+                                                <i class="voyager-edit"></i> {{ trans('table.Delete') }}
                                             </a>
                                             <a href.prevent="" @click="editAdd(item)" class="btn btn-sm btn-primary pull-right" style="display:inline; margin-right:10px;">
-                                                <i class="voyager-edit"></i> Edit
+                                                <i class="voyager-edit"></i> {{ trans('table.Edit') }}
                                             </a>
                                         </td>
                                         <modal v-if="showModalPayment" @close="showModalPayment = false">
@@ -113,8 +113,8 @@
                                             you can use custom content here to overwrite
                                             default content
                                             -->
-                                            <h3 slot="header"><i class="voyager-trash"></i> Are you sure you want to delete this stage?</h3>                        
-                                            <button slot="button" @click.once="deletePayment(item.id, index)" class="btn btn-danger delete-confirm">Yes, Delete it!</button>
+                                            <h3 slot="header"><i class="voyager-trash"></i> {{ trans('expenses.Are you sure you want to delete this expenses?') }}</h3>                        
+                                            <button slot="button" @click.once="deletePayment(item.id, index)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!') }}</button>
                                         </modal>
                                     </tr>
                                 </tbody>
@@ -125,28 +125,28 @@
             </div>
         </div>
         <make-payment :list="list" v-if="paymentModal" @close="paymentModal = false">
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">Make Payment. </span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('expenses.Make Payment') }}. </span></h3>                        
             <div slot="body">
                 <div :class="{'form-group col-md-12': true, 'has-error': errors.has('pay') }">
-                    <label for="pay">Payment Amount</label>
+                    <label for="pay">{{ trans('expenses.Payment Amount') }}</label>
                     <input required v-model="model.paymentAmount" type="number" v-validate="'numeric'" class="form-control" name="pay">
                     <span v-show="errors.has('pay')" class="help-block" style="color:#f96868">{{ errors.first('pay') }}</span>
                 </div>
                 <div :class="{'form-group col-md-12': true, 'has-error': errors.has('cost') }">
-                    <label for="cost">Cost</label>
+                    <label for="cost">{{ trans('expenses.Cost') }}</label>
                     <input required v-model="model.cost" type="number" v-validate="'numeric'" class="form-control" name="cost">
                     <span v-show="errors.has('cost')" class="help-block" style="color:#f96868">{{ errors.first('cost') }}</span>
                 </div>
                 <div :class="{'form-group col-md-12': true, 'has-error': errors.has('discount') }">
-                    <label for="discount">Discount</label>
+                    <label for="discount">{{ trans('expenses.Discount') }}</label>
                     <input required v-model="model.discount" type="number" v-validate="'numeric'" class="form-control" name="discount">
                     <span v-show="errors.has('discount')" class="help-block" style="color:#f96868">{{ errors.first('discount') }}</span>
                 </div>
             </div>
-            <button slot="button" class="btn btn-success" @click.once="parsist">Yes, Save it!</button>
+            <button slot="button" class="btn btn-success" @click.once="parsist">{{ trans('table.Yes, Save it!') }}</button>
         </make-payment>
         <expenses @getUser="fetch" :list="list" v-if="showModal" @close="showModal = false">
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">Make Payment ({{ list.attend_date }}). </span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('expenses.Make Payment') }}. </span></h3>                        
         </expenses>
     </div>
 </template>
@@ -156,6 +156,11 @@
     import MakePayment from '../modal/MakePayment'
     import Modal from '../modal/Modal'
     export default {
+        created() {
+            let recaptchaScript = document.createElement('script')
+            recaptchaScript.setAttribute('src', 'http://localhost:8000/js/lang.js')
+            document.head.appendChild(recaptchaScript)
+        },
         components: {
             Expenses,
             MakePayment,
@@ -210,7 +215,7 @@
         computed: {
         },
         mounted() {
-            this.fetch()
+            this.fetch()            
         },
         methods: {
             paymentClickModal() {

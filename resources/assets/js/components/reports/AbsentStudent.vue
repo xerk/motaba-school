@@ -90,7 +90,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: true,
-                    ajax: `https://kamel-ouda.com/admin/get-student-absent?day=${day}&class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `http://localhost:8000/admin/get-student-absent?day=${day}&class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: 'users', name: 'users.name' },
                         { data: 'users', name: 'users.last_name' },

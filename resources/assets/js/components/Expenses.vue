@@ -12,10 +12,10 @@
                                         <thead>
                                             <tr>
                                                 <th><input type="checkbox"></th>
-                                                <th>Students</th>
-                                                <th>Total Pay</th>
-                                                <th>Total Cost</th>
-                                                <th class="actions text-right">Actions</th>
+                                                <th>{{ trans('expenses.Students')}}</th>
+                                                <th>{{ trans('expenses.Total Pay')}}</th>
+                                                <th>{{ trans('expenses.Total Cost') }}</th>
+                                                <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
@@ -28,9 +28,9 @@
                                                     
                                                     <td class="no-sort no-click" id="bread-actions">
                                                                                                                
-                                                            <router-link tag="a" :to="{ name: 'studentExpenses', params: {id: item.id} }" title="Make payment" class="btn btn-sm btn-info pull-right add"
+                                                            <router-link tag="a" :to="{ name: 'studentExpenses', params: {id: item.id} }" :title="trans('expenses.Make payment')" class="btn btn-sm btn-info pull-right add"
                                                                 data-id="2" id="add-2">
-                                                                    <i class="voyager-credit-card"></i> <span class="hidden-xs hidden-sm">Make Payment</span>
+                                                                    <i class="voyager-credit-card"></i> <span class="hidden-xs hidden-sm">{{ trans('expenses.Make Payment') }}</span>
                                                             </router-link>
                                                     </td>
                                                 </tr>
