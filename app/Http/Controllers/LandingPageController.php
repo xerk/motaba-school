@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SchoolDefinition;
+use App\Testimonial;
 
 class LandingPageController extends Controller
 {
@@ -13,7 +15,12 @@ class LandingPageController extends Controller
      */
     public function index()
     {
-        return view('vendor.frontend.landing-page');
+        $schoolDefi = SchoolDefinition::all();
+        $testimonials = Testimonial::all();
+        return view('vendor.frontend.landing-page', [
+            'schoolDefi' => $schoolDefi,
+            'testimonials' => $testimonials
+        ]);
     }
 
     /**

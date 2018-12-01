@@ -49,74 +49,16 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
 </svg>
 <div class="uk-width-1-1" id="features">
    <div class="uk-container">
-       <h2>Awesome Features</h2>
-       <p class="uk-text-center uk-margin-remove-top uk-align-center uk-margin-remove-bottom" style="color:#ffffff; opacity:0.8;">Wave
-           has some cool features to help you rapidly build your Software as a Service.<br> Here are a few awesome features
-           you're going to love!</p>
+       <h2>{{ setting('site.title_school_definitions') }}</h2>
+       <p class="uk-text-center uk-margin-remove-top uk-align-center uk-margin-remove-bottom" style="color:#ffffff; opacity:0.8;">{{ setting('site.body_school_definitions') }}</p>
        <div class="uk-grid">
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/authentication.png">
-               <h4>Authentication</h4>
-               <p>Fully loaded authentication, email verification, and password reset. Authentication in a snap!</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/profile.png">
-               <h4>User Profiles</h4>
-               <p>Customizable user profiles. Allow your users to enter data and easily customize their user profiles.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/impersonation.png">
-               <h4>User Impersonation</h4>
-               <p>With user impersonations you can login as another user and resolve an issue or troubleshoot a bug.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/subscriptions.png">
-               <h4>Subscriptions</h4>
-               <p>Allow users to pay for your service and signup for a subscription using Stripe or Braintree Payments.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/plans.png">
-               <h4>Subscription Plans</h4>
-               <p>Create new plans with different features and intrigue your users to subscribe to any plan.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/roles.png">
-               <h4>User Roles</h4>
-               <p>Grant user permissions based on roles, you can then assign a role to a specific plan.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/notifications.png">
-               <h4>Notifications</h4>
-               <p>Ready-to-use Notification System which integrates with the default Laravel notification feature.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/announcements.png">
-               <h4>Announcements</h4>
-               <p>Create user announcements to notify users about new features or updates in your application.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/blog.png">
-               <h4>Blog</h4>
-               <p>Equipped with a fully-functional blog. Write posts related to your product to gain free SEO traffic.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-margin-medium-bottom uk-text-center"
-            uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/api.png">
-               <h4>Fully Functional API</h4>
-               <p>Ready-to-consume API for your application. Create API tokens with role specific permissions.</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-margin-medium-bottom uk-text-center"
-            uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/admin.png">
-               <h4>Voyager Admin</h4>
-               <p>Wave has been crafted using Laravel & Voyager, which makes administering your app a breeze!</p>
-           </div>
-           <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-medium-top uk-margin-medium-bottom uk-text-center"
-            uk-scrollspy="cls:uk-animation-slide-bottom">
-               <img src="themes/uikit/images/themes.png">
-               <h4>Themes</h4>
-               <p>Fully configurable themes. Choose from a few starter themes to begin configuring to make it your own.</p>
-           </div>
+           @foreach ($schoolDefi as $item)    
+            <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
+                <img src="{{ Voyager::image($item->icon) }}">
+                <h4>{{ $item->title }}</h4>
+                <p>{{ $item->body }}</p>
+            </div>
+           @endforeach
        </div>
    </div>
 </div>
@@ -138,30 +80,17 @@ y="0px" viewBox="0 0 1440 156" style="enable-background:new 0 0 1440 126;" xml:s
 </svg>
 <div id="testimonials">
    <div class="uk-container uk-margin-small-top">
-       <h2>Example Testimonials</h2>
-       <p class="uk-text-center uk-margin-remove-top">Here are some example testimonials that you can configure for your
-           SAAS</p>
+       <h2>{{ setting('site.title_testimonials') }}</h2>
+       <p class="uk-text-center uk-margin-remove-top">{{ setting('site.body_testimonials') }}</p>
        <div class="uk-position-relative uk-visible-toggle uk-dark" uk-slider="autoplay: true;">
            <ul class="uk-slider-items uk-child-width-1-1">
-               <li class="testimonial uk-text-center">
-                   <img src="themes/uikit/images/testimonial-1.jpg" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
-                   <p uk-slider-parallax="x: 200,-200">Scottie Harp</p>
-                   <blockquote uk-slider-parallax="x: 100,-100">Using Wave I was able to build the SAAS of my dreams. It was so
-                       easy to get started and customize. Now, I'm living off of the income that my Software as a Service has
-                       generated.</blockquote>
-               </li>
-               <li class="testimonial uk-text-center">
-                   <img src="themes/uikit/images/testimonial-2.jpg" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
-                   <p uk-slider-parallax="x: 200,-200">Josh Hudson</p>
-                   <blockquote uk-slider-parallax="x: 100,-100">Creating a Software as a Service is now easier than ever with Wave.<br>
-                       I was able to save my development team hundreds of hours of work!</blockquote>
-               </li>
-               <li class="testimonial uk-text-center">
-                   <img src="themes/uikit/images/testimonial-3.jpg" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
-                   <p uk-slider-parallax="x: 200,-200">Jim Fullerton</p>
-                   <blockquote uk-slider-parallax="x: 100,-100">I wish I had known about Wave sooner! It's the best solution for
-                       creating the Software as a Service of your dreams.</blockquote>
-               </li>
+               @foreach ($testimonials as $item)    
+                <li class="testimonial uk-text-center">
+                    <img src="{{ Voyager::image($item->image) }}" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
+                    <p uk-slider-parallax="x: 200,-200">{{ $item->title }}</p>
+                    <blockquote uk-slider-parallax="x: 100,-100">{{ $item->body }}</blockquote>
+                </li>
+               @endforeach
            </ul>
            <a class="uk-position-center-left uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
            <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
@@ -169,7 +98,7 @@ y="0px" viewBox="0 0 1440 156" style="enable-background:new 0 0 1440 126;" xml:s
        </div>
    </div>
 </div>
-<svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+{{-- <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
 y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
    <style type="text/css">
        .wave-svg-light {
@@ -184,8 +113,8 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
        <path class="wave-svg-light" d="M685.6,30.8323303 C418.7,-19.0491687 170.2,1.94304528 0,22.035593 L0,118 L1440,118 L1440,22.035593 C1252.7,44.2273621 1010,91.4098622 685.6,30.8323303 Z"
         id="Shape" fill="url(#linearGradient-1)" transform="translate(720.000000, 59.000000) scale(1, -1) translate(-720.000000, -59.000000) "></path>
    </g>
-</svg>
-<div id="pricing">
+</svg> --}}
+{{-- <div id="pricing">
    <div class="uk-container">
        <h2 class="uk-margin-top-large">Example Pricing</h2>
        <p class="uk-text-center uk-margin-remove-top uk-margin-medium-bottom">It's easy to customize the pricing of your
@@ -240,5 +169,5 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
        <p class="uk-text-center uk-margin-medium"><span class="uk-margin-small-right" uk-icon="settings"></span> All plans
            are fully configurable in the Admin Area.</p>
    </div>
-</div>
+</div> --}}
 @endsection
