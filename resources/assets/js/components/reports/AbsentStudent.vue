@@ -1,10 +1,10 @@
 <template>
     <div class="page-content browse container-fluid">
         <div class="lecture-select-box">
-            <router-link @click.native="next" style="padding: 5px 10px;" title="Next" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/absent_students', query: {'day': day+1,}}">
+            <router-link @click.native="next" style="padding: 5px 10px;" :title="trans('reports.Next')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/absent_students', query: {'day': day+1,}}">
                 <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
             </router-link>
-            <router-link @click.native="prev" style="padding: 5px 10px;" title="Prev" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/absent_students', query: {'day': day-1,}}">
+            <router-link @click.native="prev" style="padding: 5px 10px;" :title="trans('reports.Prev')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/absent_students', query: {'day': day-1,}}">
                 <i class="voyager-double-left"></i> <span class="hidden-xs hidden-sm"></span>
             </router-link>
             <button class="btn btn-sm disabled" style="padding: 4px 15px;">{{ new Date() | moment("add", day+" days", "dddd, Do MM YY") }}</button>
@@ -17,10 +17,10 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>Student Name</th>
-                                        <th>Last Name</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>{{ trans('reports.Student Name')}}</th>
+                                        <th>{{ trans('reports.Last Name')}}</th>
+                                        <th>{{ trans('reports.Date')}}</th>
+                                        <th>{{ trans('reports.Status')}}</th>
                                     </tr>
                                 </thead>
                             </table>

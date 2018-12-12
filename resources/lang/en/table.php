@@ -14,6 +14,7 @@ return [
     */
 
     'Actions' => 'Actions',
+    'Created At' => 'Created At',
     'Edit' => 'Edit',
     'View' => 'View',
     'Yes, Delete it!' => 'Yes, Delete it!',

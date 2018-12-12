@@ -11,7 +11,7 @@
         </div>
         </div>
         <div class="form-group col-md-4">
-            <a @click="addOption" class="btn btn-success">+ Add New {{ name }}</a>
+            <a @click="addOption" class="btn btn-success">+ {{ trans('configs.Add New') }} {{ name }}</a>
         </div>
     </div>
 </template>

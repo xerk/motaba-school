@@ -9,7 +9,7 @@
                                 style="height:16px;"></a>
                     </div>
                     <div class="uk-margin uk-width-xlarge">The Software as a Service Starter Kit built on Laravel
-                        &amp; Voyager</div>
+                        &amp; {{ __('expenses.Students') }}</div>
                 </div>
                 <div class="uk-width-expand@m uk-width-1-2@s">
                     <h3 class="uk-h5">Site Links</h3>

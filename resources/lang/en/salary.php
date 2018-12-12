@@ -52,6 +52,15 @@ return [
     'Full Name' => 'Full Name',
     'Last name' => 'Last name',
     'Cost' => 'Cost',
+    'Return Back' => 'Return Back',
+    'Student' => 'Student',
+    'Author' => 'Author',
+    'Type' => 'Type',
+    'End Date' => 'End Date',
+    'Body' => 'Body',
+    'Show Content' => 'Show Content',
+    'Hiden Content' => 'Hiden Content',
+    'Are you sure you want to delete this EmpyloeeSalary?' => 'Are you sure you want to delete this EmpyloeeSalary?',
     'Absent Per Day' => 'Absent Per Day',
 
 ];

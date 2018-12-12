@@ -38297,8 +38297,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(33);
-__webpack_require__(291);
-(function webpackMissingModule() { throw new Error("Cannot find module \"D:\\Laravel\\Master\\vendor\\tcg\\voyager\\assets\\css\\app.css\""); }());
+module.exports = __webpack_require__(291);
 
 
 /***/ }),
@@ -52186,7 +52185,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                            Cancel\n                        "
+                      "\n                            " +
+                        _vm._s(_vm.trans("table.Cancel")) +
+                        "\n                        "
                     )
                   ]
                 ),
@@ -52195,7 +52196,9 @@ var render = function() {
                   "button",
                   [
                     _vm._v(
-                      "\n                            Yes, Delete it!\n                        "
+                      "\n                            " +
+                        _vm._s(_vm.trans("table.Yes, Delete it!")) +
+                        "\n                        "
                     )
                   ],
                   { tag: "button" }
@@ -52243,7 +52246,7 @@ var render = function() {
             [
               _c("div", { attrs: { slot: "body" }, slot: "body" }, [
                 _c("label", { attrs: { for: "stage" } }, [
-                  _vm._v("Stage Education")
+                  _vm._v(_vm._s(_vm.trans("configs.Stage Education")))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -52282,7 +52285,7 @@ var render = function() {
                     _c(
                       "option",
                       { attrs: { value: "", selected: "selected" } },
-                      [_vm._v("Choose Stage")]
+                      [_vm._v(_vm._s(_vm.trans("configs.Choose Stage")))]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.model.stageEdu, function(stage, key) {
@@ -52299,7 +52302,7 @@ var render = function() {
                 _c("br"),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "class" } }, [
-                  _vm._v("Class Education")
+                  _vm._v(_vm._s(_vm.trans("configs.Class Education")))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -52338,7 +52341,7 @@ var render = function() {
                     _c(
                       "option",
                       { attrs: { value: "", selected: "selected" } },
-                      [_vm._v("Choose Class")]
+                      [_vm._v(_vm._s(_vm.trans("configs.Choose Class")))]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.classEduFilter, function(classItem, key) {
@@ -52355,7 +52358,7 @@ var render = function() {
                 _c("br"),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "classroom" } }, [
-                  _vm._v("Class-Room")
+                  _vm._v(_vm._s(_vm.trans("configs.Class-Room")))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -52391,7 +52394,7 @@ var render = function() {
                     _c(
                       "option",
                       { attrs: { value: "", selected: "selected" } },
-                      [_vm._v("Choose Class-Room")]
+                      [_vm._v(_vm._s(_vm.trans("configs.Choose Class-Room")))]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.classRoomEduFilter, function(classRoom, key) {
@@ -52417,7 +52420,11 @@ var render = function() {
                       "vertical-align": "text-bottom"
                     }
                   },
-                  [_vm._v("Select student filter.")]
+                  [
+                    _vm._v(
+                      _vm._s(_vm.trans("configs.Select student filter")) + "."
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -52429,7 +52436,7 @@ var render = function() {
                   on: { click: _vm.parsist },
                   slot: "button"
                 },
-                [_vm._v("Yes, Save it!")]
+                [_vm._v(_vm._s(_vm.trans("table.Yes, Save it!")))]
               )
             ]
           )
@@ -54503,7 +54510,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                            Cancel\n                        "
+                      "\n                            " +
+                        _vm._s(_vm.trans("table.Cancel")) +
+                        "\n                        "
                     )
                   ]
                 ),
@@ -54512,7 +54521,9 @@ var render = function() {
                   "button",
                   [
                     _vm._v(
-                      "\n                            Yes, Delete it!\n                        "
+                      "\n                            " +
+                        _vm._s(_vm.trans("table.Yes, Delete it!")) +
+                        "\n                        "
                     )
                   ],
                   { tag: "button" }
@@ -57833,7 +57844,29 @@ var render = function() {
                         attrs: { id: "dataTable" }
                       },
                       [
-                        _vm._m(0),
+                        _c("thead", [
+                          _c("tr", [
+                            _vm._m(0),
+                            _vm._v(" "),
+                            _c("th", [
+                              _vm._v(_vm._s(_vm.trans("link-teacher.Name")))
+                            ]),
+                            _vm._v(" "),
+                            _c("th", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.trans(
+                                    "link-teacher.ClassRooms & Subjects No"
+                                  )
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("th", { staticClass: "actions text-right" }, [
+                              _vm._v(_vm._s(_vm.trans("table.Actions")))
+                            ])
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c(
                           "transition-group",
@@ -57930,17 +57963,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_c("input", { attrs: { type: "checkbox" } })]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("ClassRooms & Subjects No.")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "actions text-right" }, [_vm._v("Actions")])
-      ])
-    ])
+    return _c("th", [_c("input", { attrs: { type: "checkbox" } })])
   }
 ]
 render._withStripped = true
@@ -58672,7 +58695,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "subject" } }, [
-                      _vm._v("Subject")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Subject")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -58718,7 +58741,11 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Subject")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("link-teacher.Choose Subject"))
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.subjects, function(subject, key) {
@@ -58761,7 +58788,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "stage" } }, [
-                      _vm._v("Stage Education")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Stage Education")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -58810,7 +58837,11 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Stage")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("link-teacher.Choose Stage"))
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.stageEdu, function(stage, key) {
@@ -58853,7 +58884,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "class" } }, [
-                      _vm._v("Class Education")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Class Education")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -58902,7 +58933,11 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Class")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("link-teacher.Choose Class"))
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.classEduFilter, function(classItem, key) {
@@ -58945,7 +58980,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "classroom" } }, [
-                      _vm._v("Class-Room")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Class-Room")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -58991,7 +59026,13 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Class-Room")]
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.trans("link-teacher.Choose Class-Room")
+                              )
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.classRoomEduFilter, function(
@@ -59048,7 +59089,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                            Cancel\n                        "
+                      "\n                            " +
+                        _vm._s(_vm.trans("table.Cancel")) +
+                        "\n                        "
                     )
                   ]
                 ),
@@ -59061,7 +59104,7 @@ var render = function() {
                     on: { click: _vm.submit },
                     slot: "button"
                   },
-                  [_vm._v("Yes, Save it!")]
+                  [_vm._v(_vm._s(_vm.trans("table.Yes, Save it!")))]
                 )
               ])
             ],
@@ -59244,7 +59287,9 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            Cancel\n                        "
+                        "\n                            " +
+                          _vm._s(_vm.trans("table.Cancel")) +
+                          "\n                        "
                       )
                     ]
                   ),
@@ -59253,7 +59298,9 @@ var render = function() {
                     "button",
                     [
                       _vm._v(
-                        "\n                            Yes, Delete it!\n                        "
+                        "\n                            " +
+                          _vm._s(_vm.trans("table.Yes, Delete it!")) +
+                          "\n                        "
                       )
                     ],
                     { tag: "button" }
@@ -59309,7 +59356,13 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "panel-body" }, [
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(0),
+                  _c("div", { staticClass: "col-md-7" }, [
+                    _c("span", { staticClass: "show-field" }, [
+                      _vm._v(
+                        _vm._s(_vm.trans("link-teacher.Qualification")) + ":"
+                      )
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-5" }, [
                     _vm._v(
@@ -59323,7 +59376,11 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "panel-body" }, [
                 _c("div", { staticClass: "row" }, [
-                  _vm._m(1),
+                  _c("div", { staticClass: "col-md-7" }, [
+                    _c("span", { staticClass: "show-field" }, [
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Specialty")) + ":")
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-5" }, [
                     _vm._v(
@@ -59350,7 +59407,9 @@ var render = function() {
                   },
                   [
                     _c("i", { staticClass: "voyager-heart" }),
-                    _vm._v(" Add Link Teacher")
+                    _vm._v(
+                      " " + _vm._s(_vm.trans("link-teacher.Add Link Teacher"))
+                    )
                   ]
                 )
               : _vm._e()
@@ -59367,7 +59426,35 @@ var render = function() {
                         attrs: { id: "dataTable" }
                       },
                       [
-                        _vm._m(2),
+                        _c("thead", [
+                          _c("tr", [
+                            _c("th", [
+                              _vm._v(_vm._s(_vm.trans("table.Created At")))
+                            ]),
+                            _vm._v(" "),
+                            _c("th", [
+                              _vm._v(_vm._s(_vm.trans("link-teacher.Subject")))
+                            ]),
+                            _vm._v(" "),
+                            _c("th", [
+                              _vm._v(_vm._s(_vm.trans("link-teacher.Stage")))
+                            ]),
+                            _vm._v(" "),
+                            _c("th", [
+                              _vm._v(_vm._s(_vm.trans("link-teacher.Class")))
+                            ]),
+                            _vm._v(" "),
+                            _c("th", [
+                              _vm._v(
+                                _vm._s(_vm.trans("link-teacher.ClassRoom"))
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("th", { staticClass: "actions text-right" }, [
+                              _vm._v(_vm._s(_vm.trans("table.Actions")))
+                            ])
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c(
                           "tbody",
@@ -59460,7 +59547,12 @@ var render = function() {
                                               staticClass: "voyager-trash"
                                             }),
                                             _vm._v(
-                                              " Are you sure you want to delete this stage?"
+                                              " " +
+                                                _vm._s(
+                                                  _vm.trans(
+                                                    "link-teacher.Are you sure you want to delete this Payment?"
+                                                  )
+                                                )
                                             )
                                           ]
                                         ),
@@ -59481,7 +59573,15 @@ var render = function() {
                                             },
                                             slot: "button"
                                           },
-                                          [_vm._v("Yes, Delete it!")]
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.trans(
+                                                  "table.Yes, Delete it!"
+                                                )
+                                              )
+                                            )
+                                          ]
                                         )
                                       ]
                                     )
@@ -59494,7 +59594,15 @@ var render = function() {
                       ]
                     )
                   : _c("div", { staticClass: "text-center" }, [
-                      _c("h3", [_vm._v("Please, add one link a teacher!.")]),
+                      _c("h3", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.trans(
+                              "link-teacher.Please, add one link a teacher!"
+                            )
+                          ) + "."
+                        )
+                      ]),
                       _vm._v(" "),
                       _c(
                         "a",
@@ -59505,7 +59613,10 @@ var render = function() {
                         },
                         [
                           _c("i", { staticClass: "voyager-heart" }),
-                          _vm._v(" Add Link Teacher")
+                          _vm._v(
+                            " " +
+                              _vm._s(_vm.trans("link-teacher.Add Link Teacher"))
+                          )
                         ]
                       )
                     ])
@@ -59538,7 +59649,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "subject" } }, [
-                      _vm._v("Subject")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Subject")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -59584,7 +59695,11 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Subject")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("link-teacher.Choose Subject"))
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.subjects, function(subject, key) {
@@ -59627,7 +59742,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "stage" } }, [
-                      _vm._v("Stage Education")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Stage Education")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -59676,7 +59791,11 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Stage")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("link-teacher.Choose Stage"))
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.stageEdu, function(stage, key) {
@@ -59719,7 +59838,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "class" } }, [
-                      _vm._v("Class Education")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Class Education")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -59768,7 +59887,11 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Class")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("link-teacher.Choose Class"))
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.classEduFilter, function(classItem, key) {
@@ -59811,7 +59934,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "classroom" } }, [
-                      _vm._v("Class-Room")
+                      _vm._v(_vm._s(_vm.trans("link-teacher.Class-Room")))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -59857,7 +59980,13 @@ var render = function() {
                         _c(
                           "option",
                           { attrs: { value: "", selected: "selected" } },
-                          [_vm._v("Choose Class-Room")]
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.trans("link-teacher.Choose Class-Room")
+                              )
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.classRoomEduFilter, function(
@@ -59914,7 +60043,12 @@ var render = function() {
                           "vertical-align": "text-bottom"
                         }
                       },
-                      [_vm._v("Add Link Teacher.")]
+                      [
+                        _vm._v(
+                          _vm._s(_vm.trans("link-teacher.Add Link Teacher")) +
+                            "."
+                        )
+                      ]
                     )
                   ])
                 ]
@@ -59928,7 +60062,7 @@ var render = function() {
                   on: { click: _vm.parsist },
                   slot: "button"
                 },
-                [_vm._v("Yes, Save it!")]
+                [_vm._v(_vm._s(_vm.trans("table.Yes, Save it!")))]
               )
             ]
           )
@@ -59960,7 +60094,10 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "Make Payment (" + _vm._s(_vm.list.attend_date) + "). "
+                      _vm._s(_vm.trans("link-teacher.Make Payment")) +
+                        " (" +
+                        _vm._s(_vm.list.attend_date) +
+                        "). "
                     )
                   ]
                 )
@@ -59972,44 +60109,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7" }, [
-      _c("span", { staticClass: "show-field" }, [_vm._v("Qualification:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-7" }, [
-      _c("span", { staticClass: "show-field" }, [_vm._v("Specialty:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Created At")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Subject")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Stage")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Class")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("ClassRoom")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "actions text-right" }, [_vm._v("Actions")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -60558,7 +60658,14 @@ var render = function() {
         _c(
           "a",
           { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-          [_vm._v("+ Add New " + _vm._s(_vm.name))]
+          [
+            _vm._v(
+              "+ " +
+                _vm._s(_vm.trans("configs.Add New")) +
+                " " +
+                _vm._s(_vm.name)
+            )
+          ]
         )
       ])
     ],
@@ -60808,7 +60915,14 @@ var render = function() {
         _c(
           "a",
           { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-          [_vm._v("+ Add New " + _vm._s(_vm.name))]
+          [
+            _vm._v(
+              "+ " +
+                _vm._s(_vm.trans("configs.Add New")) +
+                " " +
+                _vm._s(_vm.name)
+            )
+          ]
         )
       ])
     ],
@@ -61057,7 +61171,14 @@ var render = function() {
         _c(
           "a",
           { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-          [_vm._v("+ Add New " + _vm._s(_vm.name))]
+          [
+            _vm._v(
+              "+ " +
+                _vm._s(_vm.trans("configs.Add New")) +
+                " " +
+                _vm._s(_vm.name)
+            )
+          ]
         )
       ])
     ],
@@ -61307,7 +61428,14 @@ var render = function() {
         _c(
           "a",
           { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-          [_vm._v("+ Add New " + _vm._s(_vm.name))]
+          [
+            _vm._v(
+              "+ " +
+                _vm._s(_vm.trans("configs.Add New")) +
+                " " +
+                _vm._s(_vm.name)
+            )
+          ]
         )
       ])
     ],
@@ -61477,7 +61605,9 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Choose " + _vm._s(_vm.name))
+                  _vm._v(
+                    _vm._s(_vm.trans("configs.Choose")) + " " + _vm._s(_vm.name)
+                  )
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.selectOptions, function(item, key) {
@@ -61542,7 +61672,14 @@ var render = function() {
         _c(
           "a",
           { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-          [_vm._v("+ Add New " + _vm._s(_vm.name))]
+          [
+            _vm._v(
+              "+ " +
+                _vm._s(_vm.trans("configs.Add New")) +
+                " " +
+                _vm._s(_vm.name)
+            )
+          ]
         )
       ])
     ],
@@ -61595,7 +61732,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "school-name" } }, [
-                        _vm._v("School Name")
+                        _vm._v(_vm._s(_vm.trans("configs.School Name")))
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -61618,7 +61755,7 @@ var render = function() {
                           required: "",
                           type: "text",
                           name: "school-name",
-                          placeholder: "School Name"
+                          placeholder: _vm.trans("configs.School Name")
                         },
                         domProps: { value: _vm.schoolConfigs.school_name },
                         on: {
@@ -61664,7 +61801,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "edu-system" } }, [
-                        _vm._v("Educational System")
+                        _vm._v(_vm._s(_vm.trans("configs.Educational System")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -61711,7 +61848,7 @@ var render = function() {
                         },
                         [
                           _c("option", { attrs: { value: "null" } }, [
-                            _vm._v("None")
+                            _vm._v(_vm._s(_vm.trans("configs.None")))
                           ]),
                           _vm._v(" "),
                           _vm._l(_vm.eduSystems, function(eduSystem, key) {
@@ -61754,7 +61891,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "website" } }, [
-                        _vm._v("Website")
+                        _vm._v(_vm._s(_vm.trans("configs.Website")))
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -61777,7 +61914,7 @@ var render = function() {
                           required: "",
                           type: "text",
                           name: "website",
-                          placeholder: "Website"
+                          placeholder: _vm.trans("configs.Website")
                         },
                         domProps: { value: _vm.schoolConfigs.website },
                         on: {
@@ -61823,7 +61960,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "government" } }, [
-                        _vm._v("Government")
+                        _vm._v(_vm._s(_vm.trans("configs.Government")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -61867,7 +62004,7 @@ var render = function() {
                         },
                         [
                           _c("option", { attrs: { value: "null" } }, [
-                            _vm._v("None")
+                            _vm._v(_vm._s(_vm.trans("configs.None")))
                           ]),
                           _vm._v(" "),
                           _vm._l(_vm.governments, function(government, key) {
@@ -61910,7 +62047,11 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "edu-manag" } }, [
-                        _vm._v("Educational Administration")
+                        _vm._v(
+                          _vm._s(
+                            _vm.trans("configs.Educational Administration")
+                          )
+                        )
                       ]),
                       _vm._v(" "),
                       _c(
@@ -61954,7 +62095,7 @@ var render = function() {
                         },
                         [
                           _c("option", { attrs: { value: "null" } }, [
-                            _vm._v("None")
+                            _vm._v(_vm._s(_vm.trans("configs.None")))
                           ]),
                           _vm._v(" "),
                           _vm._l(_vm.eduManagFilter, function(eduManag, key) {
@@ -61997,7 +62138,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "school-manager" } }, [
-                        _vm._v("School Manager")
+                        _vm._v(_vm._s(_vm.trans("configs.School Manager")))
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -62020,7 +62161,7 @@ var render = function() {
                           required: "",
                           type: "text",
                           name: "school-manager",
-                          placeholder: "School Manager"
+                          placeholder: _vm.trans("configs.School Manager")
                         },
                         domProps: { value: _vm.schoolConfigs.school_manager },
                         on: {
@@ -62058,7 +62199,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group col-md-6" }, [
                     _c("label", { attrs: { for: "follow-manager" } }, [
-                      _vm._v("Follow Manger")
+                      _vm._v(_vm._s(_vm.trans("configs.Follow Manger")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -62074,7 +62215,7 @@ var render = function() {
                       attrs: {
                         type: "text",
                         name: "follow-manager",
-                        placeholder: "Follow Manger"
+                        placeholder: _vm.trans("configs.Follow Manger")
                       },
                       domProps: { value: _vm.schoolConfigs.follow_manager },
                       on: {
@@ -62102,7 +62243,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "address" } }, [
-                        _vm._v("Address")
+                        _vm._v(_vm._s(_vm.trans("configs.Address")))
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -62125,7 +62266,7 @@ var render = function() {
                           required: "",
                           type: "text",
                           name: "address",
-                          placeholder: "Address"
+                          placeholder: _vm.trans("configs.Address")
                         },
                         domProps: { value: _vm.schoolConfigs.address },
                         on: {
@@ -62163,7 +62304,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group col-md-4" }, [
                     _c("label", { attrs: { for: "license-number" } }, [
-                      _vm._v("License Number")
+                      _vm._v(_vm._s(_vm.trans("configs.License Number")))
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -62179,7 +62320,7 @@ var render = function() {
                       attrs: {
                         type: "text",
                         name: "license-number",
-                        placeholder: "License Number"
+                        placeholder: _vm.trans("configs.License Number")
                       },
                       domProps: { value: _vm.schoolConfigs.license_number },
                       on: {
@@ -62207,7 +62348,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "footer" } }, [
-                        _vm._v("Footer")
+                        _vm._v(_vm._s(_vm.trans("configs.Footer")))
                       ]),
                       _vm._v(" "),
                       _c("textarea", {
@@ -62228,7 +62369,7 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           name: "footer",
-                          placeholder: "Type your footer"
+                          placeholder: _vm.trans("configs.Type your footer")
                         },
                         domProps: { value: _vm.schoolConfigs.footer },
                         on: {
@@ -62277,7 +62418,7 @@ var render = function() {
                       attrs: {
                         width: 350,
                         height: 350,
-                        placeholder: "Logo an School",
+                        placeholder: _vm.trans("configs.Logo an School"),
                         "placeholder-font-size": 20
                       },
                       model: {
@@ -62295,7 +62436,7 @@ var render = function() {
                       attrs: {
                         width: 350,
                         height: 150,
-                        placeholder: "Cover an School",
+                        placeholder: _vm.trans("configs.Cover an School"),
                         "placeholder-font-size": 20
                       },
                       model: {
@@ -62326,7 +62467,7 @@ var render = function() {
                       attrs: {
                         options: _vm.telephones,
                         inputType: "text",
-                        name: "Telephone"
+                        name: _vm.trans("configs.Telephone")
                       }
                     })
                   ],
@@ -62345,7 +62486,7 @@ var render = function() {
                       attrs: {
                         options: _vm.mobiles,
                         inputType: "text",
-                        name: "Mobile"
+                        name: _vm.trans("configs.Mobile")
                       }
                     })
                   ],
@@ -62364,7 +62505,7 @@ var render = function() {
                       attrs: {
                         options: _vm.faxes,
                         inputType: "text",
-                        name: "Fax"
+                        name: _vm.trans("configs.Fax")
                       }
                     })
                   ],
@@ -62386,14 +62527,22 @@ var render = function() {
                     attrs: {
                       options: _vm.socialMedia,
                       selectOptions: _vm.socialMediaName,
-                      name: "SocialMedia"
+                      name: _vm.trans("configs.SocialMedia")
                     }
                   })
                 ],
                 1
               ),
               _vm._v(" "),
-              _vm._m(0)
+              _c("div", { staticClass: "panel-footer" }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v(_vm._s(_vm.trans("table.Yes, Save it!")))]
+                ),
+                _vm._v(" "),
+                _c("div", { staticStyle: { clear: "both" } })
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -62407,7 +62556,7 @@ var render = function() {
                     attrs: {
                       options: _vm.emails,
                       inputType: "email",
-                      name: "Email"
+                      name: _vm.trans("configs.Email")
                     }
                   })
                 ],
@@ -62420,22 +62569,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-footer" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticStyle: { clear: "both" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -64251,7 +64385,9 @@ var render = function() {
                       attrs: {
                         required: "",
                         type: "text",
-                        placeholder: "Type new year ex: 2018/2019",
+                        placeholder: _vm.trans(
+                          "configs.Type new year ex: 2018/2019"
+                        ),
                         value: ""
                       },
                       domProps: { value: option.name.$model },
@@ -64279,7 +64415,11 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This year is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("configs.This year is invalid"))
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -64319,7 +64459,12 @@ var render = function() {
                               [
                                 _c("i", { staticClass: "voyager-trash" }),
                                 _vm._v(
-                                  " Are you sure you want to delete this year?"
+                                  " " +
+                                    _vm._s(
+                                      _vm.trans(
+                                        "configs.Are you sure you want to delete this year?"
+                                      )
+                                    )
                                 )
                               ]
                             ),
@@ -64336,7 +64481,11 @@ var render = function() {
                                 },
                                 slot: "button"
                               },
-                              [_vm._v("Yes, Delete it!")]
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.trans("table.Yes, Delete it!"))
+                                )
+                              ]
                             )
                           ]
                         )
@@ -64356,13 +64505,13 @@ var render = function() {
                 attrs: { disabled: _vm.save },
                 on: { click: _vm.saveOption }
               },
-              [_vm._v("Save")]
+              [_vm._v(_vm._s(_vm.trans("configs.Save")))]
             ),
             _vm._v(" "),
             _c(
               "a",
               { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-              [_vm._v("+ Add New Year")]
+              [_vm._v("+ " + _vm._s(_vm.trans("configs.Add New Year")))]
             )
           ])
         ],
@@ -64685,7 +64834,7 @@ var render = function() {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Choose Year")
+                          _vm._v(_vm._s(_vm.trans("configs.Choose Year")))
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.years, function(item, key) {
@@ -64706,7 +64855,11 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This year is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("configs.This year is invalid"))
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -64763,7 +64916,11 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This year is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("configs.This year is invalid"))
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -64803,7 +64960,12 @@ var render = function() {
                               [
                                 _c("i", { staticClass: "voyager-trash" }),
                                 _vm._v(
-                                  " Are you sure you want to delete this semster?"
+                                  " " +
+                                    _vm._s(
+                                      _vm.trans(
+                                        "configs.Are you sure you want to delete this semster?"
+                                      )
+                                    )
                                 )
                               ]
                             ),
@@ -64820,7 +64982,11 @@ var render = function() {
                                 },
                                 slot: "button"
                               },
-                              [_vm._v("Yes, Delete it!")]
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.trans("table.Yes, Delete it!"))
+                                )
+                              ]
                             )
                           ]
                         )
@@ -64842,13 +65008,13 @@ var render = function() {
                 attrs: { disabled: _vm.save },
                 on: { click: _vm.saveOption }
               },
-              [_vm._v("Save")]
+              [_vm._v(_vm._s(_vm.trans("configs.Save")))]
             ),
             _vm._v(" "),
             _c(
               "a",
               { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-              [_vm._v("+ Add New Year")]
+              [_vm._v("+ " + _vm._s(_vm.trans("configs.Add New Year")))]
             )
           ])
         ],
@@ -65371,7 +65537,7 @@ var render = function() {
                       attrs: {
                         required: "",
                         type: "text",
-                        placeholder: "Stage education",
+                        placeholder: _vm.trans("configs.Stage education"),
                         value: ""
                       },
                       domProps: { value: option.name.$model },
@@ -65439,7 +65605,12 @@ var render = function() {
                               [
                                 _c("i", { staticClass: "voyager-trash" }),
                                 _vm._v(
-                                  " Are you sure you want to delete this stage?"
+                                  " " +
+                                    _vm._s(
+                                      _vm.trans(
+                                        "configs.Are you sure you want to delete this stage?"
+                                      )
+                                    )
                                 )
                               ]
                             ),
@@ -65456,7 +65627,11 @@ var render = function() {
                                 },
                                 slot: "button"
                               },
-                              [_vm._v("Yes, Delete it!")]
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.trans("table.Yes, Delete it!"))
+                                )
+                              ]
                             )
                           ]
                         )
@@ -65508,13 +65683,13 @@ var render = function() {
                 attrs: { disabled: _vm.save },
                 on: { click: _vm.saveOption }
               },
-              [_vm._v("Save")]
+              [_vm._v(_vm._s(_vm.trans("configs.Save")))]
             ),
             _vm._v(" "),
             _c(
               "a",
               { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-              [_vm._v("+ Add New Stage")]
+              [_vm._v("+ " + _vm._s(_vm.trans("configs.Add New Stage")))]
             )
           ])
         ],
@@ -65852,7 +66027,7 @@ var render = function() {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Choose stage")
+                          _vm._v(_vm._s(_vm.trans("configs.Choose stage")))
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.stageEdu, function(item, key) {
@@ -65873,7 +66048,11 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This stage is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("configs.This stage is invalid"))
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -65923,7 +66102,9 @@ var render = function() {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Choose education system")
+                          _vm._v(
+                            _vm._s(_vm.trans("configs.Choose education system"))
+                          )
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.eduSystem, function(item, key) {
@@ -65944,7 +66125,15 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This education system is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.trans(
+                                  "configs.This education system is invalid"
+                                )
+                              )
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -65973,7 +66162,9 @@ var render = function() {
                       attrs: {
                         required: "",
                         type: "text",
-                        placeholder: "Type name of class edu.",
+                        placeholder: _vm.trans(
+                          "configs.Type name of class edu"
+                        ),
                         value: ""
                       },
                       domProps: { value: option.name.$model },
@@ -66001,7 +66192,15 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This class education is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.trans(
+                                  "configs.This class education is invalid"
+                                )
+                              )
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -66041,7 +66240,12 @@ var render = function() {
                               [
                                 _c("i", { staticClass: "voyager-trash" }),
                                 _vm._v(
-                                  " Are you sure you want to delete this class?"
+                                  " " +
+                                    _vm._s(
+                                      _vm.trans(
+                                        "configs.Are you sure you want to delete this class?"
+                                      )
+                                    )
                                 )
                               ]
                             ),
@@ -66058,7 +66262,11 @@ var render = function() {
                                 },
                                 slot: "button"
                               },
-                              [_vm._v("Yes, Delete it!")]
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.trans("table.Yes, Delete it!"))
+                                )
+                              ]
                             )
                           ]
                         )
@@ -66080,13 +66288,13 @@ var render = function() {
                 attrs: { disabled: _vm.save },
                 on: { click: _vm.saveOption }
               },
-              [_vm._v("Save")]
+              [_vm._v(_vm._s(_vm.trans("configs.Save")))]
             ),
             _vm._v(" "),
             _c(
               "a",
               { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-              [_vm._v("+ Add New Class Edu")]
+              [_vm._v("+ " + _vm._s(_vm.trans("configs.Add New Class Edu")))]
             )
           ])
         ],
@@ -66410,7 +66618,7 @@ var render = function() {
                       },
                       [
                         _c("option", { attrs: { value: "" } }, [
-                          _vm._v("Choose Class")
+                          _vm._v(_vm._s(_vm.trans("configs.Choose Class")))
                         ]),
                         _vm._v(" "),
                         _vm._l(_vm.classEdu, function(item, key) {
@@ -66431,7 +66639,11 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This class is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(_vm.trans("configs.This class is invalid"))
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -66460,7 +66672,7 @@ var render = function() {
                       attrs: {
                         required: "",
                         type: "text",
-                        placeholder: "Type class-room name",
+                        placeholder: _vm.trans("configs.Type class-room name"),
                         value: ""
                       },
                       domProps: { value: option.name.$model },
@@ -66488,7 +66700,13 @@ var render = function() {
                             staticClass: "help-block",
                             staticStyle: { color: "#f96868" }
                           },
-                          [_vm._v("This class-room is invalid")]
+                          [
+                            _vm._v(
+                              _vm._s(
+                                _vm.trans("configs.This class-room is invalid")
+                              )
+                            )
+                          ]
                         )
                       : _vm._e()
                   ]
@@ -66528,7 +66746,12 @@ var render = function() {
                               [
                                 _c("i", { staticClass: "voyager-trash" }),
                                 _vm._v(
-                                  " Are you sure you want to delete this class-room?"
+                                  " " +
+                                    _vm._s(
+                                      _vm.trans(
+                                        "configs.Are you sure you want to delete this class-room?"
+                                      )
+                                    )
                                 )
                               ]
                             ),
@@ -66545,7 +66768,11 @@ var render = function() {
                                 },
                                 slot: "button"
                               },
-                              [_vm._v("Yes, Delete it!")]
+                              [
+                                _vm._v(
+                                  _vm._s(_vm.trans("table.Yes, Delete it!"))
+                                )
+                              ]
                             )
                           ]
                         )
@@ -66567,13 +66794,13 @@ var render = function() {
                 attrs: { disabled: _vm.save },
                 on: { click: _vm.saveOption }
               },
-              [_vm._v("Save")]
+              [_vm._v(_vm._s(_vm.trans("configs.Save")))]
             ),
             _vm._v(" "),
             _c(
               "a",
               { staticClass: "btn btn-success", on: { click: _vm.addOption } },
-              [_vm._v("+ Add New ClassRoom")]
+              [_vm._v("+ " + _vm._s(_vm.trans("configs.Add New ClassRoom")))]
             )
           ])
         ],
@@ -68853,7 +69080,7 @@ var render = function() {
             [
               _c("div", { attrs: { slot: "body" }, slot: "body" }, [
                 _c("label", { attrs: { for: "stage" } }, [
-                  _vm._v("Stage Education")
+                  _vm._v(_vm._s(_vm.trans("fab.Stage Education")))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -68892,7 +69119,7 @@ var render = function() {
                     _c(
                       "option",
                       { attrs: { value: "", selected: "selected" } },
-                      [_vm._v("Choose Stage")]
+                      [_vm._v(_vm._s(_vm.trans("fab.Choose Stage")))]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.model.stageEdu, function(stage, key) {
@@ -68909,7 +69136,7 @@ var render = function() {
                 _c("br"),
                 _vm._v(" "),
                 _c("label", { attrs: { for: "class" } }, [
-                  _vm._v("Class Education")
+                  _vm._v(_vm._s(_vm.trans("fab.Class Education")))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -68945,7 +69172,7 @@ var render = function() {
                     _c(
                       "option",
                       { attrs: { value: "", selected: "selected" } },
-                      [_vm._v("Choose Class")]
+                      [_vm._v(_vm._s(_vm.trans("fab.Choose Class")))]
                     ),
                     _vm._v(" "),
                     _vm._l(_vm.classEduFilter, function(classItem, key) {
@@ -68971,7 +69198,7 @@ var render = function() {
                       "vertical-align": "text-bottom"
                     }
                   },
-                  [_vm._v("Select student filter.")]
+                  [_vm._v(_vm._s(_vm.trans("fab.Select student filter")) + ".")]
                 )
               ]),
               _vm._v(" "),
@@ -68983,7 +69210,7 @@ var render = function() {
                   on: { click: _vm.parsist },
                   slot: "button"
                 },
-                [_vm._v("Yes, Save it!")]
+                [_vm._v(_vm._s(_vm.trans("table.Yes, Save it!")))]
               )
             ]
           )
@@ -69308,80 +69535,95 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "row" },
-    [_vm._m(0), _vm._v(" "), _c("fab", { on: { parsist: _vm.parsist } })],
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", { staticStyle: { display: "none" } }, [
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Situation")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.National")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Gender")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Birth")))]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { colspan: "3" } }, [
+                        _vm._v(_vm._s(_vm.trans("reports.Data Oct")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Address")))]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.National ID")))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Situation")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.National")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Gender")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Birth")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Day")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Month")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Year")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Address")))]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.National ID")))
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "panel panel-bordered" }, [
-        _c("div", { staticClass: "panel-body" }, [
-          _c("div", { staticClass: "table-responsive" }, [
-            _c(
-              "table",
-              {
-                staticClass:
-                  "table table-hover dataTable no-footer display nowrap",
-                attrs: { id: "users-table" }
-              },
-              [
-                _c("thead", [
-                  _c("tr", { staticStyle: { display: "none" } }, [
-                    _c("th", [_vm._v("Student Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Last Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Situation")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("National")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Gender")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Birth")]),
-                    _vm._v(" "),
-                    _c("th", { attrs: { colspan: "3" } }, [_vm._v("Data Oct")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Address")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("National ID")])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("th", [_vm._v("Student Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Last Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Situation")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("National")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Gender")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Birth")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Day")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Month")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Year")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Address")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("National ID")])
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -69564,66 +69806,87 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "row" },
-    [_vm._m(0), _vm._v(" "), _c("fab", { on: { parsist: _vm.parsist } })],
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Job")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Mobile")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Qualified Father")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Mother Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Mother Job")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Mother Mobile")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Mother Tel")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Qualified Mother")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Mobile")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Tel")))])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "panel panel-bordered" }, [
-        _c("div", { staticClass: "panel-body" }, [
-          _c("div", { staticClass: "table-responsive" }, [
-            _c(
-              "table",
-              {
-                staticClass:
-                  "table table-hover dataTable no-footer display nowrap",
-                attrs: { id: "users-table" }
-              },
-              [
-                _c("thead", [
-                  _c("tr", [
-                    _c("th", [_vm._v("Student Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Last Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Father Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Father Job")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Father Mobile")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Father Tel")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Qualified Father")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Mother Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Mother Job")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Mother Mobile")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Mother Tel")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Qualified Mother")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Mobile")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Tel")])
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -69833,7 +70096,7 @@ var render = function() {
             staticClass: "btn btn-sm  btn-primary pull-right edit",
             staticStyle: { padding: "5px 10px" },
             attrs: {
-              title: "Next",
+              title: _vm.trans("reports.Next"),
               tag: "a",
               to: {
                 path: "/admin/absent_students",
@@ -69859,7 +70122,7 @@ var render = function() {
             staticClass: "btn btn-sm  btn-primary pull-right edit",
             staticStyle: { padding: "5px 10px" },
             attrs: {
-              title: "Prev",
+              title: _vm.trans("reports.Prev"),
               tag: "a",
               to: {
                 path: "/admin/absent_students",
@@ -69905,47 +70168,48 @@ var render = function() {
     _c(
       "div",
       { staticClass: "row" },
-      [_vm._m(0), _vm._v(" "), _c("fab", { on: { parsist: _vm.parsist } })],
+      [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "panel panel-bordered" }, [
+            _c("div", { staticClass: "panel-body" }, [
+              _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-hover dataTable no-footer display nowrap",
+                    attrs: { id: "users-table" }
+                  },
+                  [
+                    _c("thead", [
+                      _c("tr", [
+                        _c("th", [
+                          _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v(_vm._s(_vm.trans("reports.Date")))]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v(_vm._s(_vm.trans("reports.Status")))])
+                      ])
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("fab", { on: { parsist: _vm.parsist } })
+      ],
       1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("div", { staticClass: "panel panel-bordered" }, [
-        _c("div", { staticClass: "panel-body" }, [
-          _c("div", { staticClass: "table-responsive" }, [
-            _c(
-              "table",
-              {
-                staticClass:
-                  "table table-hover dataTable no-footer display nowrap",
-                attrs: { id: "users-table" }
-              },
-              [
-                _c("thead", [
-                  _c("tr", [
-                    _c("th", [_vm._v("Student Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Last Name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Date")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Status")])
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -70140,7 +70404,7 @@ var render = function() {
             staticClass: "btn btn-sm  btn-primary pull-right edit",
             staticStyle: { padding: "5px 10px" },
             attrs: {
-              title: "Next",
+              title: _vm.trans("reports.Next"),
               tag: "a",
               to: {
                 path: "/admin/absent_employees",
@@ -70166,7 +70430,7 @@ var render = function() {
             staticClass: "btn btn-sm  btn-primary pull-right edit",
             staticStyle: { padding: "5px 10px" },
             attrs: {
-              title: "Prev",
+              title: _vm.trans("reports.Prev"),
               tag: "a",
               to: {
                 path: "/admin/absent_employees",
@@ -70209,15 +70473,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
@@ -70232,13 +70488,17 @@ var staticRenderFns = [
                 [
                   _c("thead", [
                     _c("tr", [
-                      _c("th", [_vm._v("Employee Name")]),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Employee Name")))
+                      ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Last Name")]),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                      ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Date")]),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Date")))]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Status")])
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Status")))])
                     ])
                   ])
                 ]
@@ -70248,8 +70508,9 @@ var staticRenderFns = [
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -70388,46 +70649,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-content browse container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "panel panel-bordered" }, [
-            _c("div", { staticClass: "panel-body" }, [
-              _c("div", { staticClass: "table-responsive" }, [
-                _c(
-                  "table",
-                  {
-                    staticClass:
-                      "table table-hover dataTable no-footer display nowrap",
-                    attrs: { id: "users-table" }
-                  },
-                  [
-                    _c("thead", [
-                      _c("tr", [
-                        _c("th", [_vm._v("Class Name")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Male")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Femae")])
-                      ])
+  return _c("div", { staticClass: "page-content browse container-fluid" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Class Name")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Male")))]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Female")))])
                     ])
-                  ]
-                )
-              ])
+                  ])
+                ]
+              )
             ])
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -71435,7 +71691,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "stage" } }, [
-                        _vm._v("Stage Education")
+                        _vm._v(_vm._s(_vm.trans("fab.Stage Education")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -71480,7 +71736,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "", selected: "selected" } },
-                            [_vm._v("Choose Stage")]
+                            [_vm._v(_vm._s(_vm.trans("fab.Choose Stage")))]
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.model.stageEdu, function(stage, key) {
@@ -71523,7 +71779,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "class" } }, [
-                        _vm._v("Class Education")
+                        _vm._v(_vm._s(_vm.trans("fab.Class Education")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -71568,7 +71824,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "", selected: "selected" } },
-                            [_vm._v("Choose Class")]
+                            [_vm._v(_vm._s(_vm.trans("fab.Choose Class")))]
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.classEduFilter, function(classItem, key) {
@@ -71611,7 +71867,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "classroom" } }, [
-                        _vm._v("Class-Room")
+                        _vm._v(_vm._s(_vm.trans("fab.Class-Room")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -71653,7 +71909,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "", selected: "selected" } },
-                            [_vm._v("Choose Class-Room")]
+                            [_vm._v(_vm._s(_vm.trans("fab.Choose Class-Room")))]
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.classRoomEduFilter, function(
@@ -71698,7 +71954,9 @@ var render = function() {
                       }
                     },
                     [
-                      _c("label", { attrs: { for: "exam" } }, [_vm._v("Exam")]),
+                      _c("label", { attrs: { for: "exam" } }, [
+                        _vm._v(_vm._s(_vm.trans("fab.Exam")))
+                      ]),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -71742,7 +72000,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "", selected: "selected" } },
-                            [_vm._v("Choose Exam")]
+                            [_vm._v(_vm._s(_vm.trans("fab.Choose Exam")))]
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.model.exams, function(exam, key) {
@@ -71785,7 +72043,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "type-exam" } }, [
-                        _vm._v("Type Exam")
+                        _vm._v(_vm._s(_vm.trans("fab.Type Exam")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -71830,7 +72088,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "", selected: "selected" } },
-                            [_vm._v("Choose Type Exam")]
+                            [_vm._v(_vm._s(_vm.trans("fab.Choose Type Exam")))]
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.model.typeExams, function(typeExam, key) {
@@ -71873,7 +72131,7 @@ var render = function() {
                     },
                     [
                       _c("label", { attrs: { for: "subject" } }, [
-                        _vm._v("Subject")
+                        _vm._v(_vm._s(_vm.trans("fab.Subject")))
                       ]),
                       _vm._v(" "),
                       _c(
@@ -71915,7 +72173,7 @@ var render = function() {
                           _c(
                             "option",
                             { attrs: { value: "", selected: "selected" } },
-                            [_vm._v("Choose Subject")]
+                            [_vm._v(_vm._s(_vm.trans("fab.Choose Subject")))]
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.subjectFilter, function(subject, key) {
@@ -71961,7 +72219,7 @@ var render = function() {
                       "vertical-align": "text-bottom"
                     }
                   },
-                  [_vm._v("Select student filter.")]
+                  [_vm._v(_vm._s(_vm.trans("fab.Select student filter")) + ".")]
                 )
               ]),
               _vm._v(" "),
@@ -71973,7 +72231,7 @@ var render = function() {
                   on: { click: _vm.parsist },
                   slot: "button"
                 },
-                [_vm._v("Yes, Save it!")]
+                [_vm._v(_vm._s(_vm.trans("table.Yes, Save it!")))]
               )
             ]
           )

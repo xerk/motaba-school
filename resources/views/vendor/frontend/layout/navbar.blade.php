@@ -16,14 +16,14 @@
                     <li class="{{ Request::is($menu_item->link()) ? 'uk-active' : '' }}">
                         <a href="{{ $menu_item->link() }}" target="{{$menu_item->target}}">
                             <span uk-icon="icon: {{ $menu_item->icon_class}}"></span>
-                            <span>{{ $menu_item->title }}</span>
+                            <span>{{ Session::get('locale') == 'ar' ? $menu_item->title_ar : $menu_item->title }}</span>
                         </a>
                     </li>
                     @else
                     <li class="dropdown">
                         <a href="#_" target="{{ $menu_item->target }}" style="" class="dropdown-toggle" data-toggle="dropdown">
                             <span uk-icon="icon: {{ $menu_item->icon_class }}"></span>
-                            <span> {{ $menu_item->title }}</span>
+                            <span> {{ Session::get('locale') == 'ar' ? $menu_item->title_ar : $menu_item->title }}</span>
                             <span class="caret"></span>
                         </a>
                         <div class="uk-navbar-dropdown">
@@ -32,7 +32,7 @@
                                 <li class="">
                                     <a href="{{ $item->title }}" target="{{ $item->target }}" style="">
                                         <span uk-icon="icon: {{ $item->icon_class}}"></span>
-                                        <span> {{ $item->title }}</span>
+                                        <span> {{ Session::get('locale') == 'ar' ? $item->title_ar : $item->title }}</span>
                                     </a>
                                 </li>
                                 @endforeach
@@ -46,6 +46,26 @@
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav uk-navbar-auth" id="uk-nav-right">
+                <li class="dropdown">
+                        <a href="#_" target="" style="" class="dropdown-toggle" data-toggle="dropdown">
+                            <span><i uk-icon="location"></i> {{ Session::get('locale') == 'ar' ? 'عربي' : 'English' }}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="">
+                                    <a href="{{ route('frontend.locale', 'en') }}" target="" style="">
+                                        <span> English</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{ route('frontend.locale', 'ar') }}" target="" style="">
+                                        <span> عربي</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     <li id="notification-list">
                         <a href="#_" uk-toggle="target: #notifications" id="notification-icon">
                             <span uk-icon="icon: bell"></span>
@@ -88,8 +108,8 @@
                                 </li> --}}
 
                                 @if (Voyager::can('browse_admin'))
-                                    <li><a href="{{ route('voyager.dashboard') }}"><span uk-icon="icon: bolt"></span>Admin</a></li>
-                                @endif                                
+                                <li><a href="{{ route('voyager.dashboard') }}"><span uk-icon="icon: bolt"></span>Admin</a></li>
+                                @endif
                                 <li><a href="{{ route('frontend.profile', Auth::user()->username) }}"><span uk-icon="icon: user"></span>My
                                         Profile</a></li>
                                 <li><a href="{{ route('frontend.attentions', Auth::user()->username) }}"><span uk-icon="icon: thumbnails"></span>Attentions</a></li>
@@ -99,7 +119,8 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span uk-icon="icon: sign-out"></span>Logout</a></li>
+                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span
+                                            uk-icon="icon: sign-out"></span>Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -116,7 +137,7 @@
         <div class="uk-container">
             <nav class="uk-navbar-container uk-margin uk-navbar-transparent" uk-navbar>
                 <div class="uk-navbar-left uk-logo-container">
-                <a class="uk-navbar-item uk-logo" href="index.html"><img src="{{ Voyager::image(setting('site.logo_colored')) }}"
+                    <a class="uk-navbar-item uk-logo" href="index.html"><img src="{{ Voyager::image(setting('site.logo_colored')) }}"
                             style="height:35px;"></a>
                 </div>
                 <div class="uk-navbar-right">
@@ -125,21 +146,21 @@
                         @if($menu_item->children->isEmpty())
                         <li class="{{ Request::is($menu_item->link()) ? 'uk-active' : '' }}">
                             <a href="{{ $menu_item->link() }}" target="{{$menu_item->target}}">
-                                <span>{{ $menu_item->title }}</span>
+                                <span>{{ Session::get('locale') == 'ar' ? $menu_item->title_ar : $menu_item->title }}</span>
                             </a>
                         </li>
                         @else
                         <li class="dropdown">
                             <a href="#_" target="{{ $menu_item->target }}" style="" class="dropdown-toggle" data-toggle="dropdown">
-                                <span> {{ $menu_item->title }}</span>
+                                <span> {{ Session::get('locale') == 'ar' ? $menu_item->title_ar : $menu_item->title }}</span>
                                 <span class="caret"></span>
                             </a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     @foreach($menu_item->children as $item)
                                     <li class="">
-                                        <a href="{{ $item->title }}" target="{{ $item->target }}" style="">
-                                            <span> {{ $item->title }}</span>
+                                        <a href="{{ $item->link() }}" target="{{ $item->target }}" style="">
+                                            <span> {{ Session::get('locale') == 'ar' ? $item->title_ar : $item->title }}</span>
                                         </a>
                                     </li>
                                     @endforeach
@@ -148,6 +169,26 @@
                         </li>
                         @endif
                         @endforeach
+                        <li class="dropdown">
+                            <a href="#_" target="" style="" class="dropdown-toggle" data-toggle="dropdown">
+                                <i uk-icon="location"></i> {{ Session::get('locale') == 'ar' ? 'عربي' : 'English' }}
+                                <span class="caret"></span>
+                            </a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="">
+                                        <a href="{{ route('frontend.locale', 'en') }}" target="" style="">
+                                            <span> English</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ route('frontend.locale', 'ar') }}" target="" style="">
+                                            <span> عربي</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li>
                             <a href="{{ route('login') }}"><button class="uk-button uk-button-primary">Login</button></a>
                         </li>

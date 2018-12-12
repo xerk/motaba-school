@@ -8,9 +8,9 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>Class Name</th>
-                                        <th>Male</th>
-                                        <th>Femae</th>
+                                        <th>{{ trans('reports.Class Name')}}</th>
+                                        <th>{{ trans('reports.Male')}}</th>
+                                        <th>{{ trans('reports.Female')}}</th>
                                     </tr>
                                 </thead>
                             </table>

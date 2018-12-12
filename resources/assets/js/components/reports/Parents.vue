@@ -7,20 +7,20 @@
                     <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                         <thead>
                             <tr>
-                                <th>Student Name</th>
-                                <th>Last Name</th>
-                                <th>Father Name</th>
-                                <th>Father Job</th>
-                                <th>Father Mobile</th>
-                                <th>Father Tel</th>
-                                <th>Qualified Father</th>
-                                <th>Mother Name</th>
-                                <th>Mother Job</th>
-                                <th>Mother Mobile</th>
-                                <th>Mother Tel</th>
-                                <th>Qualified Mother</th>
-                                <th>Mobile</th>
-                                <th>Tel</th>
+                                <th>{{ trans('reports.Student Name')}}</th>
+                                <th>{{ trans('reports.Last Name')}}</th>
+                                <th>{{ trans('reports.Father Name')}}</th>
+                                <th>{{ trans('reports.Father Job')}}</th>
+                                <th>{{ trans('reports.Father Mobile')}}</th>
+                                <th>{{ trans('reports.Father Tel')}}</th>
+                                <th>{{ trans('reports.Qualified Father')}}</th>
+                                <th>{{ trans('reports.Mother Name')}}</th>
+                                <th>{{ trans('reports.Mother Job')}}</th>
+                                <th>{{ trans('reports.Mother Mobile')}}</th>
+                                <th>{{ trans('reports.Mother Tel')}}</th>
+                                <th>{{ trans('reports.Qualified Mother')}}</th>
+                                <th>{{ trans('reports.Mobile')}}</th>
+                                <th>{{ trans('reports.Tel')}}</th>
                             </tr>
                         </thead>
                     </table>

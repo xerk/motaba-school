@@ -3,7 +3,7 @@
         <div v-for="(option, key) in options" :key="key">
             <div class="form-group col-md-5">
                 <select class="form-control select2" v-model="option.social_id" :id="name">
-                    <option value="">Choose {{ name }}</option>
+                    <option value="">{{ trans('configs.Choose') }} {{ name }}</option>
                     <option v-for="(item,key) in selectOptions" :key="key" :value="item.id">{{ item.name }}</option>
                 </select>
             </div>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="form-group col-md-4">
-            <a @click="addOption" class="btn btn-success">+ Add New {{ name }}</a>
+            <a @click="addOption" class="btn btn-success">+ {{ trans('configs.Add New') }} {{ name }}</a>
         </div>
     </div>
 </template>

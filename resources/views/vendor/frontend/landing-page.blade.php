@@ -55,8 +55,8 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
            @foreach ($schoolDefi as $item)    
             <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
                 <img src="{{ Voyager::image($item->icon) }}">
-                <h4>{{ $item->title }}</h4>
-                <p>{{ $item->body }}</p>
+                <h4>{{ Session::get('locale') == 'ar' ? $item->title_ar : $item->title }}</h4>
+                <p>{{ Session::get('locale') == 'ar' ? $item->body_ar : $item->body }}</p>
             </div>
            @endforeach
        </div>
@@ -87,8 +87,8 @@ y="0px" viewBox="0 0 1440 156" style="enable-background:new 0 0 1440 126;" xml:s
                @foreach ($testimonials as $item)    
                 <li class="testimonial uk-text-center">
                     <img src="{{ Voyager::image($item->image) }}" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
-                    <p uk-slider-parallax="x: 200,-200">{{ $item->title }}</p>
-                    <blockquote uk-slider-parallax="x: 100,-100">{{ $item->body }}</blockquote>
+                    <p uk-slider-parallax="x: 200,-200">{{ Session::get('locale') == 'ar' ? $item->title_ar : $item->title }}</p>
+                    <blockquote uk-slider-parallax="x: 100,-100">{{ Session::get('locale') == 'ar' ? $item->body_ar : $item->body }}</blockquote>
                 </li>
                @endforeach
            </ul>

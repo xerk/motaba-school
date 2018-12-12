@@ -2,26 +2,26 @@
     <div>
         <modal v-if="showModal" @close="showModal = false">
             <div slot="body">
-            <label for="stage">Stage Education</label>
+            <label for="stage">{{ trans('configs.Stage Education')}}</label>
             <select id="m_stage" class="form-control" v-model="stageSelect" @change="changeStage" name="stage">
-                <option value="" selected="selected">Choose Stage</option>
+                <option value="" selected="selected">{{ trans('configs.Choose Stage')}}</option>
                 <option v-for="(stage, key) in model.stageEdu" :key="key" :value="stage.id">{{ stage.name }}</option>
             </select>
             <br>
-            <label for="class">Class Education</label>
+            <label for="class">{{ trans('configs.Class Education')}}</label>
             <select id="m_class" class="form-control" v-model="classSelect" @change="changeClass" name="class">
-                <option value="" selected="selected">Choose Class</option>
+                <option value="" selected="selected">{{ trans('configs.Choose Class')}}</option>
                 <option v-for="(classItem, key) in classEduFilter" :key="key" :value="classItem.id">{{ classItem.name }}</option>
             </select>
             <br>
-            <label for="classroom">Class-Room</label>
+            <label for="classroom">{{ trans('configs.Class-Room')}}</label>
             <select id="m_classroom" class="form-control" v-model="classRoomSelect" name="classroom">
-                <option value="" selected="selected">Choose Class-Room</option>
+                <option value="" selected="selected">{{ trans('configs.Choose Class-Room')}}</option>
                 <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
             </select>
             </div>
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">Select student filter.</span></h3>                        
-            <button slot="button" @click="parsist" class="btn btn-success">Yes, Save it!</button>
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('configs.Select student filter')}}.</span></h3>                        
+            <button slot="button" @click="parsist" class="btn btn-success">{{ trans('table.Yes, Save it!')}}</button>
         </modal>
     <fab :actions="fabActions" :bg-color="bgColor" :main-tooltip="mainTooltip" :icon-size="iconSize" @system="showModal = true"></fab>
     </div>

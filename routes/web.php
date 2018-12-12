@@ -64,6 +64,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['as' => 'frontend.'], function () {
+
+    Route::get('locale/{locale}', function ($locale) {
+
+        Session::put('locale', $locale);
+        return redirect()->back();
+
+        // this link will add session of language when they click to change langauge
+
+    })->name('locale');
+
     Route::get('/setting', 'SettingAccountController@index')->name('setting')->middleware('admin.user');
 
     Route::get('/@{username}', 'ProfileAccountController@index')->name('profile')->middleware('admin.user');

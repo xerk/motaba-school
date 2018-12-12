@@ -13,12 +13,12 @@
 
             <router-link :to="{name: 'attentionsAdd', params: {id: attention.users.id}}" tage="a" class="btn btn-warning">
                 <span class="glyphicon glyphicon-list"></span>&nbsp;
-                Return Back
+                {{ trans('salary.Return Back')}}
             </router-link>
 
             <modal v-if="showModal" @close="showModal = false">
-                <h3 slot="header"><i class="voyager-trash"></i> Are you sure you want to delete this attention?</h3>                        
-                <button slot="button" @click="removeOption()" class="btn btn-danger delete-confirm">Yes, Delete it!</button>
+                <h3 slot="header"><i class="voyager-trash"></i> {{ trans('salary.Are you sure you want to delete this EmpyloeeSalary?')}}</h3>                        
+                <button slot="button" @click="removeOption()" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!')}}</button>
             </modal>
         </div>
         <div class="row">
@@ -28,7 +28,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">Student:</span>
+                                <span class="show-field">{{ trans('salary.Student')}}:</span>
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result">
@@ -41,7 +41,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">Author:</span>
+                                <span class="show-field">{{ trans('salary.Author')}}:</span>
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result">
@@ -54,7 +54,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">Type:</span>                                
+                                <span class="show-field">{{ trans('salary.Type')}}:</span>                                
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result label label-info">
@@ -67,7 +67,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">End Date:</span>                                                      
+                                <span class="show-field">{{ trans('salary.End Date')}}:</span>                                                      
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result">
@@ -80,13 +80,13 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">Body:</span>                                                      
+                                <span class="show-field">{{ trans('salary.Body')}}:</span>                                                      
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result" v-if="showContent == true" v-html="attention.body"></span>
                                 <span class="show-result">
-                                    <a v-if="showContent == false" @click.prevent="showContent = true" href="">Show Content</a>
-                                    <a  v-if="showContent == true" @click.prevent="showContent = false" href="">Hiden Content</a>
+                                    <a v-if="showContent == false" @click.prevent="showContent = true" href="">{{ trans('salary.Show Content')}}</a>
+                                    <a  v-if="showContent == true" @click.prevent="showContent = false" href="">{{ trans('salary.Hiden Content')}}</a>
                                 </span>
                             </div>
                         </div>

@@ -17,10 +17,10 @@
                     <div class="modal-footer">
                         <slot name="footer">
                             <button class="btn btn-default" @click="$emit('close')">
-                                Cancel
+                                {{ trans('table.Cancel')}}
                             </button>
                             <slot tag="button" name="button" class="btn btn-danger delete-confirm" @click="$emit('close')">
-                                Yes, Delete it!
+                                {{ trans('table.Yes, Delete it!')}}
                             </slot>
                         </slot>
                     </div>

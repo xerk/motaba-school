@@ -12,8 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'expense1s' => 'new',
-    'Students' => 'Student',
+    'expense1s' => 'عربي',
+    'Students' => 'طلاب',
     'Total Pay' => '2 Payment',
     'Total Cost' => '2 Cost',
 

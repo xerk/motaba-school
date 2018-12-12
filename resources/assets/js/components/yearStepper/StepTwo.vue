@@ -5,15 +5,15 @@
             <div v-for="(option, key) in $v.form.options.$each.$iter" :key="key">
                 <div :class="['form-group col-md-4', (option.$error) ? 'has-error' : '']">
                     <select required class="form-control select2" v-model="option.school_year_id.$model">
-                        <option value="">Choose Year</option>
+                        <option value="">{{ trans('configs.Choose Year')}}</option>
                         <option v-for="(item,key) in years" :key="key" :value="item.id">{{ item.name }}</option>
 
                     </select>
-                    <span v-if="option.$error" class="help-block" style="color:#f96868">This year is invalid</span>
+                    <span v-if="option.$error" class="help-block" style="color:#f96868">{{ trans('configs.This year is invalid')}}</span>
                 </div>
                 <div :class="['form-group col-md-4', (option.$error) ? 'has-error' : '']">
                     <input required="" type="text" class="form-control" v-model.trim="option.name.$model"  placeholder="Type new year ex: 2018/2019" value="">
-                    <span v-if="option.$error" class="help-block" style="color:#f96868">This year is invalid</span>
+                    <span v-if="option.$error" class="help-block" style="color:#f96868">{{ trans('configs.This year is invalid')}}</span>
                 </div>
                 <div class="form-group col-md-2">
                     <div class="btn btn-danger delete-row" @click="showModal = true">
@@ -25,16 +25,16 @@
                         you can use custom content here to overwrite
                         default content
                         -->
-                        <h3 slot="header"><i class="voyager-trash"></i> Are you sure you want to delete this semster?</h3>
-                        <button slot="button" @click="removeOption(key, option.id.$model)" class="btn btn-danger delete-confirm">Yes, Delete it!</button>
+                        <h3 slot="header"><i class="voyager-trash"></i> {{ trans('configs.Are you sure you want to delete this semster?')}}</h3>
+                        <button slot="button" @click="removeOption(key, option.id.$model)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!')}}</button>
                     </modal>
                 </div>
                 <div style="clear: both;"></div>
             </div>
             </transition-group>
             <div class="form-group col-md-12">
-                <a @click="saveOption" class="btn btn-primary" :disabled="save">Save</a>
-                <a @click="addOption" class="btn btn-success">+ Add New Year</a>
+                <a @click="saveOption" class="btn btn-primary" :disabled="save">{{ trans('configs.Save')}}</a>
+                <a @click="addOption" class="btn btn-success">+ {{ trans('configs.Add New Year')}}</a>
             </div>
         </div>
     </div>

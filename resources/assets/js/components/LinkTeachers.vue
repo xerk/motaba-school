@@ -11,9 +11,9 @@
                                         <thead>
                                             <tr>
                                                 <th><input type="checkbox"></th>
-                                                <th>Name</th>
-                                                <th>ClassRooms & Subjects No.</th>
-                                                <th class="actions text-right">Actions</th>
+                                                <th>{{ trans('link-teacher.Name')}}</th>
+                                                <th>{{ trans('link-teacher.ClassRooms & Subjects No')}}</th>
+                                                <th class="actions text-right">{{ trans('table.Actions')}}</th>
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">

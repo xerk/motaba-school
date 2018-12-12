@@ -4,7 +4,7 @@
             <transition-group name="list" mode="in-out">
             <div v-for="(option, key) in $v.form.options.$each.$iter" :key="key">
                 <div :class="['form-group col-md-8', (option.$error) ? 'has-error' : '']">
-                    <input required="" type="text" class="form-control" v-model.trim="option.name.$model"  placeholder="Stage education" value="">
+                    <input required="" type="text" class="form-control" v-model.trim="option.name.$model"  :placeholder="trans('configs.Stage education')" value="">
                     <span v-if="option.$error" class="help-block" style="color:#f96868">This Stage is invalid</span>
                 </div>
                 <div class="form-group col-md-2">
@@ -17,8 +17,8 @@
                         you can use custom content here to overwrite
                         default content
                         -->
-                        <h3 slot="header"><i class="voyager-trash"></i> Are you sure you want to delete this stage?</h3>                        
-                        <button slot="button" @click="removeOption(key, option.id.$model)" class="btn btn-danger delete-confirm">Yes, Delete it!</button>
+                        <h3 slot="header"><i class="voyager-trash"></i> {{ trans('configs.Are you sure you want to delete this stage?')}}</h3>                        
+                        <button slot="button" @click="removeOption(key, option.id.$model)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!')}}</button>
                     </modal>
                 </div>
                 <div class="form-group col-md-8">
@@ -27,8 +27,8 @@
             </div>
             </transition-group>
             <div class="form-group col-md-12">
-                <a @click="saveOption" class="btn btn-primary" :disabled="save" >Save</a>
-                <a @click="addOption" class="btn btn-success">+ Add New Stage</a>
+                <a @click="saveOption" class="btn btn-primary" :disabled="save" >{{ trans('configs.Save')}}</a>
+                <a @click="addOption" class="btn btn-success">+ {{ trans('configs.Add New Stage')}}</a>
             </div>
         </div>
     </div>

@@ -7,30 +7,30 @@
                     <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                         <thead>
                             <tr style="display:none">
-                                <th>Student Name</th>
-                                <th>Last Name</th>
-                                <th>Situation</th>
-                                <th>National</th>
-                                <th>Gender</th>
-                                <th>Birth</th>
-                                <th colspan="3">Data Oct</th>
-                                <th>Address</th>
-                                <th>National ID</th>
+                                <th>{{ trans('reports.Student Name')}}</th>
+                                <th>{{ trans('reports.Last Name')}}</th>
+                                <th>{{ trans('reports.Situation')}}</th>
+                                <th>{{ trans('reports.National')}}</th>
+                                <th>{{ trans('reports.Gender')}}</th>
+                                <th>{{ trans('reports.Birth')}}</th>
+                                <th colspan="3">{{ trans('reports.Data Oct')}}</th>
+                                <th>{{ trans('reports.Address')}}</th>
+                                <th>{{ trans('reports.National ID')}}</th>
                             </tr>
                             <tr>
-                                <th>Student Name</th>
-                                <th>Last Name</th>
-                                <th>Situation</th>
-                                <th>National</th>
-                                <th>Gender</th>
-                                <th>Birth</th>
+                                <th>{{ trans('reports.Student Name')}}</th>
+                                <th>{{ trans('reports.Last Name')}}</th>
+                                <th>{{ trans('reports.Situation')}}</th>
+                                <th>{{ trans('reports.National')}}</th>
+                                <th>{{ trans('reports.Gender')}}</th>
+                                <th>{{ trans('reports.Birth')}}</th>
 
-                                <th>Day</th>
-                                <th>Month</th>
-                                <th>Year</th>
+                                <th>{{ trans('reports.Day')}}</th>
+                                <th>{{ trans('reports.Month')}}</th>
+                                <th>{{ trans('reports.Year')}}</th>
                                
-                                <th>Address</th>
-                                <th>National ID</th>
+                                <th>{{ trans('reports.Address')}}</th>
+                                <th>{{ trans('reports.National ID')}}</th>
                             </tr>
                         </thead>
                     </table>
