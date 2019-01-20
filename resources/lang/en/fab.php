@@ -28,6 +28,5 @@ return [
     'Choose Subject' => 'Choose Subject',
     'Choose Job' => 'Choose Job',
     'Student' => 'Student',
-    'Employee' => 'Employee',
-    
+    'Employee' => 'Employee',    
 ];

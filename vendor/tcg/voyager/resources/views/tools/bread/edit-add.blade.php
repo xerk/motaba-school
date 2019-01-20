@@ -320,20 +320,20 @@
                                         @endif
                                     </div>
                                     <div class="col-xs-2">
-                                               <div class="row clearfix">
-                                                   <div class="col-md-12 form-group">
-                                                        <label for="field_display_name_{{ $data['field'] }}">English</label>
-                                                        <input id="field_display_name_{{ $data['field'] }}" type="text" class="form-control"
-                                                        value="@if(isset($dataRow->display_name)){{ $dataRow->display_name }}@else{{ ucwords(str_replace('_', ' ', $data['field'])) }}@endif"
-                                                        name="field_display_name_{{ $data['field'] }}">
-                                                </div>
+                                            <div class="row clearfix">
                                                 <div class="col-md-12 form-group">
-                                                    <label for="field_display_name_ar_{{ $data['field'] }}">Arabic</label>
-                                                    <input id="field_display_name_ar_{{ $data['field'] }}" type="text" class="form-control"
-                                                        value="@if(isset($dataRow->display_name_ar)){{ $dataRow->display_name_ar }}@else{{ ucwords(str_replace('_', ' ', $data['field'])) }}@endif"
-                                                        name="field_display_name_ar_{{ $data['field'] }}">
-                                                </div>
+                                                    <label for="field_display_name_{{ $data['field'] }}">English</label>
+                                                    <input id="field_display_name_{{ $data['field'] }}" type="text" class="form-control"
+                                                    value="@if(isset($dataRow->display_name)){{ $dataRow->display_name }}@else{{ ucwords(str_replace('_', ' ', $data['field'])) }}@endif"
+                                                    name="field_display_name_{{ $data['field'] }}">
                                             </div>
+                                            <div class="col-md-12 form-group">
+                                                <label for="field_display_name_ar_{{ $data['field'] }}">Arabic</label>
+                                                <input id="field_display_name_ar_{{ $data['field'] }}" type="text" class="form-control"
+                                                    value="@if(isset($dataRow->display_name_ar)){{ $dataRow->display_name_ar }}@else{{ ucwords(str_replace('_', ' ', $data['field'])) }}@endif"
+                                                    name="field_display_name_ar_{{ $data['field'] }}">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-xs-4">
                                         <div class="alert alert-danger validation-error">

@@ -9,7 +9,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <span class="show-field">{{ trans('link-teacher.Qualification')}}:</span>                                
+                                    <span class="show-field">{{ trans('linkTeacher.Qualification')}}:</span>                                
                                 </div>
                                 <div class="col-md-5">
                                     {{ user.qualification }}
@@ -20,7 +20,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <span class="show-field">{{ trans('link-teacher.Specialty')}}:</span>                                
+                                    <span class="show-field">{{ trans('linkTeacher.Specialty')}}:</span>                                
                                 </div>
                                 <div class="col-md-5">
                                     {{ user.specialty }}
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-9">
                 <div>
-                    <a class="btn btn-new-relationship" @click="linkTeacherModal" v-if="linkTeachers != ''" title="make a payment"><i class="voyager-heart"></i> {{ trans('link-teacher.Add Link Teacher')}}</a>
+                    <a class="btn btn-new-relationship" @click="linkTeacherModal" v-if="linkTeachers != ''" title="make a payment"><i class="voyager-heart"></i> {{ trans('linkTeacher.Add Link Teacher')}}</a>
                 </div>
                 <div class="panel panel-bordered" >
                     <div class="panel-body">
@@ -42,10 +42,10 @@
                                 <thead>
                                     <tr>
                                         <th>{{ trans('table.Created At')}}</th>
-                                        <th>{{ trans('link-teacher.Subject')}}</th>
-                                        <th>{{ trans('link-teacher.Stage')}}</th>
-                                        <th>{{ trans('link-teacher.Class')}}</th>
-                                        <th>{{ trans('link-teacher.ClassRoom')}}</th>
+                                        <th>{{ trans('linkTeacher.Subject')}}</th>
+                                        <th>{{ trans('linkTeacher.Stage')}}</th>
+                                        <th>{{ trans('linkTeacher.Class')}}</th>
+                                        <th>{{ trans('linkTeacher.ClassRoom')}}</th>
                                         <th class="actions text-right">{{ trans('table.Actions')}}</th>
                                     </tr>
                                 </thead>
@@ -69,15 +69,15 @@
                                             you can use custom content here to overwrite
                                             default content
                                             -->
-                                            <h3 slot="header"><i class="voyager-trash"></i> {{ trans('link-teacher.Are you sure you want to delete this Payment?')}}</h3>                        
+                                            <h3 slot="header"><i class="voyager-trash"></i> {{ trans('linkTeacher.Are you sure you want to delete this Payment?')}}</h3>                        
                                             <button slot="button" @click.once="deletePayment(item.id, index)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!')}}</button>
                                         </modal>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="text-center" v-else>
-                                <h3 >{{ trans('link-teacher.Please, add one link a teacher!')}}.</h3>
-                                <a class="btn btn-new-relationship" @click="linkTeacherModal" title="make a payment"><i class="voyager-heart"></i> {{ trans('link-teacher.Add Link Teacher')}}</a>
+                                <h3 >{{ trans('linkTeacher.Please, add one link a teacher!')}}.</h3>
+                                <a class="btn btn-new-relationship" @click="linkTeacherModal" title="make a payment"><i class="voyager-heart"></i> {{ trans('linkTeacher.Add Link Teacher')}}</a>
                             </div>
                         </div>
                     </div>
@@ -87,45 +87,45 @@
         <link-teacher-add :list="list" v-if="linkTeacherAddModal" @close="linkTeacherAddModal = false">
             <div slot="body">
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
-                    <label for="subject">{{ trans('link-teacher.Subject')}}</label>
+                    <label for="subject">{{ trans('linkTeacher.Subject')}}</label>
                     <select id="subject" class="form-control" v-validate="'required'" v-model="model.subjectSelect" name="subject">
-                        <option value="" selected="selected">{{ trans('link-teacher.Choose Subject')}}</option>
+                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Subject')}}</option>
                         <option v-for="(subject, key) in subjects" :key="key" :value="subject.id">{{ subject.name }}</option>
                     </select>
                     <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('stage') }">
-                    <label for="stage">{{ trans('link-teacher.Stage Education')}}</label>
+                    <label for="stage">{{ trans('linkTeacher.Stage Education')}}</label>
                     <select id="stage" class="form-control" v-validate="'required'" v-model="model.stageSelect" @change="changeStage" name="stage">
-                        <option value="" selected="selected">{{ trans('link-teacher.Choose Stage')}}</option>
+                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Stage')}}</option>
                         <option v-for="(stage, key) in stageEdu" :key="key" :value="stage.id">{{ stage.name }}</option>
                     </select>
                     <span v-show="errors.has('stage')" class="help-block" style="color:#f96868">{{ errors.first('stage') }}</span>                    
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('class') }">
-                    <label for="class">{{ trans('link-teacher.Class Education')}}</label>
+                    <label for="class">{{ trans('linkTeacher.Class Education')}}</label>
                     <select id="class" class="form-control" v-validate="'required'" v-model="model.classSelect" @change="changeClass" name="class">
-                        <option value="" selected="selected">{{ trans('link-teacher.Choose Class')}}</option>
+                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Class')}}</option>
                         <option v-for="(classItem, key) in classEduFilter" :key="key" :value="classItem.id">{{ classItem.name }}</option>
                     </select>
                     <span v-show="errors.has('class')" class="help-block" style="color:#f96868">{{ errors.first('class') }}</span>                    
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('classroom') }">
-                    <label for="classroom">{{ trans('link-teacher.Class-Room')}}</label>
+                    <label for="classroom">{{ trans('linkTeacher.Class-Room')}}</label>
                     <select id="classroom" class="form-control" v-validate="'required'" v-model="model.classRoomSelect" name="classroom">
-                        <option value="" selected="selected">{{ trans('link-teacher.Choose Class-Room')}}</option>
+                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Class-Room')}}</option>
                         <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
                     </select>
                     <span v-show="errors.has('classroom')" class="help-block" style="color:#f96868">{{ errors.first('classroom') }}</span>                    
                 </div>
             </div>
             <div slot="header" class="modal-header" style="background-color: #F2435C;">
-                <h3 slot="header"><i class="voyager-heart"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('link-teacher.Add Link Teacher')}}.</span></h3>                        
+                <h3 slot="header"><i class="voyager-heart"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('linkTeacher.Add Link Teacher')}}.</span></h3>                        
             </div>
             <button slot="button" @click="parsist" class="btn btn-new-relationship">{{ trans('table.Yes, Save it!')}}</button>
         </link-teacher-add>
         <link-teacher @getUser="fetch" :list="list" v-if="showModal" @close="showModal = false">
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('link-teacher.Make Payment')}} ({{ list.attend_date }}). </span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('linkTeacher.Make Payment')}} ({{ list.attend_date }}). </span></h3>                        
         </link-teacher>
     </div>
 </template>

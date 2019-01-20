@@ -1,41 +1,59 @@
 <template>
     <div style="padding: 2rem 3rem; text-align: left;">
-        <div class="row">
-            <transition-group name="list" mode="in-out">
-            <div v-for="(option, key) in $v.form.options.$each.$iter" :key="key">
-                <div :class="['form-group col-md-8', (option.$error) ? 'has-error' : '']">
-                    <input required="" type="text" class="form-control" v-model.trim="option.name.$model"  :placeholder="trans('configs.Stage education')" value="">
-                    <span v-if="option.$error" class="help-block" style="color:#f96868">This Stage is invalid</span>
-                </div>
-                <div class="form-group col-md-2">
-                    <div class="btn btn-danger delete-row" @click="showModal = true">
-                        <i class="voyager-trash"></i>
+        <div href.prevent="" v-if="!showStage" @click="showStage = true" class="btn btn-sm btn-primary justify-content-md-center">Open Stage</div>
+        <div v-if="showStage" class="row">
+            <transition name="list" mode="in-out">
+                <div>
+                    <div :class="['form-group col-md-12', ($v.form.stageAdd.name.$error) ? 'has-error' : '']">
+                        <input required="" type="text" class="form-control" v-model.trim="$v.form.stageAdd.name.$model" :placeholder="trans('configs.Stage education')" value="">
+                         <span v-if="$v.form.stageAdd.name.$error" class="help-block" style="color:#f96868">{{ trans('configs.This stage is invalid')}}</span>
                     </div>
-                    <!-- use the modal component, pass in the prop -->
-                    <modal v-if="showModal" @close="showModal = false">
-                        <!--
-                        you can use custom content here to overwrite
-                        default content
-                        -->
-                        <h3 slot="header"><i class="voyager-trash"></i> {{ trans('configs.Are you sure you want to delete this stage?')}}</h3>                        
-                        <button slot="button" @click="removeOption(key, option.id.$model)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!')}}</button>
-                    </modal>
+                    <div class="form-group col-md-12">
+                        <textarea class="form-control" v-model.trim="$v.form.stageAdd.description.$model" placeholder="Type description." value=""></textarea>
+                    </div>
                 </div>
-                <div class="form-group col-md-8">
-                    <textarea class="form-control" v-model.trim="option.description.$model"  placeholder="Type description." value=""></textarea>
-                </div>
-            </div>
-            </transition-group>
+            </transition>
             <div class="form-group col-md-12">
                 <a @click="saveOption" class="btn btn-primary" :disabled="save" >{{ trans('configs.Save')}}</a>
-                <a @click="addOption" class="btn btn-success">+ {{ trans('configs.Add New Stage')}}</a>
+            </div>
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover dataTable no-footer">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Body</th>
+                                <th>Created At</th>
+                                <th class="actions text-right">{{ trans('table.Actions') }}</th>
+                            </tr>
+                        </thead>
+                        <transition-group tag="tbody" name="list" mode="in-out">
+                            <tr v-for="(option, key) in $v.form.options.$each.$iter" :key="key">
+                            <td>{{ option.$model.name }}</td>
+                            <td>{{ option.$model.description }}</td>
+                            <td>{{ option.$model.created_at }}</td>
+                            <td class="actions">
+                                <a href.prevent="" @click="sopenModal(option.$model)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
+                                    <i class="voyager-trash"></i> {{ trans('table.Delete') }}
+                                </a>
+                                <a href.prevent="" @click="stageModalFun(option)" class="btn btn-sm btn-primary pull-right" style="display:inline; margin-right:10px;">
+                                    <i class="voyager-edit"></i> {{ trans('salary.Modify') }}
+                                </a>
+                            </td>
+                            </tr>
+                        </transition-group>
+                    </table>
+                </div>
             </div>
         </div>
+        <modal-system :selectRow="selectRow" @confirm="removeOption" v-if="showModal" @close="showModal = false"></modal-system>
+        <stage-modal :itemStage="itemStage" v-if="stageModal" @close="stageModal = false"></stage-modal>
     </div>
 </template>
 
 <script>
-    import Modal from '../modal/Modal'
+    import ModalSystem from '../modal/ModalSystem'
+    import StageModal from '../modal/StageModal'
     import {
         validationMixin
     } from 'vuelidate'
@@ -46,7 +64,8 @@
 
     export default {
         components: {
-            Modal,
+            ModalSystem,
+            StageModal,
         },
         props: {
             clickedNext: '',
@@ -56,6 +75,9 @@
         data() {
             return {
                 showModal: false,
+                stageModal: false,
+                showStage: false,
+                itemStage: '',
                 get: {
                     apiURL : 'system-configs'
                 },
@@ -70,6 +92,10 @@
                         name: '',
                         description: '',
                     }],
+                    stageAdd: {
+                        name: '',
+                        description: '',
+                    }
                 },
                 save: false
             }
@@ -85,6 +111,12 @@
                         },
                         description: '',
                     }
+                },
+                stageAdd: {
+                    name: {
+                        required,
+                    },
+                    description: '',
                 }
             },
         },
@@ -97,7 +129,7 @@
                         });
                     } else {
                         this.$emit('can-continue', {
-                            value: false
+                            value: true
                         });
                     }
                 },
@@ -116,7 +148,7 @@
                 });
             } else {
                 this.$emit('can-continue', {
-                    value: false
+                    value: true
                 });
             }
             this.$store.dispatch('retriveOptions', this.get)
@@ -125,6 +157,14 @@
                 })
         },
         methods: {
+            openModal(value) {
+                this.showModal = true
+                this.selectRow = value
+            },
+            stageModalFun(value) {
+                this.stageModal = true
+                this.itemStage = value
+            },
             removeOption(key, id) {
                 this.showModal = false
                 this.form.options.splice(key, 1);
@@ -140,32 +180,26 @@
                     })
                 }
             },
-            addOption() {
-                this.save = false
-                this.form.options.push({
-                    name: '',
-                    description: '',
-                });
-            },
             saveOption() {
-                this.$v.form.$touch()
-                if(!this.$v.$invalid && this.save == false) {
-                    this.save = true
+                // this.$v.form.$touch()
+                // if(!this.$v.$invalid && this.save == false) {
+                    // this.save = true
                     this.$store.dispatch('submitForm', {
                         post: this.post,
-                        stage: this.form.options,
+                        stage: this.form.stageAdd,
                     })
                     .then(response => {
                         this.$toast.success({
-                            title: 'Successfully',
-                            message: response.data
+                            title: response.data,
                         })
+                        this.form.stageAdd.name = ''
+                        this.form.stageAdd.description = ''
                     })
                     this.$store.dispatch('retriveOptions', this.get)
                     .then(response => {
                         this.form.options = response.data.stageEdu
                     })
-                }
+                // }
             }
         }
     }

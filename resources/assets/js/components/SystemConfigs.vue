@@ -55,8 +55,7 @@
                     if (step.name === payload.name) {
                         step.completed = true;
                         this.$toast.info({
-                            title: 'Info',
-                            message: 'Next step is ready to config'
+                            title: 'Next step is ready to config',
                         })
                     }
                 })

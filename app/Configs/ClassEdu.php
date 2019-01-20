@@ -50,4 +50,23 @@ class ClassEdu extends Model
     {
         return $this->hasMany('App\User', 'class_id', 'id');
     } 
+
+    /**
+     * Show the StageEdu Has Many ClassEdu.
+     *
+     * @return App\Configs\ClassEdu
+     */
+    public function classRoom()
+    {
+        return $this->hasMany('App\Configs\ClassRoom');
+    } 
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($classEdu) { // before delete() method call this
+             $classEdu->classEdu()->delete();
+             // do the rest of the cleanup...
+        });
+    }
 }

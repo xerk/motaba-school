@@ -31,4 +31,13 @@ class StageEdu extends Model
         return $this->hasMany('App\LinkTeacher', 'stage_id', 'id');
     } 
     
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($stageEdu) { // before delete() method call this
+             $stageEdu->classEdu()->delete();
+             // do the rest of the cleanup...
+        });
+    }
+
 }

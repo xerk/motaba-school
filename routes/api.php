@@ -27,6 +27,9 @@ Route::delete('semster-configs/{id}', $namespacePrefixOwnaer.'SchoolYearControll
 
 // Route::get('system-configs', $namespacePrefixOwnaer.'StageEduController@getSystemConfig');
 Route::post('system-configs/add', $namespacePrefixOwnaer.'StageEduController@store');
+Route::post('system-configs-update', $namespacePrefixOwnaer.'StageEduController@update');
+Route::post('system-configs-update-class', $namespacePrefixOwnaer.'StageEduController@updateClass');
+Route::post('system-configs-update-class-room', $namespacePrefixOwnaer.'StageEduController@updateClassRoom');
 Route::delete('system-configs/{id}', $namespacePrefixOwnaer.'StageEduController@destroy');
 Route::delete('class-configs/{id}', $namespacePrefixOwnaer.'StageEduController@destroyClass');
 Route::delete('class-room-configs/{id}', $namespacePrefixOwnaer.'StageEduController@destroyClassRoom');

@@ -23,7 +23,14 @@
         <p>{{ __('voyager::database.relationship.relationship') }}</p>
     </div>
     <div class="col-xs-2">
-        <input type="text" name="field_display_name_{{ $relationship['field'] }}" class="form-control relationship_display_name" value="{{ $relationship['display_name'] }}">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <input type="text" name="field_display_name_{{ $relationship['field'] }}" class="form-control relationship_display_name" value="{{ $relationship['display_name'] }}">
+            </div>
+            <div class="col-md-12">
+                <input type="text" name="field_display_name_ar_{{ $relationship['field'] }}" class="form-control relationship_display_name_ar" value="{{ $relationship['display_name'] }}">
+            </div>
+        </div>
     </div>
     <div class="col-xs-4">
         <div class="voyager-relationship-details-btn">

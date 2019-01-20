@@ -76,7 +76,6 @@
                                     <label for="default_role">{{ __('voyager::profile.role_default') }}</label>
                                     @php
                                         $dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};
-
                                         $row     = $dataTypeRows->where('field', 'user_belongsto_role_relationship')->first();
                                         $options = json_decode($row->details);
                                     @endphp
@@ -97,7 +96,6 @@
                             } else {
                                 $selected_locale = config('app.locale', 'en');
                             }
-
                             @endphp
                             <div class="row">
                                 <div class="col-md-6">
@@ -199,7 +197,6 @@
                             } else {
                                 $selected_job = '';
                             }
-
                             @endphp
                             <div class="form-group">
                                 <label for="job">Job</label>
@@ -212,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12" id="student" style="display:none">
+                <div class="col-md-12" id="student" style="{{ $selected_job == 1 ? "" : "display:none"}}">
                     <div class="panel panel panel-bordered panel-warning">
                         <div class="panel-body">
                             @php
@@ -259,10 +256,10 @@
                                     <div class="form-group">
                                         <label for="stage_id">Stage Education</label>
                                         <select class="form-control select2" id="stage_id" name="stage_id">
-                                            @foreach (App\Configs\StageEdu::all() as $stage)
                                             <option value="">None</option>
-                                            <option value="{{ $stage->id }}"
-                                            {{ ($stage->id == $selected_stage ? 'selected' : '') }}>{{ $stage->name }}</option>
+                                            @foreach (App\Configs\StageEdu::all() as $stage)
+                                                <option value="{{ $stage->id }}"
+                                                {{ ($stage->id == $selected_stage ? 'selected' : '') }}>{{ $stage->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -278,10 +275,9 @@
                                     <div class="form-group">
                                         <label for="class_id">Class Education</label>
                                         <select class="form-control select2" id="class_id" name="class_id">
-                                            @foreach (App\Configs\ClassEdu::with('stageEdu')->get() as $class)
                                             <option value="">None</option>
-                                            <option value="{{ $class->id }}"
-                                            {{ ($class->id == $selected_class ? 'selected' : '') }}> {{ $class->name }} - {{ $class->stageEdu->name  }}</option>
+                                            @foreach (App\Configs\ClassEdu::with('stageEdu')->get() as $class)
+                                                <option value="{{ $class->id }}"{{ ($class->id == $selected_class ? 'selected' : '') }}> {{ $class->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -297,10 +293,10 @@
                                     <div class="form-group">
                                         <label for="classroom_id">Class Room</label>
                                         <select class="form-control select2" id="classroom_id" name="classroom_id">
-                                            @foreach (App\Configs\ClassRoom::with('classEdu')->get() as $classRoom)
                                             <option value="">None</option>
-                                            <option value="{{ $classRoom->id }}"
-                                            {{ ($classRoom->id == $selected_classRoom ? 'selected' : '') }}>{{ $classRoom->name }} - {{ $classRoom->classEdu->name }}</option>
+                                            @foreach (App\Configs\ClassRoom::with('classEdu')->get() as $classRoom)
+                                                <option value="{{ $classRoom->id }}"
+                                                {{ ($classRoom->id == $selected_classRoom ? 'selected' : '') }}>{{ $classRoom->name }} - {{ $classRoom->classEdu->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -372,7 +368,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12" id="employee" style="display:none">
+                <div class="col-md-12" id="employee" style="{{ $selected_job == 0 ? "" : "display:none"}}">
                     <div class="panel panel panel-bordered panel-warning">
                         <div class="panel-body">
                             <div class="col-md-4">
@@ -433,7 +429,6 @@
     <script>
         $('document').ready(function () {
             $('.toggleswitch').bootstrapToggle();
-
             $('#job').change(function(){
                 if($('#job').val() == '1') {
                     $('#student').show(); 

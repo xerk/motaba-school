@@ -15,6 +15,7 @@ return [
 
     'School Name' => 'School Name',
     'Educational System' => 'Educational System',
+    'Class Education' => 'Class Education',
     'None' => 'None',
     'Website' => 'Website',
     'Government' => 'Government',
@@ -59,5 +60,9 @@ return [
     'Choose Year' => 'Choose Year',
     'This year is invalid' => 'This year is invalid',
     'Are you sure you want to delete this semster?' => 'Are you sure you want to delete this semster?',
+    'Are you sure you want to delete?' => 'Are you sure you want to delete?',
+    'Name' => 'Name',
+    'Body' => 'Body',
+
     
 ];

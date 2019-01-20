@@ -214,7 +214,6 @@ class VoyagerBaseController extends Controller
         $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
 
         $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
-
         // Check permission
         $this->authorize('edit', $data);
 

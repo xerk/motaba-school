@@ -8,6 +8,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ voyager_asset('images/logo-icon.png') }}" type="image/x-icon">
@@ -17,11 +19,17 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
     @if (Auth::user()->settings['locale'] == 'ar')
-    <style>
-        * {
-            font-family: 'Cairo', 'Open Sans' !important;
-        }
-    </style>
+        <style>
+            * {
+                font-family: 'Droid Arabic Kufi', 'Open Sans';
+            }
+            .form-control {
+                height: auto;
+            }
+            .btn, .modal .modal-dialog .modal-header {
+                font-family: 'Droid Arabic Kufi', 'Open Sans',sans-serif;
+            }
+        </style>
     @endif
     @yield('css')
     @if(config('voyager.multilingual.rtl'))
@@ -43,6 +51,12 @@
         }
         .voyager .breadcrumb a{
             color:{{ config('voyager.primary_color','#22A7F0') }};
+        }
+        .img-avatar {
+            width: 35px;
+            margin-right: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+            border-radius: 100%;
         }
     </style>
 

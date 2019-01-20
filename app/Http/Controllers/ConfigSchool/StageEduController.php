@@ -47,44 +47,30 @@ class StageEduController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->stage) {
-            foreach ($request->stage as $key => $item) {
-                if(isset($item['id'])) {
-                    StageEdu::where('id', $item['id'])->delete();
-                }
+        // dd($request->all());
+        if($request->stage) {            
                 StageEdu::create([
-                    'name'   => $item['name'],
-                    'description'   => $item['description'],
+                    'name'   => $request->stage['name'],
+                    'description'   => $request->stage['description'],
                 ]);
-            }
             return response('Item\'s has been Add', 200);
         }
 
-        if($request->class) {
-            foreach ($request->class as $key => $item) {
-                if(isset($item['id'])) {
-                    ClassEdu::where('id', $item['id'])->delete();
-                }
-                ClassEdu::create([
-                    'name'   => $item['name'],
-                    'stage_edu_id'   => $item['stage_edu_id'],
-                    'egy_edu_system_id'   => $item['egy_edu_system_id'],
-                ]);
-            }
-            return response('Item\'s has been Add', 200);
+        if($request->class) {            
+            ClassEdu::create([
+                'name'   => $request->class['name'],
+                'stage_edu_id'   => $request->class['stage_edu_id'],
+                'egy_edu_system_id'   => $request->class['egy_edu_system_id'],
+            ]);
+            return response($request->class['name'] .' has been Add', 200);
         }
 
-        if($request->classRoom) {
-            foreach ($request->classRoom as $key => $item) {
-                if(isset($item['id'])) {
-                    ClassRoom::where('id', $item['id'])->delete();
-                }
-                ClassRoom::create([
-                    'name'   => $item['name'],
-                    'class_edu_id'   => $item['class_edu_id'],
-                ]);
-            }
-            return response('Item\'s has been Add', 200);
+        if($request->classRoom) {            
+            ClassRoom::create([
+                'name'   => $request->classRoom['name'],
+                'class_edu_id'   => $request->classRoom['class_edu_id'],
+            ]);
+            return response($request->classRoom['name'] .' has been Add', 200);
         }
         
     }
@@ -118,9 +104,49 @@ class StageEduController extends Controller
      * @param  \App\StageEdu  $stageEdu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StageEdu $stageEdu)
+    public function update(Request $request)
     {
-        //
+        $stageEdu = StageEdu::find($request->model['id']);
+        $stageEdu->name = $request->model['name'];
+        $stageEdu->description = $request->model['description'];
+        $stageEdu->save();
+
+        return response('Stage '.$request->model['name'].' has been updated!', 200); 
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\StageEdu  $stageEdu
+     * @return \Illuminate\Http\Response
+     */
+    public function updateClass(Request $request)
+    {
+        $classEdu = ClassEdu::find($request->model['id']);
+        $classEdu->name = $request->model['name'];
+        $classEdu->stage_edu_id = $request->model['stage_edu_id'];
+        $classEdu->egy_edu_system_id = $request->model['egy_edu_system_id'];
+        $classEdu->save();
+
+        return response('Class '.$request->model['name'].' has been updated!', 200); 
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\StageEdu  $stageEdu
+     * @return \Illuminate\Http\Response
+     */
+    public function updateClassRoom(Request $request)
+    {
+        $classRoomEdu = ClassRoom::find($request->model['id']);
+        $classRoomEdu->name = $request->model['name'];
+        $classRoomEdu->class_edu_id = $request->model['class_edu_id'];
+        $classRoomEdu->save();
+
+        return response('Class Room '.$request->model['name'].' has been updated!', 200); 
     }
 
     /**

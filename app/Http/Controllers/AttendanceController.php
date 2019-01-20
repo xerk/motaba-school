@@ -49,27 +49,27 @@ class AttendanceController extends Controller
                 });
             })->count();
             
-            $attend = User::where(function($query) use ($request) {
+            $attends = User::where(function($query) use ($request) {
                     $query->where('classroom_id', '=', $request->classRoom)
                         ->where('job', '=', 1);
                 })->get();
 
-            $attendCount = $attend->count();
+            $attendCount = $attends->count();
             // dd($attendCount);
             
             if ($count == 0) {
                 if ($attendCount > 0) {
                     // Right Post Command
                     if ($date->toDateString() <= Carbon::now()) {
-                        foreach ($attend as $key => $item) {
-                            Attendance::create([
-                                'user_id'   => $item->id,
+                        foreach ($attends as $key => $attend) {
+                            Attendance::insert([
+                                'user_id'   => $attend->id,
                                 'attend_date' => $date->toDateString(),
                                 'status' => $request->status,
                             ]);
     
-                            return 'Item\'s has beend added!';
                         }
+                        return 'Item\'s has beend added!';
                     } else {
                         return 'Can\'t add the next date of day.';
                     }

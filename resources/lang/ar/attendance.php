@@ -13,16 +13,13 @@ return [
     |
     */
 
-    'Actions' => 'Actions',
-    'Created At' => 'Created At',
-    'Edit' => 'Edit',
-    'View' => 'View',
-    'Yes, Delete it!' => 'Yes, Delete it!',
-    'Yes, Save it!' => 'Yes, Save it!',
-    'Delete' => 'Delete',
-    'Cancel' => 'Cancel',
-    'Next' => 'Next',
-    'Prev' => 'Prev',
-    'delete qutions?' => 'delete qutions?',
-    'Empty please modify' => 'Empty please modify'
+    'Absent' => 'غياب',
+    'Holiday' => 'اجازة',
+    'Attendants' => 'حضور',
+    'Students' => 'الطلاب',
+    'Date' => 'التاريخ',
+    'Status' => 'الحالة',
+    'Existing' => 'حضور',
+    'Created At' => 'تاريخ الإنشاء',
+    'Employees' => 'الموظفين',
 ];

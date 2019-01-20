@@ -10,6 +10,7 @@
             <div class="btn btn-sm btn-primary pull-right edit"
                 data-id="{{ $item->id }}"
                 data-title="{{ $item->title }}"
+                data-title_ar="{{ $item->title_ar }}"
                 data-url="{{ $item->url }}"
                 data-target="{{ $item->target }}"
                 data-icon_class="{{ $item->icon_class }}"
@@ -28,7 +29,7 @@
                     '_field_trans'        => json_encode($item->getTranslationsOf('title'))
                 ])
             @endif
-            <span>{{ $item->title }}</span> <small class="url">{{ $item->link() }}</small>
+            <span>{{ Auth::user()->settings['locale'] == 'ar' ? $item->title_ar : $item->title }}</span> <small class="url">{{ $item->link() }}</small>
         </div>
         @if(!$item->children->isEmpty())
             @include('voyager::menu.admin', ['items' => $item->children])

@@ -13,16 +13,11 @@ return [
     |
     */
 
-    'Actions' => 'Actions',
-    'Created At' => 'Created At',
-    'Edit' => 'Edit',
-    'View' => 'View',
-    'Yes, Delete it!' => 'Yes, Delete it!',
-    'Yes, Save it!' => 'Yes, Save it!',
-    'Delete' => 'Delete',
-    'Cancel' => 'Cancel',
-    'Next' => 'Next',
-    'Prev' => 'Prev',
-    'delete qutions?' => 'delete qutions?',
-    'Empty please modify' => 'Empty please modify'
+    'Full Name' => 'الاسم الكامل',
+    'Last name' => 'الاسم الأخير',
+    'Gender' => 'النوع',
+    'ClassRoom' => 'الفصل',
+    'Setting Number' => 'رقم الجلوس',
+    'Secret Number' => 'الرقم السرى',
+    'Committee' => 'اللجنة',
 ];

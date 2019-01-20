@@ -1,47 +1,63 @@
 <template>
     <div style="padding: 2rem 3rem; text-align: left;">
-        <div class="row">
-            <transition-group name="list" mode="in-out">
-            <div v-for="(option, key) in $v.form.options.$each.$iter" :key="key">
-                <div :class="['form-group col-md-4', (option.$error) ? 'has-error' : '']">
-                    <select required class="form-control select2" v-model="option.class_edu_id.$model">
-                        <option value="">{{ trans('configs.Choose Class')}}</option>
-                        <option v-for="(item,key) in classEdu" :key="key" :value="item.id">{{ item.name }}</option>
-
-                    </select>
-                    <span v-if="option.$error" class="help-block" style="color:#f96868">{{ trans('configs.This class is invalid')}}</span>
-                </div>
-                <div :class="['form-group col-md-4', (option.$error) ? 'has-error' : '']">
-                    <input required="" type="text" class="form-control" v-model.trim="option.name.$model"  :placeholder="trans('configs.Type class-room name')" value="">
-                    <span v-if="option.$error" class="help-block" style="color:#f96868">{{ trans('configs.This class-room is invalid')}}</span>
-                </div>
-                <div class="form-group col-md-2">
-                    <div class="btn btn-danger delete-row" @click="showModal = true">
-                        <i class="voyager-trash"></i>
+        <div href.prevent="" v-if="!showClassRoom" @click="showClassRoom = true" class="btn btn-sm btn-primary justify-content-md-center">Open Class Room</div>
+        <div v-if="showClassRoom" class="row">
+            <transition name="list" mode="in-out">
+                <div>
+                    <div :class="['form-group col-md-3', ($v.form.classRoomAdd.class_edu_id.$error) ? 'has-error' : '']">
+                        <select required class="form-control select2" v-model="$v.form.classRoomAdd.class_edu_id.$model">
+                            <option value="">{{ trans('configs.Choose Class')}}</option>
+                            <option v-for="(item,key) in classEdu" :key="key" :value="item.id">{{ item.name }}</option>
+                        </select>
+                        <span v-if="$v.form.classRoomAdd.class_edu_id.$error" class="help-block" style="color:#f96868">{{ trans('configs.This class is invalid')}}</span>
                     </div>
-                    <!-- use the modal component, pass in the prop -->
-                    <modal v-if="showModal" @close="showModal = false">
-                        <!--
-                        you can use custom content here to overwrite
-                        default content
-                        -->
-                        <h3 slot="header"><i class="voyager-trash"></i> {{ trans('configs.Are you sure you want to delete this class-room?')}}</h3>
-                        <button slot="button" @click="removeOption(key, option.id.$model)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!')}}</button>
-                    </modal>
+                    <div :class="['form-group col-md-4', ($v.form.classRoomAdd.name.$error) ? 'has-error' : '']">
+                        <input required="" type="text" class="form-control" v-model.trim="$v.form.classRoomAdd.name.$model"  :placeholder="trans('configs.Type class-room name')" value="">
+                        <span v-if="$v.form.classRoomAdd.name.$error" class="help-block" style="color:#f96868">{{ trans('configs.This class-room is invalid')}}</span>
+                    </div>
                 </div>
-                <div style="clear: both;"></div>
-            </div>
-            </transition-group>
+            </transition>
             <div class="form-group col-md-12">
-                <a @click="saveOption" class="btn btn-primary" :disabled="save">{{ trans('configs.Save')}}</a>
-                <a @click="addOption" class="btn btn-success">+ {{ trans('configs.Add New ClassRoom')}}</a>
+                <a @click="saveOptionRoom" class="btn btn-primary" :disabled="save" >{{ trans('configs.Save')}}</a>
+            </div>
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover dataTable no-footer">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Class Education</th>
+                                <th>Created At</th>
+                                <th class="actions text-right">{{ trans('table.Actions') }}</th>
+                            </tr>
+                        </thead>
+                        <transition-group tag="tbody" name="list" mode="in-out">
+                            <tr v-for="(option, key) in $v.form.options.$each.$iter" :key="key">
+                            <td>{{ option.$model.name }}</td>
+                            <td>{{ option.$model.class_edu ? option.$model.class_edu.name : trans('table.Empty please modify') }}</td>
+                            <td>{{ option.$model.created_at }}</td>
+                            <td class="actions">
+                                <a href.prevent="" @click="openModal(option.$model)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
+                                    <i class="voyager-trash"></i> {{ trans('table.Delete') }}
+                                </a>
+                                <a href.prevent="" @click="stageModalFun(option)" class="btn btn-sm btn-primary pull-right" style="display:inline; margin-right:10px;">
+                                    <i class="voyager-edit"></i> {{ trans('salary.Modify') }}
+                                </a>
+                            </td>
+                            </tr>
+                        </transition-group>
+                    </table>
+                </div>
             </div>
         </div>
+        <modal-system :selectRow="selectRow" @confirm="removeOption" v-if="showModal" @close="showModal = false"></modal-system>
+        <class-room-modal @update="updateClassRoom" :itemClassRoom="itemClassRoom" v-if="classRoomModal" @close="classRoomModal = false"></class-room-modal>
     </div>
 </template>
 
 <script>
-    import Modal from '../modal/Modal'
+    import ModalSystem from '../modal/ModalSystem'
+    import ClassRoomModal from '../modal/ClassRoomModal'
     import {
         validationMixin
     } from 'vuelidate'
@@ -52,13 +68,17 @@
 
     export default {
         components: {
-            Modal,
+            ModalSystem,
+            ClassRoomModal,
         },
         props: ['clickedNext', 'currentStep'],
         mixins: [validationMixin],
         data() {
             return {
                 showModal: false,
+                showClassRoom: false,
+                classRoomModal: false,
+                itemClassRoom: '',
                 get: {
                     apiURL: 'system-configs',
                 },
@@ -74,6 +94,10 @@
                         name: '',
                         class_edu_id: '',
                     }],
+                    classRoomAdd: {
+                        name: '',
+                        class_edu_id: '',
+                    }
 
                 },
                 save: false
@@ -91,6 +115,14 @@
                         class_edu_id: {
                             required
                         }
+                    }
+                },
+                classRoomAdd: {
+                    name: {
+                        required,
+                    },
+                    class_edu_id: {
+                        required
                     }
                 }
             }
@@ -126,56 +158,63 @@
                     value: false
                 });
             }
-            this.$store.dispatch('retriveOptions', this.get)
+            this.fetch()
+        },
+        methods: {
+            openModal(value) {
+                this.showModal = true
+                this.selectRow = value
+            },
+            updateClassRoom() {
+                this.fetch()
+            },
+            fetch() {
+                this.$store.dispatch('retriveOptions', this.get)
                 .then(response => {
                     this.form.options = response.data.classRoom
                     this.classEdu = response.data.classEdu
                 })
-        },
-        methods: {
-            removeOption(key, id) {
+            },
+            stageModalFun(value) {
+                this.classRoomModal = true
+                this.itemClassRoom = value
+            },
+            removeOption() {
                 this.showModal = false
-                this.form.options.splice(key, 1);
-                if(id) {
-                    this.$store.dispatch('delete', {
+                let index = this.form.options.indexOf(this.selectRow);
+                this.$store.dispatch('delete', {
                         delete: this.delete,
-                        id: id
+                        id: this.selectRow.id
                     })
                     .then(response => {
                         this.$toast.success({
-                            title: 'Successfully',
-                            message: response.data
+                            title: response.data,
                         })
+                        this.fetch()
                     })
-                }
+                    this.selectRow = null;
             },
-            addOption() {
-                this.save = false
-                this.form.options.push({
-                    name: '',
-                    class_edu_id: '',
-                });
-            },
-            saveOption() {
-                this.$v.form.$touch()
-                if(!this.$v.$invalid && this.save == false) {
-                    this.save = true
+            saveOptionRoom() {
+                // this.$v.form.$touch()
+                // if(!this.$v.$invalid) {
+                    // this.save = true
                     this.$store.dispatch('submitForm', {
                         post: this.post,
-                        classRoom: this.form.options,
+                        classRoom: this.form.classRoomAdd,
                     })
                     .then(response => {
                         this.$toast.success({
-                            title: 'Successfully',
-                            message: response.data
+                            title: response.data,
                         })
+                        this.form.classRoomAdd.name = ''
+                        this.form.classRoomAdd.class_edu_id = ''
                     })
                     this.$store.dispatch('retriveOptions', this.get)
                     .then(response => {
                         this.form.options = response.data.classRoom
                         this.classEdu = response.data.classEdu
                     })
-                }
+                // }
             }
         }
     }
