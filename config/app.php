@@ -159,7 +159,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        VoyagerThemes\VoyagerThemesServiceProvider::class,
         KgBot\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
     ],
