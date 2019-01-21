@@ -9,15 +9,15 @@ style="box-sizing: border-box;">
            <div class="uk-grid-large uk-flex-middle uk-grid-margin-large uk-grid uk-padding-bottom@m" uk-grid="">
                <div class="uk-width-expand@m uk-first-column uk-animation-slide-left-small">
                    <h1 class="uk-text-left@m uk-text-center uk-h6 uk-scrollspy-inview uk-animation-slide-left-medium"
-                    uk-scrollspy-class="">{{ Session::get('locale') == 'ar' ? setting('site.home_headline_ar') : setting('site.home_headline') }}</h1>
+                    uk-scrollspy-class="">{{ Session::get('locale') == 'en' ? setting('site.home_headline') : setting('site.home_headline_ar') }}</h1>
                    <h2 class="uk-width-xlarge uk-margin-auto uk-text-left@m uk-text-center uk-h1 uk-scrollspy-inview uk-animation-slide-left-medium"
-                    uk-scrollspy-class="">{{ Session::get('locale') == 'ar' ? setting('site.homepage_subheadline_ar') : setting('site.homepage_subheadline') }}</h2>
+                    uk-scrollspy-class="">{{ Session::get('locale') == 'en' ? setting('site.homepage_subheadline') : setting('site.homepage_subheadline_ar') }}</h2>
                    <div class="uk-margin uk-text-left@m uk-text-center uk-scrollspy-inview uk-animation-slide-left-medium"
-                    uk-scrollspy-class="">{{ Session::get('locale') == 'ar' ? setting('site.home_description_ar') : setting('site.home_description') }}</div>
+                    uk-scrollspy-class="">{{ Session::get('locale') == 'en' ? setting('site.home_description') : setting('site.home_description_ar') }}</div>
                    <div class="uk-margin-medium uk-text-left@m uk-text-center uk-scrollspy-inview uk-animation-slide-left-medium"
                     uk-scrollspy-class="" style="">
-                       <a class="el-content uk-button uk-button-primary" href="{{ route(setting('site.home_cta_url')) }}" title="{{ Session::get('locale') == 'ar' ? setting('site.home_cta_ar') : setting('site.home_cta') }}">
-                            {{ Session::get('locale') == 'ar' ? setting('site.home_cta_ar') : setting('site.home_cta') }}
+                       <a class="el-content uk-button uk-button-primary" href="{{ route(setting('site.home_cta_url')) }}" title="{{ Session::get('locale') == 'en' ? setting('site.home_cta') : setting('site.home_cta_ar') }}">
+                            {{ Session::get('locale') == 'en' ? setting('site.home_cta') : setting('site.home_cta_ar') }}
                        </a>
                    </div>
                </div>
@@ -49,14 +49,14 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
 </svg>
 <div class="uk-width-1-1" id="features">
    <div class="uk-container">
-       <h2>{{ Session::get('locale') == 'ar' ? setting('site.title_school_definitions_ar') : setting('site.title_school_definitions') }}</h2>
-       <p class="uk-text-center uk-margin-remove-top uk-align-center uk-margin-remove-bottom" style="color:#ffffff; opacity:0.8;">{{ Session::get('locale') == 'ar' ? setting('site.body_school_definitions_ar') : setting('site.body_school_definitions') }}</p>
+       <h2>{{ Session::get('locale') == 'en' ? setting('site.title_school_definitions') : setting('site.title_school_definitions_ar') }}</h2>
+       <p class="uk-text-center uk-margin-remove-top uk-align-center uk-margin-remove-bottom" style="color:#ffffff; opacity:0.8;">{{ Session::get('locale') == 'en' ? setting('site.body_school_definitions') : setting('site.body_school_definitions_ar') }}</p>
        <div class="uk-grid">
            @foreach ($schoolDefi as $item)    
             <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
                 <img src="{{ Voyager::image($item->icon) }}">
-                <h4>{{ Session::get('locale') == 'ar' ? $item->title_ar : $item->title }}</h4>
-                <p>{{ Session::get('locale') == 'ar' ? $item->body_ar : $item->body }}</p>
+                <h4>{{ Session::get('locale') == 'en' ? $item->title : $item->title_ar }}</h4>
+                <p>{{ Session::get('locale') == 'en' ? $item->body : $item->body_ar }}</p>
             </div>
            @endforeach
        </div>
@@ -80,15 +80,15 @@ y="0px" viewBox="0 0 1440 156" style="enable-background:new 0 0 1440 126;" xml:s
 </svg>
 <div id="testimonials">
    <div class="uk-container uk-margin-small-top">
-       <h2>{{ Session::get('locale') == 'ar' ? setting('site.title_testimonials_ar') : setting('site.title_testimonials') }}</h2>
-       <p class="uk-text-center uk-margin-remove-top">{{ Session::get('locale') == 'ar' ? setting('site.body_testimonials_ar') : setting('site.body_testimonials') }}</p>
+       <h2>{{ Session::get('locale') == 'en' ? setting('site.title_testimonials') : setting('site.title_testimonials_ar') }}</h2>
+       <p class="uk-text-center uk-margin-remove-top">{{ Session::get('locale') == 'en' ? setting('site.body_testimonials') : setting('site.body_testimonials_ar') }}</p>
        <div class="uk-position-relative uk-visible-toggle uk-dark" uk-slider="autoplay: true;">
            <ul class="uk-slider-items uk-child-width-1-1">
                @foreach ($testimonials as $item)    
                 <li class="testimonial uk-text-center">
                     <img src="{{ Voyager::image($item->image) }}" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
-                    <p uk-slider-parallax="x: 200,-200">{{ Session::get('locale') == 'ar' ? $item->title_ar : $item->title }}</p>
-                    <blockquote uk-slider-parallax="x: 100,-100">{{ Session::get('locale') == 'ar' ? $item->body_ar : $item->body }}</blockquote>
+                    <p uk-slider-parallax="x: 200,-200">{{ Session::get('locale') == 'en' ? $item->title : $item->title_ar }}</p>
+                    <blockquote uk-slider-parallax="x: 100,-100">{{ Session::get('locale') == 'en' ? $item->body : $item->body_ar }}</blockquote>
                 </li>
                @endforeach
            </ul>

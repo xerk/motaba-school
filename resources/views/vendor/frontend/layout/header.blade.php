@@ -9,3 +9,17 @@
 <meta name="googlebot" content="index,follow">
 
 <link href="{{ asset('themes/uikit/css/app.css') }}" rel="stylesheet">
+
+@if (Session::get('locale') == 'ar')
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
+
+<style>
+* {
+    font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif';
+}
+
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
+    font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif';    
+}
+</style>
+@endif
