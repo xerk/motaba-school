@@ -65,7 +65,7 @@ Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
     created() {
         let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', 'http://localhost:8000/js/lang.js')
+        recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js')
         document.head.appendChild(recaptchaScript)
     },
     el: '#app',
