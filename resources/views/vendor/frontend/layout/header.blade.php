@@ -10,7 +10,7 @@
 
 <link href="{{ asset('themes/uikit/css/app.css') }}" rel="stylesheet">
 
-@if (Session::get('locale') == 'ar')
+@if (Session::get('locale') != 'en')
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
 
 <style>
