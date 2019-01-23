@@ -7,30 +7,37 @@
                     <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                         <thead>
                             <tr style="display:none">
-                                <th>{{ trans('reports.Student Name')}}</th>
-                                <th>{{ trans('reports.Last Name')}}</th>
-                                <th>{{ trans('reports.Situation')}}</th>
-                                <th>{{ trans('reports.National')}}</th>
-                                <th>{{ trans('reports.Gender')}}</th>
-                                <th>{{ trans('reports.Birth')}}</th>
-                                <th colspan="3">{{ trans('reports.Data Oct')}}</th>
-                                <th>{{ trans('reports.Address')}}</th>
-                                <th>{{ trans('reports.National ID')}}</th>
+                                <th>{{ trans('reports.Student Name')}}أسم الطالب</th>
+                                <th>{{ trans('reports.Last Name')}}الأسم الاخير</th>
+                                <th>{{ trans('reports.Birth')}}تاريخ الميلاد</th>
+                                <th colspan="3">{{ trans('reports.Data Oct')}}السن في أول اكتوبر</th>
+                                <th>{{ trans('reports.Situation')}}الحالة</th>
+                                <th>{{ trans('reports.National')}}الجنسية</th>
+                                <th>{{ trans('reports.Gender')}}النوع</th>
+                                <th>{{ trans('reports.Address')}}العنوان</th>
+                                <th>{{ trans('reports.Father Mobile')}}تليفون الأب</th>
+                                <th>{{ trans('reports.Mother Mobile')}}تليفون الأم</th>
+                                <th>{{ trans('reports.Joining Date')}}وظيفة الأب</th>
                             </tr>
                             <tr>
-                                <th>{{ trans('reports.Student Name')}}</th>
-                                <th>{{ trans('reports.Last Name')}}</th>
-                                <th>{{ trans('reports.Situation')}}</th>
-                                <th>{{ trans('reports.National')}}</th>
-                                <th>{{ trans('reports.Gender')}}</th>
-                                <th>{{ trans('reports.Birth')}}</th>
+                                <th></th>
+                                <th>{{ trans('reports.Student Name')}}أسم الطالب</th>
+                                <th>{{ trans('reports.Last Name')}}الأسم الأخير</th>
+                                <th>{{ trans('reports.Birth')}}تاريخ الميلاد</th>
 
-                                <th>{{ trans('reports.Day')}}</th>
-                                <th>{{ trans('reports.Month')}}</th>
-                                <th>{{ trans('reports.Year')}}</th>
+                                <th>{{ trans('reports.Day')}}يوم</th>
+                                <th>{{ trans('reports.Month')}}شهر</th>
+                                <th>{{ trans('reports.Year')}}سنة</th>
+
+                                <th>{{ trans('reports.Situation')}}الحالة</th>
+                                <th>{{ trans('reports.National')}}سنة الألتحاق</th>
+                                <th>{{ trans('reports.Joining Date')}}الجنسية</th>
+                                <th>{{ trans('reports.Gender')}}النوع</th>
+                                <th>{{ trans('reports.Address')}}العنوان</th>
+                                <th>{{ trans('reports.Father Mobile')}}تليفون الأب</th>
+                                <th>{{ trans('reports.Mother Mobile')}}تليفون الأم</th>
+                                <th>{{ trans('reports.Joining Date')}}وظيفة الأب</th>
                                
-                                <th>{{ trans('reports.Address')}}</th>
-                                <th>{{ trans('reports.National ID')}}</th>
                             </tr>
                         </thead>
                     </table>
@@ -68,7 +75,7 @@ export default {
             var classEdu = this.classEdu  
             var classRoom = this.classRoom  
             $(function() {
-                $('#users-table').DataTable({
+                var t = $('#users-table').DataTable({
                     dom: 'Bfrtip',
                     buttons: [
                         {
@@ -93,35 +100,16 @@ export default {
                         }
                     ],
                     columnDefs: [ {
-                        visible: false
+                        visible: false,
+                        targets: 0,
                     } ],
                     processing: false,
-                    serverSide: true,
-                    ajax: `https://kamel-ouda.com/admin/get_students?class=${classEdu}&classroom=${classRoom}`,
+                    serverSide: false,
+                    ajax: `https://kamel-ouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
+                        { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
                         { data: 'last_name', name: 'last_name' },
-                        { data: 'status', name: 'status',
-                            "render": function (val, type, row) {
-                                if (val == 1) {
-                                    return "New";
-                                } else if (val == 2) {
-                                    return "Transported";                                    
-                                } else if (val == 3) {
-                                    return "Newcomer";                                    
-                                }
-                            }
-                        },
-                        { data: 'nationality', name: 'nationality' },
-                        { data: "gender", name: 'gender',
-                            "render": function (val, type, row) {
-                                if (val == null) {
-                                    return "Nothing";
-                                } else {
-                                    return val == 1 ? "Male" : "Female";
-                                }
-                            }
-                        },
                         { data: 'birth_date', name: 'birth_date' },
                         { data: 'birth_date', name: 'birth_date',
                         'render': function (val, type, row) {
@@ -135,7 +123,6 @@ export default {
                                 var birth = new Date(val); // Year From BirthDate
                                 var today = new Date();    
                                 var oct = new Date(today.getFullYear() + '-10-1');
-                                console.log(birth.getDay());
                                 return (oct.getMonth() + 1) - (birth.getMonth() + 1);
                             } },
                         { data: 'birth_date', name: 'birth_date',
@@ -145,9 +132,41 @@ export default {
                                 var oct = new Date(today.getFullYear() + '-10-1')
                                 return oct.getFullYear() - birth.getFullYear();
                             } },
+                        { data: 'status', name: 'status',
+                            "render": function (val, type, row) {
+                                if (val == 1) {
+                                    return "مستجد";
+                                } else if (val == 2) {
+                                    return "منقول";                                    
+                                } else if (val == 3) {
+                                    return "وافد";                                    
+                                } else if (val == 4) {
+                                    return "محول";                                    
+                                } else if (val == 5) {
+                                    return "راسب";                                    
+                                }
+                            }
+                        },
+                        { data: 'joining_date', name: 'joining_date',
+                            "render": function (val, type, row) {
+                                var join = new Date(val);
+                                return join.getFullYear();
+                            } },
+                        { data: 'nationality', name: 'nationality' },
+                        { data: "gender", name: 'gender',
+                            "render": function (val, type, row) {
+                                if (val == null) {
+                                    return "Nothing";
+                                } else {
+                                    return val == 1 ? "ذكر" : "إنثى";
+                                }
+                            }
+                        },
+                        { data: 'father_mobile', name: 'father_mobile' },
+                        { data: 'mother_mobile', name: 'mother_mobile' },
+                        { data: 'father_job', name: 'father_job' },
                         
                         { data: 'address', name: 'address' },
-                        { data: 'national_id', name: 'national_id' },
 
                     ],
                     "columnDefs": [
@@ -162,12 +181,18 @@ export default {
                                     return row.name +' '+ row.last_name;
                                 }
                             },
-                            "targets": 0
+                            "targets": 1
                         },
                     
-                        { "visible": false,  "targets": [ 1 ] },
+                        { "visible": false,  "targets": [ 2 ] },
                     ],
                 });
+                t.on( 'order.dt search.dt', function () {
+                    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        cell.innerHTML = i+1;
+                        t.cell(cell).invalidate('dom'); 
+                    } );
+                } ).draw();
             });
         }
     },

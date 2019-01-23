@@ -1,6 +1,6 @@
 @extends('voyager::master')
 
-@section('page_title', __('voyager::generic.viewing').' '.'Report Parents')
+@section('page_title', __('voyager::generic.viewing').' '.'Class List Reprot')
 
 @section('css')
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,7 +14,7 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="icon voyager-list"></i> Report Parents
+            <i class="icon voyager-list"></i> Class List Reprot
         </h1>
         @include('voyager::multilingual.language-selector')
     </div>
@@ -22,7 +22,7 @@
 
 @section('content')
 <div id="app">
-    <parent-repo></parent-repo>
+    <class-list-repo></class-list-repo>
 </div>
 @stop
 

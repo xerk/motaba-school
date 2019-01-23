@@ -34,7 +34,7 @@ class GenderReportController extends Controller
             $query->where('job', '=', 1)->where('gender', '=', 1);
         }])->withCount(['users as femaleStudents' => function ($query) use ($request) {
             $query->where('job', '=', 1)->where('gender', '=', 0);
-        }])->get();
+        }])->withCount('classRoom as classRoomCount')->get();
 
         return Datatables::of($users)->toJson();
     }

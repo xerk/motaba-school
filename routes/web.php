@@ -37,15 +37,30 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('results', 'ResultController')->middleware('admin.user');
     Route::resource('add_salaries', 'AddSalaryController')->middleware('admin.user');
 
-    Route::get('get_students', 'DatatablesController@anyData')->middleware('admin.user');
+    Route::get('get-students', 'DatatablesController@anyData')->middleware('admin.user');
     Route::get('student_reports', 'DatatablesController@getIndex')->name('reprots.student.index')->middleware('admin.user');
     Route::get('parent_reports', 'DatatablesController@getIndexParent')->name('reprots.parent.index')->middleware('admin.user');
+    Route::get('class_list_reports', 'DatatablesController@getIndexClassList')->name('reprots.class.list.index')->middleware('admin.user');
     Route::get('get-student-absent', 'AbsentReportController@anyData')->middleware('admin.user');
     Route::get('absent_students', 'AbsentReportController@getIndex')->name('reprots.absent.student.index')->middleware('admin.user');
     Route::get('get-employee-absent', 'AbsentReportController@anyDataEmp')->middleware('admin.user');
     Route::get('absent_employees', 'AbsentReportController@getIndexEmp')->name('reprots.absent.emp.index')->middleware('admin.user');
     Route::get('get-gender', 'GenderReportController@anyData')->middleware('admin.user');
     Route::get('gender_reports', 'GenderReportController@getIndex')->name('reprots.gender.index')->middleware('admin.user');
+    Route::get('get-new-status', 'NewStatusReportController@anyData')->middleware('admin.user');
+    Route::get('new_status_reports', 'NewStatusReportController@getIndex')->name('reprots.new.status.index')->middleware('admin.user');
+    Route::get('get-newcomer', 'NewcomerReportController@anyData')->middleware('admin.user');
+    Route::get('newcomer_reports', 'NewcomerReportController@getIndex')->name('reprots.newcomer.index')->middleware('admin.user');
+    Route::get('get-transported', 'TransportedReportController@anyData')->middleware('admin.user');
+    Route::get('transported_reports', 'TransportedReportController@getIndex')->name('reprots.transported.index')->middleware('admin.user');
+    Route::get('get-transfer', 'TransferReportController@anyData')->middleware('admin.user');
+    Route::get('transfer_reports', 'TransferReportController@getIndex')->name('reprots.transfer.index')->middleware('admin.user');
+    Route::get('get-failure', 'FailureReportController@anyData')->middleware('admin.user');
+    Route::get('failure_reports', 'FailureReportController@getIndex')->name('reprots.failure.index')->middleware('admin.user');
+    Route::get('get-blind', 'BlindReportController@anyData')->middleware('admin.user');
+    Route::get('blind_reports', 'BlindReportController@getIndex')->name('reprots.blind.index')->middleware('admin.user');
+    Route::get('get-doctrine', 'DoctrineReportController@anyData')->middleware('admin.user');
+    Route::get('doctrine_reports', 'DoctrineReportController@getIndex')->name('reprots.doctrine.index')->middleware('admin.user');
 
     Route::get('/{vue_capture?}', function () {
         return view('vendor.voyager.attentions.attentions');
@@ -73,7 +88,7 @@ Route::group(['as' => 'frontend.'], function () {
 
     })->name('locale');
 
-    Route::get('/setting', 'SettingAccountController@index')->name('setting')->middleware('admin.user');
+    // Route::get('/setting', 'SettingAccountController@index')->name('setting')->middleware('admin.user');
 
     Route::get('/@{username}', 'ProfileAccountController@index')->name('profile')->middleware('admin.user');
 

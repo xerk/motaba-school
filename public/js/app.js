@@ -38383,39 +38383,67 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_reports_Students___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_reports_Students__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_reports_Parents__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_reports_Parents___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_reports_Parents__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_reports_AbsentStudent__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_reports_AbsentStudent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_reports_AbsentStudent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_reports_AbsentEmp__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_reports_AbsentEmp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_reports_AbsentEmp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_reports_Gender__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_reports_Gender___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_reports_Gender__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_SecretNumber__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_SecretNumber___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_SecretNumber__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_AddExpense__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_AddExpense___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_AddExpense__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_Committee__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_Committee___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_Committee__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_Results__ = __webpack_require__(287);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_Results___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_Results__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_fab_Fab__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_fab_Fab__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_vue_croppa__ = __webpack_require__(293);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_vue_croppa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_vue_croppa__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__store_store__ = __webpack_require__(294);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_vee_validate__ = __webpack_require__(297);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_cxlt_vue2_toastr__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_cxlt_vue2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_cxlt_vue2_toastr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_vue_moment__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_vue_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_vue_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_vue_datetime__ = __webpack_require__(303);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_vue_datetime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_vue_datetime_dist_vue_datetime_css__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_vue_datetime_dist_vue_datetime_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_vue_datetime_dist_vue_datetime_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_select__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_vue_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_reports_NewStatusRepo__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_reports_NewStatusRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_reports_NewStatusRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_reports_NewcomerRepo__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_reports_NewcomerRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__components_reports_NewcomerRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_reports_TransportedRepo__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_reports_TransportedRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__components_reports_TransportedRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_reports_TransferRepo__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_reports_TransferRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__components_reports_TransferRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_reports_FailureRepo__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_reports_FailureRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__components_reports_FailureRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reports_Gender__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reports_Gender___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_reports_Gender__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_SecretNumber__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_SecretNumber___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_SecretNumber__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_AddExpense__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_AddExpense___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_AddExpense__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_Committee__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_Committee___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_Committee__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_Results__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_Results___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_Results__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_fab_Fab__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_croppa__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_croppa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_vue_croppa__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__store_store__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_vee_validate__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_vue_moment__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_vue_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_vue_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_datetime__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36_vue_datetime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_datetime_dist_vue_datetime_css__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_datetime_dist_vue_datetime_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_vue_datetime_dist_vue_datetime_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_select__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_vue_select__);
+var _components;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 __webpack_require__(35);
+
+
+
+
+
+
+
+
 
 
 
@@ -38464,13 +38492,13 @@ var toastrConfigs = {
     closeButton: false
 };
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_25_cxlt_vue2_toastr___default.a, toastrConfigs);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_27_vue_moment___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_24_vee_validate__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr___default.a, toastrConfigs);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_35_vue_moment___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_32_vee_validate__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_22_vue_croppa___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_28_vue_datetime___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_30_vue_select___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_30_vue_croppa___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_36_vue_datetime___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_38_vue_select___default.a);
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: __WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */],
     mode: 'history'
@@ -38488,28 +38516,34 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
     el: '#app',
     router: router,
-    store: __WEBPACK_IMPORTED_MODULE_23__store_store__["a" /* store */],
-    components: {
+    store: __WEBPACK_IMPORTED_MODULE_31__store_store__["a" /* store */],
+    components: (_components = {
         SchoolConfigs: __WEBPACK_IMPORTED_MODULE_3__components_SchoolConfigs___default.a,
         YearConfigs: __WEBPACK_IMPORTED_MODULE_4__components_YearConfigs___default.a,
         SystemConfigs: __WEBPACK_IMPORTED_MODULE_5__components_SystemConfigs___default.a,
-        Fab: __WEBPACK_IMPORTED_MODULE_21__components_fab_Fab___default.a,
+        Fab: __WEBPACK_IMPORTED_MODULE_29__components_fab_Fab___default.a,
         Attendance: __WEBPACK_IMPORTED_MODULE_6__components_Attendance___default.a,
         EAttendance: __WEBPACK_IMPORTED_MODULE_7__components_EAttendance___default.a,
         Attention: __WEBPACK_IMPORTED_MODULE_8__components_Attention___default.a,
         SettingNumber: __WEBPACK_IMPORTED_MODULE_11__components_SettingNumber___default.a,
-        SecretNumber: __WEBPACK_IMPORTED_MODULE_17__components_SecretNumber___default.a,
-        Committee: __WEBPACK_IMPORTED_MODULE_19__components_Committee___default.a,
-        Results: __WEBPACK_IMPORTED_MODULE_20__components_Results___default.a,
+        SecretNumber: __WEBPACK_IMPORTED_MODULE_25__components_SecretNumber___default.a,
+        Committee: __WEBPACK_IMPORTED_MODULE_27__components_Committee___default.a,
+        Results: __WEBPACK_IMPORTED_MODULE_28__components_Results___default.a,
         EmployeeSalary: __WEBPACK_IMPORTED_MODULE_9__components_EmployeeSalary___default.a,
         AddSalary: __WEBPACK_IMPORTED_MODULE_10__components_AddSalary___default.a,
-        AddExpense: __WEBPACK_IMPORTED_MODULE_18__components_AddExpense___default.a,
+        AddExpense: __WEBPACK_IMPORTED_MODULE_26__components_AddExpense___default.a,
         StudentRepo: __WEBPACK_IMPORTED_MODULE_12__components_reports_Students___default.a,
         ParentRepo: __WEBPACK_IMPORTED_MODULE_13__components_reports_Parents___default.a,
-        AbsentStudentRepo: __WEBPACK_IMPORTED_MODULE_14__components_reports_AbsentStudent___default.a,
-        AbsentEmpRepo: __WEBPACK_IMPORTED_MODULE_15__components_reports_AbsentEmp___default.a,
-        GenderRepo: __WEBPACK_IMPORTED_MODULE_16__components_reports_Gender___default.a
-    }
+        AbsentStudentRepo: __WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent___default.a,
+        AbsentEmpRepo: __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp___default.a,
+        GenderRepo: __WEBPACK_IMPORTED_MODULE_24__components_reports_Gender___default.a,
+        NewStatusRepo: __WEBPACK_IMPORTED_MODULE_14__components_reports_NewStatusRepo___default.a,
+        NewcomerRepo: __WEBPACK_IMPORTED_MODULE_15__components_reports_NewcomerRepo___default.a,
+        TransportedRepo: __WEBPACK_IMPORTED_MODULE_16__components_reports_TransportedRepo___default.a,
+        TransferRepo: __WEBPACK_IMPORTED_MODULE_17__components_reports_TransferRepo___default.a,
+        FailureRepo: __WEBPACK_IMPORTED_MODULE_18__components_reports_FailureRepo___default.a,
+        BlindRepo: __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo___default.a
+    }, _defineProperty(_components, 'BlindRepo', __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo___default.a), _defineProperty(_components, 'DoctrineRepo', __WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo___default.a), _defineProperty(_components, 'ClassListRepo', __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo___default.a), _components)
 
 });
 
@@ -71417,6 +71451,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71444,7 +71485,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             var classEdu = this.classEdu;
             var classRoom = this.classRoom;
             $(function () {
-                $('#users-table').DataTable(_defineProperty({
+                var t = $('#users-table').DataTable(_defineProperty({
                     dom: 'Bfrtip',
                     buttons: [{
                         extend: 'print',
@@ -71464,30 +71505,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
                     }],
                     columnDefs: [{
-                        visible: false
+                        visible: false,
+                        targets: 0
                     }],
                     processing: false,
-                    serverSide: true,
-                    ajax: 'https://kamel-ouda.com/admin/get_students?class=' + classEdu + '&classroom=' + classRoom,
-                    columns: [{ data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'status', name: 'status',
-                        "render": function render(val, type, row) {
-                            if (val == 1) {
-                                return "New";
-                            } else if (val == 2) {
-                                return "Transported";
-                            } else if (val == 3) {
-                                return "Newcomer";
-                            }
-                        }
-                    }, { data: 'nationality', name: 'nationality' }, { data: "gender", name: 'gender',
-                        "render": function render(val, type, row) {
-                            if (val == null) {
-                                return "Nothing";
-                            } else {
-                                return val == 1 ? "Male" : "Female";
-                            }
-                        }
-                    }, { data: 'birth_date', name: 'birth_date' }, { data: 'birth_date', name: 'birth_date',
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'birth_date', name: 'birth_date' }, { data: 'birth_date', name: 'birth_date',
                         'render': function render(val, type, row) {
                             var birth = new Date(val); // Year From BirthDate
                             var today = new Date();
@@ -71498,7 +71522,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             var birth = new Date(val); // Year From BirthDate
                             var today = new Date();
                             var oct = new Date(today.getFullYear() + '-10-1');
-                            console.log(birth.getDay());
                             return oct.getMonth() + 1 - (birth.getMonth() + 1);
                         } }, { data: 'birth_date', name: 'birth_date',
                         'render': function render(val, type, row) {
@@ -71506,7 +71529,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             var today = new Date();
                             var oct = new Date(today.getFullYear() + '-10-1');
                             return oct.getFullYear() - birth.getFullYear();
-                        } }, { data: 'address', name: 'address' }, { data: 'national_id', name: 'national_id' }]
+                        } }, { data: 'status', name: 'status',
+                        "render": function render(val, type, row) {
+                            if (val == 1) {
+                                return "مستجد";
+                            } else if (val == 2) {
+                                return "منقول";
+                            } else if (val == 3) {
+                                return "وافد";
+                            } else if (val == 4) {
+                                return "محول";
+                            } else if (val == 5) {
+                                return "راسب";
+                            }
+                        }
+                    }, { data: 'joining_date', name: 'joining_date',
+                        "render": function render(val, type, row) {
+                            var join = new Date(val);
+                            return join.getFullYear();
+                        } }, { data: 'nationality', name: 'nationality' }, { data: "gender", name: 'gender',
+                        "render": function render(val, type, row) {
+                            if (val == null) {
+                                return "Nothing";
+                            } else {
+                                return val == 1 ? "ذكر" : "إنثى";
+                            }
+                        }
+                    }, { data: 'father_mobile', name: 'father_mobile' }, { data: 'mother_mobile', name: 'mother_mobile' }, { data: 'father_job', name: 'father_job' }, { data: 'address', name: 'address' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
                     // `data` option, which defaults to the column being worked with, in
@@ -71518,8 +71567,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             return row.name + ' ' + row.last_name;
                         }
                     },
-                    "targets": 0
-                }, { "visible": false, "targets": [1] }]));
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
             });
         }
     }
@@ -71552,63 +71607,154 @@ var render = function() {
                   _c("thead", [
                     _c("tr", { staticStyle: { display: "none" } }, [
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            "الأسم الاخير"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Situation")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Birth")) + "تاريخ الميلاد"
+                        )
                       ]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.National")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Gender")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Birth")))]),
                       _vm._v(" "),
                       _c("th", { attrs: { colspan: "3" } }, [
-                        _vm._v(_vm._s(_vm.trans("reports.Data Oct")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Data Oct")) +
+                            "السن في أول اكتوبر"
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Address")))]),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Situation")) + "الحالة"
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.National ID")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.National")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Gender")) + "النوع")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Address")) + "العنوان")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "تليفون الأب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Mother Mobile")) +
+                            "تليفون الأم"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Joining Date")) +
+                            "وظيفة الأب"
+                        )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            "الأسم الأخير"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Situation")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Birth")) + "تاريخ الميلاد"
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.National")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Gender")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Birth")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Day")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Month")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Year")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Address")))]),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Day")) + "يوم")
+                      ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.National ID")))
+                        _vm._v(_vm._s(_vm.trans("reports.Month")) + "شهر")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Year")) + "سنة")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Situation")) + "الحالة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.National")) + "سنة الألتحاق"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Joining Date")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Gender")) + "النوع")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Address")) + "العنوان")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "تليفون الأب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Mother Mobile")) +
+                            "تليفون الأم"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Joining Date")) +
+                            "وظيفة الأب"
+                        )
                       ])
                     ])
                   ])
@@ -71724,7 +71870,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -71752,7 +71897,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             var classEdu = this.classEdu;
             var classRoom = this.classRoom;
             $(function () {
-                $('#users-table').DataTable(_defineProperty({
+                var t = $('#users-table').DataTable(_defineProperty({
                     dom: 'Bfrtip',
                     buttons: [{
                         extend: 'print',
@@ -71772,12 +71917,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
                     }],
                     columnDefs: [{
-                        visible: false
+                        visible: false,
+                        targets: 0
                     }],
                     processing: false,
-                    serverSide: true,
-                    ajax: 'https://kamel-ouda.com/admin/get_students?class=' + classEdu + '&classroom=' + classRoom,
-                    columns: [{ data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'last_name', name: 'last_name' }, { data: "father_job", name: 'father_job' }, { data: 'father_mobile', name: 'father_mobile' }, { data: 'father_tel', name: 'father_tel' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'mother_job', name: 'mother_job' }, { data: 'mother_mobile', name: 'mother_mobile' }, { data: 'mother_tel', name: 'mother_tel' }, { data: 'mother_qualified', name: 'mother_qualified' }, { data: 'mobile', name: 'mobile' }, { data: 'tel', name: 'tel' }]
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: null }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'last_name', name: 'last_name' }, { data: "father_job", name: 'father_job' }, { data: 'father_mobile', name: 'father_mobile' }, { data: 'father_tel', name: 'father_tel' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'mother_job', name: 'mother_job' }, { data: 'mother_mobile', name: 'mother_mobile' }, { data: 'mother_tel', name: 'mother_tel' }, { data: 'mother_qualified', name: 'mother_qualified' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
                     // `data` option, which defaults to the column being worked with, in
@@ -71789,8 +71935,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                             return row.name + ' ' + row.last_name;
                         }
                     },
-                    "targets": 0
-                }, { "visible": false, "targets": [1] }]));
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
             });
         }
     }
@@ -71822,57 +71973,88 @@ var render = function() {
                 [
                   _c("thead", [
                     _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + " أسم الأب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Job")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            " وظيفة الأب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Mobile")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            " محمول الأب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) +
+                            " تليقون الأب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Qualified Father")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Qualified Father")) +
+                            " مؤهل الأب"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Mother Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Mother Name")) + "أسم الأم"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Mother Job")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Mother Job")) + "وظيفة الأم"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Mother Mobile")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Mother Mobile")) +
+                            " محمول الأم"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Mother Tel")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Mother Tel")) +
+                            "تليفون الأم"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Qualified Mother")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Mobile")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Tel")))])
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Qualified Mother")) +
+                            " مؤهل الأم"
+                        )
+                      ])
                     ])
                   ])
                 ]
@@ -72574,6 +72756,11 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
 //
 //
 //
@@ -72610,7 +72797,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fetch: function fetch() {
             $(function () {
-                $('#users-table').DataTable({
+                $('#users-table').DataTable(_defineProperty({
                     dom: 'Bfrtip',
                     buttons: [{
                         extend: 'print',
@@ -72630,13 +72817,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
                     }],
                     columnDefs: [{
-                        visible: false
+                        visible: false,
+                        targets: 0
                     }],
                     processing: false,
-                    serverSide: true,
+                    serverSide: false,
                     ajax: 'https://kamel-ouda.com/admin/get-gender',
-                    columns: [{ data: 'name', name: 'name' }, { data: 'maleStudents', name: 'maleStudents' }, { data: 'femaleStudents', name: 'femaleStudents' }]
-                });
+                    columns: [{ data: 'id', name: 'id' }, { data: 'name', name: 'name' }, { data: 'maleStudents', name: 'maleStudents' }, { data: 'femaleStudents', name: 'femaleStudents' }, { data: null }, { data: 'classRoomCount', name: 'classRoomCount' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        return +row.maleStudents + +row.femaleStudents;
+                    },
+                    "targets": 4
+                }, { "visible": false, "targets": [0] }]));
             });
         }
     }
@@ -72667,12 +72863,34 @@ var render = function() {
                   _c("thead", [
                     _c("tr", [
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Class Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Class Name")) + "اسم الصف"
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Male")))]),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Class Name")) + "اسم الصف"
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Female")))])
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Male")) + "ذكر")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Female")) + "إنثى")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Total")) + "الأجمالى")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Class Room")) + "الفصول"
+                        )
+                      ])
                     ])
                   ])
                 ]
@@ -91176,6 +91394,2107 @@ r[t.label]=e,r)),t._v(" "),t.multiple?n("button",{staticClass:"close",attrs:{dis
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(317)
+/* template */
+var __vue_template__ = __webpack_require__(318)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\NewcomerRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-a35a5d58", Component.options)
+  } else {
+    hotAPI.reload("data-v-a35a5d58", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 317 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-newcomer?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-a35a5d58", module.exports)
+  }
+}
+
+/***/ }),
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(320)
+/* template */
+var __vue_template__ = __webpack_require__(321)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\NewStatusRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-07087680", Component.options)
+  } else {
+    hotAPI.reload("data-v-07087680", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 320 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-new-status?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 321 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-07087680", module.exports)
+  }
+}
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(323)
+/* template */
+var __vue_template__ = __webpack_require__(324)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\TransportedRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f178d154", Component.options)
+  } else {
+    hotAPI.reload("data-v-f178d154", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 323 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-transported?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f178d154", module.exports)
+  }
+}
+
+/***/ }),
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(326)
+/* template */
+var __vue_template__ = __webpack_require__(327)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\TransferRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6afa0ff1", Component.options)
+  } else {
+    hotAPI.reload("data-v-6afa0ff1", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 326 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-transfer?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6afa0ff1", module.exports)
+  }
+}
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(329)
+/* template */
+var __vue_template__ = __webpack_require__(330)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\FailureRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-50c0bb58", Component.options)
+  } else {
+    hotAPI.reload("data-v-50c0bb58", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 329 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-failure?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 330 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-50c0bb58", module.exports)
+  }
+}
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(332)
+/* template */
+var __vue_template__ = __webpack_require__(333)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\BlindRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-232d9723", Component.options)
+  } else {
+    hotAPI.reload("data-v-232d9723", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 332 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-blind?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 333 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-232d9723", module.exports)
+  }
+}
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(335)
+/* template */
+var __vue_template__ = __webpack_require__(336)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\DoctrineRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-652f7770", Component.options)
+  } else {
+    hotAPI.reload("data-v-652f7770", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 335 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-doctrine?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'doctrine', name: 'doctrine',
+                        "render": function render(val, type, row) {
+                            if (val == 1) {
+                                return "الشافعى";
+                            } else if (val == 2) {
+                                return 'الحنفى';
+                            } else if (val == 3) {
+                                return 'المالكى';
+                            } else if (val == 4) {
+                                return 'الحنبلى';
+                            }
+                        }
+                    }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) + " المذهب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Name")) + "الجنسية"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Job")) +
+                            "تاريخ الميلاد"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Mobile")) +
+                            "الرقم الفومى"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "العنوان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Father Tel")) + "المرحلة"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")) + "الصف")
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-652f7770", module.exports)
+  }
+}
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(338)
+/* template */
+var __vue_template__ = __webpack_require__(339)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\ClassListRepo.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-194151f8", Component.options)
+  } else {
+    hotAPI.reload("data-v-194151f8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 338 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { Fab: __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default.a },
+    data: function data() {
+        return {
+            stageEdu: localStorage.stageEdu,
+            classEdu: localStorage.classEdu,
+            classRoom: localStorage.classRoom
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        parsist: function parsist(stageEdu, classEdu, classRoom) {
+            this.stageEdu = stageEdu;
+            this.classEdu = classEdu;
+            this.classRoom = classRoom;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        fetch: function fetch() {
+            var classEdu = this.classEdu;
+            var classRoom = this.classRoom;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'https://kamel-ouda.com/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Student Name")) +
+                            "أسم الطالب"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            " الأسم الاخير"
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("fab", { on: { parsist: _vm.parsist } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-194151f8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

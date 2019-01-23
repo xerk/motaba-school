@@ -14,6 +14,14 @@ import AddSalary from './components/AddSalary'
 import SettingNumber from './components/SettingNumber'
 import StudentRepo from './components/reports/Students'
 import ParentRepo from './components/reports/Parents'
+import NewStatusRepo from './components/reports/NewStatusRepo'
+import NewcomerRepo from './components/reports/NewcomerRepo'
+import TransportedRepo from './components/reports/TransportedRepo'
+import TransferRepo from './components/reports/TransferRepo'
+import FailureRepo from './components/reports/FailureRepo'
+import BlindRepo from './components/reports/BlindRepo'
+import DoctrineRepo from './components/reports/DoctrineRepo'
+import ClassListRepo from './components/reports/ClassListRepo'
 import AbsentStudentRepo from './components/reports/AbsentStudent'
 import AbsentEmpRepo from './components/reports/AbsentEmp'
 import GenderRepo from './components/reports/Gender'
@@ -90,7 +98,16 @@ const app = new Vue({
         ParentRepo,
         AbsentStudentRepo,
         AbsentEmpRepo,
-        GenderRepo
+        GenderRepo,
+        NewStatusRepo,
+        NewcomerRepo,
+        TransportedRepo,
+        TransferRepo,
+        FailureRepo,
+        BlindRepo,
+        BlindRepo,
+        DoctrineRepo,
+        ClassListRepo,
     },
     
 });

@@ -10,16 +10,12 @@
                                 <th></th>
                                 <th>{{ trans('reports.Student Name')}}أسم الطالب</th>
                                 <th>{{ trans('reports.Last Name')}} الأسم الاخير</th>
-                                <th>{{ trans('reports.Father Name')}} أسم الأب</th>
-                                <th>{{ trans('reports.Father Job')}} وظيفة الأب</th>
-                                <th>{{ trans('reports.Father Mobile')}} محمول الأب</th>
-                                <th>{{ trans('reports.Father Tel')}} تليقون الأب</th>
-                                <th>{{ trans('reports.Qualified Father')}} مؤهل الأب</th>
-                                <th>{{ trans('reports.Mother Name')}}أسم الأم</th>
-                                <th>{{ trans('reports.Mother Job')}}وظيفة الأم</th>
-                                <th>{{ trans('reports.Mother Mobile')}} محمول الأم</th>
-                                <th>{{ trans('reports.Mother Tel')}}تليفون الأم</th>
-                                <th>{{ trans('reports.Qualified Mother')}} مؤهل الأم</th>
+                                <th>{{ trans('reports.Father Name')}}الجنسية</th>
+                                <th>{{ trans('reports.Father Job')}}تاريخ الميلاد</th>
+                                <th>{{ trans('reports.Father Mobile')}}الرقم الفومى</th>
+                                <th>{{ trans('reports.Father Tel')}}العنوان</th>
+                                <th>{{ trans('reports.Father Tel')}}المرحلة</th>
+                                <th>{{ trans('reports.Father Tel')}}الصف</th>
                             </tr>
                         </thead>
                     </table>
@@ -87,21 +83,17 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `https://kamel-ouda.com/admin/get-failure?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
-                        { data: null },
+                        { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
                         { data: 'last_name', name: 'last_name' },
-                        { data: 'last_name', name: 'last_name' },
-                        { data: "father_job", name: 'father_job'},
-                        { data: 'father_mobile', name: 'father_mobile' },
-                        { data: 'father_tel', name: 'father_tel'},
-                        { data: 'father_qualified', name: 'father_qualified'},
-                        { data: 'father_qualified', name: 'father_qualified'},
-                        { data: 'mother_job', name: 'mother_job'},
-                        { data: 'mother_mobile', name: 'mother_mobile' },
-                        { data: 'mother_tel', name: 'mother_tel' },
-                        { data: 'mother_qualified', name: 'mother_qualified' },
+                        { data: "nationality", name: 'nationality'},
+                        { data: 'birth_date', name: 'birth_date' },
+                        { data: 'national_id', name: 'national_id' },
+                        { data: 'address', name: 'address' },
+                        { data: 'stage_edu.name', name: 'stage_edu.name' },
+                        { data: 'class_edu.name', name: 'class_edu.name' },
 
                     ],
                     "columnDefs": [
@@ -125,6 +117,7 @@ export default {
                 t.on( 'order.dt search.dt', function () {
                     t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                         cell.innerHTML = i+1;
+                        t.cell(cell).invalidate('dom'); 
                     } );
                 } ).draw();
             });

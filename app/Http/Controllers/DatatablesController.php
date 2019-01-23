@@ -33,6 +33,17 @@ class DatatablesController extends Controller
     }
 
     /**
+     * Displays datatables front end view
+     *
+     * @return \Illuminate\View\View
+     */
+    public function getIndexClassList()
+    {
+        $browes = Voyager::canOrFail('browse_class_list_reports');
+        return view('vendor.voyager.reports.class-list');
+    }
+
+    /**
      * Process datatables ajax request.
      *
      * @return \Illuminate\Http\JsonResponse
@@ -50,6 +61,6 @@ class DatatablesController extends Controller
         } else {
             $users = User::where('job', 1);
         }
-        return Datatables::of($users)->make(true);
+        return Datatables::of($users)->toJson();
     }
 }

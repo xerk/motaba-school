@@ -8,9 +8,12 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>{{ trans('reports.Class Name')}}</th>
-                                        <th>{{ trans('reports.Male')}}</th>
-                                        <th>{{ trans('reports.Female')}}</th>
+                                        <th>{{ trans('reports.Class Name')}}اسم الصف</th>
+                                        <th>{{ trans('reports.Class Name')}}اسم الصف</th>
+                                        <th>{{ trans('reports.Male')}}ذكر</th>
+                                        <th>{{ trans('reports.Female')}}إنثى</th>
+                                        <th>{{ trans('reports.Total')}}الأجمالى</th>
+                                        <th>{{ trans('reports.Class Room')}}الفصول</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -59,15 +62,32 @@ export default {
                         }
                     ],
                     columnDefs: [ {
-                        visible: false
+                        visible: false,
+                        targets: 0,
                     } ],
                     processing: false,
-                    serverSide: true,
+                    serverSide: false,
                     ajax: `https://kamel-ouda.com/admin/get-gender`,
                     columns: [
+                        { data: 'id', name: 'id' },
                         { data: 'name', name: 'name' },
                         { data: 'maleStudents', name: 'maleStudents' },
                         { data: 'femaleStudents', name: 'femaleStudents' },
+                        { data: null },
+                        { data: 'classRoomCount', name: 'classRoomCount' },
+                    ],
+                    "columnDefs": [
+                        {
+                            // The `data` parameter refers to the data for the cell (defined by the
+                            // `data` option, which defaults to the column being worked with, in
+                            // this case `data: 0`.
+                            "render": function ( data, type, row ) {
+                                return +row.maleStudents + +row.femaleStudents;
+                            },
+                            "targets": 4
+                        },
+                        { "visible": false,  "targets": [ 0 ] },
+                    
                     ],
                 });
             });

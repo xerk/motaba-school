@@ -45,8 +45,4 @@ return [
     'Day' => 'Day',
     'Month' => 'Month',
     'Year' => 'Year',
-    'Next' => 'Next',
-    'Next' => 'Next',
-    'Next' => 'Next',
-    'Next' => 'Next',
 ];
