@@ -62,5 +62,11 @@ return [
     'Hiden Content' => 'Hiden Content',
     'Are you sure you want to delete this EmpyloeeSalary?' => 'Are you sure you want to delete this EmpyloeeSalary?',
     'Absent Per Day' => 'Absent Per Day',
+    'May Grant' => 'May Grant',
+    'Variable Wages' => 'Variable Wages',
+    'Previous years bonuses' => 'Previous years bonuses',
+    'Bonus' => 'Bonus',
+    'Share of employer' => 'Share of employer',
+
 
 ];

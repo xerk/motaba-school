@@ -63,6 +63,12 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="username">{{ __('voyager::generic.username') }}</label>
+                                <input type="username" class="form-control" id="username" name="username" placeholder="{{ __('voyager::generic.username') }}"
+                                        value="@if(isset($dataTypeContent->username)){{ $dataTypeContent->username }}@endif">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="password">{{ __('voyager::generic.password') }}</label>
                                 @if(isset($dataTypeContent->password))
                                     <br>
@@ -222,6 +228,13 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
+                                        <label for="area_code">Area Code</label>
+                                        <input type="text" class="form-control" id="area_code" name="area_code" placeholder="Area Code"
+                                                value="@if(isset($dataTypeContent->area_code)){{ $dataTypeContent->area_code }}@endif">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
                                         <label for="status">Status</label>
                                         <select class="form-control select2" id="status" name="status">
                                             <option {{ ($selected_status == null ? 'selected' : '') }} value="">None</option>
@@ -298,6 +311,60 @@
                                                 <option value="{{ $classRoom->id }}"
                                                 {{ ($classRoom->id == $selected_classRoom ? 'selected' : '') }}>{{ $classRoom->name }} - {{ $classRoom->classEdu->name }}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    @php
+                                    if (isset($dataTypeContent->sight)) {
+                                        $selected_sight = $dataTypeContent->sight;
+                                    } else {
+                                        $selected_sight = '';
+                                    }
+                                    @endphp
+                                    <div class="form-group">
+                                        <label for="sight">Sight</label>
+                                        <select class="form-control select2" id="sight" name="sight">
+                                            <option {{ ($selected_sight == null ? 'selected' : '') }} value="">None</option>
+                                            <option {{ ($selected_sight == 1 ? 'selected' : '') }} value="1">Visualized</option>
+                                            <option {{ ($selected_sight == 0 ? 'selected' : '') }} value="0">Blind</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    @php
+                                    if (isset($dataTypeContent->student_status)) {
+                                        $selected_student_status = $dataTypeContent->student_status;
+                                    } else {
+                                        $selected_student_status = '';
+                                    }
+                                    @endphp
+                                    <div class="form-group">
+                                        <label for="student_status">Student Status</label>
+                                        <select class="form-control select2" id="student_status" name="student_status">
+                                            <option {{ ($selected_student_status == null ? 'selected' : '') }} value="">None</option>
+                                            <option {{ ($selected_student_status == 0 ? 'selected' : '') }} value="0">Normal</option>
+                                            <option {{ ($selected_student_status == 1 ? 'selected' : '') }} value="1">listener</option>
+                                            <option {{ ($selected_student_status == 2 ? 'selected' : '') }} value="2">Orphan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    @php
+                                    if (isset($dataTypeContent->doctrine)) {
+                                        $selected_doctrine = $dataTypeContent->doctrine;
+                                    } else {
+                                        $selected_doctrine = '';
+                                    }
+                                    @endphp
+                                    <div class="form-group">
+                                        <label for="doctrine">Doctrine</label>
+                                        <select class="form-control select2" id="doctrine" name="doctrine">
+                                            <option {{ ($selected_doctrine == null ? 'selected' : '') }} value="">None</option>
+                                            <option {{ ($selected_doctrine == 1 ? 'selected' : '') }} value="1">Shafei</option>
+                                            <option {{ ($selected_doctrine == 2 ? 'selected' : '') }} value="2">Hanafi</option>
+                                            <option {{ ($selected_doctrine == 3 ? 'selected' : '') }} value="3">Al Malki</option>
+                                            <option {{ ($selected_doctrine == 4 ? 'selected' : '') }} value="4">Hambali</option>
                                         </select>
                                     </div>
                                 </div>

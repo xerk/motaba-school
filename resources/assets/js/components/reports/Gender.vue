@@ -67,7 +67,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-gender`,
+                    ajax: `http://localhost:8000/admin/get-gender`,
                     columns: [
                         { data: 'id', name: 'id' },
                         { data: 'name', name: 'name' },

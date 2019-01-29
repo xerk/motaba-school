@@ -88,7 +88,7 @@ Route::group(['as' => 'frontend.'], function () {
 
     })->name('locale');
 
-    // Route::get('/setting', 'SettingAccountController@index')->name('setting')->middleware('admin.user');
+    Route::get('/setting', 'SettingAccountController@index')->name('setting')->middleware('admin.user');
 
     Route::get('/@{username}', 'ProfileAccountController@index')->name('profile')->middleware('admin.user');
 

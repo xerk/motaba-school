@@ -113,7 +113,7 @@
                                 <li><a href="{{ route('frontend.profile', Auth::user()->username) }}"><span uk-icon="icon: user"></span>My
                                         Profile</a></li>
                                 <li><a href="{{ route('frontend.attentions', Auth::user()->username) }}"><span uk-icon="icon: thumbnails"></span>Attentions</a></li>
-                                <li><a href="{{ route('frontend.setting') }}"><span uk-icon="icon: cog"></span>Settings</a></li>
+                                {{-- <li><a href="{{ route('frontend.setting') }}"><span uk-icon="icon: cog"></span>Settings</a></li> --}}
                                 <li class="uk-hidden@m"><a href="https://wave.devdojo.com/notifications"><span uk-icon="icon: bell"></span>My
                                         Notifications</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

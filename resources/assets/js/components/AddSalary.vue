@@ -12,6 +12,11 @@
                                         <th>{{ trans('salary.Full Name') }}</th>
                                         <th>{{ trans('salary.Last name') }}</th>
                                         <th>{{ trans('salary.Cost') }}</th>
+                                        <th>{{ trans('salary.May Grant') }}</th>
+                                        <th>{{ trans('salary.Variable Wages') }}</th>
+                                        <th>{{ trans('salary.Previous years bonuses') }}</th>
+                                        <th>{{ trans('salary.Bonus') }}</th>
+                                        <th>{{ trans('salary.Share of employer') }}</th>
                                         <th>{{ trans('salary.Absent Per Day') }}</th>
                                     </tr>
                                 </thead>
@@ -48,6 +53,11 @@
                         table: "#example",
                         fields: [
                             { label: "Cost:", name: "add_salaries.cost" },
+                            { label: "May Grant:", name: "add_salaries.may_grant" },
+                            { label: "Variable Wages:", name: "add_salaries.variable_wages" },
+                            { label: "Previous years bonuses:", name: "add_salaries.prev_year_bonus" },
+                            { label: "Bonus:", name: "add_salaries.bonus" },
+                            { label: "Share Employer:", name: "add_salaries.share_employer" },
                             { label: "Cost:", name: "add_salaries.absent_day" },
                         ]
                     });
@@ -70,15 +80,20 @@
                             { data: "users.name" },
                             { data: "users.last_name" },
                             { data: "add_salaries.cost", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
+                            { data: "add_salaries.may_grant", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
+                            { data: "add_salaries.variable_wages", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
+                            { data: "add_salaries.prev_year_bonus", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
+                            { data: "add_salaries.bonus", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
+                            { data: "add_salaries.share_employer", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
                             { data: "add_salaries.absent_day", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) },
                             
                         ],
                         autoFill: {
-                            columns: [3,4],
+                            columns: [3,4,5,6,7,8,9],
                             editor:  editor
                         },
                         keys: {
-                            columns: [3,4],
+                            columns: [3,4,5,6,7,8,9],
                             editor:  editor
                         },
                         select: {

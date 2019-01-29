@@ -14,7 +14,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-primary">
-                                            ${{ addSalary.cost }}
+                                            {{ cost =  addSalary.cost + addSalary.bonus + addSalary.may_grant + addSalary.prev_year_bonus + addSalary.share_employer + addSalary.variable_wages }}
                                         </span>
                                     </div>
                                 </div>
@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
-                                            ${{ absent = addSalary.absent_day * absentCount}}
+                                            {{ absent = addSalary.absent_day * absentCount}}
                                         </span>
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
-                                            ${{ allowances }}
+                                            {{ allowances }}
                                         </span>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
-                                            ${{ deductions }}
+                                            {{ deductions }}
                                         </span>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
-                                            ${{ (parseInt(addSalary.cost) +  parseInt(allowances)) - (parseInt(deductions) + parseInt(absent)) }}
+                                            {{ (parseInt(cost) +  parseInt(allowances)) - (parseInt(deductions) + parseInt(absent)) }}
                                         </span>
                                     </div>
                                 </div>
@@ -165,8 +165,8 @@
                                             <span v-if="item.status == 4" class="label label-warning">{{ trans('salary.Late') }}</span>
                                         </td>
                                         <td>{{ item.attend_date }}</td>
-                                        <td><b>${{ item.additional + item.bonus + item.incentive + item.reward + item.allowance }}</b></td>
-                                        <td><b>${{ item.loan + item.penalty + item.discount }}</b></td>
+                                        <td><b>{{ item.additional + item.bonus + item.incentive + item.reward + item.allowance }}</b></td>
+                                        <td><b>{{ item.loan + item.penalty + item.discount }}</b></td>
                                         <td class="actions">
                                             <a href.prevent="" @click="editAdd(item)" class="btn btn-sm btn-primary pull-right" style="display:inline; margin-right:10px;">
                                                 <i class="voyager-edit"></i> {{ trans('salary.Modify') }}
@@ -318,7 +318,7 @@
         },
         methods: {
             paymentClickModal() {
-                var tSalary = (parseInt(this.addSalary.cost) +  parseInt(this.allowances)) - (parseInt(this.deductions) + parseInt((this.addSalary.absent_day * this.absentCount)))
+                var tSalary = (parseInt(this.cost) +  parseInt(this.allowances)) - (parseInt(this.deductions) + parseInt((this.addSalary.absent_day * this.absentCount)))
                 this.model.netSalary = tSalary
                 this.model.paymentAmount = tSalary
                 this.paymentModal = true

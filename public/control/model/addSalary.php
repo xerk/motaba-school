@@ -34,7 +34,16 @@ use
 			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.absent_day' )
 			->validator( 'Validate::numeric' ),
-		
+		Field::inst( 'add_salaries.may_grant' )
+			->validator( 'Validate::numeric' ),
+		Field::inst( 'add_salaries.prev_year_bonus' )
+			->validator( 'Validate::numeric' ),
+		Field::inst( 'add_salaries.share_employer' )
+			->validator( 'Validate::numeric' ),
+		Field::inst( 'add_salaries.variable_wages' )
+			->validator( 'Validate::numeric' ),
+		Field::inst( 'add_salaries.bonus' )
+			->validator( 'Validate::numeric' ),
 		
 		Field::inst( 'add_salaries.created_at' )->set( Field::SET_EDIT ),
 		Field::inst( 'add_salaries.updated_at' )->set( Field::SET_EDIT )

@@ -105,7 +105,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `http://localhost:8000/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
@@ -162,11 +162,11 @@ export default {
                                 }
                             }
                         },
+                        { data: 'address', name: 'address' },
                         { data: 'father_mobile', name: 'father_mobile' },
                         { data: 'mother_mobile', name: 'mother_mobile' },
                         { data: 'father_job', name: 'father_job' },
                         
-                        { data: 'address', name: 'address' },
 
                     ],
                     "columnDefs": [
