@@ -17,10 +17,10 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>{{ trans('reports.Student Name')}}</th>
-                                        <th>{{ trans('reports.Last Name')}}</th>
-                                        <th>{{ trans('reports.Date')}}</th>
-                                        <th>{{ trans('reports.Status')}}</th>
+                                        <th>{{ trans('reports.Student Name')}}أسم الطالب</th>
+                                        <th>{{ trans('reports.Last Name')}}الأسم الاخير</th>
+                                        <th>{{ trans('reports.Date')}}التاريخ</th>
+                                        <th>{{ trans('reports.Status')}}الحالة</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -99,7 +99,7 @@ export default {
                         { data: 'status', name: 'status',
                         "render": function (val, type, row) {
                                 if (val == 3) {
-                                    return '<span class="label label-danger">Absent</span>';
+                                    return '<span class="label label-danger">غائب</span>';
                                 }  
                             }
                         },

@@ -74352,7 +74352,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     columns: [{ data: 'users', name: 'users.name' }, { data: 'users', name: 'users.last_name' }, { data: 'attend_date', name: 'attend_date' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 3) {
-                                return '<span class="label label-danger">Absent</span>';
+                                return '<span class="label label-danger">غائب</span>';
                             }
                         }
                     }]
@@ -74491,16 +74491,26 @@ var render = function() {
                     _c("thead", [
                       _c("tr", [
                         _c("th", [
-                          _vm._v(_vm._s(_vm.trans("reports.Student Name")))
+                          _vm._v(
+                            _vm._s(_vm.trans("reports.Student Name")) +
+                              "أسم الطالب"
+                          )
                         ]),
                         _vm._v(" "),
                         _c("th", [
-                          _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                          _vm._v(
+                            _vm._s(_vm.trans("reports.Last Name")) +
+                              "الأسم الاخير"
+                          )
                         ]),
                         _vm._v(" "),
-                        _c("th", [_vm._v(_vm._s(_vm.trans("reports.Date")))]),
+                        _c("th", [
+                          _vm._v(_vm._s(_vm.trans("reports.Date")) + "التاريخ")
+                        ]),
                         _vm._v(" "),
-                        _c("th", [_vm._v(_vm._s(_vm.trans("reports.Status")))])
+                        _c("th", [
+                          _vm._v(_vm._s(_vm.trans("reports.Status")) + "الحالة")
+                        ])
                       ])
                     ])
                   ]
@@ -74660,7 +74670,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     columns: [{ data: 'users', name: 'users.name' }, { data: 'users', name: 'users.last_name' }, { data: 'attend_date', name: 'attend_date' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 3) {
-                                return '<span class="label label-danger">Absent</span>';
+                                return '<span class="label label-danger">غائب</span>';
                             }
                         }
                     }]
@@ -74796,16 +74806,26 @@ var render = function() {
                   _c("thead", [
                     _c("tr", [
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Employee Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Employee Name")) +
+                            "أسم الموظف"
+                        )
                       ]),
                       _vm._v(" "),
                       _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
+                        _vm._v(
+                          _vm._s(_vm.trans("reports.Last Name")) +
+                            "الأسم الاخير"
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Date")))]),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Date")) + "التاريخ")
+                      ]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Status")))])
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("reports.Status")) + "الحالة")
+                      ])
                     ])
                   ])
                 ]
