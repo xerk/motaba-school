@@ -36,6 +36,19 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
+                                        <span class="show-field">{{ trans('salary.Late') }} (${{ addSalary.late_day }}):</span>                                
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="show-result">
+                                            {{ late = addSalary.late_day * lateCount}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">
                                         <span class="show-field">{{ trans('salary.Total Allowances') }}:</span>                                
                                     </div>
                                     <div class="col-md-4">
@@ -66,7 +79,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
-                                            {{ (parseInt(cost) +  parseInt(allowances)) - (parseInt(deductions) + parseInt(absent)) }}
+                                            {{ (parseInt(cost) +  parseInt(allowances)) - (parseInt(deductions) + parseInt(absent) + parseInt(late)) }}
                                         </span>
                                     </div>
                                 </div>

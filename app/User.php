@@ -98,6 +98,16 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Get the addSalary record associated with the user.
+     * 
+     * @return App\SecretNumber
+     */
+    public function addSalary()
+    {
+        return $this->hasOne('App\AddSalary');
+    }
+
+    /**
      * Show the User Belongs To StageEdu.
      *
      * @return App\ClassEdu

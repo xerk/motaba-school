@@ -61,6 +61,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('blind_reports', 'BlindReportController@getIndex')->name('reprots.blind.index')->middleware('admin.user');
     Route::get('get-doctrine', 'DoctrineReportController@anyData')->middleware('admin.user');
     Route::get('doctrine_reports', 'DoctrineReportController@getIndex')->name('reprots.doctrine.index')->middleware('admin.user');
+    Route::get('get-salary', 'SalaryReportController@anyData')->middleware('admin.user');
+    Route::get('salary_reports', 'SalaryReportController@getIndex')->name('reprots.salary.index')->middleware('admin.user');
 
     Route::get('/{vue_capture?}', function () {
         return view('vendor.voyager.attentions.attentions');

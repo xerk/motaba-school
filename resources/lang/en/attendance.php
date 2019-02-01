@@ -23,5 +23,5 @@ return [
     'Created At' => 'Created At',
     'Employees' => 'Employees',
     'Existing' => 'Existing',
-    'Existing' => 'Existing',
+    'Late' => 'Late',
 ];

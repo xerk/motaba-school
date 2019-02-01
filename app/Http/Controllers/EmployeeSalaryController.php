@@ -120,7 +120,7 @@ class EmployeeSalaryController extends Controller
     }
 
     public function getEmployees() {
-        $users = User::all();
+        $users = User::whereHas('addSalary')->get();
 
         return [
             'users' => $users

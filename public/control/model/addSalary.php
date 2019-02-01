@@ -34,6 +34,8 @@ use
 			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.absent_day' )
 			->validator( 'Validate::numeric' ),
+		Field::inst( 'add_salaries.late_day' )
+		->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.may_grant' )
 			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.prev_year_bonus' )

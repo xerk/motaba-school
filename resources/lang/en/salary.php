@@ -67,6 +67,7 @@ return [
     'Previous years bonuses' => 'Previous years bonuses',
     'Bonus' => 'Bonus',
     'Share of employer' => 'Share of employer',
+    'Late Per Day' => 'Late Per Day',
 
 
 ];

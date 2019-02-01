@@ -38399,43 +38399,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo__ = __webpack_require__(293);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent__ = __webpack_require__(296);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reports_Gender__ = __webpack_require__(302);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reports_Gender___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_reports_Gender__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_SecretNumber__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_SecretNumber___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_SecretNumber__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_AddExpense__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_AddExpense___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_AddExpense__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_Committee__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_Committee___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_Committee__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_Results__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_Results___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_Results__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_fab_Fab__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_fab_Fab__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_croppa__ = __webpack_require__(317);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_vue_croppa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_vue_croppa__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__store_store__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32_vee_validate__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_vue_moment__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_vue_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_vue_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_datetime__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36_vue_datetime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_datetime_dist_vue_datetime_css__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_datetime_dist_vue_datetime_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_vue_datetime_dist_vue_datetime_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_select__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_vue_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_reports_SalaryMonthely__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_reports_SalaryMonthely___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_reports_SalaryMonthely__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentStudent__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentStudent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentStudent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reports_AbsentEmp__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_reports_AbsentEmp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_reports_AbsentEmp__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_reports_Gender__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_reports_Gender___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_reports_Gender__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_SecretNumber__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_SecretNumber___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_SecretNumber__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_AddExpense__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_AddExpense___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_AddExpense__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_Committee__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_Committee___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_Committee__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_Results__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_Results___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_Results__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_fab_Fab__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30__components_fab_Fab__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_vue_croppa__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_vue_croppa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_vue_croppa__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__store_store__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_vee_validate__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_35_cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_moment__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_vue_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_36_vue_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_datetime__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_37_vue_datetime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_datetime_dist_vue_datetime_css__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38_vue_datetime_dist_vue_datetime_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_38_vue_datetime_dist_vue_datetime_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_select__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_39_vue_select__);
 var _components;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 __webpack_require__(35);
+
 
 
 
@@ -38492,13 +38495,13 @@ var toastrConfigs = {
     closeButton: false
 };
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_33_cxlt_vue2_toastr___default.a, toastrConfigs);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_35_vue_moment___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_32_vee_validate__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_34_cxlt_vue2_toastr___default.a, toastrConfigs);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_36_vue_moment___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_33_vee_validate__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_30_vue_croppa___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_36_vue_datetime___default.a);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_38_vue_select___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_31_vue_croppa___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_37_vue_datetime___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_39_vue_select___default.a);
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: __WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */],
     mode: 'history'
@@ -38516,34 +38519,34 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
     el: '#app',
     router: router,
-    store: __WEBPACK_IMPORTED_MODULE_31__store_store__["a" /* store */],
+    store: __WEBPACK_IMPORTED_MODULE_32__store_store__["a" /* store */],
     components: (_components = {
         SchoolConfigs: __WEBPACK_IMPORTED_MODULE_3__components_SchoolConfigs___default.a,
         YearConfigs: __WEBPACK_IMPORTED_MODULE_4__components_YearConfigs___default.a,
         SystemConfigs: __WEBPACK_IMPORTED_MODULE_5__components_SystemConfigs___default.a,
-        Fab: __WEBPACK_IMPORTED_MODULE_29__components_fab_Fab___default.a,
+        Fab: __WEBPACK_IMPORTED_MODULE_30__components_fab_Fab___default.a,
         Attendance: __WEBPACK_IMPORTED_MODULE_6__components_Attendance___default.a,
         EAttendance: __WEBPACK_IMPORTED_MODULE_7__components_EAttendance___default.a,
         Attention: __WEBPACK_IMPORTED_MODULE_8__components_Attention___default.a,
         SettingNumber: __WEBPACK_IMPORTED_MODULE_11__components_SettingNumber___default.a,
-        SecretNumber: __WEBPACK_IMPORTED_MODULE_25__components_SecretNumber___default.a,
-        Committee: __WEBPACK_IMPORTED_MODULE_27__components_Committee___default.a,
-        Results: __WEBPACK_IMPORTED_MODULE_28__components_Results___default.a,
+        SecretNumber: __WEBPACK_IMPORTED_MODULE_26__components_SecretNumber___default.a,
+        Committee: __WEBPACK_IMPORTED_MODULE_28__components_Committee___default.a,
+        Results: __WEBPACK_IMPORTED_MODULE_29__components_Results___default.a,
         EmployeeSalary: __WEBPACK_IMPORTED_MODULE_9__components_EmployeeSalary___default.a,
         AddSalary: __WEBPACK_IMPORTED_MODULE_10__components_AddSalary___default.a,
-        AddExpense: __WEBPACK_IMPORTED_MODULE_26__components_AddExpense___default.a,
+        AddExpense: __WEBPACK_IMPORTED_MODULE_27__components_AddExpense___default.a,
         StudentRepo: __WEBPACK_IMPORTED_MODULE_12__components_reports_Students___default.a,
         ParentRepo: __WEBPACK_IMPORTED_MODULE_13__components_reports_Parents___default.a,
-        AbsentStudentRepo: __WEBPACK_IMPORTED_MODULE_22__components_reports_AbsentStudent___default.a,
-        AbsentEmpRepo: __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentEmp___default.a,
-        GenderRepo: __WEBPACK_IMPORTED_MODULE_24__components_reports_Gender___default.a,
+        AbsentStudentRepo: __WEBPACK_IMPORTED_MODULE_23__components_reports_AbsentStudent___default.a,
+        AbsentEmpRepo: __WEBPACK_IMPORTED_MODULE_24__components_reports_AbsentEmp___default.a,
+        GenderRepo: __WEBPACK_IMPORTED_MODULE_25__components_reports_Gender___default.a,
         NewStatusRepo: __WEBPACK_IMPORTED_MODULE_14__components_reports_NewStatusRepo___default.a,
         NewcomerRepo: __WEBPACK_IMPORTED_MODULE_15__components_reports_NewcomerRepo___default.a,
         TransportedRepo: __WEBPACK_IMPORTED_MODULE_16__components_reports_TransportedRepo___default.a,
         TransferRepo: __WEBPACK_IMPORTED_MODULE_17__components_reports_TransferRepo___default.a,
         FailureRepo: __WEBPACK_IMPORTED_MODULE_18__components_reports_FailureRepo___default.a,
         BlindRepo: __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo___default.a
-    }, _defineProperty(_components, 'BlindRepo', __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo___default.a), _defineProperty(_components, 'DoctrineRepo', __WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo___default.a), _defineProperty(_components, 'ClassListRepo', __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo___default.a), _components)
+    }, _defineProperty(_components, 'BlindRepo', __WEBPACK_IMPORTED_MODULE_19__components_reports_BlindRepo___default.a), _defineProperty(_components, 'DoctrineRepo', __WEBPACK_IMPORTED_MODULE_20__components_reports_DoctrineRepo___default.a), _defineProperty(_components, 'ClassListRepo', __WEBPACK_IMPORTED_MODULE_21__components_reports_ClassListRepo___default.a), _defineProperty(_components, 'SalaryMonthelyRepo', __WEBPACK_IMPORTED_MODULE_22__components_reports_SalaryMonthely___default.a), _components)
 
 });
 
@@ -53496,6 +53499,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -54739,6 +54755,34 @@ var render = function() {
                       _c("div", { staticClass: "col-md-8" }, [
                         _c("span", { staticClass: "show-field" }, [
                           _vm._v(
+                            _vm._s(_vm.trans("salary.Late")) +
+                              " ($" +
+                              _vm._s(_vm.addSalary.late_day) +
+                              "):"
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c("span", { staticClass: "show-result" }, [
+                          _vm._v(
+                            "\n                                        " +
+                              _vm._s(
+                                (_vm.late =
+                                  _vm.addSalary.late_day * _vm.lateCount)
+                              ) +
+                              "\n                                    "
+                          )
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "panel-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-8" }, [
+                        _c("span", { staticClass: "show-field" }, [
+                          _vm._v(
                             _vm._s(_vm.trans("salary.Total Allowances")) + ":"
                           )
                         ])
@@ -54800,7 +54844,8 @@ var render = function() {
                                   parseInt(_vm.cost) +
                                     parseInt(_vm.allowances) -
                                     (parseInt(_vm.deductions) +
-                                      parseInt(_vm.absent))
+                                      parseInt(_vm.absent) +
+                                      parseInt(_vm.late))
                                 ) +
                                 "\n                                    "
                             )
@@ -70678,6 +70723,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -70698,7 +70744,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         type: 'POST'
                     },
                     table: "#example",
-                    fields: [{ label: "Cost:", name: "add_salaries.cost" }, { label: "May Grant:", name: "add_salaries.may_grant" }, { label: "Variable Wages:", name: "add_salaries.variable_wages" }, { label: "Previous years bonuses:", name: "add_salaries.prev_year_bonus" }, { label: "Bonus:", name: "add_salaries.bonus" }, { label: "Share Employer:", name: "add_salaries.share_employer" }, { label: "Cost:", name: "add_salaries.absent_day" }]
+                    fields: [{ label: "Cost:", name: "add_salaries.cost" }, { label: "May Grant:", name: "add_salaries.may_grant" }, { label: "Variable Wages:", name: "add_salaries.variable_wages" }, { label: "Previous years bonuses:", name: "add_salaries.prev_year_bonus" }, { label: "Bonus:", name: "add_salaries.bonus" }, { label: "Share Employer:", name: "add_salaries.share_employer" }, { label: "Absent per Day:", name: "add_salaries.absent_day" }, { label: "Late per Day:", name: "add_salaries.late_day" }]
                 });
 
                 var table = $('#example').DataTable({
@@ -70714,13 +70760,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         defaultContent: '',
                         className: 'select-checkbox',
                         orderable: false
-                    }, { data: "users.name" }, { data: "users.last_name" }, { data: "add_salaries.cost", render: $.fn.dataTable.render.number(',', '.', 0, '$') }, { data: "add_salaries.may_grant", render: $.fn.dataTable.render.number(',', '.', 0, '$') }, { data: "add_salaries.variable_wages", render: $.fn.dataTable.render.number(',', '.', 0, '$') }, { data: "add_salaries.prev_year_bonus", render: $.fn.dataTable.render.number(',', '.', 0, '$') }, { data: "add_salaries.bonus", render: $.fn.dataTable.render.number(',', '.', 0, '$') }, { data: "add_salaries.share_employer", render: $.fn.dataTable.render.number(',', '.', 0, '$') }, { data: "add_salaries.absent_day", render: $.fn.dataTable.render.number(',', '.', 0, '$') }],
+                    }, { data: "users.name" }, { data: "users.last_name" }, { data: "add_salaries.cost", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.may_grant", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.variable_wages", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.prev_year_bonus", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.bonus", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.share_employer", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.absent_day", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }, { data: "add_salaries.late_day", render: $.fn.dataTable.render.number(',', '.', 0, 'L.E') }],
                     autoFill: {
-                        columns: [3, 4, 5, 6, 7, 8, 9],
+                        columns: [3, 4, 5, 6, 7, 8, 9, 10],
                         editor: editor
                     },
                     keys: {
-                        columns: [3, 4, 5, 6, 7, 8, 9],
+                        columns: [3, 4, 5, 6, 7, 8, 9, 10],
                         editor: editor
                     },
                     select: {
@@ -70799,6 +70845,10 @@ var render = function() {
                       _vm._v(" "),
                       _c("th", [
                         _vm._v(_vm._s(_vm.trans("salary.Absent Per Day")))
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("salary.Late Per Day")))
                       ])
                     ])
                   ])
@@ -93538,6 +93588,377 @@ r[t.label]=e,r)),t._v(" "),t.multiple?n("button",{staticClass:"close",attrs:{dis
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 336 */,
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(338)
+/* template */
+var __vue_template__ = __webpack_require__(339)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\reports\\SalaryMonthely.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-725c6190", Component.options)
+  } else {
+    hotAPI.reload("data-v-725c6190", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 338 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            month: 0
+        };
+    },
+    mounted: function mounted() {
+        this.fetch();
+    },
+
+    methods: {
+        fetch: function fetch() {
+            var month = this.month;
+            $(function () {
+                var t = $('#users-table').DataTable(_defineProperty({
+                    dom: 'Bfrtip',
+                    buttons: [{
+                        extend: 'print',
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                        html: '<i></i>',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }, {
+                        extend: 'copy',
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                    }, {
+                        extend: 'excel',
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                    }, {
+                        extend: 'colvis',
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                    }],
+                    columnDefs: [{
+                        visible: false,
+                        targets: 0
+                    }],
+                    processing: false,
+                    serverSide: false,
+                    ajax: 'http://localhost:8000/admin/get-salary?month=' + month,
+                    columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "add_salary.cost", name: 'add_salary.cost' }, { data: 'add_salary.may_grant', name: 'add_salary.may_grant' }, { data: 'add_salary.variable_wages', name: 'add_salary.variable_wages' }, { data: 'add_salary.prev_year_bonus', name: 'add_salary.prev_year_bonus' }, { data: 'add_salary.share_employer', name: 'add_salary.share_employer' }, { data: 'add_salary.bonus', name: 'add_salary.bonus' }, { data: length }, { data: 'sum_discount', name: 'sum_discount' }, { data: 'count_absent', name: 'count_absent', 'render': function render(val, type, row) {
+                            return row.add_salary.absent_day * val;
+                        } }, { data: 'count_late', name: 'count_late', 'render': function render(val, type, row) {
+                            return row.add_salary.late_day * val;
+                        } }, { data: length }, { data: length }, { "defaultContent": "" }]
+                }, 'columnDefs', [{
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        if (row.last_name == null) {
+                            return row.name;
+                        } else {
+                            return row.name + ' ' + row.last_name;
+                        }
+                    },
+                    "targets": 1
+                }, {
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        return +row.add_salary.cost + +row.add_salary.may_grant + +row.add_salary.variable_wages + +row.add_salary.prev_year_bonus + +row.add_salary.share_employer + +row.add_salary.bonus;
+                    },
+                    "targets": 9
+
+                }, {
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        return +row.sum_discount + +row.count_late * row.add_salary.late_day + +row.count_absent * row.add_salary.absent_day;
+                    },
+                    "targets": 13
+
+                }, {
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function render(data, type, row) {
+                        return +row.add_salary.cost + +row.add_salary.may_grant + +row.add_salary.variable_wages + +row.add_salary.prev_year_bonus + +row.add_salary.share_employer + +row.add_salary.bonus - (+row.sum_discount + +row.count_absent * +row.add_salary.absent_day + +row.count_late * +row.add_salary.late_day);
+                    },
+                    "targets": 14
+
+                }, { "visible": false, "targets": [2] }]));
+                t.on('order.dt search.dt', function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                        t.cell(cell).invalidate('dom');
+                    });
+                }).draw();
+            });
+        },
+        next: function next() {
+            this.month++;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        },
+        prev: function prev() {
+            this.month--;
+            $('#users-table').DataTable().destroy();
+            this.fetch();
+        }
+    }
+});
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "page-content browse container-fluid" }, [
+    _c(
+      "div",
+      { staticClass: "lecture-select-box" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-sm  btn-primary pull-right edit",
+            staticStyle: { padding: "5px 10px" },
+            attrs: {
+              tag: "a",
+              to: {
+                path: "/admin/salary_reports",
+                query: { month: _vm.month + 1 }
+              },
+              title: _vm.trans("table.Next")
+            },
+            nativeOn: {
+              click: function($event) {
+                return _vm.next($event)
+              }
+            }
+          },
+          [
+            _c("span", { staticClass: "hidden-xs hidden-sm" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "voyager-double-right" })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-sm  btn-primary pull-right edit",
+            staticStyle: { padding: "5px 10px" },
+            attrs: {
+              title: _vm.trans("table.Prev"),
+              tag: "a",
+              to: {
+                path: "/admin/salary_reports",
+                query: { month: _vm.month - 1 }
+              }
+            },
+            nativeOn: {
+              click: function($event) {
+                return _vm.prev($event)
+              }
+            }
+          },
+          [
+            _c("span", { staticClass: "hidden-xs hidden-sm" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "voyager-double-left" })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm disabled",
+            staticStyle: { padding: "4px 15px" }
+          },
+          [
+            _vm._v(
+              _vm._s(
+                _vm._f("moment")(
+                  new Date(),
+                  "add",
+                  _vm.month + " months",
+                  "dddd, Do MM YY"
+                )
+              )
+            )
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-bordered" }, [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-hover dataTable no-footer display nowrap",
+                  attrs: { id: "users-table" }
+                },
+                [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th"),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("أسم الموظف")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v(" الأسم الاخير")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("أجر اساسى")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("منحة مايو")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("اجور متغيرة")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("علاوات اعوام سابقة")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("علاوة")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("حصة صاحب العمل")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("جملة المستحق")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("سلفيات")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("غياب")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("تأخيرات")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("جملة المستقطع")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("الصافى")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("التوقيع")])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-725c6190", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
