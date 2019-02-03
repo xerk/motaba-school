@@ -78,7 +78,7 @@ php -S localhost:8000 -t vendor/phpoffice/phpspreadsheet/samples
 
 Then point your browser to:
 
-> http://localhost:8000/
+> https://kamel-ouda.com/
 
 The samples may also be run directly from the command line, for example:
 
