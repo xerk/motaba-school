@@ -45,4 +45,11 @@ return [
     'Day' => 'اليوم',
     'Month' => 'الشهر',
     'Year' => 'السنة',
+    'Show Reports' => 'عرض التقارير',
+    'Absent report' => 'كشف غياب',
+    'Expense report' => 'كشف حساب',
+    'Show Table' => 'عرض الجدول',
+    'Hiden Table' => 'إخفاء الجدول',
+    'This student has not been absent all month!' => 'هذا الطالب لم يكن غائبا طوال الشهر',
+    
 ];

@@ -22,6 +22,8 @@ import FailureRepo from './components/reports/FailureRepo'
 import BlindRepo from './components/reports/BlindRepo'
 import DoctrineRepo from './components/reports/DoctrineRepo'
 import ClassListRepo from './components/reports/ClassListRepo'
+import SingleEmpRepo from './components/reports/SingleEmpRepo'
+import SingleStudentRepo from './components/reports/SingleStudentRepo'
 import SalaryMonthelyRepo from './components/reports/SalaryMonthely'
 import AbsentStudentRepo from './components/reports/AbsentStudent'
 import AbsentEmpRepo from './components/reports/AbsentEmp'
@@ -110,6 +112,8 @@ const app = new Vue({
         DoctrineRepo,
         ClassListRepo,
         SalaryMonthelyRepo,
+        SingleEmpRepo,
+        SingleStudentRepo
     },
     
 });

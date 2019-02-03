@@ -9,8 +9,22 @@ import AddExpense from './components/AddExpense'
 import ManagmentExp from './components/expesnes/ManagmentExp'
 import LinkTeachers from './components/LinkTeachers'
 import LinkTeacher from './components/links/LinkTeacher'
+import SingleStudentRepo from './components/reports/SingleStudentRepo'
+import SingleStudentRepoShow from './components/reports/single/ShowStudent'
 
 const router = [
+    {
+        path: '/admin/single_student_reports/:id',
+        name: 'singleStudentRepoShow',
+        components: {"content-viewport" : SingleStudentRepoShow},
+        props: true
+    },
+    {
+        path: '/admin/single_student_reports',
+        name: 'singleStudentRepo',
+        components: {"content-viewport" : SingleStudentRepo},
+        props: true
+    },
     {
         path: '/admin/link_teachers/:id',
         name: 'linkTeacher',

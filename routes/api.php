@@ -68,3 +68,6 @@ Route::post('link-teacher', 'LinkTeacherController@store');
 Route::post('link-teacher-update', 'LinkTeacherController@update');
 Route::delete('link-teacher/{id}', 'LinkTeacherController@destroy');
 
+Route::get('single-student-report', 'SingleStudentReportController@getStudent');
+Route::get('single-student-report/show', 'SingleStudentReportController@show');
+

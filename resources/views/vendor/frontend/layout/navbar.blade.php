@@ -176,7 +176,7 @@
                         @endforeach
                         <li class="dropdown">
                             <a href="#_" target="" style="" class="dropdown-toggle" data-toggle="dropdown">
-                                <i uk-icon="location"></i> {{ Session::get('locale') == 'en' ? 'English' : 'عربي' }}
+                                <span><i class="fas fa-globe"></i> {{ Session::get('locale') == 'en' ? __('English') : __('Arabic') }}</span>
                                 <span class="caret"></span>
                             </a>
                             <div class="uk-navbar-dropdown">

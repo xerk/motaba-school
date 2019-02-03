@@ -45,4 +45,11 @@ return [
     'Day' => 'Day',
     'Month' => 'Month',
     'Year' => 'Year',
+    'Show Reports' => 'Show Reports',
+    'Absent report' => 'Absent report',
+    'Expense report' => 'Expense report',
+    'Show Table' => 'Show Table',
+    'Hiden Table' => 'Hiden Table',
+    'This student has not been absent all month!' => 'This student has not been absent all month!',
+    
 ];

@@ -62,7 +62,7 @@ class AttendanceController extends Controller
                     // Right Post Command
                     if ($date->toDateString() <= Carbon::now()) {
                         foreach ($attends as $key => $attend) {
-                            Attendance::insert([
+                            Attendance::create([
                                 'user_id'   => $attend->id,
                                 'attend_date' => $date->toDateString(),
                                 'status' => $request->status,
