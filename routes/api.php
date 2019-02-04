@@ -71,3 +71,8 @@ Route::delete('link-teacher/{id}', 'LinkTeacherController@destroy');
 Route::get('single-student-report', 'SingleStudentReportController@getStudent');
 Route::get('single-student-report/show', 'SingleStudentReportController@show');
 
+Route::get('single-emp-report', 'SingleEmpReportController@getStudent');
+Route::get('single-emp-report/show', 'SingleEmpReportController@show');
+Route::get('single-emp-report/salaryshow', 'SingleEmpReportController@getEmployeeDetails');
+
+

@@ -1,6 +1,6 @@
 @extends('voyager::master')
 
-@section('page_title', __('voyager::generic.viewing').' '.'Link Teachers')
+@section('page_title', __('voyager::generic.viewing').' '.'Empyloee Reports')
 
 @section('css')
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -10,7 +10,7 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="icon voyager-bell"></i> Link Teachers
+            <i class="icon voyager-bell"></i> Empyloee Reports
         </h1>
         @include('voyager::multilingual.language-selector')
     </div>
@@ -18,7 +18,6 @@
 
 @section('content')
 <div id="app">
-    {{Request::root()}}
     <router-view name="content-viewport" :link="'{{ Request::root() }}'"></router-view>    
 </div>
 @stop

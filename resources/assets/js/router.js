@@ -11,8 +11,23 @@ import LinkTeachers from './components/LinkTeachers'
 import LinkTeacher from './components/links/LinkTeacher'
 import SingleStudentRepo from './components/reports/SingleStudentRepo'
 import SingleStudentRepoShow from './components/reports/single/ShowStudent'
+import SingleEmpRepo from './components/reports/SingleEmpRepo'
+import SingleEmpRepoShow from './components/reports/single/ShowEmp'
+
 
 const router = [
+    {
+        path: '/admin/single_emp_reports/:id',
+        name: 'singleEmpRepoShow',
+        components: {"content-viewport" : SingleEmpRepoShow},
+        props: true
+    },
+    {
+        path: '/admin/single_emp_reports',
+        name: 'singleEmpRepo',
+        components: {"content-viewport" : SingleEmpRepo},
+        props: true
+    },
     {
         path: '/admin/single_student_reports/:id',
         name: 'singleStudentRepoShow',

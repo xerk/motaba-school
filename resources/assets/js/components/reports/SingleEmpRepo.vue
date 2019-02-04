@@ -1,6 +1,5 @@
 <template>
     <div>
-        <form @submit.prevent action="">
             
             <div class="page-content browse container-fluid">
                 <div class="row">
@@ -22,9 +21,9 @@
                                                     <td><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
 
                                                     <td class="no-sort no-click" id="bread-actions">                                                     
-                                                        <router-link tag="a" :to="{ name: 'studentExpenses', params: {id: item.id} }" :title="trans('expenses.Make payment')" class="btn btn-sm btn-info pull-right add"
+                                                        <router-link tag="a" :to="{ name: 'singleEmpRepoShow', params: {id: item.id} }" :title="trans('reports.Show Reports')" class="btn btn-sm btn-info pull-right add"
                                                             data-id="2" id="add-2">
-                                                                <i class="voyager-credit-card"></i> <span class="hidden-xs hidden-sm">{{ trans('expenses.Make Payment') }}</span>
+                                                                <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">{{ trans('reports.Show Reports') }}</span>
                                                         </router-link>
                                                     </td>
                                                 </tr>
@@ -36,32 +35,17 @@
                     </div>
                 </div>
             </div>
-        </form>
-        <fab @parsist="parsist"></fab>
     </div>
 </template>
 <script>
-    import Fab from '../fab/Fab'
     export default {
-        components: {
-            Fab,
-        },
         props: ['link'],
         data() {
             return {
                 get: {
-                    apiURL: 'single-student-report',
-                },
-                post: {
-                    apiURL: 'single-student-report',
-                },
-                postTwo: {
-                    apiURL: 'single-student-report-update',
+                    apiURL: 'single-emp-report',
                 },
                 users: [],
-                stageEdu: localStorage.stageEdu,
-                classEdu: localStorage.classEdu,
-                classRoom: localStorage.classRoom,
             }
         },
         mounted() {
@@ -70,8 +54,7 @@
         computed: {
             usersFilter() {
                 return this.users.filter(item => {
-                    return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
-                        item.classroom_id == this.classRoom && item.job == 1
+                    return item.job == 0
                 })
             },
         },
@@ -81,11 +64,6 @@
                 .then(response => {
                     this.users = response.data.users
                 })
-            },
-            parsist(stageEdu, classEdu, classRoom) {
-                this.stageEdu = stageEdu
-                this.classEdu = classEdu
-                this.classRoom = classRoom
             },
         }
     }

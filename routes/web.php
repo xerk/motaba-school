@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('add_expenses', 'AddExpenseController@index')->name('school.add_expenses.index')->middleware('admin.user');
     Route::get('link_teachers', 'LinkTeacherController@index')->name('school.link_teacher.index')->middleware('admin.user');
     Route::get('single_student_reports', 'SingleStudentReportController@index')->name('school.single.student.report.index')->middleware('admin.user');
+    Route::get('single_emp_reports', 'SingleEmpReportController@index')->name('school.single.emp.report.index')->middleware('admin.user');
     
     Route::resource('users-2', 'UsersController')->middleware('admin.user');
     Route::resource('setting_numbers', 'SettingNumberController')->middleware('admin.user');

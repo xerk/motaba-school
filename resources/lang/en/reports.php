@@ -51,5 +51,7 @@ return [
     'Show Table' => 'Show Table',
     'Hiden Table' => 'Hiden Table',
     'This student has not been absent all month!' => 'This student has not been absent all month!',
+    'Salary report' => 'Salary report',
+    'Print' => 'Print',
     
 ];
