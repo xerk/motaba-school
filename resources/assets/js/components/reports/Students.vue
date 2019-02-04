@@ -338,9 +338,6 @@ export default {
                 display: block
             }
 
-            .lecture-select-box {
-                /*                display: none*/
-            }
 
             body {
                 transform: scale(1)
