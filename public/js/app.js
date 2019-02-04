@@ -38570,7 +38570,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.trans = function (local) {
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     created: function created() {
         var recaptchaScript = document.createElement('script');
-        recaptchaScript.setAttribute('src', 'http://localhost:8000/js/lang.js');
+        recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js');
         document.head.appendChild(recaptchaScript);
     },
 
@@ -56548,7 +56548,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     created: function created() {
         var recaptchaScript = document.createElement('script');
-        recaptchaScript.setAttribute('src', 'http://localhost:8000/js/lang.js');
+        recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js');
         document.head.appendChild(recaptchaScript);
     },
 
@@ -72929,7 +72929,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     processing: false,
                     paging: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'birth_date', name: 'birth_date' }, { data: 'birth_date', name: 'birth_date',
                         'render': function render(val, type, row) {
                             var birth = new Date(val); // Year From BirthDate
@@ -73395,7 +73395,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: null }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'last_name', name: 'last_name' }, { data: "father_job", name: 'father_job' }, { data: 'father_mobile', name: 'father_mobile' }, { data: 'father_tel', name: 'father_tel' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'father_qualified', name: 'father_qualified' }, { data: 'mother_job', name: 'mother_job' }, { data: 'mother_mobile', name: 'mother_mobile' }, { data: 'mother_tel', name: 'mother_tel' }, { data: 'mother_qualified', name: 'mother_qualified' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -73690,7 +73690,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-new-status?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-new-status?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -73955,7 +73955,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-newcomer?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-newcomer?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -74295,7 +74295,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-transported?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-transported?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{
                         data: length,
                         defaultContent: ''
@@ -74681,7 +74681,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-transfer?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-transfer?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -75004,7 +75004,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-failure?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-failure?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -75269,7 +75269,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-blind?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-blind?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "nationality", name: 'nationality' }, { data: 'birth_date', name: 'birth_date' }, { data: 'national_id', name: 'national_id' }, { data: 'address', name: 'address' }, { data: 'stage_edu.name', name: 'stage_edu.name' }, { data: 'class_edu.name', name: 'class_edu.name' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -75535,7 +75535,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-doctrine?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-doctrine?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: 'doctrine', name: 'doctrine',
                         "render": function render(val, type, row) {
                             if (val == 1) {
@@ -75812,7 +75812,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-students?class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -76404,7 +76404,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-salary?month=' + month,
+                    ajax: 'https://kamel-ouda.com/admin/get-salary?month=' + month,
                     columns: [{ data: length, defaultContent: '' }, { data: 'name', name: 'name' }, { data: 'last_name', name: 'last_name' }, { data: "add_salary.cost", name: 'add_salary.cost' }, { data: 'add_salary.may_grant', name: 'add_salary.may_grant' }, { data: 'add_salary.variable_wages', name: 'add_salary.variable_wages' }, { data: 'add_salary.prev_year_bonus', name: 'add_salary.prev_year_bonus' }, { data: 'add_salary.share_employer', name: 'add_salary.share_employer' }, { data: 'add_salary.bonus', name: 'add_salary.bonus' }, { data: length }, { data: 'sum_discount', name: 'sum_discount' }, { data: 'count_absent', name: 'count_absent', 'render': function render(val, type, row) {
                             return row.add_salary.absent_day * val;
                         } }, { data: 'count_late', name: 'count_late', 'render': function render(val, type, row) {
@@ -76779,7 +76779,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     processing: false,
                     serverSide: false,
                     paging: true,
-                    ajax: 'http://localhost:8000/admin/get-student-absent?day=' + day + '&class=' + classEdu + '&classroom=' + classRoom,
+                    ajax: 'https://kamel-ouda.com/admin/get-student-absent?day=' + day + '&class=' + classEdu + '&classroom=' + classRoom,
                     columns: [{ data: 'users', name: 'users.name' }, { data: 'users', name: 'users.last_name' }, { data: 'attend_date', name: 'attend_date' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 3) {
@@ -77097,7 +77097,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-employee-absent?day=' + day,
+                    ajax: 'https://kamel-ouda.com/admin/get-employee-absent?day=' + day,
                     columns: [{ data: 'users', name: 'users.name' }, { data: 'users', name: 'users.last_name' }, { data: 'attend_date', name: 'attend_date' }, { data: 'status', name: 'status',
                         "render": function render(val, type, row) {
                             if (val == 3) {
@@ -77397,7 +77397,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     }],
                     processing: false,
                     serverSide: false,
-                    ajax: 'http://localhost:8000/admin/get-gender',
+                    ajax: 'https://kamel-ouda.com/admin/get-gender',
                     columns: [{ data: 'id', name: 'id' }, { data: 'name', name: 'name' }, { data: 'maleStudents', name: 'maleStudents' }, { data: 'femaleStudents', name: 'femaleStudents' }, { data: null }, { data: 'classRoomCount', name: 'classRoomCount' }]
                 }, 'columnDefs', [{
                     // The `data` parameter refers to the data for the cell (defined by the
@@ -81012,7 +81012,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'http://localhost:8000/api/';
+__WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'https://kamel-ouda.com/api/';
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {

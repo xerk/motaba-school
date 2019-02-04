@@ -113,7 +113,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `http://localhost:8000/admin/get-transfer?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `https://kamel-ouda.com/admin/get-transfer?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },

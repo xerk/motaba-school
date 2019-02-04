@@ -113,7 +113,7 @@
                         }],
                         processing: false,
                         serverSide: false,
-                        ajax: `http://localhost:8000/admin/get-transported?class=${classEdu}&classroom=${classRoom}`,
+                        ajax: `https://kamel-ouda.com/admin/get-transported?class=${classEdu}&classroom=${classRoom}`,
                         columns: [{
                                 data: length,
                                 defaultContent: ''
