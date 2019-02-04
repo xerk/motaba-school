@@ -84,7 +84,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-doctrine?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `http://localhost:8000/admin/get-doctrine?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },

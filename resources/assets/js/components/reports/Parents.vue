@@ -87,7 +87,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `http://localhost:8000/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: null },
                         { data: 'name', name: 'name' },

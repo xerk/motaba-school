@@ -77,7 +77,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-employee-absent?day=${day}`,
+                    ajax: `http://localhost:8000/admin/get-employee-absent?day=${day}`,
                     columns: [
                         { data: 'users', name: 'users.name' },
                         { data: 'users', name: 'users.last_name' },
