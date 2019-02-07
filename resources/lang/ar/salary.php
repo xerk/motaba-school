@@ -62,5 +62,21 @@ return [
     'Hiden Content' => 'إخفاء المحتوى',
     'Are you sure you want to delete this EmpyloeeSalary?' => 'هل تريد مسح هذه العملية ؟',
     'Absent Per Day' => 'قيمة الخصم على اليوم الغياب',
+    'May Grant' => 'منحة مايو',
+    'Variable Wages' => 'الأجور المتغيرة',
+    'Previous years bonuses' => 'مكافآت السنوات السابقة',
+    'Bonus' => 'علاوة',
+    'Share of employer' => 'حصة صاحب العمل',
+    'Late Per Day' => 'تأخير باليوم',
+    'Company' => 'الشركة',
+    'Phone' => 'المحمول',
+    'Address' => 'العنوان',
+    'Content' => 'المحتوى',
+    'Type your value' => 'اكتب القيمة',
+    'Payable' => 'القيمة المستحقة',
+    'Value' => 'القيمة',
+    'Total Remaining' => 'إجمالى المتبقى',
+    'Total Paid' => 'إجمالى المدفوع',
+
 
 ];

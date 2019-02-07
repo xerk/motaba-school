@@ -24,4 +24,5 @@ return [
     'Employees' => 'Employees',
     'Existing' => 'Existing',
     'Late' => 'Late',
+    'Send SMS' => 'Send SMS',
 ];

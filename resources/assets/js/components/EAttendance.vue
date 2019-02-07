@@ -3,6 +3,10 @@
         <form @submit.prevent action="">
             <div class="page-content browse container-fluid">
                 <div class="attend-button">
+                    <!-- <button @click="sendSMS" type="submit" :title="trans('attendance.Send SMS')" class="btn btn-sm btn-warning pull-right delete"
+                         id="sms-2">
+                        <i class="voyager-paper-plane"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Send SMS') }}</span>
+                    </button> -->
                     <button @click="submit(3)" type="submit" :title="trans('attendance.Absent')" class="btn btn-sm btn-danger pull-right delete"
                         data-id="2" id="delete-2">
                         <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
@@ -162,6 +166,19 @@
                     }
                 })
             },
+            sendSMS() {
+                this.$store.dispatch('submitForm', {
+                    post: this.sms,
+                    classRoom: this.classRoom,
+                    day: this.day
+                })
+                .then(response => {
+                    this.$toast.success({
+                        title: response.data
+                    })
+                    this.fetch()
+                })
+            },
             action(item, value) {
                 this.$store.dispatch('submitForm', {
                         post: this.post,
@@ -173,7 +190,7 @@
                             title: response.data
                         })
                         // this.fetch()
-                        const index = this.attendances.findIndex(item => item.id == item.id);
+                        const index = this.attendances.findIndex(option => option.id == item.id);
                         this.attendances.splice(index, 1, {
                             'attend_date': item.attend_date,
                             'created_at': item.created_at,

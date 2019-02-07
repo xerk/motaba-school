@@ -121,6 +121,9 @@
     "Posted in": "نشر في",
     "Continue reading": "أكمل القراءة",
     "Categories": "الأقسام",
-    "Our Awesome News": "لدينا أخبار رهيبة"
+    "Our Awesome News": "لدينا أخبار رهيبة",
+    "You do not have students absent here!": "ليس لديك طلاب غائبين هنا",
+    "Can't Send SMS the next date of day.": "لا تسطيع إرسال رسالة نصية لليوم التالى",
+    "Please Choose the display student.": "من فضلك اختار الطلاب من النافذة التى في أسفل الصفحة"
 
 }

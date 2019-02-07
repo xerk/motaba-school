@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result">
-                                    <img :src="link + '/storage/' + attention.users.avatar" class="img-avatar"> {{ attention.authors.name }} {{ attention.authors.last_name }}
+                                    <img :src="link + '/storage/' + attention.authors.avatar" class="img-avatar"> {{ attention.authors.name }} {{ attention.authors.last_name }}
                                 </span>
                             </div>
                         </div>

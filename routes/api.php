@@ -75,4 +75,13 @@ Route::get('single-emp-report', 'SingleEmpReportController@getStudent');
 Route::get('single-emp-report/show', 'SingleEmpReportController@show');
 Route::get('single-emp-report/salaryshow', 'SingleEmpReportController@getEmployeeDetails');
 
+Route::get('supplier-pay', 'SupplierController@getSupplier');
+Route::get('supplier-pay/show', 'SupplierController@getStorage');
+Route::post('supplier-pay', 'SupplierController@store');
+Route::post('supplier-pay/show', 'SupplierController@storeShow');
+Route::delete('supplier-pay/{id}', 'SupplierController@destroy');
+Route::delete('supplier-pay-show/{id}', 'SupplierController@destroyShow');
 
+
+Route::post('sms-attendance', 'SmsMisrController@storeAttendance');
+Route::post('sms-eattendance', 'SmsMisrController@storeEAttendance');

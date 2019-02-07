@@ -109,7 +109,7 @@
                             title: response.data
                         })
                         // this.fetch()
-                        const index = this.attendances.findIndex(item => item.id == item.id);
+                        const index = this.attendances.findIndex(option => option.id == item.id);
                         this.attendances.splice(index, 1, {
                             'attend_date': item.attend_date,
                             'created_at': item.created_at,

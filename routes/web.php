@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('link_teachers', 'LinkTeacherController@index')->name('school.link_teacher.index')->middleware('admin.user');
     Route::get('single_student_reports', 'SingleStudentReportController@index')->name('school.single.student.report.index')->middleware('admin.user');
     Route::get('single_emp_reports', 'SingleEmpReportController@index')->name('school.single.emp.report.index')->middleware('admin.user');
+    Route::get('suppliers/{supplier}/pay', 'SupplierController@pay')->name('voyager.suppliers.pay')->middleware('admin.user');
+    Route::post('suppliers/{supplier}/pay', 'SupplierController@store')->name('voyager.suppliers.pay.store')->middleware('admin.user');
     
     Route::resource('users-2', 'UsersController')->middleware('admin.user');
     Route::resource('setting_numbers', 'SettingNumberController')->middleware('admin.user');
@@ -117,6 +119,11 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/gallery', 'LandingPageController@index')->name('gallery');
 
 });
+
+
+// SMS API
+Route::get('api/sms-misr', 'SmsMisrController@smsApi')->middleware('admin.user');
+
 
 // Localization
 Route::get('/js/lang.js', function () {

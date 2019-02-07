@@ -13,9 +13,23 @@ import SingleStudentRepo from './components/reports/SingleStudentRepo'
 import SingleStudentRepoShow from './components/reports/single/ShowStudent'
 import SingleEmpRepo from './components/reports/SingleEmpRepo'
 import SingleEmpRepoShow from './components/reports/single/ShowEmp'
+import SupplierPay from './components/SupplierPay'
+import ShowSupplier from './components/storages/ShowSupplier'
 
 
 const router = [
+    {
+        path: '/admin/suppliers/:id/pay/storage',
+        name: 'showSupplier',
+        components: {"content-viewport" : ShowSupplier},
+        props: true
+    },
+    {
+        path: '/admin/suppliers/:id/pay',
+        name: 'SupplierPay',
+        components: {"content-viewport" : SupplierPay},
+        props: true
+    },
     {
         path: '/admin/single_emp_reports/:id',
         name: 'singleEmpRepoShow',

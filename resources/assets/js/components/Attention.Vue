@@ -101,8 +101,12 @@
         computed: {
             usersFilter() {
                 return this.users.filter(item => {
-                    return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
-                        item.classroom_id == this.classRoom
+                    if (this.classRoom != "") {
+                        return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
+                        item.classroom_id == this.classRoom && item.job == 1
+                    } else {
+                        return item.job == 0
+                    }
                 })
             },
             // lectureFilter() {
@@ -144,6 +148,15 @@
                 this.stageEdu = stageEdu
                 this.classEdu = classEdu
                 this.classRoom = classRoom
+                if (this.classRoom == '' || this.classEdu == '' || this.stageEdu == '') {
+                    this.$toast.success({
+                        title: 'Employees is Displaying'
+                    })
+                } else {
+                    this.$toast.success({
+                        title: 'Students is Displaying'
+                    })
+                }
             },
             action(item, value) {
                 this.$store.dispatch('submitForm', {

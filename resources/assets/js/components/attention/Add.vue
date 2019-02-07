@@ -11,7 +11,7 @@
                                 <div class="col-md-6">
                                     <div :class="{'form-group': true, 'has-error': errors.has('type') }">
                                         <label for="type">{{ trans('attentions.Attention Type') }}</label>
-                                        <select name="type-error" v-validate="'required'" v-model="type" id="type" class="form-control">
+                                        <select name="type-error" v-validate="'required'" v-model="type" @change="setType" id="type" class="form-control">
                                             <option value="">{{ trans('attentions.Choose the type') }}</option>
                                             <option :value="item" v-for="(item, index) in types" :key="index">{{ item.name }}</option>
                                         </select>
@@ -28,8 +28,14 @@
 
                             <div class="form-group">
                                 <label for="email">{{ trans('attentions.Body') }}</label>
-                                <vue-editor v-model="type.body">
+                                <vue-editor v-model="body">
                                 </vue-editor>
+                            </div>
+                            <div :class="{'form-group': true, 'has-error': errors.has('sms-text') }">
+                                <label for="email">{{ trans('attentions.Body') }}</label>
+                                <textarea  v-model="sms" class="form-control" name="sms-text"  maxlength="70" v-validate="'max:70'" rows="2"></textarea>
+                                <span v-if="sms" class="max-length"><span v-if="sms.length >= 50">{{ maxCount - sms.length }}</span></span>
+                                <span v-show="errors.has('sms-text')" class="help-block" style="color:#f96868">{{ errors.first('sms-text') }}</span>
                             </div>
                         </div>
                         <div class="panel-footer">
@@ -110,6 +116,7 @@
         },
         data() {
             return {
+                maxCount: '70',
                 showModal: false,
                 get: {
                     apiURL: 'attention',
@@ -127,7 +134,10 @@
                 content: 'Type what is in your mind...',
                 end_date: '',
                 types: [],
-                type: '',
+                type: {
+                },
+                sms: '',
+                body: '',
                 attentions: [],
                 author: {},
             }
@@ -162,7 +172,8 @@
                         user_id: this.$route.params.id,
                         post: this.postTwo,
                         type: this.type.id,
-                        body: this.type.body,
+                        body: this.body,
+                        sms: this.sms,
                         end_date: DateTime.fromISO(this.end_date).toFormat('yyyy-MM-dd hh:mm:ss'),
                     })
                     .then(response => {
@@ -170,7 +181,15 @@
                             title: response.data
                         })
                         this.fetch()
+                        this.type = {}
+                        this.body = ''
+                        this.sms = ''
+                        this.errors.clear();
                     })
+            },
+            setType() {
+                this.body = this.type.body
+                this.sms = this.type.sms
             },
             removeOption(id, index) {
                 this.$store.dispatch('delete', {
@@ -213,5 +232,13 @@
     .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
     opacity: 0;
     transform: translateY(30px);
+    }
+    .max-length {
+        position: absolute;
+        right: 30px;
+        font-size: 14px;
+        bottom: 50px;
+        color: #fa2a00;
+        font-weight: 500;
     }
 </style>

@@ -68,6 +68,15 @@ return [
     'Bonus' => 'Bonus',
     'Share of employer' => 'Share of employer',
     'Late Per Day' => 'Late Per Day',
-
+    'Company' => 'Company',
+    'Phone' => 'Phone',
+    'Address' => 'Address',
+    'Content' => 'Content',
+    'Type your value' => 'Type your value',
+    'Payable' => 'Payable',
+    'Value' => 'Value',
+    'Revenue' => 'Revenue',
+    'Total Remaining' => 'Total Remaining',
+    'Total Paid' => 'Total Paid',
 
 ];

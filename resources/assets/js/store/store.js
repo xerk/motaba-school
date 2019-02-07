@@ -13,6 +13,20 @@ export const store = new Vuex.Store({
         SchoolConfigs: SchoolConfigs
     },
     actions: {
+        sendSMS(context, data) {
+            const params = {
+                ...data
+            }
+            return new Promise((resolve, reject) => {
+                axios.post(`${data.sms.apiURL}`, params)
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
         retriveOptions(context, data) {
             return new Promise((resolve, reject) => {
                 axios.get(`${data.apiURL}`)

@@ -33,7 +33,7 @@
                             <td>{{ option.$model.description }}</td>
                             <td>{{ option.$model.created_at }}</td>
                             <td class="actions">
-                                <a href.prevent="" @click="sopenModal(option.$model)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
+                                <a href.prevent="" @click="openModal(option.$model)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
                                     <i class="voyager-trash"></i> {{ trans('table.Delete') }}
                                 </a>
                                 <a href.prevent="" @click="stageModalFun(option)" class="btn btn-sm btn-primary pull-right" style="display:inline; margin-right:10px;">
