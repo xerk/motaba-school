@@ -76596,8 +76596,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         'render': function render(val, type, row) {
                             var birth = new Date(val); // Year From BirthDate
                             var today = new Date();
-                            var oct = new Date(today.getFullYear() + '-10-1');
-                            return oct.getMonth() + 1 - (birth.getMonth() + 1);
+                            var oct = new Date(today.getFullYear() + '/10/1');
+                            return Math.abs(oct.getMonth() - birth.getMonth());
                         } }, { data: 'birth_date', name: 'birth_date',
                         'render': function render(val, type, row) {
                             var birth = new Date(val); // Year From BirthDate
@@ -76789,51 +76789,7 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("tr", [
-                      _c("th"),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Last Name")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Birth")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Day")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Month")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Year")))]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Situation")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.National")))]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Joining Date")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Gender")))]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("reports.Address")))]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Mobile")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Mother Mobile")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Qualified Father")))
-                      ])
-                    ])
+                    _vm._m(3)
                   ])
                 ]
               )
@@ -76924,6 +76880,42 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th"),
+      _vm._v(" "),
+      _c("th", [_vm._v("أسم الطالب")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("الأسم الاخير")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("تاريخ الميلاد")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("اليوم")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("الشهر")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("السنة")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("الحالة")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("الجنسية")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("تاريخ الالتحاق")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("النوع")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("العنوان")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("تليفون الأب")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("تليفون الأم")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("مؤهل الأب")])
+    ])
   }
 ]
 render._withStripped = true
@@ -77021,7 +77013,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n@page {\n    size: auto A4 landscape;\n}\n@media print {\n.col-sm-1,\n    .col-sm-2,\n    .col-sm-3,\n    .col-sm-4,\n    .col-sm-5,\n    .col-sm-6,\n    .col-sm-7,\n    .col-sm-8,\n    .col-sm-9,\n    .col-sm-10,\n    .col-sm-11,\n    .col-sm-12 {\n        float: left;\n}\n.col-sm-12 {\n        width: 100%;\n}\n.col-sm-11 {\n        width: 91.66666667%;\n}\n.col-sm-10 {\n        width: 83.33333333%;\n}\n.col-sm-9 {\n        width: 75%;\n}\n.col-sm-8 {\n        width: 66.66666667%;\n}\n.col-sm-7 {\n        width: 58.33333333%;\n}\n.col-sm-6 {\n        width: 50%;\n}\n.col-sm-5 {\n        width: 41.66666667%;\n}\n.col-sm-4 {\n        width: 33.33333333%;\n}\n.col-sm-3 {\n        width: 25%;\n}\n.col-sm-2 {\n        width: 16.66666667%;\n}\n.col-sm-1 {\n        width: 8.33333333%;\n}\n}\n\n", ""]);
+exports.push([module.i, "\n@page {\n    size: auto A4 landscape;\n}\ntable.report-container {\n    page-break-after:always;\n}\nthead.report-header {\n    display:table-header-group;\n}\ntfoot.report-footer {\n    display:table-footer-group;\n}\n@media print {\n.col-sm-1,\n    .col-sm-2,\n    .col-sm-3,\n    .col-sm-4,\n    .col-sm-5,\n    .col-sm-6,\n    .col-sm-7,\n    .col-sm-8,\n    .col-sm-9,\n    .col-sm-10,\n    .col-sm-11,\n    .col-sm-12 {\n        float: left;\n}\n.col-sm-12 {\n        width: 100%;\n}\n.col-sm-11 {\n        width: 91.66666667%;\n}\n.col-sm-10 {\n        width: 83.33333333%;\n}\n.col-sm-9 {\n        width: 75%;\n}\n.col-sm-8 {\n        width: 66.66666667%;\n}\n.col-sm-7 {\n        width: 58.33333333%;\n}\n.col-sm-6 {\n        width: 50%;\n}\n.col-sm-5 {\n        width: 41.66666667%;\n}\n.col-sm-4 {\n        width: 33.33333333%;\n}\n.col-sm-3 {\n        width: 25%;\n}\n.col-sm-2 {\n        width: 16.66666667%;\n}\n.col-sm-1 {\n        width: 8.33333333%;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -77036,6 +77028,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_Fab___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_Fab__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -77220,9 +77221,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         data: 'father_qualified',
                         name: 'father_qualified'
                     }, {
-                        data: 'father_qualified',
-                        name: 'father_qualified'
-                    }, {
                         data: 'mother_job',
                         name: 'mother_job'
                     }, {
@@ -77281,38 +77279,68 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c(
-              "div",
+              "table",
               {
-                staticClass: "content-header",
-                staticStyle: { display: "none" }
+                staticClass: "report-container",
+                staticStyle: { width: "100%" }
               },
               [
-                _c("div", { staticClass: "row" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-4 text-center" }, [
-                    _c("h3", [
-                      _vm._v(
-                        _vm._s(_vm.user.class_room.name) +
-                          " من " +
-                          _vm._s(_vm.user.class_edu.name) +
-                          " عام " +
-                          _vm._s(_vm._f("moment")(new Date(), "YYYY")) +
-                          "/" +
-                          _vm._s(
-                            _vm._f("moment")(
-                              new Date(),
-                              "add",
-                              "1 year",
-                              "YYYY"
-                            )
-                          ) +
-                          " م"
+                _c("thead", { staticClass: "report-header" }, [
+                  _c("tr", [
+                    _c("th", { staticClass: "report-header-cell" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "header-info",
+                          staticStyle: { height: "100px" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "content-header",
+                              staticStyle: { display: "none" }
+                            },
+                            [
+                              _c("div", { staticClass: "row" }, [
+                                _vm._m(0),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-sm-4 text-center" },
+                                  [
+                                    _c("h3", [
+                                      _vm._v(
+                                        _vm._s(_vm.user.class_room.name) +
+                                          " من " +
+                                          _vm._s(_vm.user.class_edu.name) +
+                                          " عام " +
+                                          _vm._s(
+                                            _vm._f("moment")(new Date(), "YYYY")
+                                          ) +
+                                          "/" +
+                                          _vm._s(
+                                            _vm._f("moment")(
+                                              new Date(),
+                                              "add",
+                                              "1 year",
+                                              "YYYY"
+                                            )
+                                          ) +
+                                          " م"
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._m(1)
+                              ])
+                            ]
+                          )
+                        ]
                       )
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1)
+                  ])
                 ])
               ]
             ),
@@ -77358,10 +77386,6 @@ var render = function() {
                       _vm._v(" "),
                       _c("th", [
                         _vm._v(_vm._s(_vm.trans("reports.Qualified Father")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Mother Name")))
                       ]),
                       _vm._v(" "),
                       _c("th", [
@@ -79884,55 +79908,7 @@ var render = function() {
             _vm._v(" "),
             _vm._m(2),
             _vm._v(" "),
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-hover dataTable no-footer display nowrap",
-                  attrs: { id: "users-table" }
-                },
-                [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th"),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Student Name")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Last Name")) + " ")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Name")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Job")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Mobile")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")))
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(_vm._s(_vm.trans("reports.Father Tel")))
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
+            _vm._m(3)
           ])
         ])
       ]),
@@ -80019,6 +79995,43 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "table-responsive" }, [
+      _c(
+        "table",
+        {
+          staticClass: "table table-hover dataTable no-footer display nowrap",
+          attrs: { id: "users-table" }
+        },
+        [
+          _c("thead", [
+            _c("tr", [
+              _c("th"),
+              _vm._v(" "),
+              _c("th", [_vm._v("أسم الطالب")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("الأسم الاخير")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("الجنسية")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("تاريخ الميلاد")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("الرقم القومى")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("العنوان")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("الصف")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("الفصل")])
+            ])
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true

@@ -43,14 +43,14 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>{{ trans('reports.Student Name')}}</th>
-                                <th>{{ trans('reports.Last Name')}} </th>
-                                <th>{{ trans('reports.Father Name')}}</th>
-                                <th>{{ trans('reports.Father Job')}}</th>
-                                <th>{{ trans('reports.Father Mobile')}}</th>
-                                <th>{{ trans('reports.Father Tel')}}</th>
-                                <th>{{ trans('reports.Father Tel')}}</th>
-                                <th>{{ trans('reports.Father Tel')}}</th>
+                                <th>أسم الطالب</th>
+                                <th>الأسم الاخير</th>
+                                <th>الجنسية</th>
+                                <th>تاريخ الميلاد</th>
+                                <th>الرقم القومى</th>
+                                <th>العنوان</th>
+                                <th>الصف</th>
+                                <th>الفصل</th>
                             </tr>
                         </thead>
                     </table>

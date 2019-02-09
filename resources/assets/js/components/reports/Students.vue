@@ -56,22 +56,22 @@
                             </tr>
                             <tr>
                                 <th></th>
-                                <th>{{ trans('reports.Student Name')}}</th>
-                                <th>{{ trans('reports.Last Name')}}</th>
-                                <th>{{ trans('reports.Birth')}}</th>
+                                <th>أسم الطالب</th>
+                                <th>الأسم الاخير</th>
+                                <th>تاريخ الميلاد</th>
 
-                                <th>{{ trans('reports.Day')}}</th>
-                                <th>{{ trans('reports.Month')}}</th>
-                                <th>{{ trans('reports.Year')}}</th>
+                                <th>اليوم</th>
+                                <th>الشهر</th>
+                                <th>السنة</th>
 
-                                <th>{{ trans('reports.Situation')}}</th>
-                                <th>{{ trans('reports.National')}}</th>
-                                <th>{{ trans('reports.Joining Date')}}</th>
-                                <th>{{ trans('reports.Gender')}}</th>
-                                <th>{{ trans('reports.Address')}}</th>
-                                <th>{{ trans('reports.Father Mobile')}}</th>
-                                <th>{{ trans('reports.Mother Mobile')}}</th>
-                                <th>{{ trans('reports.Qualified Father')}}</th>
+                                <th>الحالة</th>
+                                <th>الجنسية</th>
+                                <th>تاريخ الالتحاق</th>
+                                <th>النوع</th>
+                                <th>العنوان</th>
+                                <th>تليفون الأب</th>
+                                <th>تليفون الأم</th>
+                                <th>مؤهل الأب</th>
                                
                             </tr>
                         </thead>
@@ -201,8 +201,8 @@ export default {
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
                                 var today = new Date();    
-                                var oct = new Date(today.getFullYear() + '-10-1');
-                                return (oct.getMonth() + 1) - (birth.getMonth() + 1);
+                                var oct = new Date(today.getFullYear() + '/10/1');
+                                return Math.abs(oct.getMonth() - birth.getMonth());
                             } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {

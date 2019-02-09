@@ -3,23 +3,33 @@
         <div class="col-md-12">
             <div class="panel panel-bordered">
                 <div class="panel-body">
-                    <div class="content-header" style="display: none">
-                        <div class="row">
-                            <div class="col-sm-4 pull-left">
-                                <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
-                            </div>
-                            <div class="col-sm-4 text-center">
-                                <h3>{{user.class_room.name}} من {{user.class_edu.name}} عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
-                            </div>
-                            <div class='col-sm-4' style="font-size: 18px">
-                                <ul class="list-unstyled text-center pull-right">
-                                    <li>الأزهر الشريف</li>
-                                    <li>منطقة الجيزه الأزهريه</li>
-                                    <li>معهد كامل عودة الأزهري الخاص</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="report-container" style="width: 100%;">
+                        <thead class="report-header">
+                            <tr>
+                                <th class="report-header-cell">
+                                    <div class="header-info" style="height: 100px;">
+                                        <div class="content-header" style="display: none">
+                                            <div class="row">
+                                                <div class="col-sm-4 pull-left">
+                                                    <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                                                </div>
+                                                <div class="col-sm-4 text-center">
+                                                    <h3>{{user.class_room.name}} من {{user.class_edu.name}} عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
+                                                </div>
+                                                <div class='col-sm-4' style="font-size: 18px">
+                                                    <ul class="list-unstyled text-center pull-right">
+                                                        <li>الأزهر الشريف</li>
+                                                        <li>منطقة الجيزه الأزهريه</li>
+                                                        <li>معهد كامل عودة الأزهري الخاص</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
                     <div class="content-footer" style="display:none">
                         <div class="row">
                             <div class="col-sm-4 text-center" style="font-size: 18px">
@@ -50,7 +60,6 @@
                                     <th>{{ trans('reports.Father Mobile')}}</th>
                                     <th>{{ trans('reports.Father Tel')}}</th>
                                     <th>{{ trans('reports.Qualified Father')}}</th>
-                                    <th>{{ trans('reports.Mother Name')}}</th>
                                     <th>{{ trans('reports.Mother Job')}}</th>
                                     <th>{{ trans('reports.Mother Mobile')}}</th>
                                     <th>{{ trans('reports.Mother Tel')}}</th>
@@ -205,10 +214,6 @@
                                 name: 'father_qualified'
                             },
                             {
-                                data: 'father_qualified',
-                                name: 'father_qualified'
-                            },
-                            {
                                 data: 'mother_job',
                                 name: 'mother_job'
                             },
@@ -265,6 +270,15 @@
     @page {
         size: auto A4 landscape;
     }
+     table.report-container {
+        page-break-after:always;
+    }
+    thead.report-header {
+        display:table-header-group;
+    }
+    tfoot.report-footer {
+        display:table-footer-group;
+    } 
 
     @media print {
         .col-sm-1,
