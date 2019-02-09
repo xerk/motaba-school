@@ -105,6 +105,20 @@ export const store = new Vuex.Store({
                     })
             })
         },
+        retriveUser(context, data) {
+            const params = {
+                ...data
+            }
+            return new Promise((resolve, reject) => {
+                axios.get(`${data.get.apiURL}?classroom=${data.classRoom}`)
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
         retrivePayemtnDetails(context, data) {
             const params = {
                 ...data

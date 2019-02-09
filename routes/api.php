@@ -85,3 +85,5 @@ Route::delete('supplier-pay-show/{id}', 'SupplierController@destroyShow');
 
 Route::post('sms-attendance', 'SmsMisrController@storeAttendance');
 Route::post('sms-eattendance', 'SmsMisrController@storeEAttendance');
+
+Route::get('report-users', 'ReportUsersController@index');

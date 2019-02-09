@@ -3,19 +3,54 @@
     <div class="col-md-12">
         <div class="panel panel-bordered">
             <div class="panel-body">
+                <div class="content-header" style="display: none">
+                    <div class="row">
+                        <div class="col-sm-4 pull-left">
+                            <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h3>{{user.class_room.name}} من {{user.class_edu.name}} عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
+                        </div>
+                        <div class='col-sm-4' style="font-size: 18px">
+                            <ul class="list-unstyled text-center pull-right">
+                                <li>الأزهر الشريف</li>
+                                <li>منطقة الجيزه الأزهريه</li>
+                                <li>معهد كامل عودة الأزهري الخاص</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-footer" style="display:none">
+                    <div class="row">
+                        <div class="col-sm-4 text-center" style="font-size: 18px">
+                            <ul class="list-unstyled">
+                                <li>عميد المعهد</li>
+                                <li>أ/سعيد عيسي</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                        </div>
+                        <div class='col-sm-4 text-center' style="font-size: 18px">
+                            <ul class="list-unstyled">
+                                <li>شئون الطلبة</li>
+                                <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>{{ trans('reports.Student Name')}}أسم الطالب</th>
-                                <th>{{ trans('reports.Last Name')}} الأسم الاخير</th>
-                                <th>{{ trans('reports.Father Name')}}الجنسية</th>
-                                <th>{{ trans('reports.Father Job')}}تاريخ الميلاد</th>
-                                <th>{{ trans('reports.Father Mobile')}}الرقم الفومى</th>
-                                <th>{{ trans('reports.Father Tel')}}العنوان</th>
-                                <th>{{ trans('reports.Father Tel')}}المرحلة</th>
-                                <th>{{ trans('reports.Father Tel')}}الصف</th>
+                                <th>أسم الطالب</th>
+                                <th> الأسم الاخير</th>
+                                <th>الجنسية</th>
+                                <th>تاريخ الميلاد</th>
+                                <th>الرقم الفومى</th>
+                                <th>العنوان</th>
+                                <th>المرحلة</th>
+                                <th>الصف</th>
                             </tr>
                         </thead>
                     </table>
@@ -33,6 +68,17 @@ export default {
     components: {Fab},
     data() {
         return {
+            get: {
+                apiURL: 'report-users',
+            },
+            user: {
+                class_room: {
+                    name: ''
+                },
+                class_edu: {
+                    name: ''
+                }
+            },
             stageEdu: localStorage.stageEdu,
             classEdu: localStorage.classEdu,
             classRoom: localStorage.classRoom,
@@ -40,6 +86,7 @@ export default {
     },
     mounted() {
         this.fetch()
+        this.getUsers()
     },
     methods: {
         parsist(stageEdu, classEdu, classRoom) {
@@ -48,7 +95,17 @@ export default {
                 this.classRoom = classRoom
                 $('#users-table').DataTable().destroy();
                 this.fetch()
+                this.getUsers()
             },
+        getUsers() {
+            this.$store.dispatch('retriveUser', {
+                get: this.get,
+                classRoom: this.classRoom
+            })
+            .then(response => {
+                this.user = response.data
+            })
+        },
         fetch() {
             var classEdu = this.classEdu  
             var classRoom = this.classRoom  
@@ -63,6 +120,30 @@ export default {
                             exportOptions: {
                                 columns: ':visible'
                             },
+                            customize: function (win) {
+                                $(win.document.body)
+                                    .css('font-size', '11px')
+                                $(win.document.body).find('div').first()
+                                    .prepend( $( ".content-header" ).css('display', 'inline') )
+
+                                $(win.document.body).find('div').last()
+                                    .prepend( $( ".content-footer" ).css('display', 'inline') )
+
+                                $(win.document.body).find('h1')
+                                    .css('display', 'none')
+                                $(win.document.body).find('th')
+                                    .addClass('compact')
+                                    .css('text-align', 'right')
+                                $(win.document.body).find('td')
+                                    .addClass('compact')
+                                    .css('text-align', 'right')
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('direction', 'rtl')
+                                $(wim.document+'table').find('div')
+                                    .addClass('compact')
+
+                            }
                         },
                         {
                             extend: 'copy',
