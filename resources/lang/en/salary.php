@@ -16,6 +16,7 @@ return [
     'Name' => 'Name',
     'Salary' => 'Salary',
     'Make Payment' => 'Make Payment',
+    'Payment' => 'Payment',
     'Basic Salary' => 'Basic Salary',
     'Attendance' => 'Attendance',
     'Total Salary' => 'Total Salary',
@@ -74,9 +75,14 @@ return [
     'Content' => 'Content',
     'Type your value' => 'Type your value',
     'Payable' => 'Payable',
+    'Total Payable' => 'Total Payable',
     'Value' => 'Value',
-    'Revenue' => 'Revenue',
+    'Paid' => 'Paid',
     'Total Remaining' => 'Total Remaining',
     'Total Paid' => 'Total Paid',
+    'Create New Payable' => 'Create New Payable',
+    'Title' => 'Title',
+    'Remaining' => 'Remaining',
+    'Add Paid' => 'Add Paid',
 
 ];

@@ -8,13 +8,11 @@
                             <table id="example" class="display table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr class="text-center">
-                                        <th class="text-center" rowspan="2" width="5%"></th>
-                                        <th class="text-center" style="    vertical-align: middle;" rowspan="2">{{ trans('results.Full Name') }}</th>
-                                        <th class="text-center" rowspan="2">{{ trans('results.Last name') }}</th>
-                                        <th class="text-center"> {{ typeExams.name }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">{{ supSubjectFetch.degree }}</th>
+                                        <th class="text-center" width="5%"></th>
+                                        <th class="text-center" style="    vertical-align: middle;">{{ trans('results.Full Name') }}</th>
+                                        <th class="text-center">{{ trans('results.Last name') }}</th>
+                                        <th class="text-center">{{ trans('results.Gender') }}</th>
+                                        <th class="text-center"> <span class="label label-success">{{supSubjectFetch.degree}}</span> {{ supSubjectFetch.subjects.name }}</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -46,6 +44,9 @@ import FabResult from './fab/FabResult'
                 },
                 supSubjectFetch: {
                     degree: '',
+                    subjects: {
+                        name: ''
+                    }
                 },
                 get: {
                     apiURL: 'results',
@@ -68,9 +69,11 @@ import FabResult from './fab/FabResult'
                 this.exam = exam
                 this.typeExam = typeExam
                 this.supSubject = supSubject
+                this.get.params.supSubjectId = supSubject
                 this.get.params.typeExamId = typeExam
                 $('#example').DataTable().destroy();
                 this.getResults()
+                this.fetch()
             },
             getResults() {
                 var stageEdu = this.stageEdu
@@ -89,23 +92,16 @@ import FabResult from './fab/FabResult'
                         table: "#example",
                         fields: [
                             { label: "Degree:", name: "results.exam1" }, 
-                            // { label: "Setting Number:", name: "setting_numbers.setting_number" },
-                            // {
-                            //     label: 'Created At:',
-                            //     name: 'setting_numbers.created_at',
-                            //     type: "datetime",
-                            //     def:  function () { return new Date(); }
-                            // }
                         ]
                     });
 
                     var table = $('#example').DataTable({
                         dom: "Bfrtip",
                         ajax: {
-                            url: `/control/model/results.php?stage=${stageEdu}&class=${classEdu}&classroom=${classRoom}`,
+                            url: `/control/model/results.php?stage=${stageEdu}&class=${classEdu}&classroom=${classRoom}&subject=${supSubject}&exam=${exam}`,
                             type: 'GET',
                         },
-                        order: [[3 , 'asc'],[1 , 'asc'],[2 , 'asc']],
+                        order: [[3 , 'desc'],[1 , 'asc'],[2 , 'asc']],
                         pageLength: 100,
                         columns: [
                             {
@@ -116,15 +112,24 @@ import FabResult from './fab/FabResult'
                             },
                             { data: "users.name" },
                             { data: "users.last_name" },
+                            { data: "users.gender", name: 'users.gender',
+                                "render": function (val, type, row) {
+                                    if (val == null) {
+                                        return "Nothing";
+                                    } else {
+                                        return val == 1 ? "ذكر" : "إنثى";
+                                    }
+                                }
+                            },
                             { data: "results.exam1"},
                             
                         ],
                         autoFill: {
-                            columns: 3,
+                            columns: 4,
                             editor:  editor
                         },
                         keys: {
-                            columns: 3,
+                            columns: 4,
                             editor:  editor
                         },
                         select: {
@@ -146,7 +151,7 @@ import FabResult from './fab/FabResult'
                                 },
                                 "targets": 1
                             },
-                            { className: "text-center", "targets": [ 0,1,2,3 ] },
+                            { className: "text-center", "targets": [ 0,1,2,3,4 ] },
                         
                             { "visible": false,  "targets": [ 2 ] },
                         ],

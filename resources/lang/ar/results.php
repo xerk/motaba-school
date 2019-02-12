@@ -20,4 +20,6 @@ return [
     'Setting Number' => 'رقم الجلوس',
     'Secret Number' => 'الرقم السرى',
     'Committee' => 'اللجنة',
+    'Filter Student' => 'تصفية الطلاب',
+    'Display Student' => 'إظهار الطلاب'
 ];

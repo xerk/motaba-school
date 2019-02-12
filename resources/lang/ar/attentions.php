@@ -21,6 +21,7 @@ return [
     'Choose the type' => 'إختر النوع',
     'End Date' => 'تاريخ الإنتهاء',
     'Body' => 'الوصف',
+    'SMS' => 'الرسالة النصية',
     'Submit' => 'تأكيد',
     'Author' => 'الملاحظ',
     'Attention Type' => 'نوع الملاحظة',

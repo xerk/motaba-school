@@ -44,24 +44,24 @@
                 bgColor: '#22A7F0',
                 position: 'top-right',
                 iconSize: 'small',
-                mainTooltip: 'Display Student',
+                mainTooltip: this.trans('results.Display Student'),
                 fabActions: [
                     {
                         name: 'system',
                         icon: 'create_new_folder',
-                        tooltip: 'ClassRoom',
+                        tooltip: this.trans('results.Filter Student'),
                         color: '#000000',
                     },
                     {
                         name: 'system',
                         icon: 'book',
-                        tooltip: 'Class',
+                        tooltip: this.trans('results.Filter Student'),
                         color: '#000000',
                     },
                     {
                         name: 'system',
                         icon: 'school',
-                        tooltip: 'Stage',
+                        tooltip: this.trans('results.Filter Student'),
                         color: '#000000',
                     },
                 ],

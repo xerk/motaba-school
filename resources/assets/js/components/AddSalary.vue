@@ -11,7 +11,7 @@
                                         <th></th>
                                         <th>{{ trans('salary.Full Name') }}</th>
                                         <th>{{ trans('salary.Last name') }}</th>
-                                        <th>{{ trans('salary.Cost') }}</th>
+                                        <th>{{ trans('salary.Basic Salary') }}</th>
                                         <th>{{ trans('salary.May Grant') }}</th>
                                         <th>{{ trans('salary.Variable Wages') }}</th>
                                         <th>{{ trans('salary.Previous years bonuses') }}</th>

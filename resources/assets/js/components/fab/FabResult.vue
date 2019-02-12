@@ -24,7 +24,7 @@
 
                     <div :class="{'form-group col-md-6': true, 'has-error': errors.has('classroom') }">
                         <label for="classroom">{{ trans('fab.Class-Room')}}</label>
-                        <select id="m_classroom" v-validate="'required'" class="form-control" v-model="classRoomSelect" name="classroom">
+                        <select id="m_classroom" v-validate="''" class="form-control" v-model="classRoomSelect" name="classroom">
                             <option value="" selected="selected">{{ trans('fab.Choose Class-Room')}}</option>
                             <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
                         </select>
@@ -86,24 +86,12 @@
                 bgColor: '#22A7F0',
                 position: 'top-right',
                 iconSize: 'small',
-                mainTooltip: 'Display Student',
+                mainTooltip: this.trans('results.Display Student'),
                 fabActions: [
                     {
                         name: 'system',
-                        icon: 'create_new_folder',
-                        tooltip: 'ClassRoom',
-                        color: '#000000',
-                    },
-                    {
-                        name: 'system',
-                        icon: 'book',
-                        tooltip: 'Class',
-                        color: '#000000',
-                    },
-                    {
-                        name: 'system',
                         icon: 'school',
-                        tooltip: 'Stage',
+                        tooltip: this.trans('results.Filter Student'),
                         color: '#000000',
                     },
                 ],

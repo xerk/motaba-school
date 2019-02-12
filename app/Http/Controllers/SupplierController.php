@@ -44,6 +44,8 @@ class SupplierController extends Controller
         DuePayment::create([
             'supplier_id' => $request->supplier_id,
             'payable' => $request->model['value'],
+            'title' => $request->model['title'],
+            'comment' => $request->model['comment'],
         ]);
         return 'Due Payment has been added';
     }
@@ -103,7 +105,6 @@ class SupplierController extends Controller
         }])->where('id', $request->id)->first();
         
         return [
-            'sms' => env('SMS_USERNAME'),
             'duePayments' => $duePayments,
         ];
     }

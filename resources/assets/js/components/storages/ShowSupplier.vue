@@ -43,6 +43,30 @@
                                     </div>
                                 </div>
                             </div><!-- panel-body -->
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <span class="show-field">{{ trans('salary.Title') }}:</span>                                
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span style="font-size:14px" class="show-result">
+                                            {{ duePayments.title }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <span class="show-field">{{ trans('salary.Comment') }}:</span>                                
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span style="font-size:14px" class="show-result">
+                                            {{ duePayments.comment }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
                         </div>
                     </div>
                 </form>
@@ -53,7 +77,7 @@
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary" @click="changeValue" style="float: left">Add Total</button>     
+                                    <button class="btn btn-primary" @click="changeValue" style="float: left">{{ trans('salary.Add Paid')}}</button>     
                                 </div>
                                 <form @submit.prevent="validateBeforSubmit" action="">
                                     <div :class="{'form-group col-md-12': true, 'has-error': errors.has('value') }">
@@ -64,9 +88,9 @@
                                             <textarea  :placeholder="trans('salary.Comment')" v-if="editValue == true" v-model="model.comment" v-validate="'min:5|max:500'" name="comment" cols="30" rows="5" class="form-control"></textarea> 
                                             <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>
                                     </div>
-                                    <div class="col-md-2 form-group">
+                                    <div class="col-md-4 form-group">
                                         <transition name="list">
-                                            <button type="submit" class="btn btn-success btn-block" v-if="editValue == true">Save</button>
+                                            <button type="submit" class="btn btn-success" v-if="editValue == true">{{ trans('table.Yes, Save it!')}}</button>
                                         </transition>
                                     </div>
                                 </form>

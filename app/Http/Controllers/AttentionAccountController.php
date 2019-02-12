@@ -20,7 +20,10 @@ class AttentionAccountController extends Controller
             $query->where('user_id', '=', Auth::user()->id);
         }])->get();
         $attentions = Attention::with('attentionTypes')->where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
-        $attentionType = Attention::where('attention_type_id', $id)->get();
+        // dd($attentions);
+        $attentionType = Attention::where(function ($query) use($id) {
+            $query->where('attention_type_id', $id)->where('user_id', Auth::user()->id);
+        })->get();
         
         return view('vendor.frontend.account.attention', [
             'attentionTypes' => $attentionTypes,

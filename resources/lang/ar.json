@@ -60,7 +60,7 @@
     "Notifications": "الإشعارات",
     "All Caught Up!": "جميع اشتعلت!",
     "View All Notifications": "عرض جميع الإخطارات",
-    "English": "Enlish",
+    "English": "English",
     "Arabic": "العربية",
     "Email": "البريد الإلكتورنى",
     "Birth Date": "تاريخ الميلاد",
@@ -124,6 +124,16 @@
     "Our Awesome News": "لدينا أخبار رهيبة",
     "You do not have students absent here!": "ليس لديك طلاب غائبين هنا",
     "Can't Send SMS the next date of day.": "لا تسطيع إرسال رسالة نصية لليوم التالى",
-    "Please Choose the display student.": "من فضلك اختار الطلاب من النافذة التى في أسفل الصفحة"
+    "Please Choose the display student.": "من فضلك اختار الطلاب من النافذة التى في أسفل الصفحة",
+    "Qualification": "المؤهل",
+    "Specialty": "التخصص",
+    "Date Receipt": "تاريخ الاستلام",
+    "Insurance Date": "تاريخ التأمين",
+    "Insurance number": "رقم التأمين",
+    "Subject Name": "أسم المادة",
+    "Student Degree": "درجة الطالب",
+    "Subject Degree": "درجة المادة",
+    "Percent": "النسبة المئوية",
+    "All Attentions": "جميع التنبيهات"
 
 }

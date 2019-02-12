@@ -46528,7 +46528,7 @@ var render = function() {
                   },
                   [
                     _c("label", { attrs: { for: "email" } }, [
-                      _vm._v(_vm._s(_vm.trans("attentions.Body")))
+                      _vm._v(_vm._s(_vm.trans("attentions.SMS")))
                     ]),
                     _vm._v(" "),
                     _c("textarea", {
@@ -48224,21 +48224,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             bgColor: '#22A7F0',
             position: 'top-right',
             iconSize: 'small',
-            mainTooltip: 'Display Student',
+            mainTooltip: this.trans('results.Display Student'),
             fabActions: [{
                 name: 'system',
                 icon: 'create_new_folder',
-                tooltip: 'ClassRoom',
+                tooltip: this.trans('results.Filter Student'),
                 color: '#000000'
             }, {
                 name: 'system',
                 icon: 'book',
-                tooltip: 'Class',
+                tooltip: this.trans('results.Filter Student'),
                 color: '#000000'
             }, {
                 name: 'system',
                 icon: 'school',
-                tooltip: 'Stage',
+                tooltip: this.trans('results.Filter Student'),
                 color: '#000000'
             }],
             get: {
@@ -63756,6 +63756,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -63788,7 +63797,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             duePayments: [],
             sumPayable: '',
             model: {
-                value: ''
+                value: '',
+                title: '',
+                comment: ''
             }
         };
     },
@@ -63861,28 +63872,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this4.fetch();
             });
             this.selectRow = null;
-        },
-        addSMS: function addSMS() {
-            axios.post('https://smsmisr.com/api/webapi/?username=RL6fpb4a&password=msl16UTWrF&language=2&sender=Kamel Ouda&mobile=201126235089,201211116494,201025047147,201150780380,201111981716s&message=\u0644\u0642\u062F \u062A\u0645 \u062A\u0634\u063A\u064A\u0644 \u0627\u0644\u062E\u062F\u0645\u0629 \u0628\u0646\u062C\u0627\u062D&DelayUntil=2017-09-13-13-30', {
-                headers: {
-                    'Access-Control-Allow-Origin': 'https://smsmisr.com/api/webapi',
-                    'Access-Control-Allow-Methods': 'POST, GET, PUT, OPTIONS, DELETE',
-                    'Access-Control-Allow-Headers': 'Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-                // username: 'RL6fpb4a',
-                // password: 'msl16UTWrF',
-                // language: '1',
-                // sender: 'Kamel Ouda',
-                // mobile: '201111981716',
-                // message: 'Hello Ahmed',
-                // DelayUntil: new Date,
-            }).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                console.log(error);
-            });
         }
     }
 });
@@ -64116,15 +64105,6 @@ var render = function() {
                   _c("hr"),
                   _vm._v(" "),
                   _c("div", { staticClass: "panel-body" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: { click: _vm.addSMS }
-                      },
-                      [_vm._v("SMS")]
-                    ),
-                    _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-md-4" }, [
                         _c("span", { staticClass: "show-field" }, [
@@ -64223,7 +64203,7 @@ var render = function() {
                         staticStyle: { float: "left" },
                         on: { click: _vm.changeValue }
                       },
-                      [_vm._v("Add Total")]
+                      [_vm._v(_vm._s(_vm.trans("salary.Create New Payable")))]
                     )
                   ]),
                   _vm._v(" "),
@@ -64308,6 +64288,141 @@ var render = function() {
                               [_vm._v(_vm._s(_vm.errors.first("value")))]
                             )
                           ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            class: {
+                              "form-group col-md-12": true,
+                              "has-error": _vm.errors.has("title")
+                            }
+                          },
+                          [
+                            _vm.editValue == true
+                              ? _c("input", {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    },
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.model.title,
+                                      expression: "model.title"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  staticStyle: { "margin-top": "3px" },
+                                  attrs: {
+                                    required: "",
+                                    placeholder: _vm.trans("salary.Title"),
+                                    type: "text",
+                                    name: "title"
+                                  },
+                                  domProps: { value: _vm.model.title },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.model,
+                                        "title",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.errors.has("title"),
+                                    expression: "errors.has('title')"
+                                  }
+                                ],
+                                staticClass: "help-block",
+                                staticStyle: { color: "#f96868" }
+                              },
+                              [_vm._v(_vm._s(_vm.errors.first("title")))]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            class: {
+                              "form-group col-md-12": true,
+                              "has-error": _vm.errors.has("comment")
+                            }
+                          },
+                          [
+                            _vm.editValue == true
+                              ? _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.model.comment,
+                                      expression: "model.comment"
+                                    },
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required|min:5|max:500",
+                                      expression: "'required|min:5|max:500'"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    placeholder: _vm.trans("salary.Comment"),
+                                    name: "comment",
+                                    cols: "30",
+                                    rows: "5"
+                                  },
+                                  domProps: { value: _vm.model.comment },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.model,
+                                        "comment",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.errors.has("comment"),
+                                    expression: "errors.has('comment')"
+                                  }
+                                ],
+                                staticClass: "help-block",
+                                staticStyle: { color: "#f96868" }
+                              },
+                              [_vm._v(_vm._s(_vm.errors.first("comment")))]
+                            )
+                          ]
                         )
                       ]),
                       _vm._v(" "),
@@ -64323,7 +64438,11 @@ var render = function() {
                                     staticClass: "btn btn-success btn-block",
                                     attrs: { type: "submit" }
                                   },
-                                  [_vm._v("Save")]
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.trans("table.Yes, Save it!"))
+                                    )
+                                  ]
                                 )
                               : _vm._e()
                           ])
@@ -64349,7 +64468,7 @@ var render = function() {
                   [
                     _c("h4", [
                       _vm._v(
-                        _vm._s(_vm.trans("salary.Payable")) +
+                        _vm._s(_vm.trans("salary.Total Payable")) +
                           ": " +
                           _vm._s(_vm.sumPayable)
                       )
@@ -64410,9 +64529,11 @@ var render = function() {
                   [
                     _c("thead", [
                       _c("tr", [
+                        _c("th", [_vm._v(_vm._s(_vm.trans("salary.Title")))]),
+                        _vm._v(" "),
                         _c("th", [_vm._v(_vm._s(_vm.trans("salary.Value")))]),
                         _vm._v(" "),
-                        _c("th", [_vm._v(_vm._s(_vm.trans("salary.Revenue")))]),
+                        _c("th", [_vm._v(_vm._s(_vm.trans("salary.Paid")))]),
                         _vm._v(" "),
                         _c("th", [
                           _vm._v(_vm._s(_vm.trans("salary.Remaining")))
@@ -64433,6 +64554,8 @@ var render = function() {
                       { attrs: { tag: "tbody", name: "list", mode: "in-out" } },
                       _vm._l(_vm.duePayments, function(item, index) {
                         return _c("tr", { key: index }, [
+                          _c("td", [_c("b", [_vm._v(_vm._s(item.title))])]),
+                          _vm._v(" "),
                           _c("td", [_c("b", [_vm._v(_vm._s(item.payable))])]),
                           _vm._v(" "),
                           _c("td", [_c("b", [_vm._v(_vm._s(item.sum_value))])]),
@@ -64485,7 +64608,7 @@ var render = function() {
                                     "margin-right": "10px"
                                   },
                                   attrs: {
-                                    title: _vm.trans("salary.Modify"),
+                                    title: _vm.trans("salary.Payment"),
                                     tag: "a",
                                     to: {
                                       name: "showSupplier",
@@ -64501,7 +64624,7 @@ var render = function() {
                                   _c("i", { staticClass: "voyager-edit" }),
                                   _vm._v(
                                     " " +
-                                      _vm._s(_vm.trans("salary.Modify")) +
+                                      _vm._s(_vm.trans("salary.Payment")) +
                                       "\n                                        "
                                   )
                                 ]
@@ -64647,6 +64770,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modal_Modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__modal_Modal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_ModalSystem__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_ModalSystem___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__modal_ModalSystem__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -64986,6 +65133,60 @@ var render = function() {
                         )
                       ])
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "panel-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c("span", { staticClass: "show-field" }, [
+                          _vm._v(_vm._s(_vm.trans("salary.Title")) + ":")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-8" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "show-result",
+                            staticStyle: { "font-size": "14px" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.duePayments.title) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "panel-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c("span", { staticClass: "show-field" }, [
+                          _vm._v(_vm._s(_vm.trans("salary.Comment")) + ":")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-8" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "show-result",
+                            staticStyle: { "font-size": "14px" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.duePayments.comment) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ])
                   ])
                 ])
               ])
@@ -65006,7 +65207,7 @@ var render = function() {
                         staticStyle: { float: "left" },
                         on: { click: _vm.changeValue }
                       },
-                      [_vm._v("Add Total")]
+                      [_vm._v(_vm._s(_vm.trans("salary.Add Paid")))]
                     )
                   ]),
                   _vm._v(" "),
@@ -65164,17 +65365,21 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "col-md-2 form-group" },
+                        { staticClass: "col-md-4 form-group" },
                         [
                           _c("transition", { attrs: { name: "list" } }, [
                             _vm.editValue == true
                               ? _c(
                                   "button",
                                   {
-                                    staticClass: "btn btn-success btn-block",
+                                    staticClass: "btn btn-success",
                                     attrs: { type: "submit" }
                                   },
-                                  [_vm._v("Save")]
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.trans("table.Yes, Save it!"))
+                                    )
+                                  ]
                                 )
                               : _vm._e()
                           ])
@@ -75750,7 +75955,9 @@ var render = function() {
                       _vm._v(" "),
                       _c("th", [_vm._v(_vm._s(_vm.trans("salary.Last name")))]),
                       _vm._v(" "),
-                      _c("th", [_vm._v(_vm._s(_vm.trans("salary.Cost")))]),
+                      _c("th", [
+                        _vm._v(_vm._s(_vm.trans("salary.Basic Salary")))
+                      ]),
                       _vm._v(" "),
                       _c("th", [_vm._v(_vm._s(_vm.trans("salary.May Grant")))]),
                       _vm._v(" "),
@@ -83053,8 +83260,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -83071,7 +83276,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 name: ''
             },
             supSubjectFetch: {
-                degree: ''
+                degree: '',
+                subjects: {
+                    name: ''
+                }
             },
             get: {
                 apiURL: 'results',
@@ -83095,9 +83303,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.exam = exam;
             this.typeExam = typeExam;
             this.supSubject = supSubject;
+            this.get.params.supSubjectId = supSubject;
             this.get.params.typeExamId = typeExam;
             $('#example').DataTable().destroy();
             this.getResults();
+            this.fetch();
         },
         getResults: function getResults() {
             var stageEdu = this.stageEdu;
@@ -83120,23 +83330,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var table = $('#example').DataTable({
                     dom: "Bfrtip",
                     ajax: {
-                        url: '/control/model/results.php?stage=' + stageEdu + '&class=' + classEdu + '&classroom=' + classRoom,
+                        url: '/control/model/results.php?stage=' + stageEdu + '&class=' + classEdu + '&classroom=' + classRoom + '&subject=' + supSubject + '&exam=' + exam,
                         type: 'GET'
                     },
-                    order: [[3, 'asc'], [1, 'asc'], [2, 'asc']],
+                    order: [[3, 'desc'], [1, 'asc'], [2, 'asc']],
                     pageLength: 100,
                     columns: [{
                         data: null,
                         defaultContent: '',
                         className: 'select-checkbox',
                         orderable: false
-                    }, { data: "users.name" }, { data: "users.last_name" }, { data: "results.exam1" }],
+                    }, { data: "users.name" }, { data: "users.last_name" }, { data: "users.gender", name: 'users.gender',
+                        "render": function render(val, type, row) {
+                            if (val == null) {
+                                return "Nothing";
+                            } else {
+                                return val == 1 ? "ذكر" : "إنثى";
+                            }
+                        }
+                    }, { data: "results.exam1" }],
                     autoFill: {
-                        columns: 3,
+                        columns: 4,
                         editor: editor
                     },
                     keys: {
-                        columns: 3,
+                        columns: 4,
                         editor: editor
                     },
                     select: {
@@ -83156,7 +83374,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             }
                         },
                         "targets": 1
-                    }, { className: "text-center", "targets": [0, 1, 2, 3] }, { "visible": false, "targets": [2] }],
+                    }, { className: "text-center", "targets": [0, 1, 2, 3, 4] }, { "visible": false, "targets": [2] }],
                     buttons: [{ extend: "edit", editor: editor }]
                 });
             });
@@ -83317,21 +83535,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             bgColor: '#22A7F0',
             position: 'top-right',
             iconSize: 'small',
-            mainTooltip: 'Display Student',
+            mainTooltip: this.trans('results.Display Student'),
             fabActions: [{
                 name: 'system',
-                icon: 'create_new_folder',
-                tooltip: 'ClassRoom',
-                color: '#000000'
-            }, {
-                name: 'system',
-                icon: 'book',
-                tooltip: 'Class',
-                color: '#000000'
-            }, {
-                name: 'system',
                 icon: 'school',
-                tooltip: 'Stage',
+                tooltip: this.trans('results.Filter Student'),
                 color: '#000000'
             }],
             get: {
@@ -83670,8 +83878,8 @@ var render = function() {
                             {
                               name: "validate",
                               rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
+                              value: "",
+                              expression: "''"
                             },
                             {
                               name: "model",
@@ -84085,36 +84293,33 @@ var render = function() {
                       _c("tr", { staticClass: "text-center" }, [
                         _c("th", {
                           staticClass: "text-center",
-                          attrs: { rowspan: "2", width: "5%" }
+                          attrs: { width: "5%" }
                         }),
                         _vm._v(" "),
                         _c(
                           "th",
                           {
                             staticClass: "text-center",
-                            staticStyle: { "vertical-align": "middle" },
-                            attrs: { rowspan: "2" }
+                            staticStyle: { "vertical-align": "middle" }
                           },
                           [_vm._v(_vm._s(_vm.trans("results.Full Name")))]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { rowspan: "2" }
-                          },
-                          [_vm._v(_vm._s(_vm.trans("results.Last name")))]
-                        ),
+                        _c("th", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(_vm.trans("results.Last name")))
+                        ]),
                         _vm._v(" "),
                         _c("th", { staticClass: "text-center" }, [
-                          _vm._v(" " + _vm._s(_vm.typeExams.name))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tr", [
+                          _vm._v(_vm._s(_vm.trans("results.Gender")))
+                        ]),
+                        _vm._v(" "),
                         _c("th", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(_vm.supSubjectFetch.degree))
+                          _c("span", { staticClass: "label label-success" }, [
+                            _vm._v(_vm._s(_vm.supSubjectFetch.degree))
+                          ]),
+                          _vm._v(
+                            " " + _vm._s(_vm.supSubjectFetch.subjects.name)
+                          )
                         ])
                       ])
                     ])

@@ -48,6 +48,16 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
+     * Show the User Has Many Results.
+     *
+     * @return App\Expense
+     */
+    public function results()
+    {
+        return $this->hasMany('App\Result');
+    }
+
+    /**
      * Show the User Has Many LinkTeacher.
      *
      * @return App\LinkTeacher

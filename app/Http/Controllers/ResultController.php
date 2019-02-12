@@ -106,7 +106,7 @@ class ResultController extends Controller
     public function getResults(Request $request)
     {
         $typeExams = TypeExam::find($request->type);
-        $supSubject = SupSubject::find($request->subject);
+        $supSubject = SupSubject::with('subjects')->find($request->subject);
 
         return [
             'typeExams' => $typeExams,

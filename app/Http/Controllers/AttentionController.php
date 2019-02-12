@@ -55,55 +55,58 @@ class AttentionController extends Controller
                     'body' => $request->body,
                     'sms' => $request->sms,
                 ]);
-                $user = User::where('id', $request->user_id)->first();
-                if ($user->job == 1) {
-                    $response = $http->post(env('SMS_LINK'), [
-                        'query' => [
-                            'username' => env('SMS_USERNAME'),
-                            'password' => env('SMS_PASSWORD'),
-                            'sender' => env('SMS_SENDER'),
-                            'language' => 2,
-                            'mobile' => '2'.$user->father_mobile,
-                            'message' => $request->sms,
-                            'DelayUntil' => Carbon::now()->toDateString()
-                        ]
-                    ]);
-                } else {
-                    $response = $http->post(env('SMS_LINK'), [
-                        'query' => [
-                            'username' => env('SMS_USERNAME'),
-                            'password' => env('SMS_PASSWORD'),
-                            'sender' => env('SMS_SENDER'),
-                            'language' => 2,
-                            'mobile' => $user->mobile,
-                            'message' => $request->sms,
-                            'DelayUntil' => Carbon::now()->toDateString()
-                        ]
-                    ]);
-                }
-                
-                $data = json_decode($response->getBody());
-                // retrun json_decode((string)) $response->getBody(), true);
-                if ($data->code == 1901) {
-                    SmsLog::create([
-                        'amount' => 1,
-                        'success_send' => 1,
-                        'fail_send' => 0,
-                        'type' => 'رسائل نصية لتنبيه الطالب أو الموظف',
-                    ]);
-                    if ($user->job == 0) {
-                        return response()->json('Attention & SMS has been sent to '.$user->mobile, 200);
+                return response()->json('Attention has been Add', 200);
+                if ($request->sms != '') {
+                    $user = User::where('id', $request->user_id)->first();
+                    if ($user->job == 1) {
+                        $response = $http->post(env('SMS_LINK'), [
+                            'query' => [
+                                'username' => env('SMS_USERNAME'),
+                                'password' => env('SMS_PASSWORD'),
+                                'sender' => env('SMS_SENDER'),
+                                'language' => 2,
+                                'mobile' => '2'.$user->father_mobile,
+                                'message' => $request->sms,
+                                'DelayUntil' => Carbon::now()->toDateString()
+                            ]
+                        ]);
                     } else {
-                        return response()->json('Attention & SMS has been sent to '.$user->father_mobile, 200);
+                        $response = $http->post(env('SMS_LINK'), [
+                            'query' => [
+                                'username' => env('SMS_USERNAME'),
+                                'password' => env('SMS_PASSWORD'),
+                                'sender' => env('SMS_SENDER'),
+                                'language' => 2,
+                                'mobile' => $user->mobile,
+                                'message' => $request->sms,
+                                'DelayUntil' => Carbon::now()->toDateString()
+                            ]
+                        ]);
                     }
-                } else {
-                    SmsLog::create([
-                        'amount' => 1,
-                        'success_send' => 0,
-                        'fail_send' => 1,
-                        'type' => 'رسائل نصية لتنبيه الطالب أو الموظف',
-                    ]);
-                    return $response->getBody();
+                    
+                    $data = json_decode($response->getBody());
+                    // retrun json_decode((string)) $response->getBody(), true);
+                    if ($data->code == 1901) {
+                        SmsLog::create([
+                            'amount' => 1,
+                            'success_send' => 1,
+                            'fail_send' => 0,
+                            'type' => 'رسائل نصية لتنبيه الطالب أو الموظف',
+                        ]);
+                        if ($user->job == 0) {
+                            return response()->json('Attention & SMS has been sent to '.$user->mobile, 200);
+                        } else {
+                            return response()->json('Attention & SMS has been sent to '.$user->father_mobile, 200);
+                        }
+                    } else {
+                        SmsLog::create([
+                            'amount' => 1,
+                            'success_send' => 0,
+                            'fail_send' => 1,
+                            'type' => 'رسائل نصية لتنبيه الطالب أو الموظف',
+                        ]);
+                        return $response->getBody();
+                    }
                 }
 
             } catch (\GuzzleHttp\Exception\BadResponseException $e) {

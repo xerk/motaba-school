@@ -8,7 +8,6 @@
                             <h4><img :src="link + '/storage/' + 'users/default.png'" class="img-avatar"> {{supplier.name}}</h4>
                             <hr>
                             <div class="panel-body">
-                                <button @click="addSMS" class="btn btn-primary">SMS</button>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <span class="show-field">{{ trans('salary.Company') }}:</span>                                
@@ -54,7 +53,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                     <div class="col-md-2">
-                                        <button class="btn btn-primary" @click="changeValue" style="float: left">Add Total</button>     
+                                        <button class="btn btn-primary" @click="changeValue" style="float: left">{{ trans('salary.Create New Payable')}}</button>     
                                     </div>
                                 <form @submit.prevent="validateBeforSubmit" action="">
                                     <div class="col-md-8">
@@ -62,10 +61,18 @@
                                             <input required :placeholder="trans('salary.Type your value')" v-validate="'required|numeric'" type="number" v-if="editValue == true"  name="value" v-model="model.value" style="margin-top: 3px;" class="form-control"> 
                                             <span v-show="errors.has('value')" class="help-block" style="color:#f96868">{{ errors.first('value') }}</span>
                                         </div>
+                                        <div :class="{'form-group col-md-12': true, 'has-error': errors.has('title') }">
+                                            <input required :placeholder="trans('salary.Title')" v-validate="'required'" type="text" v-if="editValue == true"  name="title" v-model="model.title" style="margin-top: 3px;" class="form-control"> 
+                                            <span v-show="errors.has('title')" class="help-block" style="color:#f96868">{{ errors.first('title') }}</span>
+                                        </div>
+                                        <div :class="{'form-group col-md-12': true, 'has-error': errors.has('comment') }">
+                                            <textarea  :placeholder="trans('salary.Comment')" v-if="editValue == true" v-model="model.comment" v-validate="'required|min:5|max:500'" name="comment" cols="30" rows="5" class="form-control"></textarea> 
+                                            <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>
+                                        </div>
                                     </div>
                                     <div class="col-md-2">
                                         <transition name="slide-fade">
-                                            <button type="submit" class="btn btn-success btn-block" v-if="editValue == true">Save</button>
+                                            <button type="submit" class="btn btn-success btn-block" v-if="editValue == true">{{ trans('table.Yes, Save it!')}}</button>
                                         </transition>
                                     </div>
                                 </form>
@@ -76,7 +83,7 @@
                     <div class="row text-center">
                         <div class="col-md-4">
                             <span style="font-size:14px" class="show-result">
-                                <h4>{{trans('salary.Payable')}}: {{sumPayable}}</h4>
+                                <h4>{{trans('salary.Total Payable')}}: {{sumPayable}}</h4>
                             </span>
                         </div>
                         <div class="col-md-4">
@@ -96,8 +103,9 @@
                             <table id="dataTable" class="table table-hover dataTable no-footer">
                                 <thead>
                                     <tr>
+                                        <th>{{ trans('salary.Title') }}</th>
                                         <th>{{ trans('salary.Value') }}</th>
-                                        <th>{{ trans('salary.Revenue') }}</th>
+                                        <th>{{ trans('salary.Paid') }}</th>
                                         <th>{{ trans('salary.Remaining') }}</th>
                                         <th>{{ trans('salary.Created At') }}</th>
                                         <th class="actions text-right">{{ trans('table.Actions') }}</th>
@@ -105,6 +113,7 @@
                                 </thead>
                                 <transition-group tag="tbody" name="list" mode="in-out">
                                     <tr v-for="(item, index) in duePayments" :key="index">
+                                        <td><b>{{ item.title }}</b></td>
                                         <td><b>{{ item.payable }}</b></td>
                                         <td><b>{{ item.sum_value }}</b></td>
                                         <td><b>{{ +item.payable - +item.sum_value }}</b></td>
@@ -113,8 +122,8 @@
                                             <a href.prevent="" @click="openModal(item)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
                                                 <i class="voyager-trash"></i> {{ trans('table.Delete') }}
                                             </a>
-                                            <router-link class="btn btn-sm btn-primary pull-right" :title="trans('salary.Modify')" style="display:inline; margin-right:10px;" tag="a" :to="{name: 'showSupplier', params: {'id': item.id}}">
-                                                <span class="hidden-xs hidden-sm"></span> <i class="voyager-edit"></i> {{ trans('salary.Modify') }}
+                                            <router-link class="btn btn-sm btn-primary pull-right" :title="trans('salary.Payment')" style="display:inline; margin-right:10px;" tag="a" :to="{name: 'showSupplier', params: {'id': item.id}}">
+                                                <span class="hidden-xs hidden-sm"></span> <i class="voyager-edit"></i> {{ trans('salary.Payment') }}
                                             </router-link>
                                         </td>
                                     </tr>
@@ -162,6 +171,8 @@ import ModalSystem from './modal/ModalSystem'
                 sumPayable: '',
                 model: {
                     value: '',
+                    title: '',
+                    comment: '',
                 }
             }
         },
@@ -229,30 +240,6 @@ import ModalSystem from './modal/ModalSystem'
                     })
                     this.selectRow = null;
             },
-            addSMS() {
-                axios.post(`https://smsmisr.com/api/webapi/?username=RL6fpb4a&password=msl16UTWrF&language=2&sender=Kamel Ouda&mobile=201126235089,201211116494,201025047147,201150780380,201111981716s&message=لقد تم تشغيل الخدمة بنجاح&DelayUntil=2017-09-13-13-30`, {
-                    headers: {
-                            'Access-Control-Allow-Origin': 'https://smsmisr.com/api/webapi',
-                            'Access-Control-Allow-Methods': 'POST, GET, PUT, OPTIONS, DELETE',
-                            'Access-Control-Allow-Headers': 'Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type',
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                    // username: 'RL6fpb4a',
-                    // password: 'msl16UTWrF',
-                    // language: '1',
-                    // sender: 'Kamel Ouda',
-                    // mobile: '201111981716',
-                    // message: 'Hello Ahmed',
-                    // DelayUntil: new Date,
-                })
-                .then(function (response) {
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            }
         }
     };
 

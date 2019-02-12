@@ -4,11 +4,10 @@
             <div class="uk-grid-large uk-grid-margin-large uk-grid" uk-grid="">
                 <div class="uk-width-expand@m uk-width-1-2@s uk-first-column uk-footer-logo">
                     <div class="uk-margin">
-                        <a href="/"><img src="https://wave.devdojo.com/storage/themes/August2018/TksmVWMqp5JXUQj8C6Ct.png"
-                                data-src="https://wave.devdojo.com/storage/themes/August2018/TksmVWMqp5JXUQj8C6Ct.png"
-                                style="height:16px;"></a>
+                        <a href="/"><img src="{{ asset('images/logo/logo.png') }}"
+                                data-src="{{ asset('images/logo/logo.png') }}"
+                                style="height:128px;"></a>
                     </div>
-                    <div class="uk-margin uk-width-xlarge">{{ Session::get('locale') == 'en' ? setting('site.home_description') : setting('site.home_description_ar') }}</div>
                 </div>
                 <div class="uk-width-expand@m uk-width-1-2@s">
                     <h3 class="uk-h5">{{__('Site Links')}}</h3>
@@ -21,14 +20,15 @@
                 <div class="uk-width-expand@m uk-width-1-2@s">
                     <h3 class="uk-h5">{{ __('Kamel Ouda Resources') }}</h3>
                     <ul class="uk-list">
-                        <li><a href="{{ route('frontend.blogs')}}" class="uk-link-muted">{{ __('Blogs') }}</a></li>                        
                         <li><a href="{{ url('\about')}}" class="uk-link-muted">{{ __('About') }}</a></li>                        
-                        <li><a href="{{ route('frontend.contact')}}" class="uk-link-muted">{{ __('Contact') }}</a></li>                        
+                        <li><a href="{{ route('frontend.contact') }}" class="uk-link-muted">{{ __('Contact') }}</a></li>                        
                     </ul>
                 </div>
                 <div class="uk-width-expand@m uk-width-1-2@s">
                     <h3 class="uk-h5">{{ __('Contact Us') }}</h3>
-                    <div class="uk-margin">contact@kamel-ouda.com</div>
+                    <div class="">01147096818</div>
+                    <div class="">0237775917 - 02377775918</div>
+                    <div class="">contact@kamel-ouda.com</div>
                     <div class="uk-margin">
                         <div class="uk-child-width-auto uk-grid-medium uk-grid uk-social" uk-grid>
                             <a uk-icon="icon: youtube; ratio: 0.8" href="#" target="_blank"

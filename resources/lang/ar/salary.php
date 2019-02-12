@@ -16,6 +16,7 @@ return [
     'Name' => 'الاسم',
     'Salary' => 'الراتب',
     'Make Payment' => 'إنشاء دفعة جديدة',
+    'Payment' => 'إضافة دفعة',
     'Basic Salary' => 'الراتب الأساسى',
     'Attendance' => 'الحضور',
     'Total Salary' => 'إجمالى الراتب',
@@ -74,9 +75,14 @@ return [
     'Content' => 'المحتوى',
     'Type your value' => 'اكتب القيمة',
     'Payable' => 'القيمة المستحقة',
+    'Total Payable' => 'إجمالى المستحقة',
     'Value' => 'القيمة',
+    'Paid' => 'المدفوع',
     'Total Remaining' => 'إجمالى المتبقى',
     'Total Paid' => 'إجمالى المدفوع',
-
+    'Create New Payable' => 'إنشاء عملية جديدة',
+    'Title' => 'العنوان',
+    'Remaining' => 'المتبقى',
+    'Add Paid' => 'إضافة دفعة',
 
 ];

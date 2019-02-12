@@ -2,23 +2,27 @@
 @section('title', __('Profile'))
 @section('body-class', 'at-'.Auth::user()->username)
 @section('extra-css')
-    <style>
-        .uk-subnav>*>:first-child {
-            text-transform: none;
-        }
-        .uk-subnav {
-            justify-content: left;
-            border-bottom: 1px solid #f1f1f5;
-        }
-        .uk-subnav-pill>.uk-active>a {
-            background-color: #fff;
-            color: #000;
-            border-bottom: 2px solid #1e87f0;
-        }
-        .show-result {
-            font-weight: 600;
-        }
-    </style>
+<style>
+    .uk-subnav>*>:first-child {
+        text-transform: none;
+    }
+
+    .uk-subnav {
+        justify-content: left;
+        border-bottom: 1px solid #f1f1f5;
+    }
+
+    .uk-subnav-pill>.uk-active>a {
+        background-color: #fff;
+        color: #000;
+        border-bottom: 2px solid #1e87f0;
+    }
+
+    .show-result {
+        font-weight: 600;
+    }
+
+</style>
 @endsection
 @section('content')
 <div class="uk-container uk-margin-top profile" id="profile">
@@ -39,33 +43,36 @@
                         </div>
                         <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                             <span class="uk-text-muted">{{__('Birth Date')}}:</span>
-                            <span class="uk-text-bold uk-text-primary">{{ \Carbon\Carbon::parse(Auth::user()->birth_date)->toFormattedDateString() }}</span>
+                            <span class="uk-text-bold uk-text-primary">{{
+                                \Carbon\Carbon::parse(Auth::user()->birth_date)->toFormattedDateString() }}</span>
                         </div>
                         <div class="uk-text-left uk-grid-small uk-child-width-expand@s" uk-grid>
-                                <span class="uk-text-muted">{{__('Mobile')}}:</span>
-                                <span class="uk-text-bold uk-text-primary">{{ Auth::user()->mobile }}</span>
+                            <span class="uk-text-muted">{{__('Mobile')}}:</span>
+                            <span class="uk-text-bold uk-text-primary">{{ Auth::user()->mobile }}</span>
                         </div>
                         <div class="uk-text-left uk-grid-small uk-child-width-expand@s" uk-grid>
-                                <span class="uk-text-muted">{{__('Telephone')}}:</span>
-                                <span class="uk-text-bold uk-text-primary">{{ Auth::user()->tel }}</span>
+                            <span class="uk-text-muted">{{__('Telephone')}}:</span>
+                            <span class="uk-text-bold uk-text-primary">{{ Auth::user()->tel }}</span>
                         </div>
                         <div class="uk-text-left uk-grid-small uk-child-width-expand@s" uk-grid>
-                                <span class="uk-text-muted">{{__('Address')}}:</span>
-                                <span class="uk-text-bold uk-text-primary">{{ Auth::user()->address }}</span>
+                            <span class="uk-text-muted">{{__('Address')}}:</span>
+                            <span class="uk-text-bold uk-text-primary">{{ Auth::user()->address }}</span>
                         </div>
                         <div class="uk-text-left uk-grid-small uk-child-width-expand@s" uk-grid>
-                                <span class="uk-text-muted">{{__('Nationality')}}:</span>
-                                <span class="uk-text-bold uk-text-primary">{{ Auth::user()->nationality }}</span>
+                            <span class="uk-text-muted">{{__('Nationality')}}:</span>
+                            <span class="uk-text-bold uk-text-primary">{{ Auth::user()->nationality }}</span>
                         </div>
                         <div class="uk-text-left uk-grid-small uk-child-width-expand@s" uk-grid>
-                                <span class="uk-text-muted">{{__('National ID')}}:</span>
-                                <span class="uk-text-bold uk-text-primary">{{ Auth::user()->national_id }}</span>
+                            <span class="uk-text-muted">{{__('National ID')}}:</span>
+                            <span class="uk-text-bold uk-text-primary">{{ Auth::user()->national_id }}</span>
                         </div>
                         <hr>
                     </div>
                     <span class="show-result">
-                        <a v-if="showContent == false" @click.prevent="showContent = true" href="">{{__('Show Content')}}</a>
-                        <a v-if="showContent == true" @click.prevent="showContent = false" href="">{{__('Hiden Content')}}</a>
+                        <a v-if="showContent == false" @click.prevent="showContent = true" href="">{{__('Show
+                            Content')}}</a>
+                        <a v-if="showContent == true" @click.prevent="showContent = false" href="">{{__('Hiden
+                            Content')}}</a>
                     </span>
                     {{-- <p class="about"></p> --}}
                 </div>
@@ -78,8 +85,10 @@
                         <li><a href="#">{{__('Profile Information')}}</a></li>
                         <li><a href="#">{{__('Schedule')}}</a></li>
                         <li><a href="#">{{__('Attendance')}}</a></li>
+                        @if (Auth::user()->job == 1)
                         <li><a href="#">{{__('Expenses')}}</a></li>
-                        <li><a href="#">{{__('Result')}}</a></li>
+                        <li><a href="#">{{__('Results')}}</a></li>
+                        @endif
                     </ul>
                     <ul class="uk-switcher uk-margin">
                         <li>
@@ -91,17 +100,17 @@
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Status')}}:</span>
                                         @switch(Auth::user()->status)
-                                            @case(1)
-                                                <span class="uk-text-bold uk-text-success">{{__('New')}}</span>
-                                                @break
-                                            @case(2)
-                                                <span class="uk-text-bold uk-text-primary">{{__('Transported')}}</span>
-                                                @break
-                                            @case(3)
-                                                <span class="uk-text-bold uk-text-warning">{{__('Newcomer')}}</span>
-                                                @break
-                                            @default
-                                                <span class="uk-text-bold uk-text-muted">{{__('Nothing')}}</span>
+                                        @case(1)
+                                        <span class="uk-text-bold uk-text-success">{{__('New')}}</span>
+                                        @break
+                                        @case(2)
+                                        <span class="uk-text-bold uk-text-primary">{{__('Transported')}}</span>
+                                        @break
+                                        @case(3)
+                                        <span class="uk-text-bold uk-text-warning">{{__('Newcomer')}}</span>
+                                        @break
+                                        @default
+                                        <span class="uk-text-bold uk-text-muted">{{__('Nothing')}}</span>
                                         @endswitch
                                     </div>
                                 </li>
@@ -110,7 +119,9 @@
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Joining Date')}} :</span>
-                                        <span class="uk-text-bold uk-text-primary">{{ \Carbon\Carbon::parse(Auth::user()->joining_date)->toFormattedDateString() }}</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            \Carbon\Carbon::parse(Auth::user()->joining_date)->toFormattedDateString()
+                                            }}</span>
                                     </div>
                                 </li>
                                 @endif
@@ -118,11 +129,12 @@
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Education info')}}:</span>
-                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->stageEdu->name }} - {{ Auth::user()->classEdu->name }} ({{ Auth::user()->classRoom->name }})</span>
+                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->stageEdu->name }} -
+                                            {{ Auth::user()->classEdu->name }} ({{ Auth::user()->classRoom->name }})</span>
                                     </div>
                                 </li>
                                 @endif
-                                @if (Auth::user()->enrollment_no != Null)                                
+                                @if (Auth::user()->enrollment_no != Null)
                                 <li v-if="showPrsonalInfo == true">
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Enrollment number')}}:</span>
@@ -130,7 +142,7 @@
                                     </div>
                                 </li>
                                 @endif
-                                @if (Auth::user()->father_mobile != Null)                                
+                                @if (Auth::user()->father_mobile != Null)
                                 <li v-if="showPrsonalInfo == true">
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Father Mobile' )}}:</span>
@@ -138,7 +150,7 @@
                                     </div>
                                 </li>
                                 @endif
-                                @if (Auth::user()->father_tel != Null)                                
+                                @if (Auth::user()->father_tel != Null)
                                 <li v-if="showPrsonalInfo == true">
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Father Telephone')}}:</span>
@@ -148,133 +160,280 @@
                                 @endif
                             </ul>
                             @else
-
+                            <ul class="uk-list uk-list-divider">
+                                @if (Auth::user()->qualification != Null)
+                                <li>
+                                    <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                        <span class="uk-text-muted">{{__('Joining Date')}} :</span>
+                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->qualification }}</span>
+                                    </div>
+                                </li>
+                                @endif
+                                @if (Auth::user()->specialty != Null)
+                                <li>
+                                    <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                        <span class="uk-text-muted">{{__('Specialty')}}:</span>
+                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->specialty }}</span>
+                                    </div>
+                                </li>
+                                @endif
+                                @if (Auth::user()->date_receipt != Null)
+                                <li v-if="showPrsonalInfo == true">
+                                    <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                        <span class="uk-text-muted">{{__('Date Receipt')}}:</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            \Carbon\Carbon::parse(Auth::user()->date_receipt)->toFormattedDateString()
+                                            }}</span>
+                                    </div>
+                                </li>
+                                @endif
+                                @if (Auth::user()->insurance_date != Null)
+                                <li v-if="showPrsonalInfo == true">
+                                    <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                        <span class="uk-text-muted">{{__('Insurance Date' )}}:</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            \Carbon\Carbon::parse(Auth::user()->insurance_date)->toFormattedDateString()
+                                            }}</span>
+                                    </div>
+                                </li>
+                                @endif
+                                @if (Auth::user()->insurance_no != Null)
+                                <li v-if="showPrsonalInfo == true">
+                                    <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                        <span class="uk-text-muted">{{__('Insurance number')}}:</span>
+                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->insurance_no }}</span>
+                                    </div>
+                                </li>
+                                @endif
+                            </ul>
                             @endif
                             <hr>
                             <span class="show-result uk-text-center">
-                                <a v-if="showPrsonalInfo == false" @click.prevent="showPrsonalInfo = true" href="">{{__('Show More')}}</a>
-                                <a v-if="showPrsonalInfo == true" @click.prevent="showPrsonalInfo = false" href="">{{__('Hiden More')}}</a>
+                                <a v-if="showPrsonalInfo == false" @click.prevent="showPrsonalInfo = true" href="">{{__('Show
+                                    More')}}</a>
+                                <a v-if="showPrsonalInfo == true" @click.prevent="showPrsonalInfo = false" href="">{{__('Hiden
+                                    More')}}</a>
                             </span>
                         </li>
                         <li>
-                            <h3 class="uk-margin-small-bottom">{{__('Schedule')}}.</h3>
-                            {{__('Coming soon')}}...</li>
+                            <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
+                                    <caption>{{__('Schedule')}}</caption>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="uk-label">الأحد</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)    
+                                                <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الإثنين</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)    
+                                                <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الثلاثاء</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)    
+                                                <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الأربعاء</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)    
+                                                <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الخميس</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)    
+                                                <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </li>
                         <li>
                             <h3 class="uk-margin-small-bottom">{{__('Attendance')}}.</h3>
                             <ul class="uk-list uk-list-divider">
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Attend')}}:</span>
-                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->attendance->where('status', 1)->count() }}</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            Auth::user()->attendance->where('status', 1)->count() }}</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Holiday')}}:</span>
-                                        <span class="uk-text-bold uk-text-success">{{ Auth::user()->attendance->where('status', 2)->count() }}</span>
+                                        <span class="uk-text-bold uk-text-success">{{
+                                            Auth::user()->attendance->where('status', 2)->count() }}</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Absent')}}:</span>
-                                        <span class="uk-text-bold uk-text-danger">{{ Auth::user()->attendance->where('status', 3)->count() }}</span>
+                                        <span class="uk-text-bold uk-text-danger">{{
+                                            Auth::user()->attendance->where('status', 3)->count() }}</span>
                                     </div>
                                 </li>
                             </ul>
                             <table class="uk-table uk-table-striped" v-if="showAttendContent == true">
-                                    <thead>
-                                        <tr>
-                                            <th>{{__('Status')}}</th>
-                                            <th>{{__('Attend Date')}}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (Auth::user()->attendance as $item)
-                                            <tr>
-                                                @switch($item->status)
-                                                    @case(1)
-                                                        <td class="uk-text-primary">{{__('Attend')}}</td>
-                                                        @break
-                                                    @case(2)
-                                                        <td class="uk-text-success">{{__('Holiday')}}</td>
-                                                        @break
-                                                    @case(3)
-                                                        <td class="uk-text-danger">{{__('Absent')}}</td>
-                                                        @break
-                                                    @default
-                                                        <td>{{__('Nothing')}}</td>
-                                                @endswitch
-                                                <td>{{ \Carbon\Carbon::parse($item->attend_date)->toFormattedDateString() }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <span class="show-result uk-text-center">
-                                    <a v-if="showAttendContent == false" @click.prevent="showAttendContent = true" href="">{{__('Show Table')}}</a>
-                                    <a v-if="showAttendContent == true" @click.prevent="showAttendContent = false" href="">{{__('Hiden Table')}}</a>
-                                </span>
+                                <thead>
+                                    <tr>
+                                        <th>{{__('Status')}}</th>
+                                        <th>{{__('Attend Date')}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Auth::user()->attendance as $item)
+                                    <tr>
+                                        @switch($item->status)
+                                        @case(1)
+                                        <td class="uk-text-primary">{{__('Attend')}}</td>
+                                        @break
+                                        @case(2)
+                                        <td class="uk-text-success">{{__('Holiday')}}</td>
+                                        @break
+                                        @case(3)
+                                        <td class="uk-text-danger">{{__('Absent')}}</td>
+                                        @break
+                                        @default
+                                        <td>{{__('Nothing')}}</td>
+                                        @endswitch
+                                        <td>{{ \Carbon\Carbon::parse($item->attend_date)->toFormattedDateString() }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <hr>
+                            <span class="show-result uk-text-center">
+                                <a v-if="showAttendContent == false" @click.prevent="showAttendContent = true" href="">{{__('Show
+                                    Table')}}</a>
+                                <a v-if="showAttendContent == true" @click.prevent="showAttendContent = false" href="">{{__('Hiden
+                                    Table')}}</a>
+                            </span>
                         </li>
                         <li>
+                            @if (Auth::user()->job == 1)
                             <h3 class="uk-margin-small-bottom">{{__('Expenses')}}.</h3>
                             <ul class="uk-list uk-list-divider">
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Basic Cost')}}:</span>
-                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->expenses->sum('cost') + Auth::user()->classEdu->expenses_cost }}</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            Auth::user()->expenses->sum('cost') + Auth::user()->classEdu->expenses_cost
+                                            }}</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Total Pay')}}:</span>
-                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->expenses->sum('pay') }}</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            Auth::user()->expenses->sum('pay') }}</span>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Total Discount')}}:</span>
-                                        <span class="uk-text-bold uk-text-primary">{{ Auth::user()->expenses->sum('discount') }}</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            Auth::user()->expenses->sum('discount') }}</span>
                                     </div>
                                 </li>
                                 @php
-                                    $remaining = (Auth::user()->expenses->sum('cost') + Auth::user()->classEdu->expenses_cost) - (Auth::user()->expenses->sum('pay') + Auth::user()->expenses->sum('discount'))
+                                $remaining = (Auth::user()->expenses->sum('cost') +
+                                Auth::user()->classEdu->expenses_cost) - (Auth::user()->expenses->sum('pay') +
+                                Auth::user()->expenses->sum('discount'))
                                 @endphp
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Remaining')}}:</span>
-                                        <span class="uk-text-bold uk-text-success" style="font-weight: 600;">{{ $remaining }}</span>
+                                        <span class="uk-text-bold uk-text-success" style="font-weight: 600;">{{
+                                            $remaining }}</span>
                                     </div>
                                 </li>
                             </ul>
                             <table class="uk-table uk-table-striped" v-if="showExpensesContent == true">
-                                    <thead>
-                                        <tr>
-                                            <th>{{__('Created At')}}</th>
-                                            <th>{{__('Pay')}}</th>
-                                            <th>{{__('Cost')}}</th>
-                                            <th>{{__('Discount')}}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (Auth::user()->expenses as $item)
-                                            <tr>
-                                                <td>{{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}</td>
-                                                <td>{{ $item->pay }}</td>
-                                                <td>{{ $item->cost }}</td>
-                                                <td>{{ $item->discount }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <span class="show-result uk-text-center">
-                                    <a v-if="showExpensesContent == false" @click.prevent="showExpensesContent = true" href="">{{__('Show Table')}}</a>
-                                    <a v-if="showExpensesContent == true" @click.prevent="showExpensesContent = false" href="">{{__('Hiden Table')}}</a>
-                                </span>
+                                <thead>
+                                    <tr>
+                                        <th>{{__('Created At')}}</th>
+                                        <th>{{__('Pay')}}</th>
+                                        <th>{{__('Cost')}}</th>
+                                        <th>{{__('Discount')}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Auth::user()->expenses as $item)
+                                    <tr>
+                                        <td>{{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}</td>
+                                        <td>{{ $item->pay }}</td>
+                                        <td>{{ $item->cost }}</td>
+                                        <td>{{ $item->discount }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <hr>
+                            <span class="show-result uk-text-center">
+                                <a v-if="showExpensesContent == false" @click.prevent="showExpensesContent = true" href="">{{__('Show
+                                    Table')}}</a>
+                                <a v-if="showExpensesContent == true" @click.prevent="showExpensesContent = false" href="">{{__('Hiden
+                                    Table')}}</a>
+                            </span>
+                            @else
+
+                            @endif
                         </li>
-                    <li>
-                        <h3 class="uk-margin-small-bottom">{{__('Results')}}.</h3>
-                        {{__('Coming soon')}}...</li>
+                        <li>
+                            @if (Auth::user()->job == 1)
+                            <h3 class="uk-margin-small-bottom">{{__('Result')}}</h3>
+                            <hr>
+                            <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                                @foreach ($exams as $item)    
+                                    <li><a href="#">{{$item->name}}</a></li>
+                                @endforeach
+                            </ul>
+                            <ul class="uk-switcher uk-margin">
+                                @foreach ($exams as $item)    
+                                    <li>
+                                        <h3 class="uk-margin-small-bottom">{{ $item->name }}</h3>
+                                        <ul class="uk-list uk-list-divider">
+                                            <li>
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-danger">{{ __('Subject Name') }}</span>
+                                                    <span class="uk-text-bold uk-text-danger" style="text-align:center">{{ __('Student Degree') }}</span>
+                                                    <span class="uk-text-bold uk-text-danger" style="text-align:center">{{ __('Subject Degree') }}</span>
+                                                    <span class="uk-text-bold uk-text-danger" style="text-align:center">{{ __('Percent') }}</span>
+                                                </div>
+                                            </li>
+                                            @foreach (Auth::user()->results->where('exam_id', $item->id) as $item)
+                                            <li>
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-muted">{{ $item->supSubject->subjects->name }}:</span>
+                                                    <span class="uk-text-bold uk-text-primary" style="text-align:center">{{ $item->exam1 }}</span>
+                                                    <span class="uk-text-bold uk-text-primary" style="text-align:center">{{ $item->supSubject->degree }}</span>
+                                                    <span class="uk-text-bold uk-text-primary" style="text-align:center">{{ $item->exam1 / $item->supSubject->degree * 100 }}%</span>
+                                                </div>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            @endif
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -285,19 +444,19 @@
 
 @section('extra-js')
 <script src="https://unpkg.com/vue"></script>
-    <script>
-        const app = new Vue({
-            el: '#profile',
-            data() {
-                return {
-                    showContent: false,
-                    showPrsonalInfo: false,
-                    showAttendContent: false,
-                    showExpensesContent: false,
-                }
-            },
-            mesthods: {
+<script>
+    const app = new Vue({
+        el: '#profile',
+        data() {
+            return {
+                showContent: false,
+                showPrsonalInfo: false,
+                showAttendContent: false,
+                showExpensesContent: false,
             }
-        })
-    </script>
+        },
+        mesthods: {}
+    })
+
+</script>
 @endsection

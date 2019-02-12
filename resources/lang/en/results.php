@@ -20,4 +20,6 @@ return [
     'Setting Number' => 'Setting Number',
     'Secret Number' => 'Secret Number',
     'Committee' => 'Committee',
+    'Filter Student' => 'Filter Student',
+    'Display Student' => 'Display Student'
 ];

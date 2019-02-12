@@ -32,7 +32,7 @@
                                 </vue-editor>
                             </div>
                             <div :class="{'form-group': true, 'has-error': errors.has('sms-text') }">
-                                <label for="email">{{ trans('attentions.Body') }}</label>
+                                <label for="email">{{ trans('attentions.SMS') }}</label>
                                 <textarea  v-model="sms" class="form-control" name="sms-text"  maxlength="70" v-validate="'max:70'" rows="2"></textarea>
                                 <span v-if="sms" class="max-length"><span v-if="sms.length >= 50">{{ maxCount - sms.length }}</span></span>
                                 <span v-show="errors.has('sms-text')" class="help-block" style="color:#f96868">{{ errors.first('sms-text') }}</span>

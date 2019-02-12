@@ -30,4 +30,14 @@ class ClassRoom extends Model
     {
         return $this->hasMany('App\LinkTeacher', 'classroom_id', 'id');
     } 
+
+    /**
+     * Show the ClassRoom Has Many LinkTeacher.
+     *
+     * @return App\LinkTeacher
+     */
+    public function timetables()
+    {
+        return $this->hasMany('App\Timetable', 'class_room_id');
+    } 
 }

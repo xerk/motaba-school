@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DuePayment extends Model
 {
     protected $fillable = [
-        'supplier_id', 'payable',
+        'supplier_id', 'payable', 'title', 'comment',
     ];
 
     /**

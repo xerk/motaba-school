@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Timetable;
+use App\Configs\Exam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileAccountController extends Controller
 {
@@ -13,7 +16,10 @@ class ProfileAccountController extends Controller
      */
     public function index()
     {
-        return view('vendor.frontend.account.profile');
+        $exams = Exam::all();
+        return view('vendor.frontend.account.profile', [
+            'exams' => $exams
+        ]);
     }
 
     /**

@@ -21,6 +21,7 @@ return [
     'Choose the type' => 'Choose the type.',
     'End Date' => 'End Date',
     'Body' => 'Body',
+    'SMS' => 'SMS',
     'Submit' => 'Submit',
     'Author' => 'Author',
     'Attention Type' => 'Attention Type',
