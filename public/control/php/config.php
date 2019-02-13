@@ -18,4 +18,3 @@ $sql_details = array(
 	"dsn"  => "charset=utf8",        // PHP DSN extra information. Set as `charset=utf8mb4` if you are using MySQL
 	"pdoAttr" => array() // PHP PDO attributes array. See the PHP documentation for all options
 );
-
