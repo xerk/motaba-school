@@ -216,54 +216,56 @@
                             </span>
                         </li>
                         <li>
+                            @if (Auth::user()->job == 1)
                             <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
-                                    <caption>{{__('Schedule')}}</caption>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="uk-label">الأحد</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)    
-                                                <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الإثنين</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)    
-                                                <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الثلاثاء</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)    
-                                                <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الأربعاء</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)    
-                                                <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الخميس</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)    
-                                                <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <caption>{{__('Schedule')}}</caption>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
+                                        <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="uk-label">الأحد</span></td>
+                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)
+                                        <td>{{$item->subject->name}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr>
+                                        <td><span class="uk-label">الإثنين</span></td>
+                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)
+                                        <td>{{$item->subject->name}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr>
+                                        <td><span class="uk-label">الثلاثاء</span></td>
+                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)
+                                        <td>{{$item->subject->name}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr>
+                                        <td><span class="uk-label">الأربعاء</span></td>
+                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)
+                                        <td>{{$item->subject->name}}</td>
+                                        @endforeach
+                                    </tr>
+                                    <tr>
+                                        <td><span class="uk-label">الخميس</span></td>
+                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)
+                                        <td>{{$item->subject->name}}</td>
+                                        @endforeach
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @endif
                         </li>
                         <li>
                             <h3 class="uk-margin-small-bottom">{{__('Attendance')}}.</h3>
@@ -401,35 +403,41 @@
                             <h3 class="uk-margin-small-bottom">{{__('Result')}}</h3>
                             <hr>
                             <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
-                                @foreach ($exams as $item)    
-                                    <li><a href="#">{{$item->name}}</a></li>
+                                @foreach ($exams as $item)
+                                <li><a href="#">{{$item->name}}</a></li>
                                 @endforeach
                             </ul>
                             <ul class="uk-switcher uk-margin">
-                                @foreach ($exams as $item)    
-                                    <li>
-                                        <h3 class="uk-margin-small-bottom">{{ $item->name }}</h3>
-                                        <ul class="uk-list uk-list-divider">
-                                            <li>
-                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
-                                                    <span class="uk-text-danger">{{ __('Subject Name') }}</span>
-                                                    <span class="uk-text-bold uk-text-danger" style="text-align:center">{{ __('Student Degree') }}</span>
-                                                    <span class="uk-text-bold uk-text-danger" style="text-align:center">{{ __('Subject Degree') }}</span>
-                                                    <span class="uk-text-bold uk-text-danger" style="text-align:center">{{ __('Percent') }}</span>
-                                                </div>
-                                            </li>
-                                            @foreach (Auth::user()->results->where('exam_id', $item->id) as $item)
-                                            <li>
-                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
-                                                    <span class="uk-text-muted">{{ $item->supSubject->subjects->name }}:</span>
-                                                    <span class="uk-text-bold uk-text-primary" style="text-align:center">{{ $item->exam1 }}</span>
-                                                    <span class="uk-text-bold uk-text-primary" style="text-align:center">{{ $item->supSubject->degree }}</span>
-                                                    <span class="uk-text-bold uk-text-primary" style="text-align:center">{{ $item->exam1 / $item->supSubject->degree * 100 }}%</span>
-                                                </div>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
+                                @foreach ($exams as $item)
+                                <li>
+                                    <h3 class="uk-margin-small-bottom">{{ $item->name }}</h3>
+                                    <ul class="uk-list uk-list-divider">
+                                        <li>
+                                            <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                <span class="uk-text-danger">{{ __('Subject Name') }}</span>
+                                                <span class="uk-text-bold uk-text-danger" style="text-align:center">{{
+                                                    __('Student Degree') }}</span>
+                                                <span class="uk-text-bold uk-text-danger" style="text-align:center">{{
+                                                    __('Subject Degree') }}</span>
+                                                <span class="uk-text-bold uk-text-danger" style="text-align:center">{{
+                                                    __('Percent') }}</span>
+                                            </div>
+                                        </li>
+                                        @foreach (Auth::user()->results->where('exam_id', $item->id) as $item)
+                                        <li>
+                                            <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                <span class="uk-text-muted">{{ $item->supSubject->subjects->name }}:</span>
+                                                <span class="uk-text-bold uk-text-primary" style="text-align:center">{{
+                                                    $item->exam1 }}</span>
+                                                <span class="uk-text-bold uk-text-primary" style="text-align:center">{{
+                                                    $item->supSubject->degree }}</span>
+                                                <span class="uk-text-bold uk-text-primary" style="text-align:center">{{
+                                                    $item->exam1 / $item->supSubject->degree * 100 }}%</span>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 @endforeach
                             </ul>
                             @endif
