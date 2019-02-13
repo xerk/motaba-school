@@ -69,10 +69,8 @@
                         <hr>
                     </div>
                     <span class="show-result">
-                        <a v-if="showContent == false" @click.prevent="showContent = true" href="">{{__('Show
-                            Content')}}</a>
-                        <a v-if="showContent == true" @click.prevent="showContent = false" href="">{{__('Hiden
-                            Content')}}</a>
+                        <a v-if="showContent == false" @click.prevent="showContent = true" href="">{{__('Show Content')}}</a>
+                        <a v-if="showContent == true" @click.prevent="showContent = false" href="">{{__('Hiden Content')}}</a>
                     </span>
                     {{-- <p class="about"></p> --}}
                 </div>
@@ -209,10 +207,8 @@
                             @endif
                             <hr>
                             <span class="show-result uk-text-center">
-                                <a v-if="showPrsonalInfo == false" @click.prevent="showPrsonalInfo = true" href="">{{__('Show
-                                    More')}}</a>
-                                <a v-if="showPrsonalInfo == true" @click.prevent="showPrsonalInfo = false" href="">{{__('Hiden
-                                    More')}}</a>
+                                <a v-if="showPrsonalInfo == false" @click.prevent="showPrsonalInfo = true" href="">{{__('Show More')}}</a>
+                                <a v-if="showPrsonalInfo == true" @click.prevent="showPrsonalInfo = false" href="">{{__('Hiden More')}}</a>
                             </span>
                         </li>
                         <li>
@@ -322,10 +318,8 @@
                             </table>
                             <hr>
                             <span class="show-result uk-text-center">
-                                <a v-if="showAttendContent == false" @click.prevent="showAttendContent = true" href="">{{__('Show
-                                    Table')}}</a>
-                                <a v-if="showAttendContent == true" @click.prevent="showAttendContent = false" href="">{{__('Hiden
-                                    Table')}}</a>
+                                <a v-if="showAttendContent == false" @click.prevent="showAttendContent = true" href="">{{__('Show Table')}}</a>
+                                <a v-if="showAttendContent == true" @click.prevent="showAttendContent = false" href="">{{__('Hiden Table')}}</a>
                             </span>
                         </li>
                         <li>
@@ -389,10 +383,8 @@
                             </table>
                             <hr>
                             <span class="show-result uk-text-center">
-                                <a v-if="showExpensesContent == false" @click.prevent="showExpensesContent = true" href="">{{__('Show
-                                    Table')}}</a>
-                                <a v-if="showExpensesContent == true" @click.prevent="showExpensesContent = false" href="">{{__('Hiden
-                                    Table')}}</a>
+                                <a v-if="showExpensesContent == false" @click.prevent="showExpensesContent = true" href="">{{__('Show Table')}}</a>
+                                <a v-if="showExpensesContent == true" @click.prevent="showExpensesContent = false" href="">{{__('Hiden Table')}}</a>
                             </span>
                             @else
 
