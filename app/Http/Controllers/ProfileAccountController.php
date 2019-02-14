@@ -17,6 +17,7 @@ class ProfileAccountController extends Controller
     public function index()
     {
         $exams = Exam::all();
+
         return view('vendor.frontend.account.profile', [
             'exams' => $exams
         ]);

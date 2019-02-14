@@ -24,7 +24,7 @@
                 font-family: 'Droid Arabic Kufi', 'Open Sans';
             }
             .form-control {
-                height: auto;
+                height: 34px;
             }
             .btn, .modal .modal-dialog .modal-header {
                 font-family: 'Droid Arabic Kufi', 'Open Sans',sans-serif;

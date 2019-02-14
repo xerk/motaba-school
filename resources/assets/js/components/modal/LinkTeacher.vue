@@ -11,37 +11,37 @@
                     </div>
                     <div class="modal-body">
                         <slot name="body">
-                                <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
-                                    <label for="subject">{{ trans('link-teacher.Subject')}}</label>
-                                    <select id="subject" class="form-control" v-validate="'required'" v-model="list.subject_id" name="subject">
-                                        <option value="" selected="selected">{{ trans('link-teacher.Choose Subject')}}</option>
-                                        <option v-for="(subject, key) in subjects" :key="key" :value="subject.id">{{ subject.name }}</option>
-                                    </select>
-                                    <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
-                                </div>
                                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('stage') }">
-                                    <label for="stage">{{ trans('link-teacher.Stage Education')}}</label>
+                                    <label for="stage">{{ trans('linkTeacher.Stage Education')}}</label>
                                     <select id="stage" class="form-control" v-validate="'required'" v-model="list.stage_id" @change="changeStage" name="stage">
-                                        <option value="" selected="selected">{{ trans('link-teacher.Choose Stage')}}</option>
+                                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Stage')}}</option>
                                         <option v-for="(stage, key) in stageEdu" :key="key" :value="stage.id">{{ stage.name }}</option>
                                     </select>
                                     <span v-show="errors.has('stage')" class="help-block" style="color:#f96868">{{ errors.first('stage') }}</span>                    
                                 </div>
                                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('class') }">
-                                    <label for="class">{{ trans('link-teacher.Class Education')}}</label>
+                                    <label for="class">{{ trans('linkTeacher.Class Education')}}</label>
                                     <select id="class" class="form-control" v-validate="'required'" v-model="list.class_id" @change="changeClass" name="class">
-                                        <option value="" selected="selected">{{ trans('link-teacher.Choose Class')}}</option>
+                                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Class')}}</option>
                                         <option v-for="(classItem, key) in classEduFilter" :key="key" :value="classItem.id">{{ classItem.name }}</option>
                                     </select>
                                     <span v-show="errors.has('class')" class="help-block" style="color:#f96868">{{ errors.first('class') }}</span>                    
                                 </div>
                                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('classroom') }">
-                                    <label for="classroom">{{ trans('link-teacher.Class-Room')}}</label>
+                                    <label for="classroom">{{ trans('linkTeacher.Class-Room')}}</label>
                                     <select id="classroom" class="form-control" v-validate="'required'" v-model="list.classroom_id" name="classroom">
-                                        <option value="" selected="selected">{{ trans('link-teacher.Choose Class-Room')}}</option>
+                                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Class-Room')}}</option>
                                         <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
                                     </select>
                                     <span v-show="errors.has('classroom')" class="help-block" style="color:#f96868">{{ errors.first('classroom') }}</span>                    
+                                </div>
+                                <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
+                                    <label for="subject">{{ trans('linkTeacher.Subject')}}</label>
+                                    <select id="subject" class="form-control" v-validate="'required'" v-model="list.subject_id" name="subject">
+                                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Subject')}}</option>
+                                        <option v-for="(subject, key) in subjectFilter" :key="key" :value="subject.id">{{ subject.name }}</option>
+                                    </select>
+                                    <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
                                 </div>
                         </slot>
                     </div>
@@ -101,6 +101,15 @@ export default {
                     return item.class_edu_id == this.list.class_id
                 })
             }
+        },
+        subjectFilter() {
+            if (this.list.class_id == '') {
+                this.list.subject_id = ''
+            } else {
+                return this.subjects.filter(item => {
+                    return item.class_edu_id == this.list.class_id
+                })
+            }
         }
     },
     methods: {
@@ -136,11 +145,12 @@ export default {
         },
         changeStage() {
             this.$emit('changeS')
-            this.classSelect = ''
-            this.classRoomSelect = ''
+            this.list.class_id = ''
+            this.list.classroom_id = ''
         },
         changeClass() {
-            this.classRoomSelect = ''
+            this.list.classroom_id = ''
+            this.list.subject_id = ''
         },
     },
 }

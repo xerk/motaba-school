@@ -9,7 +9,7 @@
                             <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
                         <div class="col-sm-4 text-center">
-                            <h3>{{user.class_room.name}} من {{user.class_edu.name}} عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
+                            <h3><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span> عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
                         </div>
                         <div class='col-sm-4' style="font-size: 18px">
                             <ul class="list-unstyled text-center pull-right">
@@ -100,7 +100,8 @@ export default {
          getUsers() {
             this.$store.dispatch('retriveUser', {
                 get: this.get,
-                classRoom: this.classRoom
+                classRoom: this.classRoom,
+                classEdu: this.classEdu
             })
             .then(response => {
                 this.user = response.data

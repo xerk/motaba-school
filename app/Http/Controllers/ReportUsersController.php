@@ -14,9 +14,17 @@ class ReportUsersController extends Controller
      */
     public function index(Request $request)
     {
-        return User::with('classEdu', 'classRoom')->where(function ($query) use($request) {
-            $query->where('classroom_id', $request->classroom)->where('job', '1');
-        })->first();
+        if ($request->classroom != '') {
+            $user = User::with('classEdu', 'classRoom')->where(function ($query) use($request) {
+                $query->where('classroom_id', $request->classroom)->where('job', '1');
+            })->first();
+        } else {
+            $user = User::with('classEdu')->where(function ($query) use($request) {
+                $query->where('class_id', $request->classEdu)->where('job', '1');
+            })->first();
+        }
+
+        return $user;
     }
 
 }

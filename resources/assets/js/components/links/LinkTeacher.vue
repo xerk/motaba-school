@@ -86,14 +86,6 @@
         </div>
         <link-teacher-add :list="list" v-if="linkTeacherAddModal" @close="linkTeacherAddModal = false">
             <div slot="body">
-                <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
-                    <label for="subject">{{ trans('linkTeacher.Subject')}}</label>
-                    <select id="subject" class="form-control" v-validate="'required'" v-model="model.subjectSelect" name="subject">
-                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Subject')}}</option>
-                        <option v-for="(subject, key) in subjects" :key="key" :value="subject.id">{{ subject.name }}</option>
-                    </select>
-                    <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
-                </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('stage') }">
                     <label for="stage">{{ trans('linkTeacher.Stage Education')}}</label>
                     <select id="stage" class="form-control" v-validate="'required'" v-model="model.stageSelect" @change="changeStage" name="stage">
@@ -117,6 +109,14 @@
                         <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
                     </select>
                     <span v-show="errors.has('classroom')" class="help-block" style="color:#f96868">{{ errors.first('classroom') }}</span>                    
+                </div>
+                <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
+                    <label for="subject">{{ trans('linkTeacher.Subject')}}</label>
+                    <select id="subject" class="form-control" v-validate="'required'" v-model="model.subjectSelect" name="subject">
+                        <option value="" selected="selected">{{ trans('linkTeacher.Choose Subject')}}</option>
+                        <option v-for="(subject, key) in subjectFilter" :key="key" :value="subject.id">{{ subject.name }}</option>
+                    </select>
+                    <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
                 </div>
             </div>
             <div slot="header" class="modal-header" style="background-color: #F2435C;">
@@ -193,6 +193,15 @@
                     this.model.classRoomSelect = ''
                 } else {
                     return this.classRoom.filter(item => {
+                        return item.class_edu_id == this.model.classSelect
+                    })
+                }
+            },
+            subjectFilter() {
+                if (this.model.classSelect == '') {
+                    this.model.subjectSelect = ''
+                } else {
+                    return this.subjects.filter(item => {
                         return item.class_edu_id == this.model.classSelect
                     })
                 }
@@ -286,12 +295,14 @@
             },
             changeStage() {
                 this.$emit('changeS')
-                this.classSelect = ''
-                this.classRoomSelect = ''
+                this.model.classSelect = ''
+                this.model.classRoomSelect = ''
             },
             changeClass() {
-                this.classRoomSelect = ''
-            }
+                this.model.classRoomSelect = ''
+                this.model.subjectSelect = ''
+                this.model.subjectSelect = ''
+            },
         }
     };
 

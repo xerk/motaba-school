@@ -9,7 +9,7 @@
                             <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
                         <div class="col-sm-4 text-center">
-                            <h3>{{user.class_room.name}} من {{user.class_edu.name}} عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
+                            <h3><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span> عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
                         </div>
                         <div class='col-sm-4' style="font-size: 18px">
                             <ul class="list-unstyled text-center pull-right">
@@ -71,7 +71,7 @@
                                 <th>العنوان</th>
                                 <th>تليفون الأب</th>
                                 <th>تليفون الأم</th>
-                                <th>مؤهل الأب</th>
+                                <th>وظيفة الأب</th>
                                
                             </tr>
                         </thead>
@@ -121,6 +121,7 @@ export default {
         getUsers() {
             this.$store.dispatch('retriveUser', {
                 get: this.get,
+                classEdu: this.classEdu,
                 classRoom: this.classRoom
             })
             .then(response => {
@@ -226,12 +227,12 @@ export default {
                                 }
                             }
                         },
+                        { data: 'nationality', name: 'nationality' },
                         { data: 'joining_date', name: 'joining_date',
                             "render": function (val, type, row) {
                                 var join = new Date(val);
                                 return join.getFullYear();
                             } },
-                        { data: 'nationality', name: 'nationality' },
                         { data: "gender", name: 'gender',
                             "render": function (val, type, row) {
                                 if (val == null) {

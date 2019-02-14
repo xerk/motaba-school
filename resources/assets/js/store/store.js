@@ -110,7 +110,7 @@ export const store = new Vuex.Store({
                 ...data
             }
             return new Promise((resolve, reject) => {
-                axios.get(`${data.get.apiURL}?classroom=${data.classRoom}`)
+                axios.get(`${data.get.apiURL}?classEdu=${data.classEdu}&classroom=${data.classRoom}`)
                     .then(response => {
                         resolve(response)
                     })

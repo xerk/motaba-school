@@ -70,7 +70,7 @@ const router = new VueRouter({
     mode: 'history'
 })
 
-
+Vue.prototype.URLam = process.env.MIX_APP_URL;
 
 Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({

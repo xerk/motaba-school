@@ -21,6 +21,17 @@
     .show-result {
         font-weight: 600;
     }
+    .uk-card-body .attention-section {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09   );
+    padding: 10px 15px 10px;
+    color: black;
+    }
+    .uk-accordion-content {
+        border-top: 1px solid #ddd;
+    }
+    .body-attention {
+        padding: 10px 15px 10px;
+    }
 
 </style>
 @endsection
@@ -261,6 +272,110 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            @else 
+                            
+                            <ul uk-accordion>
+                                <li class="{{ \Carbon\Carbon::now()->isSunday() ? 'uk-open' : '' }} attention-section">
+                                    <a class="uk-accordion-title" href="#">
+                                        <span>الأحد</span>
+                                    </a>
+                                    <div class="uk-accordion-content body-attention">
+                                        <div>
+                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                                @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->sortBy('order')->where('day_name', 2) as $item)
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
+                                                    <span class="uk-text-muted">{{$item->classRoom->name}}</span>
+                                                    <span class="uk-text-bold">{{$item->subject->name}}</span>
+                                                    <span class="uk-text-bold uk-text-primary">الحصة: {{$item->order}}</span>
+                                                </div>
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                        <span class="uk-flex-right"></span>
+                                    </div>
+                                </li>
+                                <li class="{{ \Carbon\Carbon::now()->isMonday() ? 'uk-open' : '' }} attention-section">
+                                    <a class="uk-accordion-title" href="#">
+                                        <span>الأثنين</span>
+                                    </a>
+                                    <div class="uk-accordion-content body-attention">
+                                        <div>
+                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                                @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 3)->sortBy('order') as $item)
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
+                                                    <span class="uk-text-muted">{{$item->classRoom->name}}</span>
+                                                    <span class="uk-text-bold">{{$item->subject->name}}</span>
+                                                    <span class="uk-text-bold uk-text-primary">الحصة: {{$item->order}}</span>
+                                                </div>
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                        <span class="uk-flex-right"></span>
+                                    </div>
+                                </li>
+                                <li class="{{ \Carbon\Carbon::now()->isTuesday() ? 'uk-open' : '' }} attention-section">
+                                    <a class="uk-accordion-title" href="#">
+                                        <span>الثلاثاء</span>
+                                    </a>
+                                    <div class="uk-accordion-content body-attention">
+                                        <div>
+                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                                @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 4)->sortBy('order') as $item)
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
+                                                    <span class="uk-text-muted">{{$item->classRoom->name}}</span>
+                                                    <span class="uk-text-bold">{{$item->subject->name}}</span>
+                                                    <span class="uk-text-bold uk-text-primary">الحصة: {{$item->order}}</span>
+                                                </div>
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                        <span class="uk-flex-right"></span>
+                                    </div>
+                                </li>
+                                <li class="{{ \Carbon\Carbon::now()->isWednesday() ? 'uk-open' : '' }} attention-section">
+                                    <a class="uk-accordion-title" href="#">
+                                        <span>الأربعاء</span>
+                                    </a>
+                                    <div class="uk-accordion-content body-attention">
+                                        <div>
+                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                                @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 5)->sortBy('order') as $item)
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
+                                                    <span class="uk-text-muted">{{$item->classRoom->name}}</span>
+                                                    <span class="uk-text-bold">{{$item->subject->name}}</span>
+                                                    <span class="uk-text-bold uk-text-primary">الحصة: {{$item->order}}</span>
+                                                </div>
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                        <span class="uk-flex-right"></span>
+                                    </div>
+                                </li>
+                                <li class="{{ \Carbon\Carbon::now()->isThursday() ? 'uk-open' : '' }} attention-section">
+                                    <a class="uk-accordion-title" href="#">
+                                        <span>الخميس</span>
+                                    </a>
+                                    <div class="uk-accordion-content body-attention">
+                                        <div>
+                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                                @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 6)->sortBy('order') as $item)
+                                                <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                                    <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
+                                                    <span class="uk-text-muted">{{$item->classRoom->name}}</span>
+                                                    <span class="uk-text-bold">{{$item->subject->name}}</span>
+                                                    <span class="uk-text-bold uk-text-primary">الحصة: {{$item->order}}</span>
+                                                </div>
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                        <span class="uk-flex-right"></span>
+                                    </div>
+                                </li>
+                            </ul>
                             @endif
                         </li>
                         <li>
