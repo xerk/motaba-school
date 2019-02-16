@@ -60926,7 +60926,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n@page {\n    size: auto A4 landscape;\n    margin: 0 !important;\n    padding: 0 !important;\n}\n@media print {\n}\n", ""]);
+exports.push([module.i, "\n@page {\n    size: auto A4 landscape;\n}\n@media print {\n}\n", ""]);
 
 // exports
 
