@@ -62,7 +62,7 @@ Vue.use(CxltToastr, toastrConfigs)
 Vue.use(Moment)
 Vue.use(VeeValidate)
 Vue.use(VueRouter)
-Vue.use(Croppa)  
+Vue.use(Croppa)
 Vue.use(Datetime)
 Vue.use(vSelect)
 const router = new VueRouter({
@@ -70,7 +70,7 @@ const router = new VueRouter({
     mode: 'history'
 })
 
-Vue.prototype.URLam = process.env.MIX_APP_URL;
+Vue.prototype.envURL = process.env.MIX_APP_URL;
 
 Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
@@ -82,17 +82,17 @@ const app = new Vue({
     el: '#app',
     router: router,
     store: store,
-    components: { 
+    components: {
         SchoolConfigs,
-        YearConfigs, 
-        SystemConfigs, 
-        Fab, 
+        YearConfigs,
+        SystemConfigs,
+        Fab,
         Attendance,
-        EAttendance, 
-        Attention, 
-        SettingNumber, 
-        SecretNumber, 
-        Committee,  
+        EAttendance,
+        Attention,
+        SettingNumber,
+        SecretNumber,
+        Committee,
         Results,
         EmployeeSalary,
         AddSalary,
@@ -115,5 +115,5 @@ const app = new Vue({
         SingleEmpRepo,
         SingleStudentRepo
     },
-    
+
 });

@@ -108,8 +108,8 @@ export default {
             })
         },
         fetch() {
-            var classEdu = this.classEdu  
-            var classRoom = this.classRoom  
+            var classEdu = this.classEdu
+            var classRoom = this.classRoom
             $(function() {
                 var t = $('#users-table').DataTable({
                     dom: 'Bfrtip',
@@ -117,7 +117,6 @@ export default {
                         {
                             extend: 'print',
                             text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                            html: '<i></i>',
                             exportOptions: {
                                 columns: ':visible'
                             },
@@ -192,14 +191,14 @@ export default {
                             },
                             "targets": 1
                         },
-                    
+
                         { "visible": false,  "targets": [ 2 ] },
                     ],
                 });
                 t.on( 'order.dt search.dt', function () {
                     t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                         cell.innerHTML = i+1;
-                        t.cell(cell).invalidate('dom'); 
+                        t.cell(cell).invalidate('dom');
                     } );
                 } ).draw();
             });

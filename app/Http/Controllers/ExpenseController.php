@@ -22,16 +22,6 @@ class ExpenseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -51,28 +41,6 @@ class ExpenseController extends Controller
         } else {
             return 'You are not a method post!';
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -110,7 +78,7 @@ class ExpenseController extends Controller
         return response('Expense has beend deleted.', 200);
     }
 
-    public function getExpenses() 
+    public function getExpenses()
     {
         $users = User::withCount(['expenses AS paySum' => function ($query) {
                         $query->select(DB::raw("SUM(pay) as paySum"));
@@ -140,7 +108,7 @@ class ExpenseController extends Controller
             }])
             ->first();
 
-        return [ 
+        return [
             'user' => $user
         ];
     }

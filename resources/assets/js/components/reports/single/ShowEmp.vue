@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="page-content browse container-fluid">
         <div class="row">
             <div class="col-md-3">
                 <div class="panel panel-bordered">
@@ -7,14 +7,14 @@
                         <h4 class=""><img :src="link + '/storage/' + user.avatar" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
                         <hr>
                         <div class="panel-body">
-                            <button @click="absentReport" class="btn btn-primary btn-block">{{ trans('reports.Absent report') }}</button>                                
-                            <button @click="salaryReport" class="btn btn-primary btn-block">{{ trans('reports.Salary report') }}</button>                                
+                            <button @click="absentReport" class="btn btn-primary btn-block">{{ trans('reports.Absent report') }}</button>
+                            <button @click="salaryReport" class="btn btn-primary btn-block">{{ trans('reports.Salary report') }}</button>
                         </div><!-- panel-body -->
 
 
                         <!-- <h4 class="text-center"><i class="voyager-check"></i> {{ trans('salary.Attendance') }}</h4> -->
                         <hr>
-                
+
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-2">
-                                <span class="show-field">{{ trans('salary.Total Attend') }}:</span>                                
+                                <span class="show-field">{{ trans('salary.Total Attend') }}:</span>
                             </div>
                             <div class="col-md-1">
                                 <span style="font-size:14px" class="show-result label label-success">
@@ -45,7 +45,7 @@
                                 </span>
                             </div>
                             <div class="col-md-2">
-                                <span class="show-field">{{ trans('salary.Total Holiday') }}:</span>                                
+                                <span class="show-field">{{ trans('salary.Total Holiday') }}:</span>
                             </div>
                             <div class="col-md-1">
                                 <span style="font-size:14px" class="show-result label label-primary">
@@ -53,7 +53,7 @@
                                 </span>
                             </div>
                             <div class="col-md-2">
-                                <span class="show-field">{{ trans('salary.Total Absent') }}:</span>                                
+                                <span class="show-field">{{ trans('salary.Total Absent') }}:</span>
                             </div>
                             <div class="col-md-1">
                                 <span style="font-size:14px" class="show-result label label-danger">
@@ -61,7 +61,7 @@
                                 </span>
                             </div>
                             <div class="col-md-2">
-                                <span class="show-field">{{ trans('salary.Total Absent') }}:</span>                                
+                                <span class="show-field">{{ trans('salary.Total Absent') }}:</span>
                             </div>
                             <div class="col-md-1">
                                 <span style="font-size:14px" class="show-result label label-warning">
@@ -109,7 +109,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Basic Salary') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Basic Salary') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-primary">
@@ -122,7 +122,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Absent') }} (${{ addSalary.absent_day }}):</span>                                
+                                        <span class="show-field">{{ trans('salary.Absent') }} (${{ addSalary.absent_day }}):</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -135,7 +135,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Late') }} (${{ addSalary.late_day }}):</span>                                
+                                        <span class="show-field">{{ trans('salary.Late') }} (${{ addSalary.late_day }}):</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -148,7 +148,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Allowances') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Allowances') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -161,7 +161,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Deductions') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Deductions') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -174,7 +174,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Salary') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Salary') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
@@ -188,7 +188,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Attend') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Attend') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="label label-success">
@@ -201,7 +201,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Absent') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Absent') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="label label-danger">
@@ -214,7 +214,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Holiday') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Holiday') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="label label-primary">
@@ -227,7 +227,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Total Late') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Total Late') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="label label-warning">
@@ -297,7 +297,7 @@
                                                     you can use custom content here to overwrite
                                                     default content
                                                     -->
-                                                    <h3 slot="header"><i class="voyager-trash"></i> {{ trans('salary.Are you sure you want to delete this Make Payment?') }}</h3>                        
+                                                    <h3 slot="header"><i class="voyager-trash"></i> {{ trans('salary.Are you sure you want to delete this Make Payment?') }}</h3>
                                                     <button slot="button" @click.once="deletePayment(item.id, index)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!') }}</button>
                                                 </modal>
                                             </tr>

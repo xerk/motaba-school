@@ -27,16 +27,6 @@ class EmployeeSalaryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -53,33 +43,18 @@ class EmployeeSalaryController extends Controller
                 'comment' => $request->model['comment'],
             ]);
 
+            Storage::create([
+                'value' => $request->model['paymentAmount'],
+                'comment' => $request->model['comment'],
+                'type' => 2,
+            ]);
+
             return 'Item has been add!';
         } else {
             return 'You are not a method post!';
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -137,28 +112,28 @@ class EmployeeSalaryController extends Controller
         })->with(['attendance' => function($query) use ($request, $now) {
             $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         }])->first();
-        
+
         $attendCount = Attendance::where(function($query) use ($request) {
             $now = Carbon::now();
             $query->where('status', 1)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         })->whereHas('users', function($query) use ($request) {
             $query->where('id', '=', $request->id)->where('job', '=', 0);
-        })->count(); 
+        })->count();
 
         $holidayCount = Attendance::where(function($query) use ($request) {
             $now = Carbon::now();
             $query->where('status', 2)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         })->whereHas('users', function($query) use ($request) {
             $query->where('id', '=', $request->id)->where('job', '=', 0);
-        })->count(); 
+        })->count();
 
         $absentCount = Attendance::where(function($query) use ($request) {
-            $now = Carbon::now();            
+            $now = Carbon::now();
             $query->where('status', 3)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         })->whereHas('users', function($query) use ($request) {
             $query->where('id', '=', $request->id)->where('job', '=', 0);
         })->count();
-        
+
         $lateCount = Attendance::where(function($query) use ($request) {
             $now = Carbon::now();
             $query->where('status', 4)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
@@ -198,7 +173,7 @@ class EmployeeSalaryController extends Controller
     }
 
     public function salaryEmp(Request $request) {
-        
+
         $attend = Attendance::find($request->id);
 
         return [

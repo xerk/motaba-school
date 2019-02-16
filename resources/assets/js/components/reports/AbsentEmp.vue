@@ -44,9 +44,9 @@ export default {
     },
     methods: {
         fetch() {
-            var classEdu = this.classEdu  
-            var classRoom = this.classRoom  
-            var day = this.day  
+            var classEdu = this.classEdu
+            var classRoom = this.classRoom
+            var day = this.day
             $(function() {
                 $('#users-table').DataTable({
                     dom: 'Bfrtip',
@@ -86,7 +86,7 @@ export default {
                         "render": function (val, type, row) {
                                 if (val == 3) {
                                     return '<span class="label label-danger">غائب</span>';
-                                }  
+                                }
                             }
                         },
                     ],
@@ -104,7 +104,7 @@ export default {
                             },
                             "targets": 0
                         },
-                    
+
                         { "visible": false,  "targets": [ 1 ] },
                     ],
                 });

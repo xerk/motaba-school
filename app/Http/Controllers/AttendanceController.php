@@ -23,16 +23,6 @@ class AttendanceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -48,7 +38,7 @@ class AttendanceController extends Controller
                     $q->where('classroom_id', '=', $request->classRoom);
                 });
             })->count();
-            
+
             $attends = User::where(function($query) use ($request) {
                     $query->where('classroom_id', '=', $request->classRoom)
                         ->where('job', '=', 1);
@@ -56,7 +46,7 @@ class AttendanceController extends Controller
 
             $attendCount = $attends->count();
             // dd($attendCount);
-            
+
             if ($count == 0) {
                 if ($attendCount > 0) {
                     // Right Post Command
@@ -67,7 +57,7 @@ class AttendanceController extends Controller
                                 'attend_date' => $date->toDateString(),
                                 'status' => $request->status,
                             ]);
-    
+
                         }
                         return 'Item\'s has beend added!';
                     } else {
@@ -82,21 +72,9 @@ class AttendanceController extends Controller
         } else {
             return 'Please Choose the display student.';
         }
-        
+
 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Attendance $attendance)
-    {
-        //
-    }
-
 
     /**
      * Update the specified resource in storage.
@@ -112,18 +90,7 @@ class AttendanceController extends Controller
         $attendance->status = $request->status;
         $attendance->save();
 
-        return response('Attendance has been updated!', 200); 
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Attendance $attendance)
-    {
-        //
+        return response('Attendance has been updated!', 200);
     }
 
     public function getStudents(Request $request)

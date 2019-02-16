@@ -27,16 +27,6 @@ class AttentionController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -83,7 +73,7 @@ class AttentionController extends Controller
                             ]
                         ]);
                     }
-                    
+
                     $data = json_decode($response->getBody());
                     // retrun json_decode((string)) $response->getBody(), true);
                     if ($data->code == 1901) {
@@ -121,28 +111,6 @@ class AttentionController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Attention  $attention
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Attention $attention)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Attention  $attention
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Attention $attention)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -159,7 +127,7 @@ class AttentionController extends Controller
         $attention->sms = $request->sms;
         $attention->save();
 
-        return response('Attention has been updated!', 200); 
+        return response('Attention has been updated!', 200);
     }
 
     /**
@@ -189,7 +157,7 @@ class AttentionController extends Controller
 
         if ($request->id) {
             $attentions = Attention::where('user_id', $request->id)->with('users', 'attentionTypes', 'authors')->get();
-            $user = User::find($request->id);            
+            $user = User::find($request->id);
         } else {
             $user = null;
             $attentions = null;

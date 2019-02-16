@@ -38615,7 +38615,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history'
 });
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.URLam = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).MIX_APP_URL;
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.envURL = "http://localhost:8000";
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.trans = function (local) {
     return _.get(window.i18n, local);
@@ -45662,7 +45662,7 @@ var debugs = {};
 var debugEnviron;
 exports.debuglog = function(set) {
   if (isUndefined(debugEnviron))
-    debugEnviron = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).NODE_DEBUG || '';
+    debugEnviron = Object({"MIX_APP_URL":"http://localhost:8000","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).NODE_DEBUG || '';
   set = set.toUpperCase();
   if (!debugs[set]) {
     if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
@@ -60847,6 +60847,7 @@ var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(161)
+  __webpack_require__(374)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -60925,7 +60926,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.img-avatar {\n    width: 35px;\n    margin-right: 5px;\n    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);\n            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);\n    border-radius: 100%;\n}\n.fade-enter-active, .fade-leave-active {\n    -webkit-transition: opacity .5s;\n    transition: opacity .5s\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {\n    opacity: 0\n}\n.list-item {\ndisplay: inline-block;\nmargin-right: 3px;\n}\n.list-enter-active, .list-leave-active {\n-webkit-transition: all 0.5s;\ntransition: all 0.5s;\n}\n.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {\nopacity: 0;\n-webkit-transform: translateY(30px);\n        transform: translateY(30px);\n}\n.show-field {\n    font-weight: 400;\n}\n.show-result {\n    font-weight: 600;\n}\n.lecture-select-box {\n    /* width: 300px; */\n    margin-bottom: 5px;\n    float: right;\n}\n.row>[class*=col-] {\n    margin-bottom: 0px;\n}\n/* .panel-body {\n    border-bottom:1px solid #eee;\n} */\n", ""]);
+exports.push([module.i, "\n@page {\n    size: auto A4 landscape;\n    margin: 0 !important;\n    padding: 0 !important;\n}\n@media print {\n}\n", ""]);
 
 // exports
 
@@ -60936,6 +60937,10 @@ exports.push([module.i, "\n.img-avatar {\n    width: 35px;\n    margin-right: 5p
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -61130,7 +61135,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             },
             user: {},
             attendance: {},
-            expenses: {},
+            expenses: {
+                class_edu: {
+                    expenses_cost: ''
+                }
+            },
             absent: true,
             expense: false,
             month: 0,
@@ -61157,6 +61166,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.attendance = response.data.attendance;
                 _this.expenses = response.data.expenses;
             });
+        },
+        printAbsent: function printAbsent() {
+            window.print();
         },
         next: function next() {
             this.month++;
@@ -61185,7 +61197,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "page-content browse container-fluid" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -61230,6 +61242,16 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
+        _c("div", { staticStyle: { display: "none" } }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-12" }, [
+              _c("h2", [
+                _vm._v(_vm._s(_vm.user.name) + " " + _vm._s(_vm.user.last_name))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
         _c("transition", { attrs: { name: "list", mode: "in-out" } }, [
           _c(
             "div",
@@ -61252,7 +61274,8 @@ var render = function() {
                     "a",
                     {
                       staticClass: "btn btn-sm btn-primary",
-                      attrs: { title: _vm.trans("reports.Print") }
+                      attrs: { title: _vm.trans("reports.Print") },
+                      on: { click: _vm.printAbsent }
                     },
                     [
                       _c("i", { staticClass: "voyager-credit-card" }),
@@ -61526,7 +61549,7 @@ var render = function() {
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-2" }, [
                       _c("span", { staticClass: "show-field" }, [
-                        _vm._v(_vm._s(_vm.trans("salary.Total Attend")) + ":")
+                        _vm._v(_vm._s(_vm.trans("expenses.Total Pay")) + ":")
                       ])
                     ]),
                     _vm._v(" "),
@@ -61540,7 +61563,9 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                                " +
-                              _vm._s(_vm.expenses.paySum) +
+                              _vm._s(
+                                _vm.expenses.paySum ? _vm.expenses.paySum : 0
+                              ) +
                               "\n                            "
                           )
                         ]
@@ -61549,7 +61574,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-2" }, [
                       _c("span", { staticClass: "show-field" }, [
-                        _vm._v(_vm._s(_vm.trans("salary.Total Holiday")) + ":")
+                        _vm._v(_vm._s(_vm.trans("expenses.Total Cost")) + ":")
                       ])
                     ]),
                     _vm._v(" "),
@@ -61563,7 +61588,9 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                                " +
-                              _vm._s(_vm.expenses.costSum) +
+                              _vm._s(
+                                _vm.expenses.costSum ? _vm.expenses.costSum : 0
+                              ) +
                               "\n                            "
                           )
                         ]
@@ -61572,7 +61599,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-2" }, [
                       _c("span", { staticClass: "show-field" }, [
-                        _vm._v(_vm._s(_vm.trans("salary.Total Absent")) + ":")
+                        _vm._v(
+                          _vm._s(_vm.trans("expenses.Total Discount")) + ":"
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -61586,7 +61615,11 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                                " +
-                              _vm._s(_vm.expenses.discountSum) +
+                              _vm._s(
+                                _vm.expenses.discountSum
+                                  ? _vm.expenses.discountSum
+                                  : 0
+                              ) +
                               "\n                            "
                           )
                         ]
@@ -61599,7 +61632,9 @@ var render = function() {
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-3" }, [
                       _c("span", { staticClass: "show-field" }, [
-                        _vm._v(_vm._s(_vm.trans("salary.Total Absent")) + ":")
+                        _vm._v(
+                          _vm._s(_vm.trans("expenses.Basic Expenses")) + ":"
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -61613,7 +61648,11 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                                " +
-                              _vm._s(_vm.expenses.class_edu.expenses_cost) +
+                              _vm._s(
+                                _vm.expenses.class_edu.expenses_cost
+                                  ? _vm.expenses.class_edu.expenses_cost
+                                  : 0
+                              ) +
                               "\n                            "
                           )
                         ]
@@ -61622,7 +61661,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-3" }, [
                       _c("span", { staticClass: "show-field" }, [
-                        _vm._v(_vm._s(_vm.trans("salary.Total Absent")) + ":")
+                        _vm._v(_vm._s(_vm.trans("expenses.Remaining")) + ":")
                       ])
                     ]),
                     _vm._v(" "),
@@ -62532,7 +62571,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "page-content browse container-fluid" }, [
     _c(
       "div",
       { staticClass: "row" },
@@ -69206,7 +69245,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var withParams = Object({"MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(223).withParams : __webpack_require__(33).withParams;
+var withParams = Object({"MIX_APP_URL":"http://localhost:8000","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(223).withParams : __webpack_require__(33).withParams;
 var _default = withParams;
 exports.default = _default;
 
@@ -76826,15 +76865,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'block'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'block'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'block'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'block'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -77433,15 +77471,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -77928,15 +77965,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -78358,15 +78394,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -78788,7 +78823,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
@@ -79218,21 +79252,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'block'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'block'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
                             $(win.document.body).find('td').addClass('compact').css('text-align', 'right');
                             $(win.document.body).find('table').addClass('compact').css('direction', 'rtl');
-                            $(wim.document + 'table').find('div').addClass('compact');
                         }
                     }, {
                         extend: 'copy',
@@ -79648,15 +79680,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -80078,15 +80109,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -80509,15 +80539,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -80980,15 +81009,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -81099,37 +81127,7 @@ var render = function() {
             _vm._v(" "),
             _vm._m(2),
             _vm._v(" "),
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-hover dataTable no-footer display nowrap",
-                  attrs: { id: "users-table" }
-                },
-                [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th"),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(
-                          _vm._s(_vm.trans("reports.Student Name")) +
-                            "أسم الطالب"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("th", [
-                        _vm._v(
-                          _vm._s(_vm.trans("reports.Last Name")) +
-                            " الأسم الاخير"
-                        )
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
+            _vm._m(3)
           ])
         ])
       ]),
@@ -81216,6 +81214,31 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "table-responsive" }, [
+      _c(
+        "table",
+        {
+          staticClass: "table table-hover dataTable no-footer display nowrap",
+          attrs: { id: "users-table" }
+        },
+        [
+          _c("thead", [
+            _c("tr", [
+              _c("th"),
+              _vm._v(" "),
+              _c("th", [_vm._v("أسم الطالب")]),
+              _vm._v(" "),
+              _c("th", [_vm._v("الأسم الاخير")])
+            ])
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -81347,11 +81370,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     dom: 'Bfrtip',
                     buttons: [{
                         extend: 'print',
-                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
-                        exportOptions: {
-                            columns: ':visible'
-                        }
+                        text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة'
                     }, {
                         extend: 'copy',
                         text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
@@ -82544,15 +82563,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     buttons: [{
                         extend: 'print',
                         text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                        html: '<i></i>',
                         exportOptions: {
                             columns: ':visible'
                         },
                         customize: function customize(win) {
                             $(win.document.body).css('font-size', '11px');
-                            $(win.document.body).find('div').first().prepend($(".content-header").css('display', 'inline'));
+                            $(win.document.body).find('div').first().prepend($(".content-header").clone().css('display', 'inline'));
 
-                            $(win.document.body).find('div').last().prepend($(".content-footer").css('display', 'inline'));
+                            $(win.document.body).find('div').last().prepend($(".content-footer").clone().css('display', 'inline'));
 
                             $(win.document.body).find('h1').css('display', 'none');
                             $(win.document.body).find('th').addClass('compact').css('text-align', 'right');
@@ -101258,6 +101276,47 @@ r[t.label]=e,r)),t._v(" "),t.multiple?n("button",{staticClass:"close",attrs:{dis
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 373 */,
+/* 374 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(375);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("ef7cc032", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-48c78d1e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./ShowStudent.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-48c78d1e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./ShowStudent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 375 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.img-avatar {\n    width: 35px;\n    margin-right: 5px;\n    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);\n            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);\n    border-radius: 100%;\n}\n.fade-enter-active, .fade-leave-active {\n    -webkit-transition: opacity .5s;\n    transition: opacity .5s\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {\n    opacity: 0\n}\n.list-item {\ndisplay: inline-block;\nmargin-right: 3px;\n}\n.list-enter-active, .list-leave-active {\n-webkit-transition: all 0.5s;\ntransition: all 0.5s;\n}\n.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {\nopacity: 0;\n-webkit-transform: translateY(30px);\n        transform: translateY(30px);\n}\n.show-field {\n    font-weight: 400;\n}\n.show-result {\n    font-weight: 600;\n}\n.lecture-select-box {\n    /* width: 300px; */\n    margin-bottom: 5px;\n    float: right;\n}\n.row>[class*=col-] {\n    margin-bottom: 0px;\n}\n/* .panel-body {\n    border-bottom:1px solid #eee;\n} */\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

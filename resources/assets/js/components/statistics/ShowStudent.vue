@@ -15,17 +15,10 @@
                     </div>
                 </div>
             </div>
-            <div style="display: none">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2>{{ user.name }} {{ user.last_name }}</h2>
-                    </div>
-                </div>
-            </div>
             <transition name="list" mode="in-out">
             <div class="col-md-9" v-show="absent == true">
                 <div>
-                    <a class="btn btn-sm btn-primary" @click="printAbsent" :title="trans('reports.Print')"><i class="voyager-credit-card"></i> {{ trans('reports.Print') }}</a>
+                    <a class="btn btn-sm btn-primary" :title="trans('reports.Print')"><i class="voyager-credit-card"></i> {{ trans('reports.Print') }}</a>
                     <router-link @click.native="next" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" tag="a" :to="{name: 'singleStudentRepoShow', query: {'month': month+1,}}" :title="trans('table.Next')">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
                     </router-link>
@@ -226,9 +219,6 @@
                         this.expenses = response.data.expenses
                     })
             },
-            printAbsent() {
-                window.print();
-            },
             next() {
                 this.month++
                 this.fetch()
@@ -249,17 +239,6 @@
     };
 
 </script>
-<style lang="postcss">
-    @page {
-        size: auto A4 landscape;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    @media print {
-
-    }
-</style>
 
 <style>
     .img-avatar {

@@ -30,7 +30,7 @@ Laravel Admin & BREAD System (Browse, Read, Edit, Add, & Delete), supporting Lar
 
 ### 1. Require the Package
 
-After creating your new Laravel application you can include the Voyager package with the following command: 
+After creating your new Laravel application you can include the Voyager package with the following command:
 
 ```bash
 composer require tcg/voyager
@@ -82,7 +82,7 @@ Start up a local development server with `php artisan serve` And, visit [https:/
 
 If you did go ahead with the dummy data, a user should have been created for you with the following login credentials:
 
->**email:** `admin@admin.com`   
+>**email:** `admin@admin.com`
 >**password:** `password`
 
 NOTE: Please note that a dummy user is **only** created if there are no current users in your database.

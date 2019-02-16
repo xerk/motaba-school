@@ -23,16 +23,6 @@ class EAttendanceController extends Controller
         return view('vendor.voyager.attendances.e-attendances');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
             $date = Carbon::now()->addDays($request->day);
@@ -47,7 +37,7 @@ class EAttendanceController extends Controller
 
             $attendCount = $attend->count();
             // dd($attendCount);
-            
+
             if ($count == 0) {
                 if ($attendCount > 0) {
                     // Right Post Command
@@ -70,21 +60,9 @@ class EAttendanceController extends Controller
             } else {
                 return 'You already added Employee!';
             }
-        
+
 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Attendance $attendance)
-    {
-        //
-    }
-
 
     /**
      * Update the specified resource in storage.
@@ -100,18 +78,7 @@ class EAttendanceController extends Controller
         $attendance->status = $request->status;
         $attendance->save();
 
-        return response('Attendance has been updated!', 200); 
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Attendance $attendance)
-    {
-        //
+        return response('Attendance has been updated!', 200);
     }
 
     public function getEmployees(Request $request)

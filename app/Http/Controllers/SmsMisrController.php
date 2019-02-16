@@ -26,11 +26,11 @@ class SmsMisrController extends Controller
 		$this->link = env('SMS_LINK');
 		$this->mobile = env('OWNER_MOBILES');
     }
-    
+
     /**
      * Send data api Vue files
      * @return \SmsMisr Config
-     * in Function smsAPI 
+     * in Function smsAPI
      */
 
     public function smsApi()
@@ -81,8 +81,8 @@ class SmsMisrController extends Controller
                 }])->get();
 
             $attendCount = $attends->count();
-            // dd(implode(', ', $attends->pluck('father_mobile')->toArray()));
-            
+            // dd([implode(', ', $attends->pluck('father_mobile')->toArray())]);
+
             if ($count != 0) {
                 // if ($attendCount > 0) {
                     // Right Post Command
@@ -100,9 +100,9 @@ class SmsMisrController extends Controller
                                     'username' => $this->username,
                                     'password' => $this->password,
                                     'sender' => $this->sender,
-                                    'language' => 1,
-                                    'mobile' => [implode(', ', $attends->pluck('father_mobile')->toArray())],
-                                    'message' => 'Hello guys',
+                                    'language' => 2,
+                                    'mobile' => implode(', ', $attends->pluck('father_mobile')->toArray()),
+                                    'message' => 'نحيط علم سيادتكم أنه قد تغيب الطالب اليوم - معهد كامل عودة الأزهرى',
                                     'DelayUntil' => Carbon::now()->toDateString()
                                 ]
                             ]);
@@ -182,7 +182,7 @@ class SmsMisrController extends Controller
 
             $attendCount = $attend->count();
             // dd($attendCount);
-            
+
             if ($count != 0) {
                     // Right Post Command
                     if ($date->toDateString() <= Carbon::now()) {
@@ -200,7 +200,7 @@ class SmsMisrController extends Controller
                                     'DelayUntil' => Carbon::now()->toDateString()
                                 ]
                             ]);
-                            
+
                             $data = json_decode($response->getBody());
                             // retrun json_decode((string)) $response->getBody(), true);
                             if ($data->code == 1901) {
@@ -234,11 +234,11 @@ class SmsMisrController extends Controller
                     } else {
                         return __('Can\'t Send SMS the next date of day.');
                     }
-               
+
             } else {
                 return __('You do not have students absent here!');
             }
-        
+
 
     }
 }

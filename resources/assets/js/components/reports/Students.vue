@@ -72,7 +72,7 @@
                                 <th>تليفون الأب</th>
                                 <th>تليفون الأم</th>
                                 <th>وظيفة الأب</th>
-                               
+
                             </tr>
                         </thead>
                     </table>
@@ -129,8 +129,8 @@ export default {
             })
         },
         fetch() {
-            var classEdu = this.classEdu  
-            var classRoom = this.classRoom  
+            var classEdu = this.classEdu
+            var classRoom = this.classRoom
             $(function() {
                 var t = $('#users-table').DataTable({
                     dom: 'Bfrtip',
@@ -138,7 +138,6 @@ export default {
                         {
                             extend: 'print',
                             text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
-                            html: '<i></i>',
                             exportOptions: {
                                 columns: ':visible'
                             },
@@ -146,10 +145,10 @@ export default {
                                     $(win.document.body)
                                     .css('font-size', '11px')
                                 $(win.document.body).find('div').first()
-                                    .prepend( $( ".content-header" ).css('display', 'block') )
+                                    .prepend( $( ".content-header" ).clone().css('display', 'block') )
 
                                 $(win.document.body).find('div').last()
-                                    .prepend( $( ".content-footer" ).css('display', 'block') )
+                                    .prepend( $( ".content-footer" ).clone().css('display', 'block') )
 
                                 $(win.document.body).find('h1')
                                     .css('display', 'none')
@@ -194,21 +193,21 @@ export default {
                         { data: 'birth_date', name: 'birth_date',
                         'render': function (val, type, row) {
                             var birth = new Date(val); // Year From BirthDate
-                            var today = new Date();    
+                            var today = new Date();
                             var oct = new Date(today.getFullYear() + '/10/1');
                             return birth.getDate() - oct.getDate();
                         } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
-                                var today = new Date();    
+                                var today = new Date();
                                 var oct = new Date(today.getFullYear() + '/10/1');
                                 return Math.abs(oct.getMonth() - birth.getMonth());
                             } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
-                                var today = new Date()    
+                                var today = new Date()
                                 var oct = new Date(today.getFullYear() + '-10-1')
                                 return oct.getFullYear() - birth.getFullYear();
                             } },
@@ -217,13 +216,13 @@ export default {
                                 if (val == 1) {
                                     return "مستجد";
                                 } else if (val == 2) {
-                                    return "منقول";                                    
+                                    return "منقول";
                                 } else if (val == 3) {
-                                    return "وافد";                                    
+                                    return "وافد";
                                 } else if (val == 4) {
-                                    return "محول";                                    
+                                    return "محول";
                                 } else if (val == 5) {
-                                    return "راسب";                                    
+                                    return "راسب";
                                 }
                             }
                         },
@@ -246,7 +245,7 @@ export default {
                         { data: 'father_mobile', name: 'father_mobile' },
                         { data: 'mother_mobile', name: 'mother_mobile' },
                         { data: 'father_job', name: 'father_job' },
-                        
+
 
                     ],
                     "columnDefs": [
@@ -263,14 +262,14 @@ export default {
                             },
                             "targets": 1
                         },
-                    
+
                         { "visible": false,  "targets": [ 2 ] },
                     ],
                 });
                 t.on( 'order.dt search.dt', function () {
                     t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
                         cell.innerHTML = i+1;
-                        t.cell(cell).invalidate('dom'); 
+                        t.cell(cell).invalidate('dom');
                     } );
                 } ).draw();
             });

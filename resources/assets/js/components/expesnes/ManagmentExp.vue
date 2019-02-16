@@ -10,7 +10,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('expenses.Basic Expenses') }}:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Basic Expenses') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-primary">
@@ -23,7 +23,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('expenses.Total Cost') }}:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Total Cost') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -36,7 +36,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('expenses.Total Pay') }}:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Total Pay') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -49,7 +49,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('expenses.Total Discount') }}:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Total Discount') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -62,7 +62,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('expenses.Remaining') }}:</span>                                
+                                        <span class="show-field">{{ trans('expenses.Remaining') }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
@@ -113,7 +113,7 @@
                                             you can use custom content here to overwrite
                                             default content
                                             -->
-                                            <h3 slot="header"><i class="voyager-trash"></i> {{ trans('expenses.Are you sure you want to delete this expenses?') }}</h3>                        
+                                            <h3 slot="header"><i class="voyager-trash"></i> {{ trans('expenses.Are you sure you want to delete this expenses?') }}</h3>
                                             <button slot="button" @click.once="deletePayment(item.id, index)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!') }}</button>
                                         </modal>
                                     </tr>
@@ -125,7 +125,7 @@
             </div>
         </div>
         <make-payment :list="list" v-if="paymentModal" @close="paymentModal = false">
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('expenses.Make Payment') }}. </span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('expenses.Make Payment') }}. </span></h3>
             <div slot="body">
                 <div :class="{'form-group col-md-12': true, 'has-error': errors.has('pay') }">
                     <label for="pay">{{ trans('expenses.Payment Amount') }}</label>
@@ -146,7 +146,7 @@
             <button slot="button" class="btn btn-success" @click.once="parsist">{{ trans('table.Yes, Save it!') }}</button>
         </make-payment>
         <expenses @getUser="fetch" :list="list" v-if="showModal" @close="showModal = false">
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('expenses.Make Payment') }}. </span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('expenses.Make Payment') }}. </span></h3>
         </expenses>
     </div>
 </template>
@@ -215,7 +215,7 @@
         computed: {
         },
         mounted() {
-            this.fetch()            
+            this.fetch()
         },
         methods: {
             paymentClickModal() {
