@@ -25,14 +25,14 @@
             <transition name="list" mode="in-out">
             <div class="col-md-9" v-show="absent == true">
                 <div>
-                    <a class="btn btn-sm btn-primary" @click="printAbsent" :title="trans('reports.Print')"><i class="voyager-credit-card"></i> {{ trans('reports.Print') }}</a>
+                    <!-- <a class="btn btn-sm btn-primary" @click="printAbsent" :title="trans('reports.Print')"><i class="voyager-credit-card"></i> {{ trans('reports.Print') }}</a> -->
                     <router-link @click.native="next" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" tag="a" :to="{name: 'singleStudentRepoShow', query: {'month': month+1,}}" :title="trans('table.Next')">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
                     </router-link>
                     <router-link @click.native="prev" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" :title="trans('table.Prev')" tag="a" :to="{name: 'singleStudentRepoShow', query: {'month': month-1,}}">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-left"></i>
                     </router-link>
-                    <button class="btn btn-sm disabled pull-right" style="padding: 4px 15px;">{{ date | moment("dddd, Do MM YY") }}</button>
+                    <button class="btn btn-sm disabled pull-right" style="padding: 4px 15px;">{{ date | moment("(MM) MMMM - YYYY") }}</button>
                 </div>
                 <div class="panel panel-bordered">
                     <div class="panel-title">

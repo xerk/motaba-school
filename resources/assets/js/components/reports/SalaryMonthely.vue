@@ -7,7 +7,42 @@
         <router-link @click.native="prev" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" :title="trans('table.Prev')" tag="a" :to="{path: '/admin/salary_reports', query: {'month': month-1,}}">
             <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-left"></i>
         </router-link>
-        <button class="btn btn-sm disabled" style="padding: 4px 15px;">{{ new Date() | moment("add", month+" months", "dddd, Do MM YY") }}</button>
+        <button class="btn btn-sm disabled" style="padding: 4px 15px;">{{ new Date() | moment("add", month+" months", "(MM) MMMM - YYYY") }}</button>
+    </div>
+    <div class="content-header" style="display: none">
+        <div class="row">
+            <div class="col-sm-4 col-print-4 pull-left">
+                <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+            </div>
+            <div class="col-sm-4 col-print-4 text-center">
+                <h3>كشف رواتب الموظفين لشهر {{ new Date() | moment("add", month+" months", "MM - YYYY") }}</h3>
+            </div>
+            <div class='col-sm-4 col-print-4' style="font-size: 18px">
+                <ul class="list-unstyled text-center pull-right">
+                    <li>الأزهر الشريف</li>
+                    <li>منطقة الجيزه الأزهريه</li>
+                    <li>معهد كامل عودة الأزهري الخاص</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-footer" style="display:none">
+        <div class="row">
+            <div class="col-sm-4 col-print-4 text-center" style="font-size: 18px">
+                <ul class="list-unstyled">
+                    <li>عميد المعهد</li>
+                    <li>أ/سعيد عيسي</li>
+                </ul>
+            </div>
+            <div class="col-sm-4 col-print-4 text-center">
+            </div>
+            <div class='col-sm-4 col-print-4 text-center' style="font-size: 18px">
+                <ul class="list-unstyled">
+                    <li>شئون الطلبة</li>
+                    <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -64,6 +99,33 @@ export default {
                         {
                             extend: 'print',
                             text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                            exportOptions: {
+                                columns: ':visible'
+                            },
+                            customize: function (win) {
+                                    $(win.document.body)
+                                    .css('font-size', '11px')
+                                $(win.document.body).find('div').first()
+                                    .prepend( $( ".content-header" ).clone().css('display', 'inline') )
+
+                                $(win.document.body).find('div').last()
+                                    .prepend( $( ".content-footer" ).clone().css('display', 'inline') )
+
+                                $(win.document.body).find('h1')
+                                    .css('display', 'none')
+                                $(win.document.body).find('th')
+                                    .addClass('compact')
+                                    .css('text-align', 'right')
+                                $(win.document.body).find('td')
+                                    .addClass('compact')
+                                    .css('text-align', 'right')
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('direction', 'rtl')
+                                $(wim.document+'table').find('div')
+                                    .addClass('compact')
+
+                            }
                         },
                         {
                             extend: 'copy',
@@ -177,3 +239,26 @@ export default {
     },
 }
 </script>
+<style lang="postcss">
+@media print {
+    * {
+        font-size: 14px;
+    }
+    table {
+        border: 2px solid #000;
+        padding: 20px;
+    }
+    .col-print-1 {width:8%;  float:left;}
+    .col-print-2 {width:16%; float:left;}
+    .col-print-3 {width:25%; float:left;}
+    .col-print-4 {width:33%; float:left;}
+    .col-print-5 {width:42%; float:left;}
+    .col-print-6 {width:50%; float:left;}
+    .col-print-7 {width:58%; float:left;}
+    .col-print-8 {width:66%; float:left;}
+    .col-print-9 {width:75%; float:left;}
+    .col-print-10{width:83%; float:left;}
+    .col-print-11{width:92%; float:left;}
+    .col-print-12{width:100%; float:left;}
+}
+</style>

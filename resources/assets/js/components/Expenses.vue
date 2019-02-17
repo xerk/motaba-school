@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent action="">
-            
+
             <div class="page-content browse container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -23,11 +23,11 @@
                                                     <td><input type="checkbox"></td>
                                                     <td><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
                                                     <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
-                                                    <td><span class="label label-success">${{ item.paySum }}</span></td>
-                                                    <td><span class="label label-info">${{ parseInt(item.class_edu.expenses_cost) + parseInt(item.costSum) }}  </span></td>
-                                                    
+                                                    <td><span class="label label-success">{{ item.paySum ? item.paySum : 0 }}</span></td>
+                                                    <td><span class="label label-info">{{ (parseInt(item.class_edu) + parseInt(item.costSum)) ? parseInt(item.class_edu.expenses_cost) + parseInt(item.costSum) : 0}}</span></td>
+
                                                     <td class="no-sort no-click" id="bread-actions">
-                                                                                                               
+
                                                             <router-link tag="a" :to="{ name: 'studentExpenses', params: {id: item.id} }" :title="trans('expenses.Make payment')" class="btn btn-sm btn-info pull-right add"
                                                                 data-id="2" id="add-2">
                                                                     <i class="voyager-credit-card"></i> <span class="hidden-xs hidden-sm">{{ trans('expenses.Make Payment') }}</span>
@@ -125,7 +125,7 @@
     opacity: 0;
     transform: translateY(30px);
     }
-    
+
     .img-avatar {
         width: 35px;
         margin-right: 5px;

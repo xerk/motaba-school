@@ -3,15 +3,16 @@
     <div class="col-md-12">
         <div class="panel panel-bordered">
             <div class="panel-body">
+            <h3 class="text-center"><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span></h3>
                 <div class="content-header" style="display: none">
                     <div class="row">
-                        <div class="col-sm-4 pull-left">
+                        <div class="col-print-4 pull-left" style="padding-left: 10px">
                             <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
-                        <div class="col-sm-4 text-center">
+                        <div class="col-print-4 text-center">
                             <h3><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span> عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
                         </div>
-                        <div class='col-sm-4' style="font-size: 18px">
+                        <div class='col-print-4' style="padding-right: 10px">
                             <ul class="list-unstyled text-center pull-right">
                                 <li>الأزهر الشريف</li>
                                 <li>منطقة الجيزه الأزهريه</li>
@@ -22,15 +23,13 @@
                 </div>
                 <div class="content-footer" style="display:none">
                     <div class="row">
-                        <div class="col-sm-4 text-center" style="font-size: 18px">
+                        <div class="col-print-6 text-center" style="padding-left: 10px">
                             <ul class="list-unstyled">
                                 <li>عميد المعهد</li>
                                 <li>أ/سعيد عيسي</li>
                             </ul>
                         </div>
-                        <div class="col-sm-4 text-center">
-                        </div>
-                        <div class='col-sm-4 text-center' style="font-size: 18px">
+                        <div class='col-print-6 text-center' style="padding-right: 10px">
                             <ul class="list-unstyled">
                                 <li>شئون الطلبة</li>
                                 <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
@@ -195,3 +194,26 @@ export default {
     },
 }
 </script>
+<style lang="postcss">
+@media print {
+    * {
+        font-size: 14px;
+    }
+    table {
+        border: 2px solid #000;
+        padding: 20px;
+    }
+    .col-print-1 {width:8%;  float:left;}
+    .col-print-2 {width:16%; float:left;}
+    .col-print-3 {width:25%; float:left;}
+    .col-print-4 {width:33%; float:left;}
+    .col-print-5 {width:42%; float:left;}
+    .col-print-6 {width:50%; float:left;}
+    .col-print-7 {width:58%; float:left;}
+    .col-print-8 {width:66%; float:left;}
+    .col-print-9 {width:75%; float:left;}
+    .col-print-10{width:83%; float:left;}
+    .col-print-11{width:92%; float:left;}
+    .col-print-12{width:100%; float:left;}
+}
+</style>

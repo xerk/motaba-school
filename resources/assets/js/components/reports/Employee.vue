@@ -1,14 +1,5 @@
 <template>
     <div class="page-content browse container-fluid">
-        <div class="lecture-select-box">
-            <router-link @click.native="next" style="padding: 5px 10px;" :title="trans('reports.Next')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/absent_employees', query: {'day': day+1,}}">
-                <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
-            </router-link>
-            <router-link @click.native="prev" style="padding: 5px 10px;" :title="trans('reports.Prev')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/absent_employees', query: {'day': day-1,}}">
-                <i class="voyager-double-left"></i> <span class="hidden-xs hidden-sm"></span>
-            </router-link>
-            <button class="btn btn-sm disabled" style="padding: 4px 15px;">{{ new Date() | moment("add", day+" days", "dddd, Do MM YY") }}</button>
-        </div>
         <div class="content-header" style="display: none">
             <div class="row">
                 <div class="col-print-4 col-sm-4 pull-left" style="padding-left: 10px">
@@ -50,10 +41,14 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>{{ trans('reports.Employee Name')}}أسم الموظف</th>
-                                        <th>{{ trans('reports.Last Name')}}الأسم الاخير</th>
-                                        <th>{{ trans('reports.Date')}}التاريخ</th>
-                                        <th>{{ trans('reports.Status')}}الحالة</th>
+                                        <th>أسم الموظف</th>
+                                        <th>الأسم الاخير</th>
+                                        <th>المؤهل وتاريخه</th>
+                                        <th>الوظيفة</th>
+                                        <th>تاريخ التعيين</th>
+                                        <th>تاريخ الميلاد</th>
+                                        <th>الرقم القومى</th>
+                                        <th>محل الأقامة</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -67,11 +62,7 @@
 
 <script>
 export default {
-    data() {
-        return {
-            day: 0,
-        }
-    },
+
     mounted() {
         this.fetch()
     },
@@ -79,10 +70,10 @@ export default {
         fetch() {
             var classEdu = this.classEdu
             var classRoom = this.classRoom
-            var day = this.day
             $(function() {
                 $('#users-table').DataTable({
                     dom: 'Bfrtip',
+                    "lengthMenu": [[50, 100, 150, -1], [50, 100, 150, "All"]],
                     buttons: [
                         {
                             extend: 'print',
@@ -133,18 +124,16 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-employee-absent?day=${day}`,
+                    ajax: `https://kamel-ouda.com/admin/get-employee`,
                     columns: [
-                        { data: 'users', name: 'users.name' },
-                        { data: 'users', name: 'users.last_name' },
-                        { data: 'attend_date', name: 'attend_date' },
-                        { data: 'status', name: 'status',
-                        "render": function (val, type, row) {
-                                if (val == 3) {
-                                    return '<span class="label label-danger">غائب</span>';
-                                }
-                            }
-                        },
+                        { data: 'name', name: 'name' },
+                        { data: 'last_name', name: 'last_name' },
+                        { data: 'qualification', name: 'qualification' },
+                        { data: 'specialty', name: 'specialty' },
+                        { data: 'date_receipt', name: 'date_receipt' },
+                        { data: 'birth_date', name: 'birth_date' },
+                        { data: 'national_id', name: 'national_id' },
+                        { data: 'address', name: 'address' },
                     ],
                     "columnDefs": [
                         {
@@ -152,10 +141,10 @@ export default {
                             // `data` option, which defaults to the column being worked with, in
                             // this case `data: 0`.
                             "render": function ( data, type, row ) {
-                                if (row.users.last_name == null) {
-                                    return row.users.name;
+                                if (row.last_name == null) {
+                                    return row.name;
                                 } else {
-                                    return row.users.name +' '+ row.users.last_name;
+                                    return row.name +' '+ row.last_name;
                                 }
                             },
                             "targets": 0

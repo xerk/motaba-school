@@ -104,6 +104,16 @@ export default {
                 this.fetch()
                 this.getUsers()
             },
+            getUsers() {
+            this.$store.dispatch('retriveUser', {
+                get: this.get,
+                classRoom: this.classRoom,
+                classEdu: this.classEdu
+            })
+            .then(response => {
+                this.user = response.data
+            })
+        },
         fetch() {
             var classEdu = this.classEdu
             var classRoom = this.classRoom

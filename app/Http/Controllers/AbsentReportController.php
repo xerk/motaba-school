@@ -29,12 +29,12 @@ class AbsentReportController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function anyData(Request $request)
-    {   
+    {
         // dd($request->all());
         $date = Carbon::now()->addDays($request->day);
         $dateString = $date->toDateString();
         $attendances = Attendance::where(function ($query) use ($date, $request) {
-            $query->where('attend_date', '=', $date->toDateString())->whereHas('users' , function ($query) use ($request) {
+            $query->where('attend_date', '=', $date->toDateString())->where('status', 3)->whereHas('users' , function ($query) use ($request) {
                 $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1);
             });
         })->with('users')->get();
@@ -59,12 +59,12 @@ class AbsentReportController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function anyDataEmp(Request $request)
-    {   
+    {
         // dd($request->all());
         $date = Carbon::now()->addDays($request->day);
         $dateString = $date->toDateString();
         $attendances = Attendance::where(function ($query) use ($date, $request) {
-            $query->where('attend_date', '=', $date->toDateString())->whereHas('users' , function ($query) use ($request) {
+            $query->where('attend_date', '=', $date->toDateString())->where('status', 3)->whereHas('users' , function ($query) use ($request) {
                 $query->where('job', '=', 0);
             });
         })->with('users')->get();

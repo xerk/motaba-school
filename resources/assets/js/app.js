@@ -27,6 +27,7 @@ import SingleStudentRepo from './components/reports/SingleStudentRepo'
 import SalaryMonthelyRepo from './components/reports/SalaryMonthely'
 import AbsentStudentRepo from './components/reports/AbsentStudent'
 import AbsentEmpRepo from './components/reports/AbsentEmp'
+import EmployeeRepo from './components/reports/Employee'
 import GenderRepo from './components/reports/Gender'
 const _ = require('lodash')
 import SecretNumber from './components/SecretNumber'
@@ -113,7 +114,8 @@ const app = new Vue({
         ClassListRepo,
         SalaryMonthelyRepo,
         SingleEmpRepo,
-        SingleStudentRepo
+        SingleStudentRepo,
+        EmployeeRepo,
     },
 
 });

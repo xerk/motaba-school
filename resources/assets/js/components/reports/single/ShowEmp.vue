@@ -10,25 +10,22 @@
                             <button @click="absentReport" class="btn btn-primary btn-block">{{ trans('reports.Absent report') }}</button>
                             <button @click="salaryReport" class="btn btn-primary btn-block">{{ trans('reports.Salary report') }}</button>
                         </div><!-- panel-body -->
-
-
                         <!-- <h4 class="text-center"><i class="voyager-check"></i> {{ trans('salary.Attendance') }}</h4> -->
                         <hr>
-
                     </div>
                 </div>
             </div>
             <transition name="list" mode="in-out">
             <div class="col-md-9" v-show="absentShow == true">
                 <div>
-                    <a class="btn btn-sm btn-primary" :title="trans('reports.Print')"><i class="voyager-credit-card"></i> {{ trans('reports.Print') }}</a>
+                    <!-- <a class="btn btn-sm btn-primary" :title="trans('reports.Print')"><i class="voyager-credit-card"></i> {{ trans('reports.Print') }}</a> -->
                     <router-link @click.native="next" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" tag="a" :to="{name: 'singleStudentRepoShow', query: {'month': month+1,}}" :title="trans('table.Next')">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
                     </router-link>
                     <router-link @click.native="prev" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" :title="trans('table.Prev')" tag="a" :to="{name: 'singleStudentRepoShow', query: {'month': month-1,}}">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-left"></i>
                     </router-link>
-                    <button class="btn btn-sm disabled pull-right" style="padding: 4px 15px;">{{ date | moment("dddd, Do MM YY") }}</button>
+                    <button class="btn btn-sm disabled pull-right" style="padding: 4px 15px;">{{ date | moment("(MM) MMMM - YYYY") }}</button>
                 </div>
                 <div class="panel panel-bordered">
                     <div class="panel-title">
@@ -91,7 +88,7 @@
                                     </table>
                                 </div>
                                 <div class="text-center" v-else>
-                                    <h3 >{{ trans('reports.This student has not been absent all month!')}}.</h3>
+                                    <h3 >{{ trans('reports.This employee has not been absent all month!')}}.</h3>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +261,7 @@
                                         </table>
                                     </div>
                                     <div class="text-center" v-else>
-                                        <h3 >{{ trans('reports.This student has not been absent all month!')}}.</h3>
+                                        <h3 >{{ trans('reports.This employee has not been absent all month!')}}.</h3>
                                     </div>
                                     <hr>
                                     <div class="table-responsive">

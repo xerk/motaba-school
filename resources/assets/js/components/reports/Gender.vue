@@ -43,12 +43,12 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>{{ trans('reports.Class Name')}}اسم الصف</th>
-                                        <th>{{ trans('reports.Class Name')}}اسم الصف</th>
-                                        <th>{{ trans('reports.Male')}}ذكر</th>
-                                        <th>{{ trans('reports.Female')}}إنثى</th>
-                                        <th>{{ trans('reports.Total')}}الأجمالى</th>
-                                        <th>{{ trans('reports.Class Room')}}الفصول</th>
+                                        <th>اسم الصف</th>
+                                        <th>اسم الصف</th>
+                                        <th>ذكر</th>
+                                        <th>إنثى</th>
+                                        <th>الأجمالى</th>
+                                        <th>الفصول</th>
                                     </tr>
                                 </thead>
                             </table>

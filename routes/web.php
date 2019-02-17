@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('single_emp_reports', 'SingleEmpReportController@index')->name('school.single.emp.report.index')->middleware('admin.user');
     Route::get('suppliers/{supplier}/pay', 'SupplierController@pay')->name('voyager.suppliers.pay')->middleware('admin.user');
     Route::post('suppliers/{supplier}/pay', 'SupplierController@store')->name('voyager.suppliers.pay.store')->middleware('admin.user');
-    
+
     Route::resource('users-2', 'UsersController')->middleware('admin.user');
     Route::resource('setting_numbers', 'SettingNumberController')->middleware('admin.user');
     Route::resource('secret_numbers', 'SecretNumberController')->middleware('admin.user');
@@ -67,6 +67,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('doctrine_reports', 'DoctrineReportController@getIndex')->name('reprots.doctrine.index')->middleware('admin.user');
     Route::get('get-salary', 'SalaryReportController@anyData')->middleware('admin.user');
     Route::get('salary_reports', 'SalaryReportController@getIndex')->name('reprots.salary.index')->middleware('admin.user');
+    Route::get('get-employee', 'EmpReportController@anyData')->middleware('admin.user');
+    Route::get('employee_reports', 'EmpReportController@getIndex')->name('reprots.employee.index')->middleware('admin.user');
 
     Route::get('/{vue_capture?}', function () {
         return view('vendor.voyager.attentions.attentions');
@@ -78,7 +80,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('api/attention', 'AttentionController@getStudents')->middleware('admin.user');
     Route::post('api/attention-post', 'AttentionController@store')->middleware('admin.user');
     Route::post('api/attention', 'AttentionController@update')->middleware('admin.user');
-    
+
 
 Auth::routes();
 

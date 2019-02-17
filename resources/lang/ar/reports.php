@@ -51,6 +51,7 @@ return [
     'Show Table' => 'عرض الجدول',
     'Hiden Table' => 'إخفاء الجدول',
     'This student has not been absent all month!' => 'هذا الطالب لم يكن غائبا طوال الشهر',
+    'This employee has not been absent all month!' => 'هذا الموظف لم يكن غائبا طوال الشهر',
     'Salary report' => 'كشف مرتب',
     'Print' => 'طباعة',
 ];
