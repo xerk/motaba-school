@@ -1,12 +1,12 @@
 <template>
-    <div class="container">
+    <div class="page-content browse container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <form @submit.prevent="validateBeforeSubmit" action="">
                     <div class="panel panel-bordered">
                         <div class="panel-body">
                             <h4 class="" @click="dateEnd"><img :src="link + '/storage/' + user.avatar" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
-                            <hr>                            
+                            <hr>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div :class="{'form-group': true, 'has-error': errors.has('type') }">
@@ -131,7 +131,7 @@
                     })
             },
             dateEnd() {
-                this.attention.end_date = DateTime.fromString(this.attention.end_date, 'yyyy-MM-dd hh:mm:ss').toISO() 
+                this.attention.end_date = DateTime.fromString(this.attention.end_date, 'yyyy-MM-dd hh:mm:ss').toISO()
             }
         }
     };

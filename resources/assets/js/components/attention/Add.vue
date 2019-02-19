@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="page-content browse container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <form @submit.prevent="validateBeforeSubmit" action="">
@@ -69,14 +69,14 @@
                                             <td><span class="label label-primary">{{ item.authors.name }} {{ item.authors.last_name }}</span></td>
                                             <td><span class="label label-info">{{ item.attention_types.name }}</span></td>
                                             <td>{{ item.end_date }}</td>
-                                            <td class="no-sort no-click" id="bread-actions">                                
+                                            <td class="no-sort no-click" id="bread-actions">
                                                     <a @click="showModal = true" title="delete attention" class="btn btn-sm btn-danger pull-right delete"
                                                         data-id="2" id="delete-2">
                                                             <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
                                                     </a>
 
                                                     <modal v-if="showModal" @close="showModal = false">
-                                                        <h3 slot="header"><i class="voyager-trash"></i> Are you sure you want to delete this attention?</h3>                        
+                                                        <h3 slot="header"><i class="voyager-trash"></i> Are you sure you want to delete this attention?</h3>
                                                         <button slot="button" @click="removeOption(item.id, index)" class="btn btn-danger delete-confirm">Yes, Delete it!</button>
                                                     </modal>
 

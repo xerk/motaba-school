@@ -53,23 +53,23 @@
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
                                                 <tr v-for="(item, index) in attendanceFilter" :key="index">
-                                                
+
                                                     <td><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
                                                     <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
                                                     <td>{{ item.attend_date }}</td>
                                                     <td>
-                                                        <transition name="fade" mode="in-out"> 
+                                                        <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 3" class="label label-danger">{{ trans('attendance.Absent') }}</span>
                                                         </transition>
-                                                        <transition name="fade" mode="in-out">                                                         
+                                                        <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 2" class="label label-primary">{{ trans('attendance.Holiday') }}</span>
                                                         </transition>
-                                                        <transition name="fade" mode="in-out"> 
+                                                        <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 1" class="label label-success">{{ trans('attendance.Existing') }}</span>
                                                         </transition>
                                                     </td>
                                                     <td class="no-sort no-click" id="bread-actions">
-                                                                                                               
+
                                                             <a v-show="item.status != 3" :title="trans('attendance.Absent')" @click="action(item, 3)" class="btn btn-sm btn-danger pull-right delete"
                                                                 data-id="2" id="delete-2">
                                                                 <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>

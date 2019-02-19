@@ -87,3 +87,8 @@ Route::post('sms-attendance', 'SmsMisrController@storeAttendance');
 Route::post('sms-eattendance', 'SmsMisrController@storeEAttendance');
 
 Route::get('report-users', 'ReportUsersController@index');
+
+Route::get('timetables', 'TimetablesController@index');
+// Route::post('timetables', 'TimetablesController@store');
+Route::post('timetables-update', 'TimetablesController@update');
+// Route::delete('timetables/{id}', 'ExpenseController@destroy');

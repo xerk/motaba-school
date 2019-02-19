@@ -58,7 +58,7 @@
                                 </span>
                             </div>
                             <div class="col-md-2">
-                                <span class="show-field">{{ trans('salary.Total Absent') }}:</span>
+                                <span class="show-field">{{ trans('salary.Total Late') }}:</span>
                             </div>
                             <div class="col-md-1">
                                 <span style="font-size:14px" class="show-result label label-warning">

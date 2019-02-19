@@ -63,6 +63,7 @@ return [
     'Are you sure you want to delete?' => 'Are you sure you want to delete?',
     'Name' => 'Name',
     'Body' => 'Body',
+    'Edit Timetable' => 'Edit Timetable'
 
-    
+
 ];

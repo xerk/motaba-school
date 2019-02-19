@@ -59,5 +59,9 @@ return [
     'Choose Year' => 'اختر السنة',
     'This year is invalid' => 'هذه السنة غير صحيحة',
     'Are you sure you want to delete this semster?' => 'هل تريد مسح نصف السنة ؟',
-    
+    'Are you sure you want to delete?' => 'هل أنت متأيكد من حذف هذا العنصر؟',
+    'Name' => 'الأسم',
+    'Body' => 'المحتوى',
+    'Edit Timetable' => 'تعديل جدول الحصص'
+
 ];

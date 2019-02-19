@@ -45,7 +45,7 @@ class AttentionController extends Controller
                     'body' => $request->body,
                     'sms' => $request->sms,
                 ]);
-                return response()->json('Attention has been Add', 200);
+
                 if ($request->sms != '') {
                     $user = User::where('id', $request->user_id)->first();
                     if ($user->job == 1) {
@@ -97,6 +97,8 @@ class AttentionController extends Controller
                         ]);
                         return $response->getBody();
                     }
+                } else {
+                    return response()->json('Attention has been Add', 200);
                 }
 
             } catch (\GuzzleHttp\Exception\BadResponseException $e) {

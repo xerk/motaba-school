@@ -41,7 +41,7 @@
     "Enrollment number": "Enrollment number",
     "Father Mobile": "Father Mobile",
     "Father Telephone": "Father Telephone",
-    "Show More": "Show More",   
+    "Show More": "Show More",
     "Hiden More": "Hiden More",
     "Schedule.": "Schedule.",
     "Coming soon": "Coming soon",
@@ -128,8 +128,6 @@
     "Muslim": "Muslim",
     "Christian": "Christian",
     "Male": "Male",
-    "Female": "Female"
-
-    
-
+    "Female": "Female",
+    "Timetable has been updated": "Timetable has been updated"
 }

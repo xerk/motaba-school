@@ -38,6 +38,17 @@ export const store = new Vuex.Store({
                     })
             })
         },
+        retriveTimetables(context, data) {
+            return new Promise((resolve, reject) => {
+                axios.get(`${data.get.apiURL}?classroom=${data.classRoom}`)
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
         retriveResults(context, data) {
             return new Promise((resolve, reject) => {
                 axios.get(`${data.apiURL}?type=${data.params.typeExamId}&subject=${data.params.supSubjectId}`)

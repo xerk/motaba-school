@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="page-content browse container-fluid">
         <div class="row">
             <div class="col-md-3">
                 <form @submit.prevent="validateBeforeSubmit" action="">

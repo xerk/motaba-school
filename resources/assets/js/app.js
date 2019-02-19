@@ -9,6 +9,7 @@ import SystemConfigs from './components/SystemConfigs'
 import Attendance from './components/Attendance'
 import EAttendance from './components/EAttendance'
 import Attention from './components/Attention'
+import Timetables from './components/Timetables'
 import EmployeeSalary from './components/EmployeeSalary'
 import AddSalary from './components/AddSalary'
 import SettingNumber from './components/SettingNumber'
@@ -116,6 +117,7 @@ const app = new Vue({
         SingleEmpRepo,
         SingleStudentRepo,
         EmployeeRepo,
+        Timetables
     },
 
 });
