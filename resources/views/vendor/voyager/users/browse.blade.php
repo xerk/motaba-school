@@ -102,7 +102,7 @@
                                             <td>
                                                 <?php $options = json_decode($row->details); ?>
                                                 @if($row->type == 'image')
-                                                    <img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif" class="img-avatar">
+                                                    <img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL) && Auth::user()->gender == 0){{ Voyager::image( $data->{$row->field} ) }}@else{{ Voyager::image('users/default.png') }}@endif" class="img-avatar">
                                                 @elseif($row->type == 'relationship')
                                                     @include('voyager::formfields.relationship', ['view' => 'browse'])
                                                 @elseif($row->type == 'select_multiple')

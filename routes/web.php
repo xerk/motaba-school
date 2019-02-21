@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -146,3 +148,7 @@ Route::get('/js/lang.js', function () {
     echo('window.i18n = ' . json_encode($strings) . ';');
     exit();
 })->name('assets.lang');
+
+Route::get('api/get-auth', function () {
+    return Auth::user();
+})->middleware('admin.user');

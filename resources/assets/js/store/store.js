@@ -12,15 +12,22 @@ export const store = new Vuex.Store({
     modules: {
         SchoolConfigs: SchoolConfigs
     },
+    state: {
+        $auth: {}
+    },
+    getters: {
+    },
+    mutations: {
+        getAuth(state, auth) {
+            state.$auth = auth
+        },
+    },
     actions: {
-        sendSMS(context, data) {
-            const params = {
-                ...data
-            }
+        retrieveAuth(context) {
             return new Promise((resolve, reject) => {
-                axios.post(`${data.sms.apiURL}`, params)
+                axios.get(`get-auth`)
                     .then(response => {
-                        resolve(response)
+                        context.commit('getAuth', response.data)
                     })
                     .catch(error => {
                         reject(error)

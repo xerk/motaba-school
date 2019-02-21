@@ -54,22 +54,24 @@
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
                                                 <tr v-for="(item, index) in attendanceFilter" :key="index">
-                                                
-                                                    <td><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+
+                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                    <td v-else><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+
                                                     <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
                                                     <td>{{ item.attend_date }}</td>
                                                     <td>{{ item.created_at }}</td>
                                                     <td>
-                                                        <transition name="fade" mode="in-out"> 
+                                                        <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 4" class="label label-warning">{{ trans('attendance.Late') }}</span>
                                                         </transition>
-                                                         <transition name="fade" mode="in-out"> 
+                                                         <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 3" class="label label-danger">{{ trans('attendance.Absent') }}</span>
                                                         </transition>
-                                                        <transition name="fade" mode="in-out">                                                         
+                                                        <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 2" class="label label-primary">{{ trans('attendance.Holiday') }}</span>
                                                         </transition>
-                                                        <transition name="fade" mode="in-out"> 
+                                                        <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 1" class="label label-success">{{ trans('attendance.Existing') }}</span>
                                                         </transition>
                                                     </td>

@@ -4,7 +4,8 @@
             <div class="col-md-3">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        <h4 class=""><img :src="link + '/storage/' + user.avatar" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
+                        <h4 v-if="$auth.gender == 1"><img :src="link + '/storage/' + (user.mask == 1 ? 'users/default.png' : user.avatar)" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
+                        <h4 v-else><img :src="link + '/storage/' + user.avatar" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
                         <hr>
                         <div class="panel-body">
                             <button @click="absentReport" class="btn btn-primary btn-block">{{ trans('reports.Absent report') }}</button>

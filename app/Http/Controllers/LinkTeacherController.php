@@ -41,9 +41,10 @@ class LinkTeacherController extends Controller
                 'stage_id' => $request->model['stageSelect'],
                 'class_id' => $request->model['classSelect'],
                 'classroom_id' => $request->model['classRoomSelect'],
+                'supervision' => $request->model['supervision'],
             ]);
             return response('Item has been added!', 200);
-            
+
         } else {
             return response('You are not a method post!', 200);
         }
@@ -66,6 +67,7 @@ class LinkTeacherController extends Controller
             $linkTeacher->stage_id          = $request->model['stage_id'];
             $linkTeacher->class_id          = $request->model['class_id'];
             $linkTeacher->classroom_id      = $request->model['classroom_id'];
+            $linkTeacher->supervision      = $request->model['supervision'];
             $linkTeacher->save();
 
             return response('Item has been updated!', 200);

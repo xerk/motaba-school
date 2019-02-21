@@ -54,8 +54,9 @@
                                         <transition-group tag="tbody" name="list" mode="in-out">
                                                 <tr v-for="(item, index) in attendanceFilter" :key="index">
 
-                                                    <td><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
-                                                    <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
+                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                    <td v-else><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+
                                                     <td>{{ item.attend_date }}</td>
                                                     <td>
                                                         <transition name="fade" mode="in-out">

@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent action="">
-            
+
             <div class="page-content browse container-fluid">
                 <!-- <div class="attend-button">
                     <button type="submit" title="Bulk add attention" class="btn btn-sm btn-success" id="bulk-add">
@@ -25,12 +25,13 @@
                                         <transition-group tag="tbody" name="list" mode="in-out">
                                                 <tr v-for="(item, index) in usersFilter" :key="index">
                                                     <td><input type="checkbox"></td>
-                                                    <td><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
-                                                    <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
+                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                    <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+
                                                     <td><span class="label label-info">{{ item.attentions_count }}</span></td>
-                                                    
+
                                                     <td class="no-sort no-click" id="bread-actions">
-                                                                                                               
+
                                                             <router-link tag="a" :to="{ name: 'attentionsAdd', params: {id: item.id} }" :title="trans('attentions.New Attentions')" class="btn btn-sm btn-info pull-right add"
                                                                 data-id="2" id="add-2">
                                                                     <i class="voyager-bell"></i> <span class="hidden-xs hidden-sm">{{ trans('attentions.New Attentions') }}</span>
@@ -221,7 +222,7 @@
     opacity: 0;
     transform: translateY(30px);
     }
-    
+
     .img-avatar {
         width: 35px;
         margin-right: 5px;

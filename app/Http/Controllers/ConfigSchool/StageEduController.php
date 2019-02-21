@@ -30,16 +30,6 @@ class StageEduController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -48,7 +38,7 @@ class StageEduController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        if($request->stage) {            
+        if($request->stage) {
                 StageEdu::create([
                     'name'   => $request->stage['name'],
                     'description'   => $request->stage['description'],
@@ -56,7 +46,7 @@ class StageEduController extends Controller
             return response('Item\'s has been Add', 200);
         }
 
-        if($request->class) {            
+        if($request->class) {
             ClassEdu::create([
                 'name'   => $request->class['name'],
                 'stage_edu_id'   => $request->class['stage_edu_id'],
@@ -65,36 +55,14 @@ class StageEduController extends Controller
             return response($request->class['name'] .' has been Add', 200);
         }
 
-        if($request->classRoom) {            
+        if($request->classRoom) {
             ClassRoom::create([
                 'name'   => $request->classRoom['name'],
                 'class_edu_id'   => $request->classRoom['class_edu_id'],
             ]);
             return response($request->classRoom['name'] .' has been Add', 200);
         }
-        
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\StageEdu  $stageEdu
-     * @return \Illuminate\Http\Response
-     */
-    public function show(StageEdu $stageEdu)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\StageEdu  $stageEdu
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(StageEdu $stageEdu)
-    {
-        //
     }
 
     /**
@@ -111,7 +79,7 @@ class StageEduController extends Controller
         $stageEdu->description = $request->model['description'];
         $stageEdu->save();
 
-        return response('Stage '.$request->model['name'].' has been updated!', 200); 
+        return response('Stage '.$request->model['name'].' has been updated!', 200);
     }
 
     /**
@@ -129,7 +97,7 @@ class StageEduController extends Controller
         $classEdu->egy_edu_system_id = $request->model['egy_edu_system_id'];
         $classEdu->save();
 
-        return response('Class '.$request->model['name'].' has been updated!', 200); 
+        return response('Class '.$request->model['name'].' has been updated!', 200);
     }
 
     /**
@@ -146,7 +114,7 @@ class StageEduController extends Controller
         $classRoomEdu->class_edu_id = $request->model['class_edu_id'];
         $classRoomEdu->save();
 
-        return response('Class Room '.$request->model['name'].' has been updated!', 200); 
+        return response('Class Room '.$request->model['name'].' has been updated!', 200);
     }
 
     /**
@@ -191,24 +159,36 @@ class StageEduController extends Controller
     public function getSystemConfig(Request $request)
     {
         $link = LinkTeacher::where('user_id', Auth()->id())->get();
+        $link = LinkTeacher::where('user_id', Auth()->id())->where('classroom_id', null)->get();
+
         if (!$link->isEmpty()) {
             $stageEduPerm = StageEdu::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id());
             })->get();
-    
+
             $classEduPerm = ClassEdu::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id());
             })->get();
-    
+
+            $classEduEmpty = StageEdu::with('classEdu')->whereHas('linkTeacher', function($query) {
+                $query->where('user_id', '=', Auth()->id())->where('class_id', null);
+            })->get();
+
             $classRoomEduPerm = ClassRoom::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id());
+            })->get();
+
+            $classRoomEmpty = ClassEdu::with('classRoom')->whereHas('linkTeacher', function($query) {
+                $query->where('user_id', '=', Auth()->id())->where('classroom_id', null);
             })->get();
         } else {
             $stageEduPerm = StageEdu::all();
             $classEduPerm = ClassEdu::with('stageEdu', 'egyEduSystem')->get();
             $classRoomEduPerm = ClassRoom::with('classEdu')->get();
+            $classEduEmpty = collect([]);
+            $classRoomEmpty = collect([]);
         }
-        
+
 
         $eduSystem = EgyEduSystem::all();
         $stageEdu = StageEdu::all();
@@ -222,6 +202,8 @@ class StageEduController extends Controller
             'stageEduPerm' => $stageEduPerm,
             'classEduPerm' => $classEduPerm,
             'classRoomEduPerm' => $classRoomEduPerm,
+            'classEduEmpty' => $classEduEmpty,
+            'classRoomEmpty' => $classRoomEmpty,
             'stageEdu' => $stageEdu,
             'classEdu' => $classEdu,
             'classRoom' => $classRoom,

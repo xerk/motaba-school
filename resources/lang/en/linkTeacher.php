@@ -34,18 +34,6 @@ return [
     'Choose Class-Room' => 'Choose Class-Room',
     'Add Link Teacher' => 'Add Link Teacher',
     'Make Payment' => 'Make Payment',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    'Class' => 'Class',
-    
+    'Supervision' => 'Supervision',
+
 ];

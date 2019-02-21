@@ -38,8 +38,8 @@
             </div>
             <div class='col-sm-4 col-print-4 text-center' style="font-size: 18px">
                 <ul class="list-unstyled">
-                    <li>شئون الطلبة</li>
-                    <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
+                    <li>شئون العاملين</li>
+                    <li>أ/عبير السيد</li>
                 </ul>
             </div>
         </div>

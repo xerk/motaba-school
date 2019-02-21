@@ -92,7 +92,9 @@
                 <div class="uk-card-body">
                     <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
                         <li><a href="#">{{__('Profile Information')}}</a></li>
-                        <li><a href="#">{{__('Schedule')}}</a></li>
+                        @if (!Auth::user()->linkTeachers->where('supervision', false)->isEmpty())
+                            <li><a href="#">{{__('Schedule')}}</a></li>
+                        @endif
                         <li><a href="#">{{__('Attendance')}}</a></li>
                         @if (Auth::user()->job == 1)
                         <li><a href="#">{{__('Expenses')}}</a></li>
@@ -222,58 +224,60 @@
                                 <a v-if="showPrsonalInfo == true" @click.prevent="showPrsonalInfo = false" href="">{{__('Hiden More')}}</a>
                             </span>
                         </li>
+                        @if (!Auth::user()->linkTeachers->where('supervision', false)->isEmpty() && Auth::user()->job == 0)
                         <li>
                             @if (Auth::user()->job == 1)
-                            <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
-                                <caption>{{__('Schedule')}}</caption>
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
-                                        <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="uk-label">الأحد</span></td>
-                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)
-                                        <td>{{$item->subject->name}}</td>
-                                        @endforeach
-                                    </tr>
-                                    <tr>
-                                        <td><span class="uk-label">الإثنين</span></td>
-                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)
-                                        <td>{{$item->subject->name}}</td>
-                                        @endforeach
-                                    </tr>
-                                    <tr>
-                                        <td><span class="uk-label">الثلاثاء</span></td>
-                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)
-                                        <td>{{$item->subject->name}}</td>
-                                        @endforeach
-                                    </tr>
-                                    <tr>
-                                        <td><span class="uk-label">الأربعاء</span></td>
-                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)
-                                        <td>{{$item->subject->name}}</td>
-                                        @endforeach
-                                    </tr>
-                                    <tr>
-                                        <td><span class="uk-label">الخميس</span></td>
-                                        @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)
-                                        <td>{{$item->subject->name}}</td>
-                                        @endforeach
-                                    </tr>
-                                </tbody>
-                            </table>
-                            @else 
-                            
+                                <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
+                                    <caption>{{__('Schedule')}}</caption>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
+                                            <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="uk-label">الأحد</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)
+                                            <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الإثنين</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)
+                                            <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الثلاثاء</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)
+                                            <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الأربعاء</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)
+                                            <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                        <tr>
+                                            <td><span class="uk-label">الخميس</span></td>
+                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)
+                                            <td>{{$item->subject->name}}</td>
+                                            @endforeach
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            @else
+
+
                             <ul uk-accordion>
                                 <li class="{{ \Carbon\Carbon::now()->isSunday() ? 'uk-open' : '' }} attention-section">
                                     <a class="uk-accordion-title" href="#">
@@ -281,7 +285,7 @@
                                     </a>
                                     <div class="uk-accordion-content body-attention">
                                         <div>
-                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                            @foreach (Auth::user()->linkTeachers->where('supervision', false) as $linkTeacher)
                                                 @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->sortBy('order')->where('day_name', 2) as $item)
                                                 <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                                     <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
@@ -301,7 +305,7 @@
                                     </a>
                                     <div class="uk-accordion-content body-attention">
                                         <div>
-                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                            @foreach (Auth::user()->linkTeachers->where('supervision', false) as $linkTeacher)
                                                 @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 3)->sortBy('order') as $item)
                                                 <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                                     <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
@@ -321,7 +325,7 @@
                                     </a>
                                     <div class="uk-accordion-content body-attention">
                                         <div>
-                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                            @foreach (Auth::user()->linkTeachers->where('supervision', false) as $linkTeacher)
                                                 @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 4)->sortBy('order') as $item)
                                                 <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                                     <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
@@ -341,7 +345,7 @@
                                     </a>
                                     <div class="uk-accordion-content body-attention">
                                         <div>
-                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                            @foreach (Auth::user()->linkTeachers->where('supervision', false) as $linkTeacher)
                                                 @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 5)->sortBy('order') as $item)
                                                 <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                                     <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
@@ -361,7 +365,7 @@
                                     </a>
                                     <div class="uk-accordion-content body-attention">
                                         <div>
-                                            @foreach (Auth::user()->linkTeachers as $linkTeacher)
+                                            @foreach (Auth::user()->linkTeachers->where('supervision', false) as $linkTeacher)
                                                 @foreach ($linkTeacher->classRoom->timetables->where('subject_id', $linkTeacher->subject_id)->where('day_name', 6)->sortBy('order') as $item)
                                                 <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                                     <span class="uk-text-muted">{{$item->classRoom->classEdu->name}}</span>
@@ -378,6 +382,7 @@
                             </ul>
                             @endif
                         </li>
+                        @endif
                         <li>
                             <h3 class="uk-margin-small-bottom">{{__('Attendance')}}.</h3>
                             <ul class="uk-list uk-list-divider">

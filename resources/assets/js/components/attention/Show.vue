@@ -17,7 +17,7 @@
             </router-link>
 
             <modal v-if="showModal" @close="showModal = false">
-                <h3 slot="header"><i class="voyager-trash"></i> {{ trans('attentions.Are you sure you want to delete this attention?') }}</h3>                        
+                <h3 slot="header"><i class="voyager-trash"></i> {{ trans('attentions.Are you sure you want to delete this attention?') }}</h3>
                 <button slot="button" @click="removeOption()" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!') }}</button>
             </modal>
         </div>
@@ -31,7 +31,10 @@
                                 <span class="show-field">{{ trans('attentions.Student') }}:</span>
                             </div>
                             <div class="col-md-9">
-                                <span class="show-result">
+                                <span class="show-result" v-if="$auth.gender == 1">
+                                    <img :src="link + '/storage/' + (attention.users.mask == 1 ? 'users/default.png' : attention.users.avatar)" class="img-avatar"> {{ attention.users.name }} {{ attention.users.last_name }}
+                                </span>
+                                <span class="show-result" v-else>
                                     <img :src="link + '/storage/' + attention.users.avatar" class="img-avatar"> {{ attention.users.name }} {{ attention.users.last_name }}
                                 </span>
                             </div>
@@ -44,7 +47,10 @@
                                 <span class="show-field">{{ trans('attentions.Author') }}:</span>
                             </div>
                             <div class="col-md-9">
-                                <span class="show-result">
+                                <span class="show-result" v-if="$auth.gender == 1">
+                                    <img :src="link + '/storage/' + (attention.authors.mask == 1 ? 'users/default.png' : attention.authors.avatar)" class="img-avatar"> {{ attention.authors.name }} {{ attention.authors.last_name }}
+                                </span>
+                                <span class="show-result" v-else>
                                     <img :src="link + '/storage/' + attention.authors.avatar" class="img-avatar"> {{ attention.authors.name }} {{ attention.authors.last_name }}
                                 </span>
                             </div>
@@ -54,7 +60,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">{{ trans('attentions.Type') }}:</span>                                
+                                <span class="show-field">{{ trans('attentions.Type') }}:</span>
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result label label-info">
@@ -67,7 +73,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">{{ trans('attentions.End Date') }}:</span>                                                      
+                                <span class="show-field">{{ trans('attentions.End Date') }}:</span>
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result">
@@ -80,7 +86,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="show-field">{{ trans('attentions.Body') }}:</span>                                                      
+                                <span class="show-field">{{ trans('attentions.Body') }}:</span>
                             </div>
                             <div class="col-md-9">
                                 <span class="show-result" v-if="showContent == true" v-html="attention.body"></span>
@@ -156,7 +162,7 @@ export default {
                     this.$router.push({
                         name: 'attentionsAdd',
                         params: {id: this.attention.users.id}
-                    }) 
+                    })
                 })
         }
     }

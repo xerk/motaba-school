@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class LinkTeacher extends Model
 {
     protected $table = 'link_teachers';
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id', 'subject_id', 'stage_id', 'class_id', 'classroom_id',
+        'user_id', 'subject_id', 'stage_id', 'class_id', 'classroom_id', 'supervision',
     ];
 
     /**
@@ -26,7 +26,7 @@ class LinkTeacher extends Model
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
-    } 
+    }
 
     /**
      * Show the LinkTeacher Has Many Subject.
@@ -36,7 +36,7 @@ class LinkTeacher extends Model
     public function subject()
     {
         return $this->belongsTo('App\Configs\Subject', 'subject_id', 'id');
-    } 
+    }
 
     /**
      * Show the LinkTeacher Belongs To StageEdu.

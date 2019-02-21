@@ -32,5 +32,5 @@ return [
     'Class-Room' => 'الفصل',
     'Choose Class-Room' => 'اختر الفصل',
     'Make Payment' => 'إنشاء دفعة جديدة',
-    
+    'Supervision' => 'مشرف',
 ];

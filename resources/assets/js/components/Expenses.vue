@@ -21,7 +21,8 @@
                                         <transition-group tag="tbody" name="list" mode="in-out">
                                                 <tr v-for="(item, index) in usersFilter" :key="index">
                                                     <td><input type="checkbox"></td>
-                                                    <td><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                    <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
                                                     <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
                                                     <td><span class="label label-success">{{ item.paySum ? item.paySum : 0 }}</span></td>
                                                     <td><span class="label label-info">{{ (parseInt(item.class_edu) + parseInt(item.costSum)) ? parseInt(item.class_edu.expenses_cost) + parseInt(item.costSum) : 0}}</span></td>

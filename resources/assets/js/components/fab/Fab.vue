@@ -20,7 +20,7 @@
                 <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
             </select>
             </div>
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('fab.Select student filter')}}.</span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('fab.Select student filter')}}.</span></h3>
             <button slot="button" @click="parsist" class="btn btn-success">{{ trans('table.Yes, Save it!')}}</button>
         </modal>
     <fab :actions="fabActions" :bg-color="bgColor" :main-tooltip="mainTooltip" :icon-size="iconSize" @system="showModal = true"></fab>
@@ -40,7 +40,7 @@
                 stageSelect: '',
                 classSelect: '',
                 classRoomSelect: '',
-                showModal: false,   
+                showModal: false,
                 bgColor: '#22A7F0',
                 position: 'top-right',
                 iconSize: 'small',
@@ -72,6 +72,8 @@
                     stageEdu: [],
                     classEdu: [],
                     classRoom: [],
+                    classEduEmpty: [],
+                    classRoomEmpty: [],
                 },
                 stagelog: [],
             }
@@ -82,6 +84,8 @@
                     this.model.stageEdu = response.data.stageEduPerm
                     this.model.classEdu = response.data.classEduPerm
                     this.model.classRoom = response.data.classRoomEduPerm
+                    this.model.classEduEmpty = response.data.classEdu
+                    this.model.classRoomEmpty = response.data.classRoom
                 })
             if (localStorage.stageEdu) {
                 this.stageSelect = localStorage.stageEdu;
@@ -98,18 +102,32 @@
                 if (this.stageSelect == '') {
                     this.classSelect = ''
                 } else {
-                    return this.model.classEdu.filter(item => {
+                    var ClassIsEmpty = this.model.classEdu.filter(item => {
                         return item.stage_edu_id == this.stageSelect
                     })
+                    if (ClassIsEmpty == '') {
+                        return this.model.classEduEmpty.filter(item => {
+                            return item.stage_edu_id == this.stageSelect
+                        })
+                    } else {
+                        return ClassIsEmpty
+                    }
                 }
             },
             classRoomEduFilter() {
                 if (this.classSelect == '') {
                     this.classRoomSelect = ''
                 } else {
-                    return this.model.classRoom.filter(item => {
+                    var RoomIsEmpty = this.model.classRoom.filter(item => {
                         return item.class_edu_id == this.classSelect
                     })
+                    if (RoomIsEmpty == '') {
+                        return this.model.classRoomEmpty.filter(item => {
+                            return item.class_edu_id == this.classSelect
+                        })
+                    } else {
+                        return RoomIsEmpty
+                    }
                 }
             }
         },

@@ -1,10 +1,13 @@
 <template>
     <div class="page-content browse container-fluid">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <div class="row">
             <div class="col-md-3">
+                <!-- {{$auth}} -->
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        <h4 class=""><img :src="link + '/storage/' + user.avatar" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
+                        <h4 v-if="$auth.gender == 1"><img :src="link + '/storage/' + (user.mask == 1 ? 'users/default.png' : user.avatar)" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
+                        <h4 v-else><img :src="link + '/storage/' + user.avatar" class="img-avatar"> {{ user.name }} {{ user.last_name }}</h4>
                         <hr>
                         <div class="panel-body">
                             <div class="row">
@@ -46,16 +49,18 @@
                                         <th>{{ trans('linkTeacher.Stage')}}</th>
                                         <th>{{ trans('linkTeacher.Class')}}</th>
                                         <th>{{ trans('linkTeacher.ClassRoom')}}</th>
+                                        <th class="text-center">{{ trans('linkTeacher.Supervision')}}</th>
                                         <th class="actions text-right">{{ trans('table.Actions')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="(item, index) in linkTeachers" :key="index">
                                         <td>{{ item.created_at }}</td>
-                                        <td>{{ item.subject.name }}</td>
-                                        <td>{{ item.stage_edu.name }}</td>
-                                        <td>{{ item.class_edu.name }}</td>
-                                        <td>{{ item.class_room.name }}</td>
+                                        <td>{{ item.subject ? item.subject.name : '' }}</td>
+                                        <td>{{ item.stage_edu ? item.stage_edu.name : '' }}</td>
+                                        <td>{{ item.class_edu ? item.class_edu.name : '' }}</td>
+                                        <td>{{ item.class_room ? item.class_room.name : '' }}</td>
+                                        <td class="text-center"><i v-if="item.supervision" class="fas fa-circle green-circle"></i><i v-else class="fas fa-circle blue-circle"></i></td>
                                         <td class="actions">
                                             <a href.prevent="" @click="showModalPayment = true" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
                                                 <i class="voyager-edit"></i> Delete
@@ -96,7 +101,7 @@
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('class') }">
                     <label for="class">{{ trans('linkTeacher.Class Education')}}</label>
-                    <select id="class" class="form-control" v-validate="'required'" v-model="model.classSelect" @change="changeClass" name="class">
+                    <select id="class" class="form-control" v-validate="''" v-model="model.classSelect" @change="changeClass" name="class">
                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Class')}}</option>
                         <option v-for="(classItem, key) in classEduFilter" :key="key" :value="classItem.id">{{ classItem.name }}</option>
                     </select>
@@ -104,7 +109,7 @@
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('classroom') }">
                     <label for="classroom">{{ trans('linkTeacher.Class-Room')}}</label>
-                    <select id="classroom" class="form-control" v-validate="'required'" v-model="model.classRoomSelect" name="classroom">
+                    <select id="classroom" class="form-control" v-validate="''" v-model="model.classRoomSelect" name="classroom">
                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Class-Room')}}</option>
                         <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
                     </select>
@@ -112,11 +117,17 @@
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
                     <label for="subject">{{ trans('linkTeacher.Subject')}}</label>
-                    <select id="subject" class="form-control" v-validate="'required'" v-model="model.subjectSelect" name="subject">
+                    <select id="subject" class="form-control" v-validate="''" v-model="model.subjectSelect" name="subject">
                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Subject')}}</option>
                         <option v-for="(subject, key) in subjectFilter" :key="key" :value="subject.id">{{ subject.name }}</option>
                     </select>
                     <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
+                </div>
+                <div :class="{'form-group col-md-12': true, 'has-error': errors.has('supervision') }">
+                    <label for="subject">{{ trans('linkTeacher.Supervision')}}</label>
+                    <input v-if="model.classSelect != '' && model.classRoomSelect != '' && model.subjectSelect != ''" type="checkbox" v-model="model.supervision" v-validate="''" name="supervision" id="supervision">
+                    <input v-else type="checkbox" v-model="model.supervision" v-validate="'required'" name="supervision" id="supervision">
+                    <span v-show="errors.has('supervision')" class="help-block" style="color:#f96868">{{ errors.first('supervision') }}</span>
                 </div>
             </div>
             <div slot="header" class="modal-header" style="background-color: #F2435C;">
@@ -165,7 +176,8 @@
                     stageSelect: '',
                     classSelect: '',
                     classRoomSelect: '',
-                    subjectSelect: ''
+                    subjectSelect: '',
+                    supervision: '',
                 },
                 makePayments: [],
                 linkTeachers: [],
@@ -347,7 +359,14 @@
     .row>[class*=col-] {
         margin-bottom: 0px;
     }
-    /* .panel-body {
-        border-bottom:1px solid #eee;
-    } */
+    .green-circle {
+        font-size: 8px;
+        color: #22c34c;
+        box-shadow: 0px 0 0px 0px rgba(34, 195, 76, 0.45);
+    }
+    .blue-circle {
+        font-size: 8px;
+        color: #f93e18;
+        box-shadow: 0px 0 0px 0px rgb(250, 63, 25);
+    }
 </style>

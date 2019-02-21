@@ -17,31 +17,37 @@
                                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Stage')}}</option>
                                         <option v-for="(stage, key) in stageEdu" :key="key" :value="stage.id">{{ stage.name }}</option>
                                     </select>
-                                    <span v-show="errors.has('stage')" class="help-block" style="color:#f96868">{{ errors.first('stage') }}</span>                    
+                                    <span v-show="errors.has('stage')" class="help-block" style="color:#f96868">{{ errors.first('stage') }}</span>
                                 </div>
                                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('class') }">
                                     <label for="class">{{ trans('linkTeacher.Class Education')}}</label>
-                                    <select id="class" class="form-control" v-validate="'required'" v-model="list.class_id" @change="changeClass" name="class">
+                                    <select id="class" class="form-control" v-validate="''" v-model="list.class_id" @change="changeClass" name="class">
                                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Class')}}</option>
                                         <option v-for="(classItem, key) in classEduFilter" :key="key" :value="classItem.id">{{ classItem.name }}</option>
                                     </select>
-                                    <span v-show="errors.has('class')" class="help-block" style="color:#f96868">{{ errors.first('class') }}</span>                    
+                                    <span v-show="errors.has('class')" class="help-block" style="color:#f96868">{{ errors.first('class') }}</span>
                                 </div>
                                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('classroom') }">
                                     <label for="classroom">{{ trans('linkTeacher.Class-Room')}}</label>
-                                    <select id="classroom" class="form-control" v-validate="'required'" v-model="list.classroom_id" name="classroom">
+                                    <select id="classroom" class="form-control" v-validate="''" v-model="list.classroom_id" name="classroom">
                                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Class-Room')}}</option>
                                         <option v-for="(classRoom, key) in classRoomEduFilter" :key="key" :value="classRoom.id">{{ classRoom.name }}</option>
                                     </select>
-                                    <span v-show="errors.has('classroom')" class="help-block" style="color:#f96868">{{ errors.first('classroom') }}</span>                    
+                                    <span v-show="errors.has('classroom')" class="help-block" style="color:#f96868">{{ errors.first('classroom') }}</span>
                                 </div>
                                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
                                     <label for="subject">{{ trans('linkTeacher.Subject')}}</label>
-                                    <select id="subject" class="form-control" v-validate="'required'" v-model="list.subject_id" name="subject">
+                                    <select id="subject" class="form-control" v-validate="''" v-model="list.subject_id" name="subject">
                                         <option value="" selected="selected">{{ trans('linkTeacher.Choose Subject')}}</option>
                                         <option v-for="(subject, key) in subjectFilter" :key="key" :value="subject.id">{{ subject.name }}</option>
                                     </select>
                                     <span v-show="errors.has('subject')" class="help-block" style="color:#f96868">{{ errors.first('subject') }}</span>
+                                </div>
+                                <div :class="{'form-group col-md-12': true, 'has-error': errors.has('supervision') }">
+                                    <label for="subject">{{ trans('linkTeacher.Supervision')}}</label>
+                                    <input v-if="list.class_id != '' && list.classroom_id != '' && list.subject_id != ''" type="checkbox" v-model="list.supervision" v-validate="''" name="supervision" id="supervision">
+                                    <input v-else type="checkbox" v-model="list.supervision" v-validate="'required'" name="supervision" id="supervision">
+                                    <span v-show="errors.has('supervision')" class="help-block" style="color:#f96868">{{ errors.first('supervision') }}</span>
                                 </div>
                         </slot>
                     </div>

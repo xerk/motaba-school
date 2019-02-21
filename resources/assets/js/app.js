@@ -72,18 +72,27 @@ const router = new VueRouter({
     mode: 'history'
 })
 
-Vue.prototype.envURL = process.env.MIX_APP_URL;
+Vue.mixin({
+    computed: {
+        $auth: {
+            get() {return store.state.$auth}
+        }
+    }
+})
 
+Vue.prototype.envURL = process.env.MIX_APP_URL;
 Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
     created() {
         let recaptchaScript = document.createElement('script')
         recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js')
         document.head.appendChild(recaptchaScript)
+        this.$store.dispatch('retrieveAuth')
     },
     el: '#app',
     router: router,
     store: store,
+    newsss: 'hi',
     components: {
         SchoolConfigs,
         YearConfigs,

@@ -1,6 +1,6 @@
 <template>
     <div>
-            
+
             <div class="page-content browse container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -18,9 +18,10 @@
                                         <transition-group tag="tbody" name="list" mode="in-out">
                                                 <tr v-for="(item, index) in usersFilter" :key="index">
                                                     <td><input type="checkbox"></td>
-                                                    <td><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                    <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
 
-                                                    <td class="no-sort no-click" id="bread-actions">                                                     
+                                                    <td class="no-sort no-click" id="bread-actions">
                                                         <router-link tag="a" :to="{ name: 'singleEmpRepoShow', params: {id: item.id} }" :title="trans('reports.Show Reports')" class="btn btn-sm btn-info pull-right add"
                                                             data-id="2" id="add-2">
                                                                 <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">{{ trans('reports.Show Reports') }}</span>
@@ -97,7 +98,7 @@
     opacity: 0;
     transform: translateY(30px);
     }
-    
+
     .img-avatar {
         width: 35px;
         margin-right: 5px;

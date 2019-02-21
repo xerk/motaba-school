@@ -36,8 +36,8 @@
                 </div>
                 <div class='col-print-6 col-sm-6 text-center' style="padding-right: 10px">
                     <ul class="list-unstyled">
-                        <li>شئون الطلبة</li>
-                        <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
+                        <li>شئون العاملين</li>
+                        <li>أ/عبير السيد</li>
                     </ul>
                 </div>
             </div>
