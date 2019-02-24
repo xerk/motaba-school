@@ -159,7 +159,6 @@ class StageEduController extends Controller
     public function getSystemConfig(Request $request)
     {
         $link = LinkTeacher::where('user_id', Auth()->id())->get();
-        $link = LinkTeacher::where('user_id', Auth()->id())->where('classroom_id', null)->get();
 
         if (!$link->isEmpty()) {
             $stageEduPerm = StageEdu::whereHas('linkTeacher', function($query) {
@@ -181,6 +180,11 @@ class StageEduController extends Controller
             $classRoomEmpty = ClassEdu::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id())->where('classroom_id', null);
             })->with('classRoom')->get();
+
+            // $subjects = Subject::whereHas('linkTeachers', function($query) {
+            //     $query->where('user_id', '=', Auth()->id());
+            // })->with('supSubjects')->get();
+
         } else {
             $stageEduPerm = StageEdu::all();
             $classEduPerm = ClassEdu::with('stageEdu', 'egyEduSystem')->get();
@@ -209,6 +213,7 @@ class StageEduController extends Controller
             'classRoom' => $classRoom,
             'eduSystem' => $eduSystem,
             'supsubjects'  => $supsubjects,
+            // 'subjects'  => $subjects,
             'exams'  => $exams,
             'typeExams'  => $typeExams,
         ];

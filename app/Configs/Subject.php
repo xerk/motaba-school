@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     protected $table = 'subjects';
-    
+
     protected $fillable = ['name', 'class_edu_id', 'super_degree', 'failure_degree'];
 
     /**
@@ -28,5 +28,15 @@ class Subject extends Model
     public function supSubjects()
     {
         return $this->hasMany('App\Configs\SupSubject');
-    } 
+    }
+
+    /**
+     * Show the SchoolYear Has Many Semster.
+     *
+     * @return App\Configs\Semster
+     */
+    public function linkTeachers()
+    {
+        return $this->hasMany('App\LinkTeacher');
+    }
 }

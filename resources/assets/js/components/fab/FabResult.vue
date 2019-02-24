@@ -12,7 +12,7 @@
                         </select>
                         <span v-show="errors.has('stage')" class="help-block" style="color:#f96868">{{ errors.first('stage') }}</span>
                     </div>
-                    
+
                     <div :class="{'form-group col-md-6': true, 'has-error': errors.has('class') }">
                         <label for="class">{{ trans('fab.Class Education')}}</label>
                         <select id="m_class" v-validate="'required'" class="form-control" v-model="classSelect" @change="changeClass" name="class">
@@ -31,7 +31,7 @@
                         <span v-show="errors.has('classroom')" class="help-block" style="color:#f96868">{{ errors.first('classroom') }}</span>
                     </div>
 
-                    <div :class="{'form-group col-md-6': true, 'has-error': errors.has('exam') }">                    
+                    <div :class="{'form-group col-md-6': true, 'has-error': errors.has('exam') }">
                         <label for="exam">{{ trans('fab.Exam')}}</label>
                         <select id="m_exam" v-validate="'required'" @change="examChange" class="form-control" v-model="examSelect" name="exam">
                             <option value="" selected="selected">{{ trans('fab.Choose Exam')}}</option>
@@ -40,7 +40,7 @@
                         <span v-show="errors.has('exam')" class="help-block" style="color:#f96868">{{ errors.first('exam') }}</span>
                     </div>
 
-                    <div :class="{'form-group col-md-6': true, 'has-error': errors.has('type-exam') }">                    
+                    <div :class="{'form-group col-md-6': true, 'has-error': errors.has('type-exam') }">
                         <label for="type-exam">{{ trans('fab.Type Exam')}}</label>
                         <select id="m_type-exam" v-validate="'required'" @change="examChange" class="form-control" v-model="typeExamSelect" name="type-exam">
                             <option value="" selected="selected">{{ trans('fab.Choose Type Exam')}}</option>
@@ -49,7 +49,7 @@
                         <span v-show="errors.has('type-exam')" class="help-block" style="color:#f96868">{{ errors.first('type-exam') }}</span>
                     </div>
 
-                    <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">                    
+                    <div :class="{'form-group col-md-6': true, 'has-error': errors.has('subject') }">
                         <label for="subject">{{ trans('fab.Subject')}}</label>
                         <select id="m_subject" v-validate="'required'" class="form-control" v-model="supSubjectSelect" name="subject">
                             <option value="" selected="selected">{{ trans('fab.Choose Subject')}}</option>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('fab.Select student filter')}}.</span></h3>                        
+            <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('fab.Select student filter')}}.</span></h3>
             <button slot="button" @click="parsist" class="btn btn-success">{{ trans('table.Yes, Save it!')}}</button>
         </modal>
     <fab :actions="fabActions" :bg-color="bgColor" :main-tooltip="mainTooltip" :icon-size="iconSize" @system="showModal = true"></fab>
@@ -82,7 +82,7 @@
                 supSubjectSelect: '',
                 examSelect: '',
                 typeExamSelect: '',
-                showModal: false,   
+                showModal: false,
                 bgColor: '#22A7F0',
                 position: 'top-right',
                 iconSize: 'small',
