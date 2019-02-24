@@ -56,6 +56,28 @@ export const store = new Vuex.Store({
                     })
             })
         },
+        retriveFilterSchool(context, data) {
+            return new Promise((resolve, reject) => {
+                axios.get(`${data.get.apiURL}?stageEdu=${data.stageEdu}&classEdu=${data.classEdu}&classRoom=${data.classRoom}`)
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+        retriveFilterSchoolEdit(context, data) {
+            return new Promise((resolve, reject) => {
+                axios.get(`${data.get.apiURL}?stageEdu=${data.stageEdu}&classEdu=${data.classEdu}&classRoom=${data.classRoom}&edit=${data.edit}`)
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
         retriveResults(context, data) {
             return new Promise((resolve, reject) => {
                 axios.get(`${data.apiURL}?type=${data.params.typeExamId}&subject=${data.params.supSubjectId}`)
@@ -73,6 +95,20 @@ export const store = new Vuex.Store({
             }
             return new Promise((resolve, reject) => {
                 axios.get(`${data.get.apiURL}?day=${data.day}`)
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+        retriveAttendanceTwo(context, data) {
+            const params = {
+                ...data
+            }
+            return new Promise((resolve, reject) => {
+                axios.get(`${data.get.apiURL}?stageEdu=${data.stageEdu}&classEdu=${data.classEdu}&classRoom=${data.classRoom}&day=${data.day}`)
                     .then(response => {
                         resolve(response)
                     })

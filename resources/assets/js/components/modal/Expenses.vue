@@ -11,20 +11,45 @@
                     </div>
                     <div class="modal-body">
                         <slot name="body">
-                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('payment-amount') }">
+                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('serial_number') }">
+                                <label for="serial_number">{{ trans('expenses.Serial Number') }}</label>
+                                <input required v-model="list.serial_number" type="text" :placeholder="trans('expenses.Serial Number')" v-validate="'required'" class="form-control" name="serial_number">
+                                <span v-show="errors.has('serial_number')" class="help-block" style="color:#f96868">{{ errors.first('serial_number') }}</span>
+                            </div>
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('pay_date') }">
+                                <label for="pay_date">{{ trans('expenses.Pay date') }}</label>
+                                <input required v-model="list.pay_date" type="date" v-validate="'required'" class="form-control" name="pay_date">
+                                <span v-show="errors.has('pay_date')" class="help-block" style="color:#f96868">{{ errors.first('pay_date') }}</span>
+                            </div>
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('payment-amount') }">
                                 <label for="payment-amount">{{ trans('expenses.Payment Amount') }}</label>
                                 <input required v-model="list.pay"  type="number" v-validate="'numeric'" class="form-control" name="payment-amount">
                                 <span v-show="errors.has('payment-amount')" class="help-block" style="color:#f96868">{{ errors.first('payment-amount') }}</span>
                             </div>
-                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('cost') }">
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bus_expenses') }">
+                                <label for="bus_expenses">{{ trans('expenses.Bus Expenses') }}</label>
+                                <input v-model="list.bus_expenses" type="number" v-validate="'numeric'" class="form-control" name="bus_expenses">
+                                <span v-show="errors.has('bus_expenses')" class="help-block" style="color:#f96868">{{ errors.first('bus_expenses') }}</span>
+                            </div>
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('indebtedness') }">
+                                <label for="indebtedness">{{ trans('expenses.Indebtedness') }}</label>
+                                <input v-model="list.indebtedness" type="number" v-validate="'numeric'" class="form-control" name="indebtedness">
+                                <span v-show="errors.has('indebtedness')" class="help-block" style="color:#f96868">{{ errors.first('indebtedness') }}</span>
+                            </div>
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('cost') }">
                                 <label for="cost">{{ trans('expenses.Cost') }}</label>
                                 <input required v-model="list.cost" type="number" v-validate="'numeric'" class="form-control" name="cost">
                                 <span v-show="errors.has('cost')" class="help-block" style="color:#f96868">{{ errors.first('cost') }}</span>
                             </div>
-                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('discount') }">
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('discount') }">
                                 <label for="discount">{{ trans('expenses.Discount') }}</label>
                                 <input required v-model="list.discount" type="number" v-validate="'numeric'" class="form-control" name="discount">
                                 <span v-show="errors.has('discount')" class="help-block" style="color:#f96868">{{ errors.first('discount') }}</span>
+                            </div>
+                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('comment') }">
+                                <label for="comment">{{ trans('expenses.Comment') }}</label>
+                                <textarea v-model="list.comment" v-validate="''" class="form-control" name="comment"></textarea>
+                                <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>
                             </div>
                         </slot>
                     </div>

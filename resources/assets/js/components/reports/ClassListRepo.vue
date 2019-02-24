@@ -3,14 +3,14 @@
     <div class="col-md-12">
         <div class="panel panel-bordered">
             <div class="panel-body">
-            <h3 class="text-center"><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span></h3>
+                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-print-4 pull-left" style="padding-left: 10px">
                             <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
                         <div class="col-print-4 text-center">
-                            <h3><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span> عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3>
+                            <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
                         </div>
                         <div class='col-print-4' style="padding-right: 10px">
                             <ul class="list-unstyled text-center pull-right">

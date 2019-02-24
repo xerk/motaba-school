@@ -35,4 +35,7 @@ return [
     'Hiden Content' => 'Hiden Content',
     'Update Attention' => 'Update Attention',
     'Update & Continue Editing' => 'Update & Continue Editing',
+    'Student State' => 'Student State',
+    'Student Amount' => 'Student Amount',
+    'Attention Details' => 'Attention Details',
 ];

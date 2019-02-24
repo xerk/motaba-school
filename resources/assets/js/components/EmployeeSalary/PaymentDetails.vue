@@ -1,6 +1,40 @@
 <template>
     <div class="page-content browse container-fluid">
         <div class="row">
+            <div class="content-header" style="display: none">
+                <div class="row">
+                    <div class="col-print-4 pull-left" style="padding-left: 10px">
+                        <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:75px" class='img-responsive' />
+                    </div>
+                    <div class="col-print-4 text-center">
+                        <h3 class="text-center" v-if="user"><span>{{ user.name }} {{ user.last_name }} سجل راتب</span></h3>
+                    </div>
+                    <div class='col-print-4' style="padding-right: 10px">
+                        <ul class="list-unstyled timetable-list text-center pull-right">
+                            <li>الأزهر الشريف</li>
+                            <li>منطقة الجيزه الأزهريه</li>
+                            <li>معهد كامل عودة الأزهري الخاص</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-footer" style="display:none">
+                <div class="row">
+                    <div class="col-print-6 text-center timetable-font-size" style="padding-left: 10px">
+                        <ul class="list-unstyled">
+                            <li>عميد المعهد</li>
+                            <li>أ/سعيد عيسي</li>
+                        </ul>
+                    </div>
+                    <div class='col-print-6 text-center timetable-font-size' style="padding-right: 10px">
+                        <ul class="list-unstyled">
+                            <li>شئون الطلبة</li>
+                            <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
+                        </ul>
+                    </div>
+                </div>
+                <span style="position: fixed;bottom: 0;font-size: 12px;padding: 3px;font-weight: 400;"><img src="https://kamel-ouda.com/images/logo/motawer-black.png" alt="Logo" style="width:32px;display: inline;margin-right: 5px;" class='img-responsive' /> Powered by MOTAWER</span>
+            </div>
             <div class="col-md-3">
                 <form @submit.prevent="validateBeforeSubmit" action="">
                     <div class="panel panel-bordered">
@@ -24,11 +58,24 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Absent') }} (${{ addSalary.absent_day }}):</span>
+                                        <span class="show-field">{{ trans('salary.Absent') }} ({{ addSalary.absent_day }}):</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
                                             {{ absent = addSalary.absent_day * absentCount}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <span class="show-field">{{ trans('salary.Absence of patients') }} ({{ Math.round(addSalary.absent_day / 4, 2) }}):</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="show-result">
+                                            {{ absentPatient = (addSalary.absent_day * patientCount) / 4}}
                                         </span>
                                     </div>
                                 </div>
@@ -80,7 +127,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
-                                            {{ (parseInt(cost) +  parseInt(allowances)) - (parseInt(deductions) + parseInt(absent) + parseInt(late)) }}
+                                            {{ (parseInt(cost) +  parseInt(allowances)) - (parseInt(deductions) + parseInt(absent) + parseInt(absentPatient) + parseInt(late)) }}
                                         </span>
                                     </div>
                                 </div>
@@ -116,6 +163,19 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
+                                        <span class="show-field">{{ trans('salary.Total absence of patients') }}:</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="label label-danger">
+                                            {{ patientCount }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">
                                         <span class="show-field">{{ trans('salary.Total Holiday') }}:</span>
                                     </div>
                                     <div class="col-md-4">
@@ -134,6 +194,32 @@
                                     <div class="col-md-4">
                                         <span class="label label-warning">
                                             {{ lateCount }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <span class="show-field">{{ trans('salary.Total delayed supervision') }}:</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="label label-warning">
+                                            {{ supervisionCount }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div><!-- panel-body -->
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <span class="show-field">{{ trans('salary.Total delay permissions') }}:</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="label label-warning">
+                                            {{ permissionsCount }}
                                         </span>
                                     </div>
                                 </div>
@@ -167,6 +253,7 @@
                                         <th>{{ trans('salary.Date') }}</th>
                                         <th>{{ trans('salary.Total Allowances') }}</th>
                                         <th>{{ trans('salary.Total Deductions') }}</th>
+                                        <th>{{ trans('salary.Comment') }}</th>
                                         <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                     </tr>
                                 </thead>
@@ -177,10 +264,14 @@
                                             <span v-if="item.status == 2" class="label label-primary">{{ trans('salary.Holiday') }}</span>
                                             <span v-if="item.status == 3" class="label label-danger">{{ trans('salary.Absent') }}</span>
                                             <span v-if="item.status == 4" class="label label-warning">{{ trans('salary.Late') }}</span>
+                                            <span v-if="item.status == 5" class="label label-danger">{{ trans('attendance.Absence of patients') }}</span>
+                                            <span v-if="item.status == 6" class="label label-warning">{{ trans('attendance.Delayed supervision') }}</span>
+                                            <span v-if="item.status == 7" class="label label-warning">{{ trans('attendance.Delay permissions') }}</span>
                                         </td>
                                         <td>{{ item.attend_date }}</td>
                                         <td><b>{{ item.additional + item.bonus + item.incentive + item.reward + item.allowance }}</b></td>
                                         <td><b>{{ item.loan + item.penalty + item.discount }}</b></td>
+                                        <td>{{ item.comment }}</td>
                                         <td class="actions">
                                             <a href.prevent="" @click="editAdd(item)" class="btn btn-sm btn-primary pull-right" style="display:inline; margin-right:10px;">
                                                 <i class="voyager-edit"></i> {{ trans('salary.Modify') }}
@@ -198,7 +289,7 @@
                     </div> -->
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <table id="dataTable" class="table table-hover dataTable no-footer">
+                            <table id="users-table" class="table table-hover dataTable no-footer">
                                 <thead>
                                     <tr>
                                         <th>{{ trans('salary.Payment Method') }}</th>
@@ -243,10 +334,10 @@
             <div slot="body">
                 <div :class="{'form-group col-md-12': true, 'has-error': errors.has('payment-method') }">
                     <label for="payment-method">{{ trans('salary.Payment method') }}</label>
-                    <select required="required" id="payment-method" v-model="model.paymentMethod" class="form-control" name="payment-method">
+                    <select required="required" id="payment-method" v-validate="'required'" v-model="model.paymentMethod" class="form-control" name="payment-method">
                         <option value="">{{ trans('salary.Choose Payment Method') }}</option>
                         <option value="cash">{{ trans('salary.Cash') }}</option>
-                        <option value="credit">{{ trans('salary.Credit card') }}</option>
+                        <option value="credit">{{ trans('salary.Credit Card') }}</option>
                     </select>
                     <span v-show="errors.has('payment-method')" class="help-block" style="color:#f96868">{{ errors.first('payment-method') }}</span>
                 </div>
@@ -265,7 +356,7 @@
                     <textarea v-model="model.comment" class="form-control" name="comment"></textarea>
                 </div>
             </div>
-            <button slot="button" class="btn btn-success" @click.once="parsist">{{ trans('table.Yes, Save it!') }}</button>
+            <button slot="button" class="btn btn-success" @click="parsist">{{ trans('table.Yes, Save it!') }}</button>
         </make-payment>
         <salary @getAttend="fetch" :list="list" v-if="showModal" @close="showModal = false">
             <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('salary.Make Payment') }} ({{ list.attend_date }}). </span></h3>
@@ -305,7 +396,10 @@
                 attendance: [],
                 attendCount: '',
                 lateCount: '',
+                supervisionCount: '',
+                permissionsCount: '',
                 absentCount: '',
+                patientCount: '',
                 holidayCount: '',
                 addSalary: {
                     cost: '',
@@ -329,10 +423,13 @@
         },
         mounted() {
             this.fetch()
+            setTimeout(() => {
+                this.dataTables()
+            }, 1000);
         },
         methods: {
             paymentClickModal() {
-                var tSalary = (parseInt(this.cost) +  parseInt(this.allowances)) - (parseInt(this.deductions) + parseInt((this.addSalary.absent_day * this.absentCount)))
+                var tSalary = (parseInt(this.cost) +  parseInt(this.allowances)) - (parseInt(this.deductions) + parseInt((this.addSalary.absent_day * this.absentCount)) + parseInt(((this.addSalary.absent_day / 4) * this.patientCount)))
                 this.model.netSalary = tSalary
                 this.model.paymentAmount = tSalary
                 this.paymentModal = true
@@ -348,7 +445,10 @@
                         this.attendCount = response.data.attendCount
                         this.holidayCount = response.data.holidayCount
                         this.lateCount = response.data.lateCount
+                        this.supervisionCount = response.data.supervisionCount
+                        this.permissionsCount = response.data.permissionsCount
                         this.absentCount = response.data.absentCount
+                        this.patientCount = response.data.patientCount
                         this.addSalary = response.data.addSalary
                         this.dateNow = response.data.date
                         this.allowances = response.data.allowances
@@ -393,6 +493,64 @@
                         this.attentions.splice(index, 1)
                         this.showModal = false
                     })
+            },
+            dataTables() {
+                $(function() {
+                    $('#users-table').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: [
+                            {
+                                extend: 'print',
+                                autoPrint: false,
+                                text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
+                                customize: function (win) {
+                                    $(win.document.body)
+                                    .css('font-size', '11px')
+                                    $(win.document.body).find('div').first()
+                                        .prepend( $( ".content-header" ).clone().css({
+                                                'display': 'block',
+                                        }) )
+
+                                    $(win.document.body).find('div').last()
+                                        .prepend( $( ".content-footer" ).clone().css({
+                                                'display': 'block',
+                                                'margin-top': '20px',
+                                        }) )
+
+                                    $(win.document.body).find('h1')
+                                        .css('display', 'none')
+                                    $(win.document.body).find('table')
+                                        .addClass('timetable-table')
+                                        .css('direction', 'rtl')
+                                    $(win.document.body).find('th')
+                                        .css({
+                                                'text-align': 'center',
+                                                'border': '2px solid #000',
+                                                'vertical-align': 'middle',
+                                                'text-align': 'center',
+                                            })
+                                    $(win.document.body).find('td')
+                                        .css({
+                                            'text-align': 'center',
+                                            'vertical-align': 'middle',
+                                            'border': '1px solid #EAEAEA',
+                                        })
+                                    $(win.document.body).find('th:last-child, td:last-child')
+                                        .css({
+                                            'display': 'none',
+                                        })
+
+                                }
+                            },
+                        ],
+                        searching: false,
+                        paging: false,
+                        ordering: false,
+                        serverSide: false,
+                        select: true
+
+                    });
+                });
             },
             next() {
                 this.month++
@@ -463,7 +621,21 @@
     .row>[class*=col-] {
         margin-bottom: 0px;
     }
-    /* .panel-body {
-        border-bottom:1px solid #eee;
-    } */
+    @media print {
+        .timetable-font-size {
+            font-size: 14px
+        }
+        .col-print-1 {width:8%;  float:left;}
+        .col-print-2 {width:16%; float:left;}
+        .col-print-3 {width:25%; float:left;}
+        .col-print-4 {width:33%; float:left;}
+        .col-print-5 {width:42%; float:left;}
+        .col-print-6 {width:50%; float:left;}
+        .col-print-7 {width:58%; float:left;}
+        .col-print-8 {width:66%; float:left;}
+        .col-print-9 {width:75%; float:left;}
+        .col-print-10{width:83%; float:left;}
+        .col-print-11{width:92%; float:left;}
+        .col-print-12{width:100%; float:left;}
+    }
 </style>

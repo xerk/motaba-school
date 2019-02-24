@@ -108,6 +108,7 @@
                                 <thead>
                                     <tr>
                                         <th>{{ trans('salary.Value') }}</th>
+                                        <th>{{ trans('salary.Created At') }}</th>
                                         <th>{{ trans('salary.Comment') }}</th>
                                         <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                     </tr>
@@ -115,6 +116,7 @@
                                 <transition-group tag="tbody" name="list" mode="in-out">
                                     <tr v-for="(item, index) in duePayments.storages" :key="index">
                                         <td><b>{{ item.value }}</b></td>
+                                        <td><b>{{ item.created_at | moment("DD/MM/YYYY hh:mm a") }}</b></td>
                                         <td><b>{{ item.comment }}</b></td>
                                         <td class="actions">
                                             <a href.prevent="" @click="openModal(item)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
@@ -125,6 +127,7 @@
                                 </transition-group>
                             </table>
                         </div>
+                        <button class="btn btn-primary" @click="$router.go(-1)" style="float: left">{{ trans('attentions.Return Back')}}</button>
                     </div>
                 </div>
             </div>
@@ -208,6 +211,7 @@ import ModalSystem from '../modal/ModalSystem'
                             title: response.data
                         })
                         this.fetch()
+                        this.editValue = false
                         this.model.value = ''
                         this.model.comment = ''
                     })

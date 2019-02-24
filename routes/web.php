@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('attendances', 'AttendanceController@index')->name('school.attendances')->middleware('admin.user');
     Route::get('eattendances', 'EAttendanceController@index')->name('school.eattendances')->middleware('admin.user');
     Route::get('attentions', 'AttentionController@index')->name('school.attentions.index')->middleware('admin.user');
+    Route::get('gattentions', 'AttentionGroupController@index')->name('school.gattentions.index')->middleware('admin.user');
     Route::get('employee_salaries', 'EmployeeSalaryController@index')->name('school.employee_salaries.index')->middleware('admin.user');
     Route::get('expenses', 'ExpenseController@index')->name('school.expenses.index')->middleware('admin.user');
     Route::get('add_expenses', 'AddExpenseController@index')->name('school.add_expenses.index')->middleware('admin.user');
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('absent_students', 'AbsentReportController@getIndex')->name('reprots.absent.student.index')->middleware('admin.user');
     Route::get('get-employee-absent', 'AbsentReportController@anyDataEmp')->middleware('admin.user');
     Route::get('absent_employees', 'AbsentReportController@getIndexEmp')->name('reprots.absent.emp.index')->middleware('admin.user');
+    Route::get('get-employee-absent-month', 'AbsentReportController@anyDataEmpMonth')->middleware('admin.user');
+    Route::get('absent_employees_month', 'AbsentReportController@getIndexEmpMonth')->name('reprots.absent.emp.month.index')->middleware('admin.user');
     Route::get('get-gender', 'GenderReportController@anyData')->middleware('admin.user');
     Route::get('gender_reports', 'GenderReportController@getIndex')->name('reprots.gender.index')->middleware('admin.user');
     Route::get('get-new-status', 'NewStatusReportController@anyData')->middleware('admin.user');
@@ -82,6 +85,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('api/attention', 'AttentionController@getStudents')->middleware('admin.user');
     Route::post('api/attention-post', 'AttentionController@store')->middleware('admin.user');
     Route::post('api/attention', 'AttentionController@update')->middleware('admin.user');
+    Route::get('api/gattention', 'AttentionGroupController@create')->middleware('admin.user');
+    Route::get('api/gattention/show', 'AttentionGroupController@show')->middleware('admin.user');
+    Route::post('api/gattention-post', 'AttentionGroupController@store')->middleware('admin.user');
+    Route::post('api/gattention', 'AttentionGroupController@update')->middleware('admin.user');
 
 
 Auth::routes();
@@ -104,6 +111,8 @@ Route::group(['as' => 'frontend.'], function () {
 
     Route::get('/@{username}', 'ProfileAccountController@index')->name('profile')->middleware('auth');
 
+    Route::get('/homework/@{username}', 'HomeworkAccountController@index')->name('homework')->middleware('auth');
+    Route::get('/homework/@{username}/{id}', 'HomeworkAccountController@index')->name('homework.show')->middleware('auth');
     Route::get('/attentions/@{username}', 'AttentionAccountController@index')->name('attentions')->middleware('auth');
     Route::get('/attentions/@{username}/{id}', 'AttentionAccountController@index')->name('attention.show')->middleware('auth');
 

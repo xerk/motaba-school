@@ -25,4 +25,8 @@ return [
     'Existing' => 'Existing',
     'Late' => 'Late',
     'Send SMS' => 'Send SMS',
+    'Absence of patients' => 'Absence of patients',
+    'Delayed supervision' => 'Delayed supervision',
+    'Delay permissions' => 'Delay permissions',
+
 ];

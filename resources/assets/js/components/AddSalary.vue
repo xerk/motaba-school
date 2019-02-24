@@ -87,7 +87,10 @@
                             { data: "add_salaries.prev_year_bonus", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
                             { data: "add_salaries.bonus", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
                             { data: "add_salaries.share_employer", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
-                            { data: "add_salaries.absent_day", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
+                            { data: "add_salaries.absent_day", 
+                            'render': function (val, type, row) {
+                                return val ? val : 'أدخل القيمة'  + ' - ' + Math.round((+row.add_salaries.cost + +row.add_salaries.may_grant + +row.add_salaries.variable_wages + +row.add_salaries.prev_year_bonus + +row.add_salaries.bonus + +row.add_salaries.share_employer + +row.add_salaries.absent_day) / 30, 60)
+                            } },
                             { data: "add_salaries.late_day", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
                             
                         ],

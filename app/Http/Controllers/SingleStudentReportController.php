@@ -65,6 +65,10 @@ class SingleStudentReportController extends Controller
             }])
             ->withCount(['expenses AS discountSum' => function ($query) {
                 $query->select(DB::raw("SUM(discount) as discountSum"));
+            }])->withCount(['expenses AS busExpensesSum' => function ($query) {
+                $query->select(DB::raw("SUM(bus_expenses) as busExpensesSum"));
+            }])->withCount(['expenses AS indebtednessSum' => function ($query) {
+                $query->select(DB::raw("SUM(indebtedness) as indebtednessSum"));
             }])
             ->first();
 

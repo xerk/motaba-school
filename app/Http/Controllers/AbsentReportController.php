@@ -71,4 +71,35 @@ class AbsentReportController extends Controller
 
         return Datatables::of($attendances)->toJson();
     }
+
+    /**
+     * Displays datatables front end view
+     *
+     * @return \Illuminate\View\View
+     */
+    public function getIndexEmpMonth()
+    {
+        $browes = Voyager::canOrFail('browse_absent_employees_month');
+        return view('vendor.voyager.reports.absent-emp-month');
+    }
+
+    /**
+     * Process datatables ajax request.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function anyDataEmpMonth(Request $request)
+    {
+        // dd($request->all());
+        $date = Carbon::now()->addMonths($request->day);
+        $dateString = $date->toDateString();
+        $attendances = Attendance::where(function ($query) use ($date, $request) {
+            $now = Carbon::now();
+            $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month])->where('status', 3)->whereHas('users' , function ($query) use ($request) {
+                $query->where('job', '=', 0);
+            });
+        })->with('users')->get();
+
+        return Datatables::of($attendances)->toJson();
+    }
 }

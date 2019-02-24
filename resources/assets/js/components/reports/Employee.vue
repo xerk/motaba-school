@@ -74,12 +74,44 @@ export default {
                 $('#users-table').DataTable({
                     dom: 'Bfrtip',
                     "lengthMenu": [[50, 100, 150, -1], [50, 100, 150, "All"]],
+                    "order": [[ 3 , 'asc' ], [ 0, 'asc' ], [ 1, 'asc' ]],
                     buttons: [
+                        {
+                            extend: 'print',
+                            text: '<i class="fa fa-check" aria-hidden="true"></i> طباعة المحدد',
+                            exportOptions: {
+                                columns: ':visible'
+                            },
+                            customize: function (win) {
+                                    $(win.document.body)
+                                    .css('font-size', '11px')
+                                $(win.document.body).find('div').first()
+                                    .prepend( $( ".content-header" ).clone().css('display', 'inline') )
+                                $(win.document.body).find('div').last()
+                                    .prepend( $( ".content-footer" ).clone().css('display', 'inline') )
+                                $(win.document.body).find('h1')
+                                    .css('display', 'none')
+                                $(win.document.body).find('th')
+                                    .addClass('compact')
+                                    .css('text-align', 'right')
+                                $(win.document.body).find('td')
+                                    .addClass('compact')
+                                    .css('text-align', 'right')
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('direction', 'rtl')
+                                $(wim.document+'table').find('div')
+                                    .addClass('compact')
+                            }
+                        },
                         {
                             extend: 'print',
                             text: '<i class="fa fa-print" aria-hidden="true"></i> طباعة',
                             exportOptions: {
-                                columns: ':visible'
+                                columns: ':visible',
+                                modifier: {
+                                    selected: null
+                                }
                             },
                             customize: function (win) {
                                     $(win.document.body)
@@ -124,6 +156,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
+                    select: true,
                     ajax: `https://kamel-ouda.com/admin/get-employee`,
                     columns: [
                         { data: 'name', name: 'name' },
@@ -137,9 +170,6 @@ export default {
                     ],
                     "columnDefs": [
                         {
-                            // The `data` parameter refers to the data for the cell (defined by the
-                            // `data` option, which defaults to the column being worked with, in
-                            // this case `data: 0`.
                             "render": function ( data, type, row ) {
                                 if (row.last_name == null) {
                                     return row.name;
@@ -155,16 +185,6 @@ export default {
                 });
             });
         },
-        next() {
-            this.day++
-            $('#users-table').DataTable().destroy();
-            this.fetch()
-        },
-        prev() {
-            this.day--
-            $('#users-table').DataTable().destroy();
-            this.fetch()
-        }
     },
 }
 </script>
@@ -186,8 +206,8 @@ export default {
     .col-print-7 {width:58%; float:left;}
     .col-print-8 {width:66%; float:left;}
     .col-print-9 {width:75%; float:left;}
-    .col-print-10{width:83%; float:left;}
-    .col-print-11{width:92%; float:left;}
-    .col-print-12{width:100%; float:left;}
+    .col-print-10 {width:83%; float:left;}
+    .col-print-11 {width:92%; float:left;}
+    .col-print-12 {width:100%; float:left;}
 }
 </style>

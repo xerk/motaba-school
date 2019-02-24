@@ -1,6 +1,9 @@
 import Add from './components/attention/Add'
 import Show from './components/attention/Show'
 import Edit from './components/attention/Edit'
+import AddGroup from './components/attentiongroup/Add'
+import ShowGroup from './components/attentiongroup/Show'
+import EditGroup from './components/attentiongroup/Edit'
 import Attention from './components/Attention'
 import EmployeeSalary from './components/EmployeeSalary'
 import PaymentDetails from './components/EmployeeSalary/PaymentDetails'
@@ -100,6 +103,24 @@ const router = [
         path: '/admin/attentions',
         name: 'attentions',
         components: {"content-viewport" : Attention},
+        props: true
+    },
+    {
+        path: '/admin/gattentions',
+        name: 'gattentionsAdd',
+        components: {"content-viewport" : AddGroup},
+        props: true
+    },
+    {
+        path: '/admin/gattentions/:id/show',
+        name: 'gattentionsShow',
+        components: {"content-viewport" : ShowGroup},
+        props: true
+    },
+    {
+        path: '/admin/gattentions/:edit/edit',
+        name: 'gattentionsEdit',
+        components: {"content-viewport" : EditGroup},
         props: true
     },
     {

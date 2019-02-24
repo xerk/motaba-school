@@ -52,7 +52,7 @@ class SmsMisrController extends Controller
         if ($request->classRoom != '') {
             $date = Carbon::now()->addDays($request->day);
             $count = Attendance::where(function($query) use ($date, $request) {
-                $query->where('status', 3)->where('attend_date', $date->toDateString())->whereHas('users', function ($q) use ($request) {
+                $query->where('status', 3)->where('attend_date', $date->toDateString())->where('sms_status', '=', null)->whereHas('users', function ($q) use ($request) {
                     $q->where('job', '=', 1);
                     $q->where('classroom_id', '=', $request->classRoom);
                 });
@@ -74,21 +74,26 @@ class SmsMisrController extends Controller
             $attends = User::where(function($query) use ($request) {
                     $query->where('classroom_id', '=', $request->classRoom)
                         ->where('job', '=', 1);
-                })->WhereHas('attendance', function ($query) {
-                    $query->where('status', 3);
-                })->with(['attendance' => function ($query) {
-                    $query->where('status', 3);
+                })->WhereHas('attendance', function ($query) use ($date, $request) {
+                    $query->where('status', 3)->where('attend_date', $date->toDateString());
+                })->with(['attendance' => function ($query) use ($date, $request) {
+                    $query->where('status', 3)->where('attend_date', $date->toDateString());
                 }])->get();
 
-            $attendCount = $attends->count();
-            // dd([implode(', ', $attends->pluck('father_mobile')->toArray())]);
+                $sms_statusDeAcitve = Attendance::where(function($query) use ($date, $request) {
+                    $query->where('status', 3)->where('attend_date', $date->toDateString())->where('sms_status', '=', null)->whereHas('users', function ($q) use ($request) {
+                        $q->where('job', '=', 1);
+                        $q->where('classroom_id', '=', $request->classRoom);
+                    });
+                })->get();
 
+            // $attendCount = $attends->count();
+            // dd([implode(', ', $attends->pluck('father_mobile')->toArray())]);
             if ($count != 0) {
                 // if ($attendCount > 0) {
                     // Right Post Command
                     if ($date->toDateString() <= Carbon::now()) {
                         $http = new Client;
-
                         try {
                             $response = $http->post($this->link, [
                                 'headers' => [
@@ -106,7 +111,11 @@ class SmsMisrController extends Controller
                                     'DelayUntil' => Carbon::now()->toDateString()
                                 ]
                             ]);
-
+                            foreach ($sms_statusDeAcitve as $key => $attend) {
+                                $attendance = Attendance::find($attend->id);
+                                $attendance->sms_status = 1;
+                                $attendance->save();
+                            }
                             $data = json_decode($response->getBody());
 
                             if ($data->code == 1901) {
@@ -174,13 +183,13 @@ class SmsMisrController extends Controller
                 });
             })->count();
 
-            $attend = User::where('job', 0)->WhereHas('attendance', function ($query) {
+            $attends = User::where('job', 0)->WhereHas('attendance', function ($query) {
                 $query->where('status', 3);
             })->with(['attendance' => function ($query) {
                 $query->where('status', 3);
             }])->get();
 
-            $attendCount = $attend->count();
+            // $attendCount = $attend->count();
             // dd($attendCount);
 
             if ($count != 0) {
@@ -195,7 +204,7 @@ class SmsMisrController extends Controller
                                     'password' => $this->password,
                                     'sender' => $this->sender,
                                     'language' => 1,
-                                    'mobile' => [implode(', ', $attends->pluck('father_mobile')->toArray())],
+                                    'mobile' => implode(', ', $attends->pluck('father_mobile')->toArray()),
                                     'message' => 'Hello',
                                     'DelayUntil' => Carbon::now()->toDateString()
                                 ]

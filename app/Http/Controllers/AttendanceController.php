@@ -57,7 +57,6 @@ class AttendanceController extends Controller
                                 'attend_date' => $date->toDateString(),
                                 'status' => $request->status,
                             ]);
-
                         }
                         return 'Item\'s has beend added!';
                     } else {
@@ -98,13 +97,20 @@ class AttendanceController extends Controller
         // dd($request->all());
         $date = Carbon::now()->addDays($request->day);
         $dateString = $date->toDateString();
-        $attendances = Attendance::where('attend_date', $date->toDateString())->with('users', 'lectures')->get();
-        $lectures = Lecture::all();
-        // dd($date);
+        $attendances = Attendance::where('attend_date', $date->toDateString())->with('users')->whereHas('users', function ($query) use($request) {
+            $query->where('stage_id', $request->stageEdu)->where('class_id', $request->classEdu)->where('classroom_id', $request->classRoom)->where('job', 1);
+        })->get();
+
+        $count = Attendance::where(function($query) use ($date, $request) {
+            $query->where('status', 3)->where('attend_date', $date->toDateString())->where('sms_status', '=', null)->whereHas('users', function ($q) use ($request) {
+                $q->where('job', '=', 1);
+                $q->where('classroom_id', '=', $request->classRoom);
+            });
+        })->count();
         return [
             'attendances' => $attendances,
-            'lectures' => $lectures,
-            'date' => $dateString
+            'date' => $dateString,
+            'count' => $count
         ];
     }
 }

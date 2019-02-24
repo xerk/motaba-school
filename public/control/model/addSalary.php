@@ -32,7 +32,7 @@ use
 			->validator( 'Validate::dbValues' ),
 		Field::inst( 'add_salaries.cost' )
 			->validator( 'Validate::numeric' ),
-		Field::inst( 'add_salaries.absent_day' )
+		Field::inst( 'add_salaries.absent_day' )->set( Field::SET_EDIT )
 			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.late_day' )
 		->validator( 'Validate::numeric' ),
@@ -49,7 +49,8 @@ use
 		
 		Field::inst( 'add_salaries.created_at' )->set( Field::SET_EDIT ),
 		Field::inst( 'add_salaries.updated_at' )->set( Field::SET_EDIT )
-	)	
+	)
+	
 	->on( 'preEdit', function ( $editor, $values ) {
 
 		$editor

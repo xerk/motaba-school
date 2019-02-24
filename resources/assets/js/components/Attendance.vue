@@ -3,9 +3,9 @@
         <form @submit.prevent action="">
             <div class="page-content browse container-fluid">
                 <div class="attend-button">
-                    <button @click="sendSMS" type="submit" :title="trans('attendance.Send SMS')" class="btn btn-sm btn-warning pull-right delete"
+                    <button v-if="count > 0" @click="sendSMS" type="submit" :title="trans('attendance.Send SMS') + ' - ' + count" class="btn btn-sm btn-warning pull-right delete"
                          id="sms-2">
-                        <i class="voyager-paper-plane"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Send SMS') }}</span>
+                        <i class="voyager-paper-plane"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Send SMS') }} ({{count}}) غائب</span>
                     </button>
                     <button @click="submit(3)" type="submit" :title="trans('attendance.Absent')" class="btn btn-sm btn-danger pull-right delete"
                          id="absent-2">
@@ -40,6 +40,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-bordered">
                             <div class="panel-body">
+                                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
                                 <div class="table-responsive">
                                     <table id="dataTable" class="table table-hover dataTable no-footer">
                                         <thead>
@@ -52,10 +53,10 @@
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
-                                                <tr v-for="(item, index) in attendanceFilter" :key="index">
+                                                <tr v-for="(item, index) in attendances" :key="index">
 
-                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
-                                                    <td v-else><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                    <td v-if="$auth.gender == 1 && item.users"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                    <td v-else-if="item.users"><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
 
                                                     <td>{{ item.attend_date }}</td>
                                                     <td>
@@ -123,8 +124,19 @@
         props: ['link'],
         data() {
             return {
+                user: {
+                    class_room: {
+                        name: ''
+                    },
+                    class_edu: {
+                        name: ''
+                    }
+                },
                 get: {
                     apiURL: 'attendance',
+                },
+                getUser: {
+                    apiURL: 'report-users',
                 },
                 post: {
                     apiURL: 'attendance',
@@ -136,40 +148,44 @@
                     apiURL: 'sms-attendance'
                 },
                 attendances: [],
-                // lectures: [],
-                // lecture: '',
                 stageEdu: localStorage.stageEdu,
                 classEdu: localStorage.classEdu,
                 classRoom: localStorage.classRoom,
                 day: 0,
                 dateNow: '',
+                count: '',
             }
         },
         mounted() {
             this.fetch()
+            this.getUsers()
         },
         computed: {
-            attendanceFilter() {
-                return this.attendances.filter(item => {
-                    return item.users.stage_id == this.stageEdu && item.users.class_id == this.classEdu &&
-                        item.users.classroom_id == this.classRoom && item.users.job == 1
-                })
-            },
-            // lectureFilter() {
-            //     return this.lectures.filter(item => {
-            //         return item.id == this.lecture
-            //     })
-            // }
+
         },
         methods: {
             fetch() {
-                this.$store.dispatch('retriveAttendance', {
+                this.$store.dispatch('retriveAttendanceTwo', {
                     get: this.get,
-                    day: this.day
+                    day: this.day,
+                    stageEdu: this.stageEdu,
+                    classEdu: this.classEdu,
+                    classRoom: this.classRoom,
                 })
                 .then(response => {
                     this.attendances = response.data.attendances
+                    this.count = response.data.count
                     this.dateNow = response.data.date
+                })
+            },
+            getUsers() {
+                this.$store.dispatch('retriveUser', {
+                    get: this.getUser,
+                    classRoom: this.classRoom,
+                    classEdu: this.classEdu
+                })
+                .then(response => {
+                    this.user = response.data
                 })
             },
             submit(value) {
@@ -209,6 +225,7 @@
                 this.stageEdu = stageEdu
                 this.classEdu = classEdu
                 this.classRoom = classRoom
+                this.fetch()
             },
             action(item, value) {
                 this.$store.dispatch('submitForm', {
@@ -220,7 +237,7 @@
                         this.$toast.success({
                             title: response.data
                         })
-                        // this.fetch()
+                        this.fetch()
                         const index = this.attendances.findIndex(option => option.id == item.id);
                         this.attendances.splice(index, 1, {
                             'attend_date': item.attend_date,

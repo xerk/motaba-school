@@ -24,5 +24,6 @@ return [
     'Next' => 'Next',
     'Prev' => 'Prev',
     'delete qutions?' => 'delete qutions?',
-    'Empty please modify' => 'Empty please modify'
+    'Empty please modify' => 'Empty please modify',
+    'None' => 'None',
 ];

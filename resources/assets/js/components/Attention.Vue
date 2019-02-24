@@ -87,8 +87,6 @@
                     apiURL: 'attendance-post',
                 },
                 users: [],
-                // lectures: [],
-                // lecture: '',
                 stageEdu: localStorage.stageEdu,
                 classEdu: localStorage.classEdu,
                 classRoom: localStorage.classRoom,

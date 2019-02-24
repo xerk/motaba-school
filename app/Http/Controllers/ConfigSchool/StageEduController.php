@@ -170,17 +170,17 @@ class StageEduController extends Controller
                 $query->where('user_id', '=', Auth()->id());
             })->get();
 
-            $classEduEmpty = StageEdu::with('classEdu')->whereHas('linkTeacher', function($query) {
+            $classEduEmpty = StageEdu::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id())->where('class_id', null);
-            })->get();
+            })->with('classEdu')->get();
 
             $classRoomEduPerm = ClassRoom::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id());
             })->get();
 
-            $classRoomEmpty = ClassEdu::with('classRoom')->whereHas('linkTeacher', function($query) {
+            $classRoomEmpty = ClassEdu::whereHas('linkTeacher', function($query) {
                 $query->where('user_id', '=', Auth()->id())->where('classroom_id', null);
-            })->get();
+            })->with('classRoom')->get();
         } else {
             $stageEduPerm = StageEdu::all();
             $classEduPerm = ClassEdu::with('stageEdu', 'egyEduSystem')->get();

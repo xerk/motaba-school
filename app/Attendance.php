@@ -15,7 +15,7 @@ class Attendance extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'lecture_id', 'status', 'attend_date'
+        'user_id', 'status', 'attend_date', 'additional', 'bonus', 'incentive', 'reward', 'discount', 'allowance', 'loan', 'penalty', 'sms_status', 'comment'
     ];
 
     /**

@@ -120,7 +120,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Absent') }} (${{ addSalary.absent_day }}):</span>
+                                        <span class="show-field">{{ trans('salary.Absent') }} ({{ addSalary.absent_day }}):</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -133,7 +133,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Late') }} (${{ addSalary.late_day }}):</span>
+                                        <span class="show-field">{{ trans('salary.Late') }} ({{ addSalary.late_day }}):</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">

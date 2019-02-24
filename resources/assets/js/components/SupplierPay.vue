@@ -10,7 +10,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <span class="show-field">{{ trans('salary.Company') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Company') }}:</span>
                                     </div>
                                     <div class="col-md-8">
                                         <span style="font-size:14px" class="show-result">
@@ -22,7 +22,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <span class="show-field">{{ trans('salary.Phone') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Phone') }}:</span>
                                     </div>
                                     <div class="col-md-8">
                                         <span style="font-size:14px" class="show-result">
@@ -34,7 +34,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <span class="show-field">{{ trans('salary.Address') }}:</span>                                
+                                        <span class="show-field">{{ trans('salary.Address') }}:</span>
                                     </div>
                                     <div class="col-md-8">
                                         <span style="font-size:14px" class="show-result">
@@ -53,20 +53,20 @@
                         <div class="row">
                             <div class="col-md-12">
                                     <div class="col-md-2">
-                                        <button class="btn btn-primary" @click="changeValue" style="float: left">{{ trans('salary.Create New Payable')}}</button>     
+                                        <button class="btn btn-primary" @click="changeValue" style="float: left">{{ trans('salary.Create New Payable')}}</button>
                                     </div>
                                 <form @submit.prevent="validateBeforSubmit" action="">
                                     <div class="col-md-8">
                                         <div :class="{'form-group col-md-12': true, 'has-error': errors.has('value') }">
-                                            <input required :placeholder="trans('salary.Type your value')" v-validate="'required|numeric'" type="number" v-if="editValue == true"  name="value" v-model="model.value" style="margin-top: 3px;" class="form-control"> 
+                                            <input required :placeholder="trans('salary.Type your value')" v-validate="'required|numeric'" type="number" v-if="editValue == true"  name="value" v-model="model.value" style="margin-top: 3px;" class="form-control">
                                             <span v-show="errors.has('value')" class="help-block" style="color:#f96868">{{ errors.first('value') }}</span>
                                         </div>
                                         <div :class="{'form-group col-md-12': true, 'has-error': errors.has('title') }">
-                                            <input required :placeholder="trans('salary.Title')" v-validate="'required'" type="text" v-if="editValue == true"  name="title" v-model="model.title" style="margin-top: 3px;" class="form-control"> 
+                                            <input required :placeholder="trans('salary.Title')" v-validate="'required'" type="text" v-if="editValue == true"  name="title" v-model="model.title" style="margin-top: 3px;" class="form-control">
                                             <span v-show="errors.has('title')" class="help-block" style="color:#f96868">{{ errors.first('title') }}</span>
                                         </div>
                                         <div :class="{'form-group col-md-12': true, 'has-error': errors.has('comment') }">
-                                            <textarea  :placeholder="trans('salary.Comment')" v-if="editValue == true" v-model="model.comment" v-validate="'required|min:5|max:500'" name="comment" cols="30" rows="5" class="form-control"></textarea> 
+                                            <textarea  :placeholder="trans('salary.Comment')" v-if="editValue == true" v-model="model.comment" v-validate="'required|min:5|max:500'" name="comment" cols="30" rows="5" class="form-control"></textarea>
                                             <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@ import ModalSystem from './modal/ModalSystem'
             link: '',
             id: '',
         },
-        
+
         data() {
             return {
                 editValue: false,
@@ -185,7 +185,7 @@ import ModalSystem from './modal/ModalSystem'
                 this.showModal = true
                 this.selectRow = value
             },
-            
+
             fetch() {
                 this.$store.dispatch('retriveAttendtion', {
                         get: this.get,
@@ -215,8 +215,9 @@ import ModalSystem from './modal/ModalSystem'
                             title: response.data
                         })
                         this.fetch()
-                        this.model.value = ''
+                        this.editValue = false
                     })
+                
             },
             changeValue() {
                 if (this.editValue == false ) {

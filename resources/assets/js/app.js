@@ -28,6 +28,7 @@ import SingleStudentRepo from './components/reports/SingleStudentRepo'
 import SalaryMonthelyRepo from './components/reports/SalaryMonthely'
 import AbsentStudentRepo from './components/reports/AbsentStudent'
 import AbsentEmpRepo from './components/reports/AbsentEmp'
+import AbsentEmpMonthRepo from './components/reports/AbsentEmpMonth'
 import EmployeeRepo from './components/reports/Employee'
 import GenderRepo from './components/reports/Gender'
 const _ = require('lodash')
@@ -126,7 +127,8 @@ const app = new Vue({
         SingleEmpRepo,
         SingleStudentRepo,
         EmployeeRepo,
-        Timetables
+        Timetables,
+        AbsentEmpMonthRepo,
     },
 
 });

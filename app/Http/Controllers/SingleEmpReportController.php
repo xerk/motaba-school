@@ -32,10 +32,10 @@ class SingleEmpReportController extends Controller
     public function show(Request $request)
     {
         $date = Carbon::now()->addMonth($request->month)->toDateString();
-        $user = User::with('attendance')->whereHas('attendance', function ($query) use($request) {
+        $user = User::whereHas('attendance', function ($query) use($request) {
             $now = Carbon::now();
             $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
-        })->where('id', $request->id)
+        })->with('attendance')->where('id', $request->id)
         ->withCount(['attendance as count_attend' => function ($query) use($request) {
             $now = Carbon::now();
             $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month])->where('status', 1);
@@ -54,13 +54,13 @@ class SingleEmpReportController extends Controller
         }])
         ->first();
 
-        $attendance = User::with(['attendance' => function ($query) use($request) {
+        $attendance = User::whereHas('attendance', function ($query) use($request) {
             $now = Carbon::now();
             $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month])->whereIn('status', [3, 4]);
-        }])->whereHas('attendance', function ($query) use($request) {
+        })->with(['attendance' => function ($query) use($request) {
             $now = Carbon::now();
             $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month])->whereIn('status', [3, 4]);
-        })->where('id', $request->id)->first();
+        }])->where('id', $request->id)->first();
 
 
         return [
@@ -80,28 +80,28 @@ class SingleEmpReportController extends Controller
         })->with(['attendance' => function($query) use ($request, $now) {
             $query->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         }])->first();
-        
+
         $attendCount = Attendance::where(function($query) use ($request) {
             $now = Carbon::now();
             $query->where('status', 1)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         })->whereHas('users', function($query) use ($request) {
             $query->where('id', '=', $request->id)->where('job', '=', 0);
-        })->count(); 
+        })->count();
 
         $holidayCount = Attendance::where(function($query) use ($request) {
             $now = Carbon::now();
             $query->where('status', 2)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         })->whereHas('users', function($query) use ($request) {
             $query->where('id', '=', $request->id)->where('job', '=', 0);
-        })->count(); 
+        })->count();
 
         $absentCount = Attendance::where(function($query) use ($request) {
-            $now = Carbon::now();            
+            $now = Carbon::now();
             $query->where('status', 3)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
         })->whereHas('users', function($query) use ($request) {
             $query->where('id', '=', $request->id)->where('job', '=', 0);
         })->count();
-        
+
         $lateCount = Attendance::where(function($query) use ($request) {
             $now = Carbon::now();
             $query->where('status', 4)->whereRaw('extract(month from attend_date) = ?', [$now->addMonth($request->month)->month]);
@@ -139,7 +139,7 @@ class SingleEmpReportController extends Controller
             'makePayments' => $makePayments,
         ];
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -153,6 +153,6 @@ class SingleEmpReportController extends Controller
             'users' => $users,
         ];
     }
-    
+
 
 }

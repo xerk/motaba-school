@@ -43,6 +43,7 @@ Route::post('eattendance', 'EAttendanceController@update');
 Route::post('eattendance-post', 'EAttendanceController@store');
 
 Route::delete('attention/{id}', 'AttentionController@destroy');
+Route::delete('gattention/{id}', 'AttentionGroupController@destroy');
 
 Route::get('results', 'ResultController@getResults');
 

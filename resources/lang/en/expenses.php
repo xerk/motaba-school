@@ -30,6 +30,11 @@ return [
     'Payment Amount' => 'Payment Amount',
     'Class Name' => 'Class Name',
     'Expenses Cost' => 'Expenses Cost',
-
-
+    'Serial Number' => 'Serial Number',
+    'Pay date' => 'Pay date',
+    'Bus Expenses' => 'Bus Expenses',
+    'Indebtedness' => 'Indebtedness',
+    'Comment' => 'Comment',
+    'Total Bus Expenses' => 'Total Bus Expenses',
+    'Total Indebtedness' => 'Total Indebtedness',
 ];

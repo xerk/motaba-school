@@ -34,4 +34,7 @@ return [
     'Hiden Content' => 'إخفاء المحتوى',
     'Update Attention' => 'تحديث الملاحظة',
     'Update & Continue Editing' => 'تحديث والإستمرار فى التعديل',
+    'Student State' => 'أحصائيات الطلاب',
+    'Student Amount' => 'عدد الطلاب',
+    'Attention Details' => 'بيانات التنبيه',
 ];

@@ -53,15 +53,24 @@
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
-                                                <tr v-for="(item, index) in attendanceFilter" :key="index">
+                                                <tr v-for="(item, index) in attendances" :key="index">
 
-                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
-                                                    <td v-else><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                    <td v-if="$auth.gender == 1 && item.users"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                    <td v-else-if="item.users"><img  :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
 
                                                     <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
                                                     <td>{{ item.attend_date }}</td>
                                                     <td>{{ item.created_at }}</td>
                                                     <td>
+                                                        <transition name="fade" mode="in-out">
+                                                            <span v-if="item.status == 7" class="label label-warning">{{ trans('attendance.Delay permissions') }}</span>
+                                                        </transition>
+                                                        <transition name="fade" mode="in-out">
+                                                            <span v-if="item.status == 6" class="label label-warning">{{ trans('attendance.Delayed supervision') }}</span>
+                                                        </transition>
+                                                        <transition name="fade" mode="in-out">
+                                                            <span v-if="item.status == 5" class="label label-warning">{{ trans('attendance.Absence of patients') }}</span>
+                                                        </transition>
                                                         <transition name="fade" mode="in-out">
                                                             <span v-if="item.status == 4" class="label label-warning">{{ trans('attendance.Late') }}</span>
                                                         </transition>
@@ -76,6 +85,18 @@
                                                         </transition>
                                                     </td>
                                                     <td class="no-sort no-click" id="bread-actions">
+                                                            <a v-show="item.status != 7" :title="trans('attendance.Delay permissions')" @click="action(item, 7)" class="btn btn-sm btn-warning pull-right delete"
+                                                                data-id="2" id="absent-2">
+                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Delay permissions') }}</span>
+                                                            </a>
+                                                            <a v-show="item.status != 6" :title="trans('attendance.Delayed supervision')" @click="action(item, 6)" class="btn btn-sm btn-warning pull-right delete"
+                                                                data-id="2" id="absent-2">
+                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Delayed supervision') }}</span>
+                                                            </a>
+                                                            <a v-show="item.status != 5" :title="trans('attendance.Absence of patients')" @click="action(item, 5)" class="btn btn-sm btn-danger pull-right delete"
+                                                                data-id="2" id="absent-2">
+                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absence of patients') }}</span>
+                                                            </a>
                                                             <a v-show="item.status != 3" :title="trans('attendance.Absent')" @click="action(item, 3)" class="btn btn-sm btn-danger pull-right delete"
                                                                 data-id="2" id="absent-2">
                                                                 <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
@@ -125,20 +146,11 @@
                 dateNow: '',
             }
         },
+        computed: {
+
+        },
         mounted() {
             this.fetch()
-        },
-        computed: {
-            attendanceFilter() {
-                return this.attendances.filter(item => {
-                    return item.users.job == 0
-                })
-            },
-            // lectureFilter() {
-            //     return this.lectures.filter(item => {
-            //         return item.id == this.lecture
-            //     })
-            // }
         },
         methods: {
             fetch() {

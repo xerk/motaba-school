@@ -83,15 +83,14 @@ class EAttendanceController extends Controller
 
     public function getEmployees(Request $request)
     {
-        // dd($request->all());
         $date = Carbon::now()->addDays($request->day);
         $dateString = $date->toDateString();
-        $attendances = Attendance::where('attend_date', $date->toDateString())->with('users', 'lectures')->get();
-        $lectures = Lecture::all();
-        // dd($date);
+        $attendances = Attendance::where('attend_date', $date->toDateString())->with('users')->whereHas('users', function ($query) {
+            $query->where('job', 0);
+        })->get();
+
         return [
             'attendances' => $attendances,
-            'lectures' => $lectures,
             'date' => $dateString
         ];
     }

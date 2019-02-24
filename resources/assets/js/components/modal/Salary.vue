@@ -51,6 +51,11 @@
                                 <input required v-model="model.penalty" type="number" v-validate="'numeric'" class="form-control" name="penalty">
                                 <span v-show="errors.has('penalty')" class="help-block" style="color:#f96868">{{ errors.first('penalty') }}</span>
                             </div>
+                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('comment') }">
+                                <label for="comment">{{ trans('salary.Comment') }}</label>
+                                <textarea required v-model="model.comment"  class="form-control" name="comment"></textarea>
+                                <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>
+                            </div>
                         </slot>
                     </div>
                     <div class="modal-footer">
@@ -90,6 +95,7 @@ export default {
                 discount: '',
                 loan: '',
                 penalty: '',
+                comment: '',
             }
         }
     },

@@ -50,10 +50,10 @@
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>{{ trans('reports.Employee Name')}}أسم الموظف</th>
-                                        <th>{{ trans('reports.Last Name')}}الأسم الاخير</th>
-                                        <th>{{ trans('reports.Date')}}التاريخ</th>
-                                        <th>{{ trans('reports.Status')}}الحالة</th>
+                                        <th>أسم الموظف</th>
+                                        <th>الأسم الاخير</th>
+                                        <th>التاريخ</th>
+                                        <th>الحالة</th>
                                     </tr>
                                 </thead>
                             </table>

@@ -110,6 +110,9 @@
                                 <li><a href="{{ route('voyager.dashboard') }}"><span uk-icon="icon: bolt"></span>{{ __('Dashboard') }}</a></li>
                                 @endif
                                 <li><a href="{{ route('frontend.profile', Auth::user()->username) }}"><span uk-icon="icon: user"></span>{{ __('My Profile')}}</a></li>
+                                @if (Auth::user()->job == 1)
+                                <li><a href="{{ route('frontend.homework', Auth::user()->username) }}"><span uk-icon="icon: thumbnails"></span>{{ __('Homework') }}</a></li>
+                                @endif
                                 <li><a href="{{ route('frontend.attentions', Auth::user()->username) }}"><span uk-icon="icon: thumbnails"></span>{{ __('Attentions') }}</a></li>
                                 {{-- <li><a href="{{ route('frontend.setting') }}"><span uk-icon="icon: cog"></span>Settings</a></li> --}}
                                 <li class="uk-hidden@m"><a href="https://wave.devdojo.com/notifications"><span uk-icon="icon: bell"></span>My

@@ -104,19 +104,35 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-2">
-                                <span class="show-field">{{ trans('expenses.Total Pay') }}:</span>
-                            </div>
-                            <div class="col-md-2">
-                                <span style="font-size:14px" class="show-result">
-                                    {{ expenses.paySum ? expenses.paySum : 0 }}
-                                </span>
-                            </div>
-                            <div class="col-md-2">
                                 <span class="show-field">{{ trans('expenses.Total Cost') }}:</span>
                             </div>
                             <div class="col-md-2">
                                 <span style="font-size:14px" class="show-result">
                                     {{ expenses.costSum ? expenses.costSum : 0 }}
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="show-field">{{ trans('expenses.Bus Expenses') }}:</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span style="font-size:14px" class="show-result">
+                                    {{ expenses.busExpensesSum ? expenses.busExpensesSum : 0 }}
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="show-field">{{ trans('expenses.Indebtedness') }}:</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span style="font-size:14px" class="show-result">
+                                    {{ expenses.indebtednessSum ? expenses.indebtednessSum : 0 }}
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="show-field">{{ trans('expenses.Total Pay') }}:</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span style="font-size:14px" class="show-result">
+                                    {{ expenses.paySum ? expenses.paySum : 0 }}
                                 </span>
                             </div>
                             <div class="col-md-2">
@@ -127,9 +143,9 @@
                                     {{ expenses.discountSum ? expenses.discountSum : 0 }}
                                 </span>
                             </div>
-                            </div>
+                        </div>
                             <hr>
-                            <div class="row">
+                        <div class="row">
                             <div class="col-md-3">
                                 <span class="show-field">{{ trans('expenses.Basic Expenses') }}:</span>
                             </div>
@@ -143,10 +159,10 @@
                             </div>
                             <div class="col-md-3">
                                 <span style="font-size:14px" class="show-result label label-success">
-                                    {{ (+expenses.class_edu.expenses_cost  + +expenses.costSum) - (+expenses.paySum + +expenses.discountSum) }}
+                                    {{ (+expenses.class_edu.expenses_cost  + +expenses.costSum + +expenses.busExpensesSum + +expenses.indebtednessSum) - (+expenses.paySum + +expenses.discountSum) }}
                                 </span>
                             </div>
-                            </div>
+                        </div>
                             <hr>
                             <div class="container" style="margin-top:20px">
                                 <div class="table-responsive" v-if="expenses.expenses">
@@ -164,9 +180,9 @@
                                                 <td>
                                                     {{ item.created_at }}
                                                 </td>
-                                                <td><b style="font-weight: 600">${{ item.pay }}</b></td>
-                                                <td><b>${{ item.cost }}</b></td>
-                                                <td><b>${{ item.discount }}</b></td>
+                                                <td><b style="font-weight: 600">{{ item.pay }}</b></td>
+                                                <td><b>{{ item.cost }}</b></td>
+                                                <td><b>{{ item.discount }}</b></td>
                                             </tr>
                                         </tbody>
                                     </table>

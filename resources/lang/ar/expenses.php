@@ -18,7 +18,7 @@ return [
     'Total Cost' => 'إجمالى المصروفات',
     'Make Payment'  => 'إنشاء دفعة جديدة',
     'Basic Expenses' => 'المصروفات الأساسية',
-    'Total Cost' => 'الإجمالى',
+    'Total Cost' => 'الإجمالى المصروفات الاضافية',
     'Total Discount' => 'إجمالى الخصم',
     'Remaining' => 'المتبقى',
     'Created At' => 'تاريخ الإنشاء',
@@ -29,6 +29,11 @@ return [
     'Payment Amount' => 'إجمالى الدفعة',
     'Class Name' => 'إسم الفصل',
     'Expenses Cost' => 'مصروفات المرحلة',
-
-
+    'Serial Number' => 'رقم الإيصال',
+    'Pay date' => 'تاريخ الدفع',
+    'Bus Expenses' => 'مصاريف الباص',
+    'Indebtedness' => 'مديونية',
+    'Comment' => 'ملاحظة',
+    'Total Bus Expenses' => 'إجمالى مصاريف الباص',
+    'Total Indebtedness' => 'إجمالى المديونات',
 ];

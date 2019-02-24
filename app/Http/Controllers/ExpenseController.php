@@ -35,6 +35,11 @@ class ExpenseController extends Controller
                 'pay' => $request->model['paymentAmount'],
                 'cost' => $request->model['cost'],
                 'discount' => $request->model['discount'],
+                'serial_number' => $request->model['serial_number'],
+                'pay_date' => $request->model['pay_date'],
+                'bus_expenses' => $request->model['bus_expenses'],
+                'indebtedness' => $request->model['indebtedness'],
+                'comment' => $request->model['comment'],
             ]);
 
             return 'Item has been add!';
@@ -59,6 +64,11 @@ class ExpenseController extends Controller
             $expense->pay     = $request->model['pay'];
             $expense->cost     = $request->model['cost'];
             $expense->discount     = $request->model['discount'];
+            $expense->serial_number     = $request->model['serial_number'];
+            $expense->pay_date     = $request->model['pay_date'];
+            $expense->bus_expenses     = $request->model['bus_expenses'];
+            $expense->indebtedness     = $request->model['indebtedness'];
+            $expense->comment     = $request->model['comment'];
             $expense->save();
 
             return response('Expense has been Updated !', 200);
@@ -105,6 +115,10 @@ class ExpenseController extends Controller
             }])
             ->withCount(['expenses AS discountSum' => function ($query) {
                 $query->select(DB::raw("SUM(discount) as discountSum"));
+            }])->withCount(['expenses AS busExpensesSum' => function ($query) {
+                $query->select(DB::raw("SUM(bus_expenses) as busExpensesSum"));
+            }])->withCount(['expenses AS indebtednessSum' => function ($query) {
+                $query->select(DB::raw("SUM(indebtedness) as indebtednessSum"));
             }])
             ->first();
 

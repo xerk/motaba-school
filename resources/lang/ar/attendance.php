@@ -24,4 +24,7 @@ return [
     'Employees' => 'الموظفين',
     'Late' => 'تأخير',
     'Send SMS' => 'إرسالة رسالة نصية',
+    'Absence of patients' => 'غياب مرضى',
+    'Delayed supervision' => 'تأخير أشراف',
+    'Delay permissions' => 'تأخير أذونات',
 ];

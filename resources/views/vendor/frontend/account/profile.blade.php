@@ -92,9 +92,7 @@
                 <div class="uk-card-body">
                     <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
                         <li><a href="#">{{__('Profile Information')}}</a></li>
-                        @if (!Auth::user()->linkTeachers->where('supervision', false)->isEmpty())
-                            <li><a href="#">{{__('Schedule')}}</a></li>
-                        @endif
+                        <li><a href="#">{{__('Schedule')}}</a></li>
                         <li><a href="#">{{__('Attendance')}}</a></li>
                         @if (Auth::user()->job == 1)
                         <li><a href="#">{{__('Expenses')}}</a></li>
@@ -224,7 +222,6 @@
                                 <a v-if="showPrsonalInfo == true" @click.prevent="showPrsonalInfo = false" href="">{{__('Hiden More')}}</a>
                             </span>
                         </li>
-                        @if (!Auth::user()->linkTeachers->where('supervision', false)->isEmpty() && Auth::user()->job == 0)
                         <li>
                             @if (Auth::user()->job == 1)
                                 <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
@@ -277,7 +274,7 @@
                                 </table>
                             @else
 
-
+                            @if (!Auth::user()->linkTeachers->where('supervision', false)->isEmpty())
                             <ul uk-accordion>
                                 <li class="{{ \Carbon\Carbon::now()->isSunday() ? 'uk-open' : '' }} attention-section">
                                     <a class="uk-accordion-title" href="#">
@@ -400,6 +397,34 @@
                                             Auth::user()->attendance->where('status', 2)->count() }}</span>
                                     </div>
                                 </li>
+                                @if (Auth::user()->job == 0)
+                                    <li>
+                                        <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                            <span class="uk-text-muted">{{__('attendance.Late')}}:</span>
+                                            <span class="uk-text-bold uk-text-warning">{{
+                                                Auth::user()->attendance->where('status', 4)->count() }}</span>
+                                        </div>
+                                    </li>
+                                @endif
+                               
+                                @if (Auth::user()->job == 0)
+                                    <li>
+                                        <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                            <span class="uk-text-muted">{{__('attendance.Delayed supervision')}}:</span>
+                                            <span class="uk-text-bold uk-text-warning">{{
+                                                Auth::user()->attendance->where('status', 6)->count() }}</span>
+                                        </div>
+                                    </li>
+                                @endif
+                                @if (Auth::user()->job == 0)
+                                    <li>
+                                        <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                            <span class="uk-text-muted">{{__('attendance.Delay permissions')}}:</span>
+                                            <span class="uk-text-bold uk-text-warning">{{
+                                                Auth::user()->attendance->where('status', 7)->count() }}</span>
+                                        </div>
+                                    </li>
+                                @endif
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Absent')}}:</span>
@@ -407,6 +432,15 @@
                                             Auth::user()->attendance->where('status', 3)->count() }}</span>
                                     </div>
                                 </li>
+                                @if (Auth::user()->job == 0)
+                                    <li>
+                                        <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                            <span class="uk-text-muted">{{__('attendance.Absence of patients')}}:</span>
+                                            <span class="uk-text-bold uk-text-danger">{{
+                                                Auth::user()->attendance->where('status', 5)->count() }}</span>
+                                        </div>
+                                    </li>
+                                @endif
                             </ul>
                             <table class="uk-table uk-table-striped" v-if="showAttendContent == true">
                                 <thead>
@@ -420,18 +454,30 @@
                                     <tr>
                                         @switch($item->status)
                                         @case(1)
-                                        <td class="uk-text-primary">{{__('Attend')}}</td>
+                                            <td class="uk-text-primary">{{__('Attend')}}</td>
                                         @break
                                         @case(2)
-                                        <td class="uk-text-success">{{__('Holiday')}}</td>
+                                            <td class="uk-text-success">{{__('Holiday')}}</td>
                                         @break
                                         @case(3)
-                                        <td class="uk-text-danger">{{__('Absent')}}</td>
+                                            <td class="uk-text-danger">{{__('Absent')}}</td>
+                                        @break
+                                        @case(4)
+                                            <td class="uk-text-danger">{{__('attendance.Late')}}</td>
+                                        @break
+                                        @case(5)
+                                            <td class="uk-text-danger">{{__('attendance.Absence of patients')}}</td>
+                                        @break
+                                        @case(6)
+                                            <td class="uk-text-danger">{{__('attendance.Delayed supervision')}}</td>
+                                        @break
+                                        @case(7)
+                                            <td class="uk-text-danger">{{__('attendance.Delay permissions')}}</td>
                                         @break
                                         @default
-                                        <td>{{__('Nothing')}}</td>
+                                            <td>{{__('Nothing')}}</td>
                                         @endswitch
-                                        <td>{{ \Carbon\Carbon::parse($item->attend_date)->toFormattedDateString() }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->attend_date)->toFormattedDateString() }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
