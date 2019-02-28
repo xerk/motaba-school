@@ -34,7 +34,7 @@
                                 </div>
                             </div><!-- panel-body -->
 
-                            <div class="panel-body">
+                            <!-- <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <span class="show-field">{{ trans('expenses.Total Bus Expenses') }}:</span>
@@ -45,7 +45,8 @@
                                         </span>
                                     </div>
                                 </div>
-                            </div><!-- panel-body -->
+                            </div> -->
+                            <!-- panel-body -->
 
                             <div class="panel-body">
                                 <div class="row">
@@ -93,7 +94,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-success">
-                                            {{ (parseInt(user.class_edu.expenses_cost) +  parseInt(user.costSum) + parseInt(user.busExpensesSum) + parseInt(user.indebtednessSum)) - (parseInt(user.paySum) + parseInt(user.discountSum)) ? (parseInt(user.class_edu.expenses_cost) +  parseInt(user.costSum) + parseInt(user.busExpensesSum) + parseInt(user.indebtednessSum)) - (parseInt(user.paySum) + parseInt(user.discountSum)) : user.class_edu.expenses_cost }}
+                                            {{ (parseInt(user.class_edu.expenses_cost) +  parseInt(user.costSum) + parseInt(user.indebtednessSum)) - (parseInt(user.paySum) + parseInt(user.discountSum)) ? (parseInt(user.class_edu.expenses_cost) +  parseInt(user.costSum) + parseInt(user.indebtednessSum)) - (parseInt(user.paySum) + parseInt(user.discountSum)) : user.class_edu.expenses_cost }}
                                         </span>
                                     </div>
                                 </div>
@@ -119,7 +120,7 @@
                                         <th>{{ trans('expenses.Pay') }}</th>
                                         <th>{{ trans('expenses.Cost') }}</th>
                                         <th>{{ trans('expenses.Discount') }}</th>
-                                        <th>{{ trans('expenses.Bus Expenses') }}</th>
+                                        <!-- <th>{{ trans('expenses.Bus Expenses') }}</th> -->
                                         <th>{{ trans('expenses.Indebtedness') }}</th>
                                         <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                     </tr>
@@ -134,7 +135,7 @@
                                         <td><b style="font-weight: 600">{{ item.pay }}</b></td>
                                         <td><b>{{ item.cost }}</b></td>
                                         <td><b>{{ item.discount }}</b></td>
-                                        <td><b>{{ item.bus_expenses }}</b></td>
+                                        <!-- <td><b>{{ item.bus_expenses }}</b></td> -->
                                         <td><b>{{ item.indebtedness }}</b></td>
                                         <td class="actions">
                                             <a href.prevent="" @click="openModal(item)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
@@ -170,11 +171,11 @@
                     <input v-model="model.paymentAmount" type="number" v-validate="'numeric'" class="form-control" name="pay">
                     <span v-show="errors.has('pay')" class="help-block" style="color:#f96868">{{ errors.first('pay') }}</span>
                 </div>
-                <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bus_expenses') }">
+                <!-- <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bus_expenses') }">
                     <label for="bus_expenses">{{ trans('expenses.Bus Expenses') }}</label>
                     <input v-model="model.bus_expenses" type="number" v-validate="'numeric'" class="form-control" name="bus_expenses">
                     <span v-show="errors.has('bus_expenses')" class="help-block" style="color:#f96868">{{ errors.first('bus_expenses') }}</span>
-                </div>
+                </div> -->
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('indebtedness') }">
                     <label for="indebtedness">{{ trans('expenses.Indebtedness') }}</label>
                     <input v-model="model.indebtedness" type="number" v-validate="'numeric'" class="form-control" name="indebtedness">

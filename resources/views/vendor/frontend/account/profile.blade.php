@@ -224,54 +224,56 @@
                         </li>
                         <li>
                             @if (Auth::user()->job == 1)
-                                <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
-                                    <caption>{{__('Schedule')}}</caption>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
-                                            <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="uk-label">الأحد</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)
-                                            <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الإثنين</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)
-                                            <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الثلاثاء</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)
-                                            <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الأربعاء</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)
-                                            <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td><span class="uk-label">الخميس</span></td>
-                                            @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)
-                                            <td>{{$item->subject->name}}</td>
-                                            @endforeach
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="uk-overflow-auto">
+                                    <table class="uk-table uk-table-small uk-table-divider uk-table-hover">
+                                        <caption>{{__('Schedule')}}</caption>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">1</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">2</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">3</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">4</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">5</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">6</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">7</span></th>
+                                                <th><span class="uk-label-success" style="padding: 0 12px;">8</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="uk-label">الأحد</span></td>
+                                                @foreach (Auth::user()->classRoom->timetables->where('day_name', '2') as $item)
+                                                <td>{{$item->subject->name}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><span class="uk-label">الإثنين</span></td>
+                                                @foreach (Auth::user()->classRoom->timetables->where('day_name', '3') as $item)
+                                                <td>{{$item->subject->name}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><span class="uk-label">الثلاثاء</span></td>
+                                                @foreach (Auth::user()->classRoom->timetables->where('day_name', '4') as $item)
+                                                <td>{{$item->subject->name}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><span class="uk-label">الأربعاء</span></td>
+                                                @foreach (Auth::user()->classRoom->timetables->where('day_name', '5') as $item)
+                                                <td>{{$item->subject->name}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><span class="uk-label">الخميس</span></td>
+                                                @foreach (Auth::user()->classRoom->timetables->where('day_name', '6') as $item)
+                                                <td>{{$item->subject->name}}</td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             @else
 
                             @if (!Auth::user()->linkTeachers->where('supervision', false)->isEmpty())
@@ -406,7 +408,7 @@
                                         </div>
                                     </li>
                                 @endif
-                               
+
                                 @if (Auth::user()->job == 0)
                                     <li>
                                         <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
@@ -442,46 +444,48 @@
                                     </li>
                                 @endif
                             </ul>
-                            <table class="uk-table uk-table-striped" v-if="showAttendContent == true">
-                                <thead>
-                                    <tr>
-                                        <th>{{__('Status')}}</th>
-                                        <th>{{__('Attend Date')}}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (Auth::user()->attendance as $item)
-                                    <tr>
-                                        @switch($item->status)
-                                        @case(1)
-                                            <td class="uk-text-primary">{{__('Attend')}}</td>
-                                        @break
-                                        @case(2)
-                                            <td class="uk-text-success">{{__('Holiday')}}</td>
-                                        @break
-                                        @case(3)
-                                            <td class="uk-text-danger">{{__('Absent')}}</td>
-                                        @break
-                                        @case(4)
-                                            <td class="uk-text-danger">{{__('attendance.Late')}}</td>
-                                        @break
-                                        @case(5)
-                                            <td class="uk-text-danger">{{__('attendance.Absence of patients')}}</td>
-                                        @break
-                                        @case(6)
-                                            <td class="uk-text-danger">{{__('attendance.Delayed supervision')}}</td>
-                                        @break
-                                        @case(7)
-                                            <td class="uk-text-danger">{{__('attendance.Delay permissions')}}</td>
-                                        @break
-                                        @default
-                                            <td>{{__('Nothing')}}</td>
-                                        @endswitch
-                                            <td>{{ \Carbon\Carbon::parse($item->attend_date)->toFormattedDateString() }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="uk-overflow-auto">
+                                <table class="uk-table uk-table-striped" v-if="showAttendContent == true">
+                                    <thead>
+                                        <tr>
+                                            <th>{{__('Status')}}</th>
+                                            <th>{{__('Attend Date')}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Auth::user()->attendance as $item)
+                                        <tr>
+                                            @switch($item->status)
+                                            @case(1)
+                                                <td class="uk-text-primary">{{__('Attend')}}</td>
+                                            @break
+                                            @case(2)
+                                                <td class="uk-text-success">{{__('Holiday')}}</td>
+                                            @break
+                                            @case(3)
+                                                <td class="uk-text-danger">{{__('Absent')}}</td>
+                                            @break
+                                            @case(4)
+                                                <td class="uk-text-danger">{{__('attendance.Late')}}</td>
+                                            @break
+                                            @case(5)
+                                                <td class="uk-text-danger">{{__('attendance.Absence of patients')}}</td>
+                                            @break
+                                            @case(6)
+                                                <td class="uk-text-danger">{{__('attendance.Delayed supervision')}}</td>
+                                            @break
+                                            @case(7)
+                                                <td class="uk-text-danger">{{__('attendance.Delay permissions')}}</td>
+                                            @break
+                                            @default
+                                                <td>{{__('Nothing')}}</td>
+                                            @endswitch
+                                                <td>{{ \Carbon\Carbon::parse($item->attend_date)->toFormattedDateString() }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <hr>
                             <span class="show-result uk-text-center">
                                 <a v-if="showAttendContent == false" @click.prevent="showAttendContent = true" href="">{{__('Show Table')}}</a>
@@ -489,15 +493,17 @@
                             </span>
                         </li>
                         <li>
-                            @if (Auth::user()->job == 1)
+                         @php 
+                            $remaining = (Auth::user()->expenses->sum('cost') + Auth::user()->expenses->sum('indebtedness') + Auth::user()->classEdu->expenses_cost) - (Auth::user()->expenses->sum('pay') + Auth::user()->expenses->sum('discount'))
+                        @endphp
+                        @if (Auth::user()->job == 1 && $remaining <= 1000)
                             <h3 class="uk-margin-small-bottom">{{__('Expenses')}}.</h3>
                             <ul class="uk-list uk-list-divider">
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Basic Cost')}}:</span>
                                         <span class="uk-text-bold uk-text-primary">{{
-                                            Auth::user()->expenses->sum('cost') + Auth::user()->classEdu->expenses_cost
-                                            }}</span>
+                                            Auth::user()->expenses->sum('cost') + Auth::user()->classEdu->expenses_cost }}</span>
                                     </div>
                                 </li>
                                 <li>
@@ -514,47 +520,52 @@
                                             Auth::user()->expenses->sum('discount') }}</span>
                                     </div>
                                 </li>
-                                @php
-                                $remaining = (Auth::user()->expenses->sum('cost') +
-                                Auth::user()->classEdu->expenses_cost) - (Auth::user()->expenses->sum('pay') +
-                                Auth::user()->expenses->sum('discount'))
-                                @endphp
+                                <li>
+                                    <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
+                                        <span class="uk-text-muted">{{__('expenses.Total Indebtedness')}}:</span>
+                                        <span class="uk-text-bold uk-text-primary">{{
+                                            Auth::user()->expenses->sum('indebtedness') }}</span>
+                                    </div>
+                                </li>
                                 <li>
                                     <div class="uk-grid-small uk-text-left uk-child-width-expand@s" uk-grid>
                                         <span class="uk-text-muted">{{__('Remaining')}}:</span>
-                                        <span class="uk-text-bold uk-text-success" style="font-weight: 600;">{{
-                                            $remaining }}</span>
+                                        <span class="uk-text-bold uk-text-success" style="font-weight: 600;">{{ $remaining }}</span>
                                     </div>
                                 </li>
                             </ul>
-                            <table class="uk-table uk-table-striped" v-if="showExpensesContent == true">
-                                <thead>
-                                    <tr>
-                                        <th>{{__('Created At')}}</th>
-                                        <th>{{__('Pay')}}</th>
-                                        <th>{{__('Cost')}}</th>
-                                        <th>{{__('Discount')}}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (Auth::user()->expenses as $item)
-                                    <tr>
-                                        <td>{{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}</td>
-                                        <td>{{ $item->pay }}</td>
-                                        <td>{{ $item->cost }}</td>
-                                        <td>{{ $item->discount }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="uk-overflow-auto">
+                                <table class="uk-table uk-table-striped" v-if="showExpensesContent == true">
+                                    <thead>
+                                        <tr>
+                                            <th>{{__('Created At')}}</th>
+                                            <th>{{__('Pay')}}</th>
+                                            <th>{{__('Cost')}}</th>
+                                            <th>{{__('Discount')}}</th>
+                                            <th>{{__('expenses.Indebtedness')}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Auth::user()->expenses as $item)
+                                        <tr>
+                                            <td>{{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}</td>
+                                            <td>{{ $item->pay }}</td>
+                                            <td>{{ $item->cost }}</td>
+                                            <td>{{ $item->discount }}</td>
+                                            <td>{{ $item->indebtedness }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <hr>
                             <span class="show-result uk-text-center">
                                 <a v-if="showExpensesContent == false" @click.prevent="showExpensesContent = true" href="">{{__('Show Table')}}</a>
                                 <a v-if="showExpensesContent == true" @click.prevent="showExpensesContent = false" href="">{{__('Hiden Table')}}</a>
                             </span>
-                            @else
-
-                            @endif
+                        @else
+                            <h3 class="uk-text-center">{{__('Please go to the Accounts section to pay the rest of your tuition') }}</h3>
+                        @endif
                         </li>
                         <li>
                             @if (Auth::user()->job == 1)

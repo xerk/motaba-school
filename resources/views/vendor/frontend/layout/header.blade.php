@@ -13,7 +13,7 @@
 
 @if (Session::get('locale') != 'en')
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
-
+{{-- <link rel="stylesheet" media="screens" href="{{ asset('css/uikit-rtl.css') }}" type="text/css"/> --}}
 <style>
 * {
     font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif';
