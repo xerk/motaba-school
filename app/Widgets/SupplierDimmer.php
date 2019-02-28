@@ -4,6 +4,7 @@ namespace App\Widgets;
 
 use App\Expense;
 use App\Storage;
+use App\Supplier;
 use App\MakePayment;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
@@ -48,6 +49,6 @@ class SupplierDimmer extends BaseDimmer
      */
     public function shouldBeDisplayed()
     {
-        return Auth::user()->can('browse', Voyager::model('User'));
+        return Auth::user()->can('browse', Supplier::class);
     }
 }

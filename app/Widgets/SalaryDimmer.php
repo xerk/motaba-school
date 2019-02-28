@@ -2,13 +2,13 @@
 
 namespace App\Widgets;
 
-use App\Expense;
 use App\MakePayment;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use Arrilot\Widgets\AbstractWidget;
 use TCG\Voyager\Widgets\BaseDimmer;
 use Illuminate\Support\Facades\Auth;
+use App\EmployeeSalary;
 
 class SalaryDimmer extends BaseDimmer
 {
@@ -47,6 +47,6 @@ class SalaryDimmer extends BaseDimmer
      */
     public function shouldBeDisplayed()
     {
-        return Auth::user()->can('browse', Voyager::model('User'));
+        return Auth::user()->can('browse', EmployeeSalary::class);
     }
 }
