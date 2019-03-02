@@ -27,6 +27,11 @@ class User extends \TCG\Voyager\Models\User
         'password', 'remember_token',
     ];
 
+
+    public function getFullName() {
+        return ucfirst($this->name) . ' ' . ucfirst($this->last_name);
+    }
+
     /**
      * Show the Attendance Has Many Lecture.
      *
@@ -36,7 +41,7 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany('App\Attendance');
     }
-    
+
     /**
      * Show the User Has Many Expenses.
      *
@@ -75,11 +80,11 @@ class User extends \TCG\Voyager\Models\User
     public function attentions()
     {
         return $this->hasMany('App\Attention');
-    } 
+    }
 
     /**
      * Get the setting number record associated with the user.
-     * 
+     *
      * @return App\SettingNumber
      */
     public function settingNumber()
@@ -89,7 +94,7 @@ class User extends \TCG\Voyager\Models\User
 
     /**
      * Get the secret number record associated with the user.
-     * 
+     *
      * @return App\SecretNumber
      */
     public function secretNumber()
@@ -99,7 +104,7 @@ class User extends \TCG\Voyager\Models\User
 
     /**
      * Get the committee record associated with the user.
-     * 
+     *
      * @return App\SecretNumber
      */
     public function committee()
@@ -109,7 +114,7 @@ class User extends \TCG\Voyager\Models\User
 
     /**
      * Get the addSalary record associated with the user.
-     * 
+     *
      * @return App\SecretNumber
      */
     public function addSalary()

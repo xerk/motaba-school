@@ -2,29 +2,47 @@
 
 namespace Maatwebsite\Excel;
 
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToArray;
+use Maatwebsite\Excel\Concerns\ToModel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Events\BeforeSheet;
 use PhpOffice\PhpSpreadsheet\Chart\Chart;
 use PhpOffice\PhpSpreadsheet\Reader\Html;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Maatwebsite\Excel\Concerns\WithCharts;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Illuminate\Contracts\Support\Arrayable;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Imports\EndRowFinder;
+use Maatwebsite\Excel\Concerns\FromIterator;
+use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithDrawings;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Imports\ModelImporter;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithMappedCells;
+use Maatwebsite\Excel\Concerns\WithProgressBar;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use Maatwebsite\Excel\Imports\HeadingRowExtractor;
 use Maatwebsite\Excel\Concerns\WithCustomChunkSize;
 use Maatwebsite\Excel\Concerns\WithCustomStartCell;
 use PhpOffice\PhpSpreadsheet\Worksheet\BaseDrawing;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
+use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithStrictNullComparison;
+use Maatwebsite\Excel\Exceptions\SheetNotFoundException;
 use Maatwebsite\Excel\Exceptions\ConcernConflictException;
+use PhpOffice\PhpSpreadsheet\Cell\Cell as SpreadsheetCell;
 
 class Sheet
 {
@@ -61,6 +79,56 @@ class Sheet
     }
 
     /**
+     * @param Spreadsheet $spreadsheet
+     * @param string|int  $index
+     *
+     * @throws SheetNotFoundException
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @return Sheet
+     */
+    public static function make(Spreadsheet $spreadsheet, $index)
+    {
+        if (is_numeric($index)) {
+            return self::byIndex($spreadsheet, $index);
+        }
+
+        return self::byName($spreadsheet, $index);
+    }
+
+    /**
+     * @param Spreadsheet $spreadsheet
+     * @param int         $index
+     *
+     * @throws SheetNotFoundException
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @return Sheet
+     */
+    public static function byIndex(Spreadsheet $spreadsheet, int $index): Sheet
+    {
+        if (!isset($spreadsheet->getAllSheets()[$index])) {
+            throw SheetNotFoundException::byIndex($index, $spreadsheet->getSheetCount());
+        }
+
+        return new static($spreadsheet->getSheet($index));
+    }
+
+    /**
+     * @param Spreadsheet $spreadsheet
+     * @param string      $name
+     *
+     * @throws SheetNotFoundException
+     * @return Sheet
+     */
+    public static function byName(Spreadsheet $spreadsheet, string $name): Sheet
+    {
+        if (!$spreadsheet->sheetNameExists($name)) {
+            throw SheetNotFoundException::byName($name);
+        }
+
+        return new static($spreadsheet->getSheetByName($name));
+    }
+
+    /**
      * @param object $sheetExport
      *
      * @throws \PhpOffice\PhpSpreadsheet\Exception
@@ -68,6 +136,10 @@ class Sheet
     public function open($sheetExport)
     {
         $this->exportable = $sheetExport;
+
+        if ($sheetExport instanceof WithCustomValueBinder) {
+            SpreadsheetCell::setValueBinder($sheetExport);
+        }
 
         if ($sheetExport instanceof WithEvents) {
             $this->registerListeners($sheetExport->registerEvents());
@@ -79,7 +151,7 @@ class Sheet
             $this->worksheet->setTitle($sheetExport->title());
         }
 
-        if (($sheetExport instanceof FromQuery || $sheetExport instanceof FromCollection) && $sheetExport instanceof FromView) {
+        if (($sheetExport instanceof FromQuery || $sheetExport instanceof FromCollection || $sheetExport instanceof FromArray) && $sheetExport instanceof FromView) {
             throw ConcernConflictException::queryOrCollectionAndView();
         }
 
@@ -120,9 +192,117 @@ class Sheet
             if ($sheetExport instanceof FromCollection) {
                 $this->fromCollection($sheetExport);
             }
+
+            if ($sheetExport instanceof FromArray) {
+                $this->fromArray($sheetExport);
+            }
+
+            if ($sheetExport instanceof FromIterator) {
+                $this->fromIterator($sheetExport);
+            }
         }
 
         $this->close($sheetExport);
+    }
+
+    /**
+     * @param object $import
+     * @param int    $startRow
+     */
+    public function import($import, int $startRow = 1)
+    {
+        if ($import instanceof WithEvents) {
+            $this->registerListeners($import->registerEvents());
+        }
+
+        $this->raise(new BeforeSheet($this, $this->exportable));
+
+        if ($import instanceof WithProgressBar && !$import instanceof WithChunkReading) {
+            $import->getConsoleOutput()->progressStart($this->worksheet->getHighestRow());
+        }
+
+        $calculatesFormulas = $import instanceof WithCalculatedFormulas;
+
+        if ($import instanceof WithMappedCells) {
+            app(MappedReader::class)->map($import, $this->worksheet);
+        } else {
+            if ($import instanceof ToModel) {
+                app(ModelImporter::class)->import($this->worksheet, $import, $startRow);
+            }
+
+            if ($import instanceof ToCollection) {
+                $import->collection($this->toCollection($import, $startRow, null, $calculatesFormulas));
+            }
+
+            if ($import instanceof ToArray) {
+                $import->array($this->toArray($import, $startRow, null, $calculatesFormulas));
+            }
+        }
+
+        if ($import instanceof OnEachRow) {
+            $headingRow = HeadingRowExtractor::extract($this->worksheet, $import);
+            foreach ($this->worksheet->getRowIterator()->resetStart($startRow ?? 1) as $row) {
+                $import->onRow(new Row($row, $headingRow));
+
+                if ($import instanceof WithProgressBar) {
+                    $import->getConsoleOutput()->progressAdvance();
+                }
+            }
+        }
+
+        $this->raise(new AfterSheet($this, $this->exportable));
+
+        if ($import instanceof WithProgressBar && !$import instanceof WithChunkReading) {
+            $import->getConsoleOutput()->progressFinish();
+        }
+    }
+
+    /**
+     * @param object   $import
+     * @param int|null $startRow
+     * @param null     $nullValue
+     * @param bool     $calculateFormulas
+     * @param bool     $formatData
+     *
+     * @return array
+     */
+    public function toArray($import, int $startRow = null, $nullValue = null, $calculateFormulas = false, $formatData = false)
+    {
+        $endRow     = EndRowFinder::find($import, $startRow);
+        $headingRow = HeadingRowExtractor::extract($this->worksheet, $import);
+
+        $rows = [];
+        foreach ($this->worksheet->getRowIterator($startRow, $endRow) as $row) {
+            $row = (new Row($row, $headingRow))->toArray($nullValue, $calculateFormulas, $formatData);
+
+            if ($import instanceof WithMapping) {
+                $row = $import->map($row);
+            }
+
+            $rows[] = $row;
+
+            if ($import instanceof WithProgressBar) {
+                $import->getConsoleOutput()->progressAdvance();
+            }
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @param object   $import
+     * @param int|null $startRow
+     * @param null     $nullValue
+     * @param bool     $calculateFormulas
+     * @param bool     $formatData
+     *
+     * @return Collection
+     */
+    public function toCollection($import, int $startRow = null, $nullValue = null, $calculateFormulas = false, $formatData = false): Collection
+    {
+        return new Collection(array_map(function (array $row) {
+            return new Collection($row);
+        }, $this->toArray($import, $startRow, $nullValue, $calculateFormulas, $formatData)));
     }
 
     /**
@@ -186,6 +366,22 @@ class Sheet
     public function fromCollection(FromCollection $sheetExport)
     {
         $this->appendRows($sheetExport->collection()->all(), $sheetExport);
+    }
+
+    /**
+     * @param FromArray $sheetExport
+     */
+    public function fromArray(FromArray $sheetExport)
+    {
+        $this->appendRows($sheetExport->array(), $sheetExport);
+    }
+
+    /**
+     * @param FromIterator $sheetExport
+     */
+    public function fromIterator(FromIterator $sheetExport)
+    {
+        $this->appendRows($sheetExport->iterator(), $sheetExport);
     }
 
     /**
@@ -336,6 +532,25 @@ class Sheet
     }
 
     /**
+     * @param $sheetImport
+     *
+     * @return int
+     */
+    public function getStartRow($sheetImport): int
+    {
+        return HeadingRowExtractor::determineStartRow($sheetImport);
+    }
+
+    /**
+     * Disconnect the sheet.
+     */
+    public function disconnect()
+    {
+        $this->worksheet->disconnectCells();
+        unset($this->worksheet);
+    }
+
+    /**
      * @param iterable $row
      * @param object   $sheetExport
      *
@@ -383,7 +598,6 @@ class Sheet
     }
 
     /**
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
      * @return bool
      */
     private function hasRows(): bool

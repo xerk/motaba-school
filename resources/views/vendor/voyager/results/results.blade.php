@@ -3,8 +3,15 @@
 @section('page_header')
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class="icon voyager-bell"></i> Attentions
+            <i class="icon voyager-bell"></i> {{__('Results')}}
         </h1>
+        <form method="POST" class="form-group" enctype="multipart/form-data" action="{{ route('import.results') }}">
+            {{ csrf_field() }}
+            <input id="upload" name="file" type="file"/>
+            <button type="submit" id="upload_link" class="btn btn-success btn-add-new">
+                <i class="voyager-plus"></i> <span>{{ __('Import') }}</span>
+            </button>
+        </form>
         @include('voyager::multilingual.language-selector')
     </div>
 @stop
@@ -35,7 +42,11 @@
 {{-- <script type="text/javascript" language="javascript" src="{{ asset('control/examples/resources/editor-demo.js') }}"></script> --}}
 
 <script type="text/javascript" language="javascript" class="init">
-        // var editor;
-
-    </script>
+// $(function(){
+//     $("#upload_link").on('click', function(e){
+//         e.preventDefault();
+//         $("#upload:hidden").trigger('click');
+//     });
+// });
+</script>
 @stop

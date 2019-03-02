@@ -26,4 +26,6 @@ return [
     'delete qutions?' => 'delete qutions?',
     'Empty please modify' => 'Empty please modify',
     'None' => 'None',
+    'Export' => 'Export',
+    'Import' => 'Import',
 ];

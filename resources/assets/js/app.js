@@ -60,7 +60,6 @@ var toastrConfigs = {
     hideMethod: 'flash',
     closeButton: false,
 }
-
 Vue.use(CxltToastr, toastrConfigs)
 Vue.use(Moment)
 Vue.use(VeeValidate)
@@ -68,6 +67,7 @@ Vue.use(VueRouter)
 Vue.use(Croppa)
 Vue.use(Datetime)
 Vue.use(vSelect)
+
 const router = new VueRouter({
     routes,
     mode: 'history'

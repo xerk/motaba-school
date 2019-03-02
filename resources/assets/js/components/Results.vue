@@ -1,5 +1,10 @@
 <template>
     <div class="page-content browse container-fluid">
+        <div class="attend-button">
+            <a :href="'https://kamel-ouda.com/api/export-results?class_id='+ classEdu +'&subject_id='+ supSubject +'&exam_id='+ exam" class="btn btn-sm  btn-primary pull-right delete">
+                <i class="voyager-download"></i> <span>{{ trans('table.Export') }}</span>
+            </a>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-bordered">
@@ -29,6 +34,7 @@
 
 <script>
 import FabResult from './fab/FabResult'
+import { saveAs } from 'file-saver';
     export default {
         components: {FabResult},
         data() {
@@ -54,6 +60,9 @@ import FabResult from './fab/FabResult'
                         typeExamId: localStorage.typeExam,
                         supSubjectId: localStorage.supSubject,
                     }
+                },
+                export: {
+                    apiURL: 'export-results',
                 },
             }
         },
@@ -82,7 +91,7 @@ import FabResult from './fab/FabResult'
                 var exam = this.exam
                 var typeExam = this.typeExam
                 var supSubject = this.supSubject
-                var editor; // use a global for the submit and return data rendering in the 
+                var editor; // use a global for the submit and return data rendering in the
                 $(document).ready(function () {
                     editor = new $.fn.dataTable.Editor({
                         ajax: {
@@ -91,7 +100,7 @@ import FabResult from './fab/FabResult'
                         },
                         table: "#example",
                         fields: [
-                            { label: "Degree:", name: "results.exam1" }, 
+                            { label: "Degree:", name: "results.exam1" },
                         ]
                     });
 
@@ -122,7 +131,7 @@ import FabResult from './fab/FabResult'
                                 }
                             },
                             { data: "results.exam1"},
-                            
+
                         ],
                         autoFill: {
                             columns: 4,
@@ -152,7 +161,7 @@ import FabResult from './fab/FabResult'
                                 "targets": 1
                             },
                             { className: "text-center", "targets": [ 0,1,2,3,4 ] },
-                        
+
                             { "visible": false,  "targets": [ 2 ] },
                         ],
                         buttons: [
@@ -164,10 +173,33 @@ import FabResult from './fab/FabResult'
             fetch() {
                 this.$store.dispatch('retriveResults', this.get)
                     .then(response => {
-                        this.typeExams = response.data.typeExams    
-                        this.supSubjectFetch = response.data.supSubject    
+                        this.typeExams = response.data.typeExams
+                        this.supSubjectFetch = response.data.supSubject
                     })
-            }
+            },
+            exportExcel() {
+                this.$store.dispatch('exportResult', {
+                        get: this.export,
+                        class_id: this.classEdu,
+                        subject_id: this.supSubject,
+                        exam_id: this.exam,
+                    })
+                    .then(response => {
+                        var FileSaver = require('file-saver')
+                        FileSaver.saveAs(`https://kamel-ouda.com/api/export-results`, 'results.xlsx')
+                    })
+            },
+            importExcel() {
+                this.$store.dispatch('exportResult', {
+                        get: this.export,
+                        class_id: this.classEdu,
+                        subject_id: this.supSubject,
+                        exam_id: this.exam,
+                    })
+                    .then(response => {
+
+                    })
+            },
         }
     }
 </script>

@@ -67,6 +67,21 @@ export const store = new Vuex.Store({
                     })
             })
         },
+        exportResult(context, data) {
+            return new Promise((resolve, reject) => {
+                axios({
+                        url: `${data.get.apiURL}?class_id=${data.class_id}&subject_id=${data.subject_id}&exam_id=${data.exam_id}`,
+                        method: 'GET',
+                        responseType: 'blob', // important
+                    })
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
         retriveFilterSchoolEdit(context, data) {
             return new Promise((resolve, reject) => {
                 axios.get(`${data.get.apiURL}?stageEdu=${data.stageEdu}&classEdu=${data.classEdu}&classRoom=${data.classRoom}&edit=${data.edit}`)

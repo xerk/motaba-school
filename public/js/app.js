@@ -38611,7 +38611,6 @@ var toastrConfigs = {
     hideMethod: 'flash',
     closeButton: false
 };
-
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_39_cxlt_vue2_toastr___default.a, toastrConfigs);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_41_vue_moment___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_38_vee_validate__["a" /* default */]);
@@ -38619,6 +38618,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_36_vue_croppa___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_42_vue_datetime___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_44_vue_select___default.a);
+
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     routes: __WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */],
     mode: 'history'
@@ -38634,7 +38634,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
     }
 });
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.envURL = "https://kamel-ouda.com";
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.envURL = "http://kamel-ouda.test";
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.trans = function (local) {
     return _.get(window.i18n, local);
 };
@@ -45707,7 +45707,7 @@ var debugs = {};
 var debugEnviron;
 exports.debuglog = function(set) {
   if (isUndefined(debugEnviron))
-    debugEnviron = Object({"MIX_APP_URL":"https://kamel-ouda.com","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).NODE_DEBUG || '';
+    debugEnviron = Object({"MIX_APP_URL":"http://kamel-ouda.test","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).NODE_DEBUG || '';
   set = set.toUpperCase();
   if (!debugs[set]) {
     if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
@@ -60271,7 +60271,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         getSetting: function getSetting() {
-            var editor; // use a global for the submit and return data rendering in the
+            var editor; // use a global for the submit and return data rendering in the 
             $(document).ready(function () {
                 editor = new $.fn.dataTable.Editor({
                     ajax: {
@@ -60476,6 +60476,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_MakePayment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__modal_MakePayment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_Modal__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_Modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__modal_Modal__);
+//
 //
 //
 //
@@ -61794,33 +61795,6 @@ var render = function() {
                       _c("div", { staticClass: "col-md-8" }, [
                         _c("span", { staticClass: "show-field" }, [
                           _vm._v(
-                            _vm._s(_vm.trans("expenses.Total Bus Expenses")) +
-                              ":"
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-4" }, [
-                        _c("span", { staticClass: "show-result" }, [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(
-                                _vm.user.busExpensesSum
-                                  ? _vm.user.busExpensesSum
-                                  : 0
-                              ) +
-                              "\n                                    "
-                          )
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "panel-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-8" }, [
-                        _c("span", { staticClass: "show-field" }, [
-                          _vm._v(
                             _vm._s(_vm.trans("expenses.Total Indebtedness")) +
                               ":"
                           )
@@ -61908,7 +61882,6 @@ var render = function() {
                                 _vm._s(
                                   parseInt(_vm.user.class_edu.expenses_cost) +
                                   parseInt(_vm.user.costSum) +
-                                  parseInt(_vm.user.busExpensesSum) +
                                   parseInt(_vm.user.indebtednessSum) -
                                   (parseInt(_vm.user.paySum) +
                                     parseInt(_vm.user.discountSum))
@@ -61916,7 +61889,6 @@ var render = function() {
                                         _vm.user.class_edu.expenses_cost
                                       ) +
                                       parseInt(_vm.user.costSum) +
-                                      parseInt(_vm.user.busExpensesSum) +
                                       parseInt(_vm.user.indebtednessSum) -
                                       (parseInt(_vm.user.paySum) +
                                         parseInt(_vm.user.discountSum))
@@ -61992,10 +61964,6 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("th", [
-                              _vm._v(_vm._s(_vm.trans("expenses.Bus Expenses")))
-                            ]),
-                            _vm._v(" "),
-                            _c("th", [
                               _vm._v(_vm._s(_vm.trans("expenses.Indebtedness")))
                             ]),
                             _vm._v(" "),
@@ -62041,10 +62009,6 @@ var render = function() {
                               _vm._v(" "),
                               _c("td", [
                                 _c("b", [_vm._v(_vm._s(item.discount))])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("b", [_vm._v(_vm._s(item.bus_expenses))])
                               ]),
                               _vm._v(" "),
                               _c("td", [
@@ -62333,70 +62297,6 @@ var render = function() {
                         staticStyle: { color: "#f96868" }
                       },
                       [_vm._v(_vm._s(_vm.errors.first("pay")))]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: {
-                      "form-group col-md-6": true,
-                      "has-error": _vm.errors.has("bus_expenses")
-                    }
-                  },
-                  [
-                    _c("label", { attrs: { for: "bus_expenses" } }, [
-                      _vm._v(_vm._s(_vm.trans("expenses.Bus Expenses")))
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.model.bus_expenses,
-                          expression: "model.bus_expenses"
-                        },
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "numeric",
-                          expression: "'numeric'"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "number", name: "bus_expenses" },
-                      domProps: { value: _vm.model.bus_expenses },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.model,
-                            "bus_expenses",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.errors.has("bus_expenses"),
-                            expression: "errors.has('bus_expenses')"
-                          }
-                        ],
-                        staticClass: "help-block",
-                        staticStyle: { color: "#f96868" }
-                      },
-                      [_vm._v(_vm._s(_vm.errors.first("bus_expenses")))]
                     )
                   ]
                 ),
@@ -74359,7 +74259,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var withParams = Object({"MIX_APP_URL":"https://kamel-ouda.com","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(240).withParams : __webpack_require__(33).withParams;
+var withParams = Object({"MIX_APP_URL":"http://kamel-ouda.test","MIX_PUSHER_APP_CLUSTER":"mt1","MIX_PUSHER_APP_KEY":"","NODE_ENV":"development"}).BUILD === 'web' ? __webpack_require__(240).withParams : __webpack_require__(33).withParams;
 var _default = withParams;
 exports.default = _default;
 
@@ -82433,7 +82333,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         getSetting: function getSetting() {
             var classEdu = this.classEdu;
-            var editor; // use a global for the submit and return data rendering in the
+            var editor; // use a global for the submit and return data rendering in the 
             $(document).ready(function () {
                 editor = new $.fn.dataTable.Editor({
                     ajax: {
@@ -82683,7 +82583,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getSetting: function getSetting() {
             var classEdu = this.classEdu;
-            var editor; // use a global for the submit and return data rendering in the
+            var editor; // use a global for the submit and return data rendering in the 
             $(document).ready(function () {
                 editor = new $.fn.dataTable.Editor({
                     ajax: {
@@ -82692,7 +82592,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     },
                     table: "#example",
                     fields: [
-                    // { label: "First name:", name: "users.full_name" },
+                    // { label: "First name:", name: "users.full_name" }, 
                     { label: "Setting Number:", name: "setting_numbers.setting_number" }]
                 });
 
@@ -90664,7 +90564,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getSetting: function getSetting() {
             var classEdu = this.classEdu;
-            var editor; // use a global for the submit and return data rendering in the
+            var editor; // use a global for the submit and return data rendering in the 
             $(document).ready(function () {
                 editor = new $.fn.dataTable.Editor({
                     ajax: {
@@ -90673,7 +90573,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     },
                     table: "#example",
                     fields: [
-                    // { label: "First name:", name: "users.full_name" },
+                    // { label: "First name:", name: "users.full_name" }, 
                     { label: "Secret Number:", name: "secret_numbers.secret_number" }]
                 });
 
@@ -90896,7 +90796,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getSetting: function getSetting() {
             var classEdu = this.classEdu;
-            var editor; // use a global for the submit and return data rendering in the
+            var editor; // use a global for the submit and return data rendering in the 
             $(document).ready(function () {
                 editor = new $.fn.dataTable.Editor({
                     ajax: {
@@ -90905,7 +90805,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     },
                     table: "#example",
                     fields: [
-                    // { label: "First name:", name: "users.full_name" },
+                    // { label: "First name:", name: "users.full_name" }, 
                     { label: "Committee:", name: "committees.committee" }]
                 });
 
@@ -91095,6 +90995,8 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_FabResult__ = __webpack_require__(393);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fab_FabResult___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fab_FabResult__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_file_saver__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_file_saver__);
 //
 //
 //
@@ -91124,6 +91026,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -91151,6 +91059,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     typeExamId: localStorage.typeExam,
                     supSubjectId: localStorage.supSubject
                 }
+            },
+            export: {
+                apiURL: 'export-results'
             }
         };
     },
@@ -91250,6 +91161,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.typeExams = response.data.typeExams;
                 _this.supSubjectFetch = response.data.supSubject;
             });
+        },
+        exportExcel: function exportExcel() {
+            this.$store.dispatch('exportResult', {
+                get: this.export,
+                class_id: this.classEdu,
+                subject_id: this.supSubject,
+                exam_id: this.exam
+            }).then(function (response) {
+                var FileSaver = __webpack_require__(417);
+                FileSaver.saveAs('https://kamel-ouda.com/api/export-results', 'results.xlsx');
+            });
+        },
+        importExcel: function importExcel() {
+            this.$store.dispatch('exportResult', {
+                get: this.export,
+                class_id: this.classEdu,
+                subject_id: this.supSubject,
+                exam_id: this.exam
+            }).then(function (response) {});
         }
     }
 });
@@ -92141,6 +92071,29 @@ var render = function() {
     "div",
     { staticClass: "page-content browse container-fluid" },
     [
+      _c("div", { staticClass: "attend-button" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-sm  btn-primary pull-right delete",
+            attrs: {
+              href:
+                "https://kamel-ouda.com/api/export-results?class_id=" +
+                _vm.classEdu +
+                "&subject_id=" +
+                _vm.supSubject +
+                "&exam_id=" +
+                _vm.exam
+            }
+          },
+          [
+            _c("i", { staticClass: "voyager-download" }),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(_vm.trans("table.Export")))])
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "panel panel-bordered" }, [
@@ -92219,11 +92172,11 @@ if (false) {
 /* WEBPACK VAR INJECTION */(function(global) {/*
  * vue-croppa v1.3.7
  * https://github.com/zhanziyang/vue-croppa
- *
+ * 
  * Copyright (c) 2018 zhanziyang
  * Released under the ISC license
  */
-
+  
 (function (global, factory) {
 	 true ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -94132,6 +94085,19 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
                 });
             });
         },
+        exportResult: function exportResult(context, data) {
+            return new Promise(function (resolve, reject) {
+                __WEBPACK_IMPORTED_MODULE_2_axios___default()({
+                    url: data.get.apiURL + '?class_id=' + data.class_id + '&subject_id=' + data.subject_id + '&exam_id=' + data.exam_id,
+                    method: 'GET',
+                    responseType: 'blob' // important
+                }).then(function (response) {
+                    resolve(response);
+                }).catch(function (error) {
+                    reject(error);
+                });
+            });
+        },
         retriveFilterSchoolEdit: function retriveFilterSchoolEdit(context, data) {
             return new Promise(function (resolve, reject) {
                 __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get(data.get.apiURL + '?stageEdu=' + data.stageEdu + '&classEdu=' + data.classEdu + '&classRoom=' + data.classRoom + '&edit=' + data.edit).then(function (response) {
@@ -95220,7 +95186,7 @@ var SchoolConfigs = {
   * (c) 2018 Abdelrahman Awad
   * @license MIT
   */
-//
+// 
 
 var supportsPassive = true;
 
@@ -95853,7 +95819,7 @@ var includes = function (collection, item) {
   return collection.indexOf(item) !== -1;
 };
 
-//
+// 
 
 var LOCALE = 'en';
 
@@ -95984,7 +95950,7 @@ Dictionary.prototype.setAttribute = function setAttribute (locale, key, attribut
 
 Object.defineProperties( Dictionary.prototype, prototypeAccessors );
 
-//
+// 
 
 var normalizeValue = function (value) {
   if (isObject(value)) {
@@ -96112,7 +96078,7 @@ I18nDictionary.prototype.setAttribute = function setAttribute (locale, key, valu
 
 Object.defineProperties( I18nDictionary.prototype, prototypeAccessors$1 );
 
-//
+// 
 
 var defaultConfig = {
   locale: 'en',
@@ -96187,7 +96153,7 @@ Config.resolve = function resolve (context) {
 
 Object.defineProperties( Config, staticAccessors );
 
-//
+// 
 
 var ErrorBag = function ErrorBag (errorBag, id) {
   if ( errorBag === void 0 ) errorBag = null;
@@ -96890,7 +96856,7 @@ Resolver.resolveGetter = function resolveGetter (el, vnode, model) {
   }
 };
 
-//
+// 
 
 var RULES = {};
 var STRICT_MODE = true;
@@ -97614,7 +97580,7 @@ Validator.prototype._validate = function _validate (field, value, ref) {
 Object.defineProperties( Validator.prototype, prototypeAccessors$2 );
 Object.defineProperties( Validator, staticAccessors$1 );
 
-//
+// 
 
 var DEFAULT_OPTIONS = {
   targetOf: null,
@@ -98291,7 +98257,7 @@ Field.prototype.destroy = function destroy () {
 
 Object.defineProperties( Field.prototype, prototypeAccessors$3 );
 
-//
+// 
 
 var FieldBag = function FieldBag (items) {
   if ( items === void 0 ) items = [];
@@ -98528,7 +98494,7 @@ ScopedValidator.prototype.flag = function flag () {
 
 Object.defineProperties( ScopedValidator.prototype, prototypeAccessors$5 );
 
-//
+// 
 
 /**
  * Checks if a parent validator instance was requested.
@@ -98619,7 +98585,7 @@ var mixin = {
   }
 };
 
-//
+// 
 
 /**
  * Finds the requested field by id from the context object.
@@ -98873,7 +98839,7 @@ if (isDefinedGlobally()) {
   VeeValidate.Validator.localize(( obj = {}, obj[locale.name] = locale, obj ));
 }
 
-//
+// 
 
 function use (plugin, options) {
   if ( options === void 0 ) options = {};
@@ -101502,7 +101468,7 @@ function cleanEscapedString$1 (input) {
 
 // This file is generated automatically by `scripts/build/indices.js`. Please, don't change it.
 
-//
+// 
 
 /**
  * Custom parse behavior on top of date-fns parse function.
@@ -102850,7 +102816,7 @@ var Rules = /*#__PURE__*/Object.freeze({
   url: url
 });
 
-//
+// 
 
 var normalize = function (fields) {
   if (Array.isArray(fields)) {
@@ -109102,6 +109068,19 @@ r[t.label]=e,r)),t._v(" "),t.multiple?n("button",{staticClass:"close",attrs:{dis
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 416 */,
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else if("undefined"!=typeof exports)b();else{b(),a.FileSaver={exports:{}}.exports}})(this,function(){"use strict";function b(a,b){return"undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(b,c,d){var e=new XMLHttpRequest;e.open("GET",b),e.responseType="blob",e.onload=function(){a(e.response,c,d)},e.onerror=function(){console.error("could not download file")},e.send()}function d(a){var b=new XMLHttpRequest;return b.open("HEAD",a,!1),b.send(),200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"))}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b)}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof global&&global.global===global?global:void 0,a=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href)},4E4),setTimeout(function(){e(j)},0))}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i)})}}:function(a,b,d,e){if(e=e||open("","_blank"),e&&(e.document.title=e.document.body.innerText="downloading..."),"string"==typeof a)return c(a,b,d);var g="application/octet-stream"===a.type,h=/constructor/i.test(f.HTMLElement)||f.safari,i=/CriOS\/[\d]+/.test(navigator.userAgent);if((i||g&&h)&&"object"==typeof FileReader){var j=new FileReader;j.onloadend=function(){var a=j.result;a=i?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),e?e.location.href=a:location=a,e=null},j.readAsDataURL(a)}else{var k=f.URL||f.webkitURL,l=k.createObjectURL(a);e?e.location=l:location.href=l,e=null,setTimeout(function(){k.revokeObjectURL(l)},4E4)}});f.saveAs=a.saveAs=a,"undefined"!=typeof module&&(module.exports=a)});
+
+//# sourceMappingURL=FileSaver.min.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ })
 /******/ ]);

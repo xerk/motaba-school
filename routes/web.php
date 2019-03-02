@@ -137,6 +137,9 @@ Route::group(['as' => 'frontend.'], function () {
 // SMS API
 Route::get('api/sms-misr', 'SmsMisrController@smsApi')->middleware('admin.user');
 
+// Export And Import routes
+Route::get('api/export-results', 'ExcelController@export')->name('export.results')->middleware('admin.user');
+Route::post('api/import-results', 'ExcelController@import')->name('import.results')->middleware('admin.user');
 
 // Localization
 Route::get('/js/lang.js', function () {

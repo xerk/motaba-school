@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Result extends Model
 {
     protected $table = 'results';
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id', 'sup_subject_id', 'exam_id', 'exam1',
+        'user_id', 'sup_subject_id', 'exam_id', 'exam1', 'semster_id',
     ];
 
     /**
@@ -45,5 +45,15 @@ class Result extends Model
     public function exam()
     {
         return $this->belongsTo('App\Configs\Exam', 'exam_id');
+    }
+
+    /**
+     * Show the Result Belongs To Semster.
+     *
+     * @return App\Semster
+     */
+    public function semster()
+    {
+        return $this->belongsTo('App\Configs\Semster', 'semster_id');
     }
 }
