@@ -495,7 +495,7 @@
                         <li>
                          @php
                             if (Auth::user()->job == 1) {
-                                $remaining = (Auth::user()->expenses->sum('cost') + Auth::user()->expenses->sum('indebtedness') + Auth::user()->classEdu->expenses_cost) - (Auth::user()->expenses->sum('pay') + Auth::user()->expenses->sum('discount'))
+                                $remaining = (Auth::user()->expenses->sum('cost') + Auth::user()->expenses->sum('indebtedness') + Auth::user()->classEdu->expenses_cost) - (Auth::user()->expenses->sum('pay') + Auth::user()->expenses->sum('discount'));
                             }
                         @endphp
                         @if (Auth::user()->job == 1 && $remaining <= 1000)
