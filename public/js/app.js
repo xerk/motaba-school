@@ -38653,7 +38653,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.trans = function (local) {
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     created: function created() {
         var recaptchaScript = document.createElement('script');
-        recaptchaScript.setAttribute('src', 'http://kamel-ouda.test/js/lang.js');
+        recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js');
         document.head.appendChild(recaptchaScript);
         this.$store.dispatch('retrieveAuth');
     },
@@ -94077,7 +94077,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'http://kamel-ouda.test/api/';
+__WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'https://kamel-ouda.com/api/';
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
