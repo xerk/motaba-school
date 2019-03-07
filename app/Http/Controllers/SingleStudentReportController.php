@@ -17,7 +17,7 @@ class SingleStudentReportController extends Controller
      */
     public function index()
     {
-        $browes = Voyager::canOrFail('browse_single_student_report');
+        $browes = Voyager::canOrFail('browse_single_student_reports');
         return view('vendor.voyager.reports.single-student-report');
     }
 

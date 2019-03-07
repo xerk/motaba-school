@@ -34,7 +34,11 @@
                     <li>أ/سعيد عيسي</li>
                 </ul>
             </div>
-            <div class="col-sm-4 col-print-4 text-center">
+            <div class="col-sm-4 col-print-4 text-center" style="font-size: 18px">
+                <ul class="list-unstyled">
+                    <li>المدير المالي</li>
+                    <li>أ/خالد إبراهيم</li>
+                </ul>
             </div>
             <div class='col-sm-4 col-print-4 text-center' style="font-size: 18px">
                 <ul class="list-unstyled">
@@ -62,6 +66,7 @@
                                     <th>علاوة</th>
                                     <th>حصة صاحب العمل</th>
                                     <th>جملة المستحق</th>
+                                    <th>حصة العامل</th>
                                     <th>سلفيات</th>
                                     <th>غياب</th>
                                     <th>تأخيرات</th>
@@ -155,9 +160,10 @@ export default {
                         { data: 'add_salary.may_grant', name: 'add_salary.may_grant' },
                         { data: 'add_salary.variable_wages', name: 'add_salary.variable_wages'},
                         { data: 'add_salary.prev_year_bonus', name: 'add_salary.prev_year_bonus'},
-                        { data: 'add_salary.share_employer', name: 'add_salary.share_employer'},
                         { data: 'add_salary.bonus', name: 'add_salary.bonus' },
+                        { data: 'add_salary.share_employer', name: 'add_salary.share_employer'},
                         { data: length },
+                        { data: 'add_salary.share_employee', name: 'add_salary.share_employee'},
                         { data: 'sum_discount', name: 'sum_discount' },
                         { data: 'count_absent', name: 'count_absent', 'render': function (val, type, row) {
                             return row.add_salary.absent_day * val;
@@ -201,7 +207,7 @@ export default {
                             "render": function ( data, type, row ) {
                                 return +row.sum_discount + (+row.count_late * row.add_salary.late_day) + (+row.count_absent * row.add_salary.absent_day)
                             },
-                            "targets": 13,
+                            "targets": 14,
 
                         },
                         {
@@ -209,9 +215,9 @@ export default {
                             // `data` option, which defaults to the column being worked with, in
                             // this case `data: 0`.
                             "render": function ( data, type, row ) {
-                                return (+row.add_salary.cost + +row.add_salary.may_grant + +row.add_salary.variable_wages + +row.add_salary.prev_year_bonus + +row.add_salary.share_employer + +row.add_salary.bonus) - (+row.sum_discount + (+row.count_absent * +row.add_salary.absent_day) + (+row.count_late * +row.add_salary.late_day))
+                                return (+row.add_salary.cost + +row.add_salary.may_grant + +row.add_salary.variable_wages + +row.add_salary.prev_year_bonus + +row.add_salary.share_employer + +row.add_salary.share_employee + +row.add_salary.bonus) - (+row.sum_discount + (+row.count_absent * +row.add_salary.absent_day) + (+row.count_late * +row.add_salary.late_day))
                             },
-                            "targets": 14,
+                            "targets": 15,
 
                         },
 

@@ -12,9 +12,10 @@ class ResultExport implements FromQuery, WithMapping, WithHeadings
 {
     use Exportable;
 
-    public function __construct($classEdu, $subject, $exam)
+    public function __construct($classEdu, $classRoom, $subject, $exam)
     {
         $this->classEdu = $classEdu;
+        $this->classRoom = $classRoom;
         $this->subject = $subject;
         $this->exam = $exam;
     }
@@ -24,9 +25,15 @@ class ResultExport implements FromQuery, WithMapping, WithHeadings
     */
     public function query()
     {
-        return Result::where('sup_subject_id', $this->subject)->where('exam_id', $this->exam)->whereHas('user', function ($query) {
-            $query->where('class_id', $this->classEdu);
-        });
+        if ($this->classRoom != '') {
+            return Result::where('sup_subject_id', $this->subject)->where('exam_id', $this->exam)->whereHas('user', function ($query) {
+                $query->where('class_id', $this->classEdu)->where('classroom_id', $this->classRoom);
+            });
+        } else {
+            return Result::where('sup_subject_id', $this->subject)->where('exam_id', $this->exam)->whereHas('user', function ($query) {
+                $query->where('class_id', $this->classEdu);
+            });
+        }
     }
 
     public function headings(): array

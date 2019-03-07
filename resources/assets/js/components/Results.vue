@@ -1,7 +1,7 @@
 <template>
     <div class="page-content browse container-fluid">
         <div class="attend-button">
-            <a :href="'https://kamel-ouda.com/api/export-results?class_id='+ classEdu +'&subject_id='+ supSubject +'&exam_id='+ exam" class="btn btn-sm  btn-primary pull-right delete">
+            <a :href="'https://kamel-ouda.com/api/export-results?class_id='+ classEdu +'&classroom_id='+ classRoom +'&subject_id='+ supSubject +'&exam_id='+ exam" class="btn btn-sm  btn-primary pull-right delete">
                 <i class="voyager-download"></i> <span>{{ trans('table.Export') }}</span>
             </a>
         </div>
@@ -9,6 +9,7 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
+                        <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
                         <section>
                             <table id="example" class="display table" cellspacing="0" width="100%">
                                 <thead>
@@ -45,6 +46,7 @@ import { saveAs } from 'file-saver';
                 exam: localStorage.exam,
                 typeExam: localStorage.typeExam,
                 supSubject: localStorage.supSubject,
+                user: '',
                 typeExams: {
                     name: '',
                 },
@@ -61,6 +63,9 @@ import { saveAs } from 'file-saver';
                         supSubjectId: localStorage.supSubject,
                     }
                 },
+                getUser: {
+                    apiURL: 'report-users',
+                },
                 export: {
                     apiURL: 'export-results',
                 },
@@ -69,6 +74,7 @@ import { saveAs } from 'file-saver';
         mounted() {
             this.getResults()
             this.fetch()
+            this.getUsers()
         },
         methods: {
             parsist(stageEdu, classEdu, classRoom, exam, typeExam, supSubject) {
@@ -83,6 +89,17 @@ import { saveAs } from 'file-saver';
                 $('#example').DataTable().destroy();
                 this.getResults()
                 this.fetch()
+                this.getUsers()
+            },
+            getUsers() {
+                this.$store.dispatch('retriveUser', {
+                    get: this.getUser,
+                    classEdu: this.classEdu,
+                    classRoom: this.classRoom
+                })
+                .then(response => {
+                    this.user = response.data
+                })
             },
             getResults() {
                 var stageEdu = this.stageEdu

@@ -17,6 +17,7 @@
                                         <th>{{ trans('salary.Previous years bonuses') }}</th>
                                         <th>{{ trans('salary.Bonus') }}</th>
                                         <th>{{ trans('salary.Share of employer') }}</th>
+                                        <th>{{ trans('salary.Share of employee') }}</th>
                                         <th>{{ trans('salary.Absent Per Day') }}</th>
                                         <th>{{ trans('salary.Late Per Day') }}</th>
                                     </tr>
@@ -44,7 +45,7 @@
         methods: {
             getSetting() {
                 var classEdu = this.classEdu
-                var editor; // use a global for the submit and return data rendering in the 
+                var editor; // use a global for the submit and return data rendering in the
                 $(document).ready(function () {
                     editor = new $.fn.dataTable.Editor({
                         ajax: {
@@ -59,6 +60,7 @@
                             { label: "Previous years bonuses:", name: "add_salaries.prev_year_bonus" },
                             { label: "Bonus:", name: "add_salaries.bonus" },
                             { label: "Share Employer:", name: "add_salaries.share_employer" },
+                            { label: "Share Employee:", name: "add_salaries.share_employee" },
                             { label: "Absent per Day:", name: "add_salaries.absent_day" },
                             { label: "Late per Day:", name: "add_salaries.late_day" },
                         ]
@@ -87,19 +89,20 @@
                             { data: "add_salaries.prev_year_bonus", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
                             { data: "add_salaries.bonus", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
                             { data: "add_salaries.share_employer", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
-                            { data: "add_salaries.absent_day", 
+                            { data: "add_salaries.share_employee", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
+                            { data: "add_salaries.absent_day",
                             'render': function (val, type, row) {
                                 return val ? val : 'أدخل القيمة'  + ' - ' + Math.round((+row.add_salaries.cost + +row.add_salaries.may_grant + +row.add_salaries.variable_wages + +row.add_salaries.prev_year_bonus + +row.add_salaries.bonus + +row.add_salaries.share_employer + +row.add_salaries.absent_day) / 30, 60)
                             } },
                             { data: "add_salaries.late_day", render: $.fn.dataTable.render.number( ',', '.', 0, 'L.E' ) },
-                            
+
                         ],
                         autoFill: {
-                            columns: [3,4,5,6,7,8,9,10],
+                            columns: [3,4,5,6,7,8,9,10,11],
                             editor:  editor
                         },
                         keys: {
-                            columns: [3,4,5,6,7,8,9,10],
+                            columns: [3,4,5,6,7,8,9,10,11],
                             editor:  editor
                         },
                         select: {
@@ -121,7 +124,7 @@
                                 },
                                 "targets": 1
                             },
-                        
+
                             { "visible": false,  "targets": [ 2 ] },
                         ],
                         buttons: [

@@ -3,7 +3,7 @@
         <form @submit.prevent action="">
             <div class="page-content browse container-fluid">
                 <div class="attend-button">
-                    <button v-if="count > 0" @click="sendSMS" type="submit" :title="trans('attendance.Send SMS') + ' - ' + count" class="btn btn-sm btn-warning pull-right delete"
+                    <button v-if="count > 0 && dateNow == new Date().toISOString().slice(0,10)" @click="sendSMS" type="submit" :title="trans('attendance.Send SMS') + ' - ' + count" class="btn btn-sm btn-warning pull-right delete"
                          id="sms-2">
                         <i class="voyager-paper-plane"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Send SMS') }} ({{count}}) غائب</span>
                     </button>
@@ -164,6 +164,13 @@
 
         },
         methods: {
+            parsist(stageEdu, classEdu, classRoom) {
+                this.stageEdu = stageEdu
+                this.classEdu = classEdu
+                this.classRoom = classRoom
+                this.fetch()
+                this.getUsers()
+            },
             fetch() {
                 this.$store.dispatch('retriveAttendanceTwo', {
                     get: this.get,
@@ -220,12 +227,6 @@
                     })
                     this.fetch()
                 })
-            },
-            parsist(stageEdu, classEdu, classRoom) {
-                this.stageEdu = stageEdu
-                this.classEdu = classEdu
-                this.classRoom = classRoom
-                this.fetch()
             },
             action(item, value) {
                 this.$store.dispatch('submitForm', {

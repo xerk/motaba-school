@@ -86,7 +86,7 @@ Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
     created() {
         let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js')
+        recaptchaScript.setAttribute('src', 'http://kamel-ouda.test/js/lang.js')
         document.head.appendChild(recaptchaScript)
         this.$store.dispatch('retrieveAuth')
     },

@@ -21,6 +21,7 @@ return [
     'Attendance' => 'الحضور',
     'Total Salary' => 'إجمالى الراتب',
     'Absent' => 'الغياب',
+    'Absence of patients' => 'غياب مرضى',
     'Total Allowances' => 'إجمالى العلاوات',
     'Total Deductions' => 'إجمالى الخصومات',
     'Total Attend' => 'إجمالى الحضور',
@@ -33,11 +34,10 @@ return [
     'Date' => 'التاريخ',
     'Attend' => 'الحضور',
     'Holiday' => 'الأجازة',
-    'Absent' => 'الغياب',
     'Late' => 'التأخير',
     'Modify' => 'تعديل',
     'Payment Method' => 'طريقة الدفع',
-    'Net Salary' => 'الراتب الأساسى',
+    'Net Salary' => 'صافى الراتب',
     'Payment Amount' => 'إجمالى الدفعة',
     'Created At' => 'تم الإنشاء فى',
     'Credit Card' => 'بطاقة ائتمان',
@@ -87,5 +87,7 @@ return [
     'Title' => 'اسم العملية',
     'Remaining' => 'المتبقى',
     'Add Paid' => 'إضافة دفعة',
+    'Share of employee' => 'حصة العامل',
+    'Pay Salary' => 'دفع الراتب',
 
 ];

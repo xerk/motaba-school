@@ -21,6 +21,7 @@ return [
     'Attendance' => 'Attendance',
     'Total Salary' => 'Total Salary',
     'Absent' => 'Absent',
+    'Absence of patients' => 'Absence of patients',
     'Total Allowances' => 'Total Allowances',
     'Total Deductions' => 'Total Deductions',
     'Total Attend' => 'Total Attend',
@@ -87,5 +88,6 @@ return [
     'Title' => 'Title',
     'Remaining' => 'Remaining',
     'Add Paid' => 'Add Paid',
-
+    'Share of employee' => 'Share of employee',
+    'Pay Salary' => 'Pay the salary',
 ];

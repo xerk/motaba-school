@@ -20,16 +20,22 @@
             </div>
             <div class="content-footer" style="display:none">
                 <div class="row">
-                    <div class="col-print-6 text-center timetable-font-size" style="padding-left: 10px">
+                    <div class="col-print-4 text-center" style="padding-left: 10px">
                         <ul class="list-unstyled">
                             <li>عميد المعهد</li>
                             <li>أ/سعيد عيسي</li>
                         </ul>
                     </div>
-                    <div class='col-print-6 text-center timetable-font-size' style="padding-right: 10px">
+                    <div class="col-sm-4 col-print-4 text-center">
                         <ul class="list-unstyled">
-                            <li>شئون الطلبة</li>
-                            <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
+                            <li>المدير المالي</li>
+                            <li>أ/خالد إبراهيم</li>
+                        </ul>
+                    </div>
+                    <div class='col-print-4 text-center' style="padding-right: 10px">
+                        <ul class="list-unstyled">
+                            <li>شئون العاملين</li>
+                            <li>أ/عبير السيد</li>
                         </ul>
                     </div>
                 </div>
@@ -49,7 +55,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <span style="font-size:14px" class="show-result label label-primary">
-                                            {{ cost =  addSalary.cost + addSalary.bonus + addSalary.may_grant + addSalary.prev_year_bonus + addSalary.share_employer + addSalary.variable_wages }}
+                                            {{ cost =  addSalary.cost + addSalary.bonus + addSalary.may_grant + addSalary.prev_year_bonus + addSalary.share_employer + addSalary.share_employee + addSalary.variable_wages }}
                                         </span>
                                     </div>
                                 </div>
@@ -58,7 +64,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Absent') }} ({{ addSalary.absent_day }}):</span>
+                                        <span class="show-field">{{ trans('salary.Absent') }} - {{ addSalary.absent_day }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -71,7 +77,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Absence of patients') }} ({{ Math.round(addSalary.absent_day / 4, 2) }}):</span>
+                                        <span class="show-field">{{ trans('salary.Absence of patients') }} - {{ Math.round(addSalary.absent_day / 4, 2) }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -84,7 +90,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <span class="show-field">{{ trans('salary.Late') }} (${{ addSalary.late_day }}):</span>
+                                        <span class="show-field">{{ trans('salary.Late') }} - {{ addSalary.late_day }}:</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="show-result">
@@ -231,14 +237,14 @@
             </div>
             <div class="col-md-9">
                 <div>
-                    <a class="btn btn-sm btn-primary" @click="paymentClickModal" title="make a payment"><i class="voyager-credit-card"></i> Make Payment</a>
+                    <a class="btn btn-sm btn-primary" @click="paymentClickModal" :title="trans('salary.Pay Salary')"><i class="voyager-credit-card"></i> {{ trans('salary.Pay Salary') }}</a>
                     <router-link @click.native="next" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" tag="a" :to="{name: 'paymentDetails', query: {'month': month+1,}}" :title="trans('table.Next')">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
                     </router-link>
                     <router-link @click.native="prev" class="btn btn-sm  btn-primary pull-right edit" style="padding: 5px 10px;" :title="trans('table.Prev')" tag="a" :to="{name: 'paymentDetails', query: {'month': month-1,}}">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-left"></i>
                     </router-link>
-                    <button class="btn btn-sm disabled pull-right" style="padding: 4px 15px;">{{ dateNow | moment("dddd, Do MM YY") }}</button>
+                    <button class="btn btn-sm disabled pull-right" style="padding: 4px 15px;">{{ dateNow | moment("(MM) MMMM - YYYY") }}</button>
                 </div>
                 <div class="panel panel-bordered">
                     <!-- <div class="panel-title">
@@ -309,18 +315,10 @@
                                         <td>{{ item.payment_amount }}</td>
                                         <td>{{ item.created_at }}</td>
                                         <td class="actions">
-                                            <a href.prevent="" @click="showModalPayment = true" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
+                                            <a href.prevent="" @click="openModal(item)" class="btn btn-sm btn-danger pull-right" style="display:inline; margin-right:10px;">
                                                 <i class="voyager-edit"></i> Delete
                                             </a>
                                         </td>
-                                        <modal v-if="showModalPayment" @close="showModalPayment = false">
-                                            <!--
-                                            you can use custom content here to overwrite
-                                            default content
-                                            -->
-                                            <h3 slot="header"><i class="voyager-trash"></i> {{ trans('salary.Are you sure you want to delete this Make Payment?') }}</h3>
-                                            <button slot="button" @click.once="deletePayment(item.id, index)" class="btn btn-danger delete-confirm">{{ trans('table.Yes, Delete it!') }}</button>
-                                        </modal>
                                     </tr>
                                 </tbody>
                             </table>
@@ -361,11 +359,13 @@
         <salary @getAttend="fetch" :list="list" v-if="showModal" @close="showModal = false">
             <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('salary.Make Payment') }} ({{ list.attend_date }}). </span></h3>
         </salary>
+        <modal-system :selectRow="selectRow" @confirm="removeOption" v-if="showModalDelete" @close="showModalDelete = false"></modal-system>
     </div>
 </template>
 
 <script>
     import Salary from '../modal/Salary'
+    import ModalSystem from '../modal/ModalSystem'
     import MakePayment from '../modal/MakePayment'
     import Modal from '../modal/Modal'
     export default {
@@ -373,6 +373,7 @@
             Salary,
             MakePayment,
             Modal,
+            ModalSystem,
         },
         props: {
             link: '',
@@ -391,7 +392,8 @@
                 delete: {
                     apiURL: 'make-payment',
                 },
-                showModalPayment: false,
+                showModalDelete: false,
+                selectRow: {},
                 user: {},
                 attendance: [],
                 attendCount: '',
@@ -411,7 +413,7 @@
                 allowances: '',
                 deductions: '',
                 model: {
-                    paymentMethod: '',
+                    paymentMethod: 'cash',
                     netSalary: '',
                     paymentAmount: '',
                     comment: '',
@@ -425,9 +427,13 @@
             this.fetch()
             setTimeout(() => {
                 this.dataTables()
-            }, 1000);
+            }, 2000);
         },
         methods: {
+            openModal(value) {
+                this.showModalDelete = true
+                this.selectRow = value
+            },
             paymentClickModal() {
                 var tSalary = (parseInt(this.cost) +  parseInt(this.allowances)) - (parseInt(this.deductions) + parseInt((this.addSalary.absent_day * this.absentCount)) + parseInt(((this.addSalary.absent_day / 4) * this.patientCount)))
                 this.model.netSalary = tSalary
@@ -477,22 +483,33 @@
                                     title: response.data
                                 })
                                 this.fetch()
+                                $('#users-table').DataTable().destroy();
+                                setTimeout(() => {
+                                    this.dataTables()
+                                }, 2000);
                             })
                     }
                 })
             },
-            removeOption(id, index) {
+            removeOption() {
+                this.showModalDelete = false
+                let index = this.makePayments.indexOf(this.selectRow);
                 this.$store.dispatch('delete', {
-                        delete: this.delete,
-                        id: id
+                    delete: this.delete,
+                    id: this.selectRow.id
+                })
+                .then(response => {
+                    this.$toast.success({
+                        title: response.data,
                     })
-                    .then(response => {
-                        this.$toast.success({
-                            title: response.data
-                        })
-                        this.attentions.splice(index, 1)
-                        this.showModal = false
-                    })
+                    this.fetch()
+                    this.makePayments.splice(index, 1)
+                    $('#users-table').DataTable().destroy();
+                    setTimeout(() => {
+                        this.dataTables()
+                    }, 2000);
+                })
+                this.selectRow = null;
             },
             dataTables() {
                 $(function() {
@@ -565,7 +582,7 @@
                 this.showModal = true
             },
             deletePayment(id, key) {
-                this.showModalPayment = false
+                this.showModalDelete = false
                 this.makePayments.splice(key, 1);
                 this.$store.dispatch('delete', {
                     delete: this.delete,

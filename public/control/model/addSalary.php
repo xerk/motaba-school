@@ -16,7 +16,7 @@ use
 	DataTables\Editor\Options,
 	DataTables\Editor\Upload,
 	DataTables\Editor\Validate;
-	
+
 // Build our Editor instance and process the data coming from _POST
 	Editor::inst( $db, 'users')
 	->fields(
@@ -42,15 +42,17 @@ use
 			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.share_employer' )
 			->validator( 'Validate::numeric' ),
+		Field::inst( 'add_salaries.share_employee' )
+			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.variable_wages' )
 			->validator( 'Validate::numeric' ),
 		Field::inst( 'add_salaries.bonus' )
 			->validator( 'Validate::numeric' ),
-		
+
 		Field::inst( 'add_salaries.created_at' )->set( Field::SET_EDIT ),
 		Field::inst( 'add_salaries.updated_at' )->set( Field::SET_EDIT )
 	)
-	
+
 	->on( 'preEdit', function ( $editor, $values ) {
 
 		$editor
@@ -62,7 +64,7 @@ use
 			->field( 'add_salaries.updated_at' )
 			->setValue( date('Y-m-d H:i:s') );
 	} )
-    ->leftJoin( 'add_salaries', 'users.id', '=', 'add_salaries.user_id' ) 
+    ->leftJoin( 'add_salaries', 'users.id', '=', 'add_salaries.user_id' )
 	->where( 'users.job', 0 )
 	->process( $_POST )
 	->json();

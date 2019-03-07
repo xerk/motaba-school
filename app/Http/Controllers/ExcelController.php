@@ -17,7 +17,7 @@ class ExcelController extends Controller
      */
     public function export(Request $request)
     {
-        return Excel::download(new ResultExport($request->class_id, $request->subject_id, $request->exam_id), 'results.xlsx');
+        return Excel::download(new ResultExport($request->class_id, $request->classroom_id, $request->subject_id, $request->exam_id), 'results.xlsx');
     }
 
     /**

@@ -66,7 +66,15 @@ class AttendanceController extends Controller
                     return 'Member is empty!';
                 }
             } else {
-                return 'You already added student!';
+                foreach ($attends as $key => $attend) {
+                    Attendance::updateOrCreate([
+                        'user_id'   => $attend->id,
+                        'attend_date' => $date->toDateString(),
+                    ], [
+                        'status' => $request->status,
+                    ]);
+                }
+                return 'Item\'s has beend updated!';
             }
         } else {
             return 'Please Choose the display student.';

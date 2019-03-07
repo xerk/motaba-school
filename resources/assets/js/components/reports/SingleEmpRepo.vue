@@ -11,7 +11,7 @@
                                         <thead>
                                             <tr>
                                                 <th><input type="checkbox"></th>
-                                                <th>{{ trans('expenses.Students')}}</th>
+                                                <th>{{ trans('salary.Name')}}</th>
                                                 <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                             </tr>
                                         </thead>

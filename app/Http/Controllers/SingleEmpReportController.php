@@ -20,7 +20,7 @@ class SingleEmpReportController extends Controller
      */
     public function index()
     {
-        $browes = Voyager::canOrFail('browse_single_emp_report');
+        $browes = Voyager::canOrFail('browse_single_emp_reports');
         return view('vendor.voyager.reports.single-emp-report');
     }
     /**
