@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable implements UserContract
 {
     use VoyagerUser,
-        HasRelationships;
+        HasRelationships, SoftDeletes;
 
-    // protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
     protected $guarded = [];
 
     protected $casts = [
