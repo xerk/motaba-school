@@ -29,7 +29,7 @@ class TransportedReportController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function anyData(Request $request)
-    {   
+    {
         if ($request->classroom != '') {
             $users = User::where(function ($query) use ($request) {
                 $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1)->where('status', '=', 2);

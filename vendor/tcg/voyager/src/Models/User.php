@@ -7,12 +7,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use TCG\Voyager\Contracts\User as UserContract;
 use TCG\Voyager\Traits\HasRelationships;
 use TCG\Voyager\Traits\VoyagerUser;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements UserContract
 {
     use VoyagerUser,
-        HasRelationships;
+        HasRelationships, SoftDeletes;
 
+    protected $dates = ['deleted_at'];
     protected $guarded = [];
 
     protected $casts = [

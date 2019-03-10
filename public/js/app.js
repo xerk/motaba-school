@@ -83280,10 +83280,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -83882,10 +83888,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -84371,10 +84383,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -84795,10 +84813,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -85219,10 +85243,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -85645,10 +85675,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
-                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
+                        text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }],
                     columnDefs: [{
                         visible: false,
@@ -86066,10 +86102,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -86490,10 +86532,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -86915,10 +86963,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -87422,10 +87476,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -87867,10 +87927,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -88439,10 +88505,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -88958,10 +89030,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -89449,10 +89527,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -89950,10 +90035,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -90286,10 +90377,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         }
                     }, {
                         extend: 'copy',
-                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ'
+                        text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'excel',
-                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل'
+                        text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     }, {
                         extend: 'colvis',
                         text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود'
@@ -91059,7 +91156,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             exam: localStorage.exam,
             typeExam: localStorage.typeExam,
             supSubject: localStorage.supSubject,
-            user: '',
+            user: {
+                class_room: {
+                    name: ''
+                },
+                class_edu: {
+                    name: ''
+                }
+            },
             typeExams: {
                 name: ''
             },

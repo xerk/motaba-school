@@ -46,7 +46,14 @@ import { saveAs } from 'file-saver';
                 exam: localStorage.exam,
                 typeExam: localStorage.typeExam,
                 supSubject: localStorage.supSubject,
-                user: '',
+                user: {
+                    class_room: {
+                        name: ''
+                    },
+                    class_edu: {
+                        name: ''
+                    }
+                },
                 typeExams: {
                     name: '',
                 },

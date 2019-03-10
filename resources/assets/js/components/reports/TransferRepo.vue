@@ -151,10 +151,16 @@ export default {
                         {
                             extend: 'excel',
                             text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                            exportOptions: {
+                                columns: ':visible'
+                            },
                         },
                         {
                             extend: 'colvis',
                             text: '<i class="fa fa-check-square" aria-hidden="true"></i> أختيار العمود',
+                            exportOptions: {
+                                columns: ':visible'
+                            },
                         }
                     ],
                     columnDefs: [ {

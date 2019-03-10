@@ -155,10 +155,16 @@
                             {
                                 extend: 'copy',
                                 text: '<i class="fa fa-clone" aria-hidden="true"></i> نسخ',
+                                exportOptions: {
+                                    columns: ':visible'
+                                },
                             },
                             {
                                 extend: 'excel',
                                 text: '<i class="fa fa-table" aria-hidden="true"></i> أكسيل',
+                                exportOptions: {
+                                    columns: ':visible'
+                                },
                             },
                             {
                                 extend: 'colvis',

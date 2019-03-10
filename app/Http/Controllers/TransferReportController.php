@@ -29,17 +29,17 @@ class TransferReportController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function anyData(Request $request)
-    {   
+    {
         if ($request->classroom != '') {
-            $users = User::where(function ($query) use ($request) {
+            $users = User::withTrashed()->where(function ($query) use ($request) {
                 $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1)->where('status', '=', 4);
             })->with('stageEdu', 'classEdu');
         } elseif ($request->class != '') {
-            $users = User::where(function ($query) use ($request) {
+            $users = User::withTrashed()->where(function ($query) use ($request) {
                 $query->where('class_id', '=', $request->class)->where('job', '=', 1)->where('status', '=', 4);
             })->with('stageEdu', 'classEdu');
         } else {
-            $users = User::where(function ($query) use ($request) {
+            $users = User::withTrashed()->where(function ($query) use ($request) {
                 $query->where('job', '=', 1)->where('status', '=', 4);
             })->with('stageEdu', 'classEdu');
         }
