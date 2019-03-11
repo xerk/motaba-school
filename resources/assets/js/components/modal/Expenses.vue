@@ -26,11 +26,11 @@
                                 <input required v-model="list.pay"  type="number" v-validate="'numeric'" class="form-control" name="payment-amount">
                                 <span v-show="errors.has('payment-amount')" class="help-block" style="color:#f96868">{{ errors.first('payment-amount') }}</span>
                             </div>
-                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bus_expenses') }">
+                            <!-- <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bus_expenses') }">
                                 <label for="bus_expenses">{{ trans('expenses.Bus Expenses') }}</label>
                                 <input v-model="list.bus_expenses" type="number" v-validate="'numeric'" class="form-control" name="bus_expenses">
                                 <span v-show="errors.has('bus_expenses')" class="help-block" style="color:#f96868">{{ errors.first('bus_expenses') }}</span>
-                            </div>
+                            </div> -->
                             <div :class="{'form-group col-md-6': true, 'has-error': errors.has('indebtedness') }">
                                 <label for="indebtedness">{{ trans('expenses.Indebtedness') }}</label>
                                 <input v-model="list.indebtedness" type="number" v-validate="'numeric'" class="form-control" name="indebtedness">
@@ -46,7 +46,7 @@
                                 <input required v-model="list.discount" type="number" v-validate="'numeric'" class="form-control" name="discount">
                                 <span v-show="errors.has('discount')" class="help-block" style="color:#f96868">{{ errors.first('discount') }}</span>
                             </div>
-                            <div :class="{'form-group col-md-12': true, 'has-error': errors.has('comment') }">
+                            <div :class="{'form-group col-md-6': true, 'has-error': errors.has('comment') }">
                                 <label for="comment">{{ trans('expenses.Comment') }}</label>
                                 <textarea v-model="list.comment" v-validate="''" class="form-control" name="comment"></textarea>
                                 <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>

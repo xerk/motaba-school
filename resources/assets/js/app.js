@@ -82,6 +82,7 @@ Vue.mixin({
 })
 
 Vue.prototype.envURL = process.env.MIX_APP_URL;
+Vue.prototype.moment = Moment;
 Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
     created() {

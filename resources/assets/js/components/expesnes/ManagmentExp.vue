@@ -168,30 +168,30 @@
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('pay') }">
                     <label for="pay">{{ trans('expenses.Payment Amount') }}</label>
-                    <input v-model="model.paymentAmount" type="number" v-validate="'numeric'" class="form-control" name="pay">
+                    <input v-model="model.paymentAmount" type="number" v-validate="'numeric|required'" class="form-control" name="pay">
                     <span v-show="errors.has('pay')" class="help-block" style="color:#f96868">{{ errors.first('pay') }}</span>
                 </div>
                 <!-- <div :class="{'form-group col-md-6': true, 'has-error': errors.has('bus_expenses') }">
                     <label for="bus_expenses">{{ trans('expenses.Bus Expenses') }}</label>
-                    <input v-model="model.bus_expenses" type="number" v-validate="'numeric'" class="form-control" name="bus_expenses">
+                    <input v-model="model.bus_expenses" type="number" v-validate="'numeric|required'" class="form-control" name="bus_expenses">
                     <span v-show="errors.has('bus_expenses')" class="help-block" style="color:#f96868">{{ errors.first('bus_expenses') }}</span>
                 </div> -->
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('indebtedness') }">
                     <label for="indebtedness">{{ trans('expenses.Indebtedness') }}</label>
-                    <input v-model="model.indebtedness" type="number" v-validate="'numeric'" class="form-control" name="indebtedness">
+                    <input v-model="model.indebtedness" type="number" v-validate="'numeric|required'" class="form-control" name="indebtedness">
                     <span v-show="errors.has('indebtedness')" class="help-block" style="color:#f96868">{{ errors.first('indebtedness') }}</span>
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('cost') }">
                     <label for="cost">{{ trans('expenses.Cost') }}</label>
-                    <input v-model="model.cost" type="number" v-validate="'numeric'" class="form-control" name="cost">
+                    <input v-model="model.cost" type="number" v-validate="'numeric|required'" class="form-control" name="cost">
                     <span v-show="errors.has('cost')" class="help-block" style="color:#f96868">{{ errors.first('cost') }}</span>
                 </div>
                 <div :class="{'form-group col-md-6': true, 'has-error': errors.has('discount') }">
                     <label for="discount">{{ trans('expenses.Discount') }}</label>
-                    <input v-model="model.discount" type="number" v-validate="'numeric'" class="form-control" name="discount">
+                    <input v-model="model.discount" type="number" v-validate="'numeric|required'" class="form-control" name="discount">
                     <span v-show="errors.has('discount')" class="help-block" style="color:#f96868">{{ errors.first('discount') }}</span>
                 </div>
-                <div :class="{'form-group col-md-12': true, 'has-error': errors.has('comment') }">
+                <div :class="{'form-group col-md-6': true, 'has-error': errors.has('comment') }">
                     <label for="comment">{{ trans('expenses.Comment') }}</label>
                     <textarea v-model="model.comment" v-validate="''" class="form-control" name="comment"></textarea>
                     <span v-show="errors.has('comment')" class="help-block" style="color:#f96868">{{ errors.first('comment') }}</span>
@@ -263,13 +263,13 @@
                 allowances: '',
                 deductions: '',
                 model: {
-                    paymentAmount: '',
-                    cost: '',
-                    discount: '',
+                    paymentAmount: 0,
+                    cost: 0,
+                    discount: 0,
                     serial_number: '',
-                    pay_date: '',
-                    bus_expenses: '',
-                    indebtedness: '',
+                    pay_date: new Date().toISOString().slice(0,10),
+                    bus_expenses: 0,
+                    indebtedness: 0,
                     comment: '',
                 },
                 makePayments: [],
@@ -286,14 +286,6 @@
                 this.selectRow = value
             },
             paymentClickModal() {
-                this.model.paymentAmount = ''
-                this.model.cost = ''
-                this.model.discount = ''
-                this.model.serial_number = ''
-                this.model.pay_date = ''
-                this.model.bus_expenses = ''
-                this.model.indebtedness = ''
-                this.model.comment = ''
                 this.paymentModal = true
             },
             fetch() {
@@ -326,6 +318,14 @@
                                     title: response.data
                                 })
                                 this.fetch()
+                                this.model.paymentAmount = ''
+                                this.model.cost = ''
+                                this.model.discount = ''
+                                this.model.serial_number = ''
+                                this.model.pay_date = ''
+                                this.model.bus_expenses = ''
+                                this.model.indebtedness = ''
+                                this.model.comment = ''
                             })
                     }
                 })

@@ -38647,6 +38647,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
 });
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.envURL = "http://kamel-ouda.test";
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.moment = __WEBPACK_IMPORTED_MODULE_41_vue_moment___default.a;
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.prototype.trans = function (local) {
     return _.get(window.i18n, local);
 };
@@ -59941,6 +59942,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -59962,11 +59964,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             users: [],
             stageEdu: localStorage.stageEdu,
             classEdu: localStorage.classEdu,
-            classRoom: localStorage.classRoom
+            classRoom: localStorage.classRoom,
+            user: {
+                class_room: {
+                    name: ''
+                },
+                class_edu: {
+                    name: ''
+                }
+            },
+            getUser: {
+                apiURL: 'report-users'
+            }
         };
     },
     mounted: function mounted() {
         this.fetch();
+        this.getUsers();
     },
 
     computed: {
@@ -59990,6 +60004,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.stageEdu = stageEdu;
             this.classEdu = classEdu;
             this.classRoom = classRoom;
+            this.getUsers();
+        },
+        getUsers: function getUsers() {
+            var _this3 = this;
+
+            this.$store.dispatch('retriveUser', {
+                get: this.getUser,
+                classRoom: this.classRoom,
+                classEdu: this.classEdu
+            }).then(function (response) {
+                _this3.user = response.data;
+            });
         }
     }
 });
@@ -60021,6 +60047,16 @@ var render = function() {
               _c("div", { staticClass: "col-md-12" }, [
                 _c("div", { staticClass: "panel panel-bordered" }, [
                   _c("div", { staticClass: "panel-body" }, [
+                    _c("h3", { staticClass: "text-center" }, [
+                      _vm.classEdu != ""
+                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
+                        : _vm._e(),
+                      _vm._v(" - "),
+                      _vm.classRoom != ""
+                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
                     _c("div", { staticClass: "table-responsive" }, [
                       _c(
                         "table",
@@ -60731,13 +60767,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             allowances: '',
             deductions: '',
             model: {
-                paymentAmount: '',
-                cost: '',
-                discount: '',
+                paymentAmount: 0,
+                cost: 0,
+                discount: 0,
                 serial_number: '',
-                pay_date: '',
-                bus_expenses: '',
-                indebtedness: '',
+                pay_date: new Date().toISOString().slice(0, 10),
+                bus_expenses: 0,
+                indebtedness: 0,
                 comment: ''
             },
             makePayments: []
@@ -60755,14 +60791,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.selectRow = value;
         },
         paymentClickModal: function paymentClickModal() {
-            this.model.paymentAmount = '';
-            this.model.cost = '';
-            this.model.discount = '';
-            this.model.serial_number = '';
-            this.model.pay_date = '';
-            this.model.bus_expenses = '';
-            this.model.indebtedness = '';
-            this.model.comment = '';
             this.paymentModal = true;
         },
         fetch: function fetch() {
@@ -60799,6 +60827,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             title: response.data
                         });
                         _this3.fetch();
+                        _this3.model.paymentAmount = '';
+                        _this3.model.cost = '';
+                        _this3.model.discount = '';
+                        _this3.model.serial_number = '';
+                        _this3.model.pay_date = '';
+                        _this3.model.bus_expenses = '';
+                        _this3.model.indebtedness = '';
+                        _this3.model.comment = '';
                     });
                 }
             });
@@ -61301,70 +61337,6 @@ var render = function() {
                   {
                     class: {
                       "form-group col-md-6": true,
-                      "has-error": _vm.errors.has("bus_expenses")
-                    }
-                  },
-                  [
-                    _c("label", { attrs: { for: "bus_expenses" } }, [
-                      _vm._v(_vm._s(_vm.trans("expenses.Bus Expenses")))
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.list.bus_expenses,
-                          expression: "list.bus_expenses"
-                        },
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "numeric",
-                          expression: "'numeric'"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "number", name: "bus_expenses" },
-                      domProps: { value: _vm.list.bus_expenses },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.list,
-                            "bus_expenses",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.errors.has("bus_expenses"),
-                            expression: "errors.has('bus_expenses')"
-                          }
-                        ],
-                        staticClass: "help-block",
-                        staticStyle: { color: "#f96868" }
-                      },
-                      [_vm._v(_vm._s(_vm.errors.first("bus_expenses")))]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    class: {
-                      "form-group col-md-6": true,
                       "has-error": _vm.errors.has("indebtedness")
                     }
                   },
@@ -61548,7 +61520,7 @@ var render = function() {
                   "div",
                   {
                     class: {
-                      "form-group col-md-12": true,
+                      "form-group col-md-6": true,
                       "has-error": _vm.errors.has("comment")
                     }
                   },
@@ -62250,8 +62222,8 @@ var render = function() {
                         {
                           name: "validate",
                           rawName: "v-validate",
-                          value: "numeric",
-                          expression: "'numeric'"
+                          value: "numeric|required",
+                          expression: "'numeric|required'"
                         }
                       ],
                       staticClass: "form-control",
@@ -62314,8 +62286,8 @@ var render = function() {
                         {
                           name: "validate",
                           rawName: "v-validate",
-                          value: "numeric",
-                          expression: "'numeric'"
+                          value: "numeric|required",
+                          expression: "'numeric|required'"
                         }
                       ],
                       staticClass: "form-control",
@@ -62378,8 +62350,8 @@ var render = function() {
                         {
                           name: "validate",
                           rawName: "v-validate",
-                          value: "numeric",
-                          expression: "'numeric'"
+                          value: "numeric|required",
+                          expression: "'numeric|required'"
                         }
                       ],
                       staticClass: "form-control",
@@ -62438,8 +62410,8 @@ var render = function() {
                         {
                           name: "validate",
                           rawName: "v-validate",
-                          value: "numeric",
-                          expression: "'numeric'"
+                          value: "numeric|required",
+                          expression: "'numeric|required'"
                         }
                       ],
                       staticClass: "form-control",
@@ -62478,7 +62450,7 @@ var render = function() {
                   "div",
                   {
                     class: {
-                      "form-group col-md-12": true,
+                      "form-group col-md-6": true,
                       "has-error": _vm.errors.has("comment")
                     }
                   },
@@ -69500,7 +69472,7 @@ var render = function() {
                       _vm._v(
                         _vm._s(_vm.trans("salary.Total Payable")) +
                           ": " +
-                          _vm._s(_vm.sumPayable)
+                          _vm._s(_vm.sumPayable ? _vm.sumPayable : 0)
                       )
                     ])
                   ]
@@ -69519,7 +69491,11 @@ var render = function() {
                       _vm._v(
                         _vm._s(_vm.trans("salary.Total Paid")) +
                           ": " +
-                          _vm._s(_vm.supplier.storages_count)
+                          _vm._s(
+                            _vm.supplier.storages_count
+                              ? _vm.supplier.storages_count
+                              : 0
+                          )
                       )
                     ])
                   ]
@@ -69538,7 +69514,11 @@ var render = function() {
                       _vm._v(
                         _vm._s(_vm.trans("salary.Total Remaining")) +
                           ": " +
-                          _vm._s(+_vm.sumPayable - +_vm.supplier.storages_count)
+                          _vm._s(
+                            +_vm.sumPayable - +_vm.supplier.storages_count
+                              ? +_vm.sumPayable - +_vm.supplier.storages_count
+                              : 0
+                          )
                       )
                     ])
                   ]

@@ -83,17 +83,17 @@
                     <div class="row text-center">
                         <div class="col-md-4">
                             <span style="font-size:14px" class="show-result">
-                                <h4>{{trans('salary.Total Payable')}}: {{sumPayable}}</h4>
+                                <h4>{{trans('salary.Total Payable')}}: {{sumPayable ? sumPayable : 0}}</h4>
                             </span>
                         </div>
                         <div class="col-md-4">
                             <span style="font-size:14px" class="show-result">
-                                <h4>{{trans('salary.Total Paid')}}: {{supplier.storages_count}}</h4>
+                                <h4>{{trans('salary.Total Paid')}}: {{supplier.storages_count ? supplier.storages_count : 0}}</h4>
                             </span>
                         </div>
                         <div class="col-md-4">
                             <span style="font-size:14px" class="show-result">
-                                <h4>{{trans('salary.Total Remaining')}}: {{+sumPayable - +supplier.storages_count}}</h4>
+                                <h4>{{trans('salary.Total Remaining')}}: {{+sumPayable - +supplier.storages_count ? +sumPayable - +supplier.storages_count : 0}}</h4>
                             </span>
                         </div>
                     </div>
@@ -217,7 +217,7 @@ import ModalSystem from './modal/ModalSystem'
                         this.fetch()
                         this.editValue = false
                     })
-                
+
             },
             changeValue() {
                 if (this.editValue == false ) {

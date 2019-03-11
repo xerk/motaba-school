@@ -9,6 +9,7 @@ use App\Imports\ResultImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Configs\ClassRoom;
 use App\Configs\ClassEdu;
+use App\Configs\SupSubject;
 
 class ExcelController extends Controller
 {
@@ -26,8 +27,9 @@ class ExcelController extends Controller
         } else {
             $classEdu = ClassEdu::where('id', $request->class_id)->first();
         }
+        $subject = SupSubject::with('subjects')->find($request->subject_id);
         // dd($classEdu);
-        return Excel::download(new ResultExport($request->class_id, $request->classroom_id, $request->subject_id, $request->exam_id), $classEdu->name . ($classEdu->classEdu != null ? ' '. $classEdu->classEdu->name.'.xlsx' : '.xlsx'));
+        return Excel::download(new ResultExport($request->class_id, $request->classroom_id, $request->subject_id, $request->exam_id), $subject->subjects->name . ' - ' . ($classEdu->classEdu != null ? $classEdu->classEdu->name : '') . ' - ' . $classEdu->name.'xlsx' );
     }
 
     /**

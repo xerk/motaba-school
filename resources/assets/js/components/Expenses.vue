@@ -7,6 +7,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-bordered">
                             <div class="panel-body">
+                                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
                                 <div class="table-responsive">
                                     <table id="dataTable" class="table table-hover dataTable no-footer">
                                         <thead>
@@ -69,10 +70,22 @@
                 stageEdu: localStorage.stageEdu,
                 classEdu: localStorage.classEdu,
                 classRoom: localStorage.classRoom,
+                user: {
+                    class_room: {
+                        name: ''
+                    },
+                    class_edu: {
+                        name: ''
+                    }
+                },
+                getUser: {
+                    apiURL: 'report-users',
+                },
             }
         },
         mounted() {
             this.fetch()
+            this.getUsers()
         },
         computed: {
             usersFilter() {
@@ -93,6 +106,17 @@
                 this.stageEdu = stageEdu
                 this.classEdu = classEdu
                 this.classRoom = classRoom
+                this.getUsers()
+            },
+            getUsers() {
+                this.$store.dispatch('retriveUser', {
+                    get: this.getUser,
+                    classRoom: this.classRoom,
+                    classEdu: this.classEdu
+                })
+                .then(response => {
+                    this.user = response.data
+                })
             },
         }
     }
