@@ -29,7 +29,7 @@ class ExcelController extends Controller
         }
         $subject = SupSubject::with('subjects')->find($request->subject_id);
         // dd($classEdu);
-        return Excel::download(new ResultExport($request->class_id, $request->classroom_id, $request->subject_id, $request->exam_id), $subject->subjects->name . ' - ' . ($classEdu->classEdu != null ? $classEdu->classEdu->name : '') . ' - ' . $classEdu->name.'xlsx' );
+        return Excel::download(new ResultExport($request->class_id, $request->classroom_id, $request->subject_id, $request->exam_id), $subject->subjects->name . ' - ' . ($classEdu->classEdu != null ? $classEdu->classEdu->name : '') . ' - ' . $classEdu->name.'.xlsx' );
     }
 
     /**
