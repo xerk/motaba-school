@@ -11,10 +11,10 @@
         {!! menu('main', 'vendor.frontend.layout.navbar') !!}
         @yield('content')
     </div>
-    
+
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     @include('vendor.frontend.layout.footer')
-    
+
     @yield('extra-js')
 </body>
 </html>

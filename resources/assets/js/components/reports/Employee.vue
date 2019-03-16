@@ -6,6 +6,7 @@
                     <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                 </div>
                 <div class="col-print-4 col-sm-4 text-center">
+                    <h3 class="text-center">كشف موظفين</h3>
                     <!-- <h3><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span> عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3> -->
                 </div>
                 <div class='col-print-4 col-sm-4' style="padding-right: 10px">
@@ -37,6 +38,7 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
+                        <h3 class="text-center">كشف موظفين</h3>
                         <div class="table-responsive">
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>

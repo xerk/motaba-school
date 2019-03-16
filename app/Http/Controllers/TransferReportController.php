@@ -31,16 +31,16 @@ class TransferReportController extends Controller
     public function anyData(Request $request)
     {
         if ($request->classroom != '') {
-            $users = User::withTrashed()->where(function ($query) use ($request) {
-                $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1)->where('status', '=', 4);
+            $users = User::onlyTrashed()->where(function ($query) use ($request) {
+                $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1);
             })->with('stageEdu', 'classEdu');
         } elseif ($request->class != '') {
-            $users = User::withTrashed()->where(function ($query) use ($request) {
-                $query->where('class_id', '=', $request->class)->where('job', '=', 1)->where('status', '=', 4);
+            $users = User::onlyTrashed()->where(function ($query) use ($request) {
+                $query->where('class_id', '=', $request->class)->where('job', '=', 1);
             })->with('stageEdu', 'classEdu');
         } else {
-            $users = User::withTrashed()->where(function ($query) use ($request) {
-                $query->where('job', '=', 1)->where('status', '=', 4);
+            $users = User::onlyTrashed()->where(function ($query) use ($request) {
+                $query->where('job', '=', 1);
             })->with('stageEdu', 'classEdu');
         }
         return Datatables::of($users)->toJson();

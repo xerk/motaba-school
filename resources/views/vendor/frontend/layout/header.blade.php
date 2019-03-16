@@ -8,6 +8,9 @@
 <meta name="robots" content="index,follow">
 <meta name="googlebot" content="index,follow">
 
+    <meta name="url" content="https://kamel-ouda.com/">
+
+
 <link href="{{ asset('themes/uikit/css/app.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
@@ -20,10 +23,10 @@
 }
 
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
-    font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif';    
+    font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif';
 }
 .uk-h1, .uk-h2, .uk-h3.uk-h1, h1, h1.uk-h1, h2.uk-h1, h3 {
-    font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif' !important;    
+    font-family: 'Droid Arabic Kufi', '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif' !important;
 }
 </style>
 @endif

@@ -1,6 +1,5 @@
 <template>
     <div>
-
             <div class="page-content browse container-fluid">
                 <div class="row">
                     <div class="col-md-12">

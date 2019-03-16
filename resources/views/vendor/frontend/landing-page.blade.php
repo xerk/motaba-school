@@ -52,7 +52,7 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
        <h2>{{ Session::get('locale') == 'en' ? setting('site.title_school_definitions') : setting('site.title_school_definitions_ar') }}</h2>
        <p class="uk-text-center uk-margin-remove-top uk-align-center uk-margin-remove-bottom" style="color:#ffffff; opacity:0.8;">{{ Session::get('locale') == 'en' ? setting('site.body_school_definitions') : setting('site.body_school_definitions_ar') }}</p>
        <div class="uk-grid">
-           @foreach ($schoolDefi as $item)    
+           @foreach ($schoolDefi as $item)
             <div class="uk-width-1-3@m uk-width-1-2@s uk-width-1-1 uk-margin-large-top uk-text-center" uk-scrollspy="cls:uk-animation-slide-bottom">
                 <img src="{{ Voyager::image($item->icon) }}">
                 <h4>{{ Session::get('locale') == 'en' ? $item->title : $item->title_ar }}</h4>
@@ -84,7 +84,7 @@ y="0px" viewBox="0 0 1440 156" style="enable-background:new 0 0 1440 126;" xml:s
        <p class="uk-text-center uk-margin-remove-top">{{ Session::get('locale') == 'en' ? setting('site.body_testimonials') : setting('site.body_testimonials_ar') }}</p>
        <div class="uk-position-relative uk-visible-toggle uk-dark" uk-slider="autoplay: true;">
            <ul class="uk-slider-items uk-child-width-1-1">
-               @foreach ($testimonials as $item)    
+               @foreach ($testimonials as $item)
                 <li class="testimonial uk-text-center">
                     <img src="{{ Voyager::image($item->image) }}" alt="Testimonial 1" uk-slider-parallax="x: 200,-200">
                     <p uk-slider-parallax="x: 200,-200">{{ Session::get('locale') == 'en' ? $item->title : $item->title_ar }}</p>

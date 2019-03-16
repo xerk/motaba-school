@@ -66992,7 +66992,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['link'],
@@ -83189,6 +83188,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -83366,13 +83367,15 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
+            _c("h3", { staticClass: "text-center" }, [_vm._v("سجل الطلاب")]),
+            _vm._v(" "),
             _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -83388,12 +83391,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("سجل الطلاب")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -83792,6 +83801,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -83972,12 +83983,16 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("h3", { staticClass: "text-center" }, [
+              _vm._v("إحصائية أولياء الأمور")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -83993,12 +84008,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("إحصائية أولياء الأمور")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -84290,6 +84311,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -84425,12 +84448,16 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("h3", { staticClass: "text-center" }, [
+              _vm._v("إحصائية المستجدين")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -84446,12 +84473,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("إحصائية المستجدين")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -84720,6 +84753,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -84855,12 +84890,16 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("h3", { staticClass: "text-center" }, [
+              _vm._v("إحصائيات الوافدين")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -84876,12 +84915,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("إحصائيات الوافدين")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -85150,6 +85195,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -85284,13 +85331,15 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
+            _c("h3", { staticClass: "text-center" }, [_vm._v("سجل المنقولين")]),
+            _vm._v(" "),
             _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -85306,12 +85355,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("سجل المنقولين")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -85580,6 +85635,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -85713,13 +85770,15 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
+            _c("h3", { staticClass: "text-center" }, [_vm._v("سجل المحذوفين")]),
+            _vm._v(" "),
             _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -85735,12 +85794,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("سجل المحذوفين")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -86009,6 +86074,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86144,12 +86211,16 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("h3", { staticClass: "text-center" }, [
+              _vm._v("إحصائية الراسبين")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -86165,12 +86236,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("إحصائية الراسبين")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -86439,6 +86516,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -86574,12 +86653,16 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("h3", { staticClass: "text-center" }, [
+              _vm._v("إحصائية المكفوفين")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -86595,14 +86678,24 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
-                      _vm.classEdu != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
-                        : _vm._e(),
-                      _vm._v(" - "),
-                      _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
-                        : _vm._e()
-                    ])
+                      _vm._v("إحصائية المكفوفين")
+                    ]),
+                    _vm._v(" "),
+                    _vm.user != null
+                      ? _c("h3", { staticClass: "text-center" }, [
+                          _vm.classEdu != ""
+                            ? _c("span", [
+                                _vm._v(_vm._s(_vm.user.class_edu.name))
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.classRoom != ""
+                            ? _c("span", [
+                                _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _vm._m(1)
@@ -86870,6 +86963,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -87017,12 +87112,16 @@ var render = function() {
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("h3", { staticClass: "text-center" }, [
+              _vm._v("إحصائية المذاهب")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -87038,14 +87137,24 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-sm-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
-                      _vm.classEdu != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
-                        : _vm._e(),
-                      _vm._v(" - "),
-                      _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
-                        : _vm._e()
-                    ])
+                      _vm._v("إحصائية المذاهب")
+                    ]),
+                    _vm._v(" "),
+                    _vm.user
+                      ? _c("h3", { staticClass: "text-center" }, [
+                          _vm.classEdu != ""
+                            ? _c("span", [
+                                _vm._v(_vm._s(_vm.user.class_edu.name))
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.classRoom != ""
+                            ? _c("span", [
+                                _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                              ])
+                            : _vm._e()
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _vm._m(1)
@@ -87383,6 +87492,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -87518,13 +87629,15 @@ var render = function() {
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "panel panel-bordered" }, [
           _c("div", { staticClass: "panel-body" }, [
+            _c("h3", { staticClass: "text-center" }, [_vm._v("قائمة طلاب")]),
+            _vm._v(" "),
             _c("h3", { staticClass: "text-center" }, [
               _vm.classEdu != ""
                 ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                 : _vm._e(),
-              _vm._v(" - "),
+              _vm._v(" "),
               _vm.classRoom != ""
-                ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                ? _c("span", [_vm._v("- " + _vm._s(_vm.user.class_room.name))])
                 : _vm._e()
             ]),
             _vm._v(" "),
@@ -87540,12 +87653,18 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-print-4 text-center" }, [
                     _c("h3", { staticClass: "text-center" }, [
+                      _vm._v("قائمة طلاب")
+                    ]),
+                    _vm._v(" "),
+                    _c("h3", { staticClass: "text-center" }, [
                       _vm.classEdu != ""
                         ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                         : _vm._e(),
-                      _vm._v(" - "),
+                      _vm._v(" "),
                       _vm.classRoom != ""
-                        ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                        ? _c("span", [
+                            _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                          ])
                         : _vm._e()
                     ])
                   ]),
@@ -88409,6 +88528,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -88637,12 +88758,18 @@ var render = function() {
           _c("div", { staticClass: "panel panel-bordered" }, [
             _c("div", { staticClass: "panel-body" }, [
               _c("h3", { staticClass: "text-center" }, [
+                _vm._v("كشف غياب طلاب")
+              ]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "text-center" }, [
                 _vm.classEdu != ""
                   ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                   : _vm._e(),
-                _vm._v(" - "),
+                _vm._v(" "),
                 _vm.classRoom != ""
-                  ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                  ? _c("span", [
+                      _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                    ])
                   : _vm._e()
               ]),
               _vm._v(" "),
@@ -88658,15 +88785,19 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4 text-center" }, [
                       _c("h3", { staticClass: "text-center" }, [
+                        _vm._v("كشف غياب طلاب")
+                      ]),
+                      _vm._v(" "),
+                      _c("h3", { staticClass: "text-center" }, [
                         _vm.classEdu != ""
                           ? _c("span", [
                               _vm._v(_vm._s(_vm.user.class_edu.name))
                             ])
                           : _vm._e(),
-                        _vm._v(" - "),
+                        _vm._v(" "),
                         _vm.classRoom != ""
                           ? _c("span", [
-                              _vm._v(_vm._s(_vm.user.class_room.name))
+                              _vm._v("- " + _vm._s(_vm.user.class_room.name))
                             ])
                           : _vm._e()
                       ])
@@ -88971,6 +89102,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -89188,7 +89320,11 @@ var staticRenderFns = [
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-print-4 col-sm-4 text-center" }),
+          _c("div", { staticClass: "col-print-4 col-sm-4 text-center" }, [
+            _c("h3", { staticClass: "text-center" }, [
+              _vm._v("كشف غياب الموظفين يومى")
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -89401,6 +89537,7 @@ exports.push([module.i, "\n@media print {\n* {\n        font-size: 14px;\n}\ntab
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -89686,7 +89823,11 @@ var staticRenderFns = [
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-print-4 col-sm-4 text-center" }),
+          _c("div", { staticClass: "col-print-4 col-sm-4 text-center" }, [
+            _c("h3", { staticClass: "text-center" }, [
+              _vm._v("كشف غياب الموظفين شهرى")
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -89961,6 +90102,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -90091,7 +90234,9 @@ var staticRenderFns = [
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "col-print-4 col-sm-4 text-center" }),
+            _c("div", { staticClass: "col-print-4 col-sm-4 text-center" }, [
+              _c("h3", { staticClass: "text-center" }, [_vm._v("كشف موظفين")])
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -90159,6 +90304,8 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "panel panel-bordered" }, [
             _c("div", { staticClass: "panel-body" }, [
+              _c("h3", { staticClass: "text-center" }, [_vm._v("كشف موظفين")]),
+              _vm._v(" "),
               _c("div", { staticClass: "table-responsive" }, [
                 _c(
                   "table",
@@ -90323,6 +90470,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -90413,6 +90561,10 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-md-12" }, [
           _c("div", { staticClass: "panel panel-bordered" }, [
             _c("div", { staticClass: "panel-body" }, [
+              _c("h3", { staticClass: "text-center" }, [
+                _vm._v("إحصائية النوع")
+              ]),
+              _vm._v(" "),
               _c(
                 "div",
                 {
@@ -90432,7 +90584,9 @@ var staticRenderFns = [
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4 text-center" }),
+                    _c("div", { staticClass: "col-sm-4 text-center" }, [
+                      _c("h3", [_vm._v("إحصائية النوع")])
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
