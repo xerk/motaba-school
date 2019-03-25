@@ -60,7 +60,8 @@ $.extend( true, $.fn.dataTable.Editor.classes, {
 		"msg-error":     "label alert"
 	},
 	form: {
-		button:  "button small"
+		button:  "button small",
+		buttonInternal:  "button small"
 	}
 } );
 

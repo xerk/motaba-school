@@ -73,7 +73,8 @@ $.extend( true, $.fn.dataTable.Editor.classes, {
 	},
 	"form": {
 		"tag": "form-horizontal",
-		"button": "btn btn-outline-secondary"
+		"button": "btn",
+		"buttonInternal": "btn btn-outline-secondary"
 	},
 	"field": {
 		"wrapper": "DTE_Field form-group row",
