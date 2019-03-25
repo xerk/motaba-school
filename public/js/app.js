@@ -92392,9 +92392,11 @@ var render = function() {
                 _vm.classEdu != ""
                   ? _c("span", [_vm._v(_vm._s(_vm.user.class_edu.name))])
                   : _vm._e(),
-                _vm._v(" - "),
+                _vm._v(" "),
                 _vm.classRoom != ""
-                  ? _c("span", [_vm._v(_vm._s(_vm.user.class_room.name))])
+                  ? _c("span", [
+                      _vm._v("- " + _vm._s(_vm.user.class_room.name))
+                    ])
                   : _vm._e()
               ]),
               _vm._v(" "),
