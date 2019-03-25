@@ -91615,7 +91615,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 classRoom: [],
                 supsubjects: [],
                 exams: [],
-                typeExams: []
+                typeExams: [],
+                classEduEmpty: [],
+                classRoomEmpty: []
             },
             stagelog: []
         };
@@ -91631,9 +91633,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.stageSelect == '') {
                 this.classSelect = '';
             } else {
-                return this.model.classEdu.filter(function (item) {
+                var ClassIsEmpty = this.model.classEdu.filter(function (item) {
                     return item.stage_edu_id == _this.stageSelect;
                 });
+                if (ClassIsEmpty == '') {
+                    return this.model.classEduEmpty.filter(function (item) {
+                        return item.stage_edu_id == _this.stageSelect;
+                    });
+                } else {
+                    return ClassIsEmpty;
+                }
             }
         },
         classRoomEduFilter: function classRoomEduFilter() {
@@ -91642,9 +91651,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.classSelect == '') {
                 this.classRoomSelect = '';
             } else {
-                return this.model.classRoom.filter(function (item) {
+                var RoomIsEmpty = this.model.classRoom.filter(function (item) {
                     return item.class_edu_id == _this2.classSelect;
                 });
+                if (RoomIsEmpty == '') {
+                    return this.model.classRoomEmpty.filter(function (item) {
+                        return item.class_edu_id == _this2.classSelect;
+                    });
+                } else {
+                    return RoomIsEmpty;
+                }
             }
         },
         subjectFilter: function subjectFilter() {
@@ -91670,6 +91686,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this4.model.supsubjects = response.data.supsubjects;
                 _this4.model.exams = response.data.exams;
                 _this4.model.typeExams = response.data.typeExams;
+                _this4.model.classEduEmpty = response.data.classEdu;
+                _this4.model.classRoomEmpty = response.data.classRoom;
             });
             if (localStorage.stageEdu) {
                 this.stageSelect = localStorage.stageEdu;

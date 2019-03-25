@@ -105,6 +105,8 @@
                     supsubjects: [],
                     exams: [],
                     typeExams: [],
+                    classEduEmpty: [],
+                    classRoomEmpty: [],
                 },
                 stagelog: [],
             }
@@ -117,18 +119,32 @@
                 if (this.stageSelect == '') {
                     this.classSelect = ''
                 } else {
-                    return this.model.classEdu.filter(item => {
+                    var ClassIsEmpty = this.model.classEdu.filter(item => {
                         return item.stage_edu_id == this.stageSelect
                     })
+                    if (ClassIsEmpty == '') {
+                        return this.model.classEduEmpty.filter(item => {
+                            return item.stage_edu_id == this.stageSelect
+                        })
+                    } else {
+                        return ClassIsEmpty
+                    }
                 }
             },
             classRoomEduFilter() {
                 if (this.classSelect == '') {
                     this.classRoomSelect = ''
                 } else {
-                    return this.model.classRoom.filter(item => {
+                    var RoomIsEmpty = this.model.classRoom.filter(item => {
                         return item.class_edu_id == this.classSelect
                     })
+                    if (RoomIsEmpty == '') {
+                        return this.model.classRoomEmpty.filter(item => {
+                            return item.class_edu_id == this.classSelect
+                        })
+                    } else {
+                        return RoomIsEmpty
+                    }
                 }
             },
             subjectFilter() {
@@ -151,6 +167,8 @@
                         this.model.supsubjects = response.data.supsubjects
                         this.model.exams = response.data.exams
                         this.model.typeExams = response.data.typeExams
+                        this.model.classEduEmpty = response.data.classEdu
+                        this.model.classRoomEmpty = response.data.classRoom
                     })
                 if (localStorage.stageEdu) {
                     this.stageSelect = localStorage.stageEdu;
