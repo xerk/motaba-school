@@ -8,7 +8,7 @@
                         <div class="content-header" style="display: none">
                             <div class="row">
                                 <div class="col-sm-4 pull-left">
-                                    <img src="http://localhost/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                                    <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                                 </div>
                                 <div class="col-sm-4 text-center">
                                     <h3>إحصائية النوع</h3>
@@ -132,7 +132,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `http://localhost/admin/get-gender`,
+                    ajax: `https://kamel-ouda.com/admin/get-gender`,
                     columns: [
                         { data: 'id', name: 'id' },
                         { data: 'name', name: 'name' },

@@ -12,7 +12,7 @@
         <div class="content-header" style="display: none">
             <div class="row">
                 <div class="col-print-4 col-sm-4 pull-left" style="padding-left: 10px">
-                    <img src="http://localhost/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                    <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                 </div>
                 <div class="col-print-4 col-sm-4 text-center">
                     <h3 class="text-center">كشف غياب الموظفين يومى</h3>
@@ -140,7 +140,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `http://localhost/admin/get-employee-absent?day=${day}`,
+                    ajax: `https://kamel-ouda.com/admin/get-employee-absent?day=${day}`,
                     columns: [
                         { data: 'users', name: 'users.name' },
                         { data: 'users', name: 'users.last_name' },

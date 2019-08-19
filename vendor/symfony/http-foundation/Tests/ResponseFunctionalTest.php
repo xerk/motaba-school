@@ -45,7 +45,7 @@ class ResponseFunctionalTest extends TestCase
      */
     public function testCookie($fixture)
     {
-        $result = file_get_contents(sprintf('http://localhost:8054/%s.php', $fixture));
+        $result = file_get_contents(sprintf('https://kamel-ouda.com:8054/%s.php', $fixture));
         $this->assertStringMatchesFormatFile(__DIR__.sprintf('/Fixtures/response-functional/%s.expected', $fixture), $result);
     }
 
