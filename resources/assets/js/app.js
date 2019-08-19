@@ -31,6 +31,8 @@ import AbsentEmpRepo from './components/reports/AbsentEmp'
 import AbsentEmpMonthRepo from './components/reports/AbsentEmpMonth'
 import EmployeeRepo from './components/reports/Employee'
 import GenderRepo from './components/reports/Gender'
+import RepoDesigner from './components/reports/ReportDesigner'
+import UpgradeStudents from './components/upgradeStudents/Upgrade'
 const _ = require('lodash')
 import SecretNumber from './components/SecretNumber'
 import AddExpense from './components/AddExpense'
@@ -47,6 +49,7 @@ import Datetime from 'vue-datetime'
 // You need a specific loader for CSS files
 import 'vue-datetime/dist/vue-datetime.css'
 import vSelect from 'vue-select'
+import VueFuse from 'vue-fuse'
 
 window.Vue = require('vue');
 window.EventBus = new Vue()
@@ -60,13 +63,15 @@ var toastrConfigs = {
     hideMethod: 'flash',
     closeButton: false,
 }
+
+Vue.use(VueFuse)
 Vue.use(CxltToastr, toastrConfigs)
 Vue.use(Moment)
-Vue.use(VeeValidate)
 Vue.use(VueRouter)
 Vue.use(Croppa)
 Vue.use(Datetime)
 Vue.use(vSelect)
+Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
 
 const router = new VueRouter({
     routes,
@@ -87,7 +92,7 @@ Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
     created() {
         let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js')
+        recaptchaScript.setAttribute('src', 'http://localhost/js/lang.js')
         document.head.appendChild(recaptchaScript)
         this.$store.dispatch('retrieveAuth')
     },
@@ -130,6 +135,8 @@ const app = new Vue({
         EmployeeRepo,
         Timetables,
         AbsentEmpMonthRepo,
+        UpgradeStudents,
+        RepoDesigner,
     },
 
 });

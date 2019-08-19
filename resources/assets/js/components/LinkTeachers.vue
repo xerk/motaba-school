@@ -6,34 +6,41 @@
                     <div class="col-md-12">
                         <div class="panel panel-bordered">
                             <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table id="dataTable" class="table table-hover dataTable no-footer">
-                                        <thead>
-                                            <tr>
-                                                <th><input type="checkbox"></th>
-                                                <th>{{ trans('link-teacher.Name')}}</th>
-                                                <th>{{ trans('link-teacher.ClassRooms & Subjects No')}}</th>
-                                                <th class="actions text-right">{{ trans('table.Actions')}}</th>
-                                            </tr>
-                                        </thead>
-                                        <transition-group tag="tbody" name="list" mode="in-out">
-                                                <tr v-for="(item, index) in usersFilter" :key="index">
-                                                    <td><input type="checkbox"></td>
-                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
-                                                    <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
-                                                    <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
-                                                    <td><span class="label label-info">{{ item.link_teachers_count }}</span></td>
+                                <div class="row">
+                                    <div class="col-md-6 pull-right">
+                                        <Search @performSearch="searchResults" :items="users" ></Search>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table id="dataTable" class="table table-hover dataTable no-footer">
+                                                <thead>
+                                                    <tr>
+                                                        <th><input type="checkbox"></th>
+                                                        <th>{{ trans('link-teacher.Name')}}</th>
+                                                        <th>{{ trans('link-teacher.ClassRooms & Subjects No')}}</th>
+                                                        <th class="actions text-right">{{ trans('table.Actions')}}</th>
+                                                    </tr>
+                                                </thead>
+                                                <transition-group tag="tbody" name="list" mode="in-out">
+                                                        <tr v-for="(item, index) in retriveSearch" :key="index">
+                                                            <td><input type="checkbox"></td>
+                                                            <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                            <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                                            <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
+                                                            <td><span class="label label-info">{{ item.link_teachers_count }}</span></td>
 
-                                                    <td class="no-sort no-click" id="bread-actions">
+                                                            <td class="no-sort no-click" id="bread-actions">
 
-                                                            <router-link tag="a" :to="{ name: 'linkTeacher', params: {id: item.id} }" title="Link a teacher" class="btn btn-new-relationship pull-right add"
-                                                                data-id="2" id="add-2">
-                                                                    <i class="voyager-heart"></i> <span class="hidden-xs hidden-sm">Link a teacher</span>
-                                                            </router-link>
-                                                    </td>
-                                                </tr>
-                                        </transition-group>
-                                    </table>
+                                                                    <router-link tag="a" :to="{ name: 'linkTeacher', params: {id: item.id} }" title="Link a teacher" class="btn btn-new-relationship pull-right add"
+                                                                        data-id="2" id="add-2">
+                                                                            <i class="voyager-heart"></i> <span class="hidden-xs hidden-sm">Link a teacher</span>
+                                                                    </router-link>
+                                                            </td>
+                                                        </tr>
+                                                </transition-group>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +51,11 @@
     </div>
 </template>
 <script>
+import Search from './table/Search'
     export default {
+        components: {
+            Search,
+        },
         props: ['link'],
         data() {
             return {
@@ -52,19 +63,31 @@
                     apiURL: 'link-teachers',
                 },
                 users: [],
+                searchItems: [],
+                query: ''
             }
         },
         mounted() {
             this.fetch()
         },
         computed: {
-            usersFilter() {
-                return this.users.filter(item => {
-                    return item.job == 0
-                })
-            },
+            retriveSearch() {
+                if (this.query.length == 0) {
+                     return this.users.filter(item => {
+                        return item.job == 0
+                    })
+                } else {
+                     return this.searchItems.filter(item => {
+                        return item.job == 0
+                    })
+                }
+            }
         },
         methods: {
+            searchResults(result, query) {
+                this.searchItems = result
+                this.query = query
+            },
             fetch() {
                 this.$store.dispatch('retriveAttendance', {
                     get: this.get

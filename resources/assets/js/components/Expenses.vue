@@ -8,6 +8,11 @@
                         <div class="panel panel-bordered">
                             <div class="panel-body">
                                 <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
+                                <div class="row">
+                                    <div class="col-md-6 pull-right">
+                                        <Search @performSearch="searchResults" :items="users" ></Search>
+                                    </div>
+                                    <div class="col-md-12">
                                 <div class="table-responsive">
                                     <table id="dataTable" class="table table-hover dataTable no-footer">
                                         <thead>
@@ -20,7 +25,7 @@
                                             </tr>
                                         </thead>
                                         <transition-group tag="tbody" name="list" mode="in-out">
-                                                <tr v-for="(item, index) in usersFilter" :key="index">
+                                                <tr v-for="(item, index) in retriveSearch" :key="index">
                                                     <td><input type="checkbox"></td>
                                                     <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
                                                     <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
@@ -39,6 +44,8 @@
                                         </transition-group>
                                     </table>
                                 </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -49,10 +56,12 @@
     </div>
 </template>
 <script>
+    import Search from './table/Search'
     import Fab from './fab/Fab'
     export default {
         components: {
             Fab,
+            Search,
         },
         props: ['link'],
         data() {
@@ -81,6 +90,8 @@
                 getUser: {
                     apiURL: 'report-users',
                 },
+                searchItems: [],
+                query: ''
             }
         },
         mounted() {
@@ -94,8 +105,25 @@
                         item.classroom_id == this.classRoom && item.job == 1
                 })
             },
+            retriveSearch() {
+                if (this.query.length == 0) {
+                     return this.users.filter(item => {
+                        return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
+                            item.classroom_id == this.classRoom && item.job == 1
+                    })
+                } else {
+                     return this.searchItems.filter(item => {
+                        return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
+                            item.classroom_id == this.classRoom && item.job == 1
+                    })
+                }
+            }
         },
         methods: {
+            searchResults(result, query) {
+                this.searchItems = result
+                this.query = query
+            },
             fetch() {
                 this.$store.dispatch('retriveOptions', this.get)
                 .then(response => {

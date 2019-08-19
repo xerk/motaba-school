@@ -8,7 +8,7 @@
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-sm-4 pull-left">
-                            <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                            <img src="http://localhost/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
                         <div class="col-sm-4 text-center">
                             <h3 class="text-center">سجل الطلاب</h3>
@@ -193,7 +193,7 @@ export default {
                     processing: false,
                     paging: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `http://localhost/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },

@@ -3,20 +3,26 @@
         <form @submit.prevent action="">
             <div class="page-content browse container-fluid">
                 <div class="attend-button">
-                    <button v-if="count > 0 && dateNow == new Date().toISOString().slice(0,10)" @click="sendSMS" type="submit" :title="trans('attendance.Send SMS') + ' - ' + count" class="btn btn-sm btn-warning pull-right delete"
-                         id="sms-2">
-                        <i class="voyager-paper-plane"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Send SMS') }} ({{count}}) غائب</span>
+                    <button v-if="count > 0 && dateNow == new Date().toISOString().slice(0,10)" @click="sendSMS"
+                        type="submit" :title="trans('attendance.Send SMS') + ' - ' + count"
+                        class="btn btn-sm btn-warning pull-right delete" id="sms-2">
+                        <i class="voyager-paper-plane"></i> <span
+                            class="hidden-xs hidden-sm">{{ trans('attendance.Send SMS') }} ({{count}}) غائب</span>
                     </button>
-                    <button @click="submit(3)" type="submit" :title="trans('attendance.Absent')" class="btn btn-sm btn-danger pull-right delete"
-                         id="absent-2">
-                        <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
+                    <button @click="submit(3)" type="submit" :title="trans('attendance.Absent')"
+                        class="btn btn-sm btn-danger pull-right delete" id="absent-2">
+                        <i class="voyager-skull"></i> <span
+                            class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
                     </button>
                     <button @click="submit(2)" type="submit" :title="trans('attendance.Holiday')"
                         class="btn btn-sm  btn-primary pull-right edit">
-                        <i class="voyager-exclamation"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Holiday') }}</span>
+                        <i class="voyager-exclamation"></i> <span
+                            class="hidden-xs hidden-sm">{{ trans('attendance.Holiday') }}</span>
                     </button>
-                    <button @click="submit(1)" type="submit" :title="trans('attendance.Attendants')" class="btn btn-sm btn-success pull-right view">
-                        <i class="voyager-check"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Attendants') }}</span>
+                    <button @click="submit(1)" type="submit" :title="trans('attendance.Attendants')"
+                        class="btn btn-sm btn-success pull-right view">
+                        <i class="voyager-check"></i> <span
+                            class="hidden-xs hidden-sm">{{ trans('attendance.Attendants') }}</span>
                     </button>
                 </div>
                 <div class="lecture-select-box">
@@ -27,66 +33,99 @@
                     </select>
                     <span v-show="errors.has('lecture')" class="help-block" style="color:#f96868">{{ errors.first('lecture') }}</span> -->
                     <!-- <span>{{ moment("1995-12-25") }}</span> -->
-                    <router-link @click.native="next" style="padding: 5px 10px;" :title="trans('table.Next')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/attendances', query: {'day': day+1,}}">
+                    <router-link @click.native="next" style="padding: 5px 10px;" :title="trans('table.Next')"
+                        class="btn btn-sm  btn-primary pull-right edit" tag="a"
+                        :to="{path: '/admin/attendances', query: {'day': day+1,}}">
                         <span class="hidden-xs hidden-sm"></span> <i class="voyager-double-right"></i>
                     </router-link>
-                    <router-link @click.native="prev" style="padding: 5px 10px;" :title="trans('table.Prev')" class="btn btn-sm  btn-primary pull-right edit" tag="a" :to="{path: '/admin/attendances', query: {'day': day-1,}}">
+                    <router-link @click.native="prev" style="padding: 5px 10px;" :title="trans('table.Prev')"
+                        class="btn btn-sm  btn-primary pull-right edit" tag="a"
+                        :to="{path: '/admin/attendances', query: {'day': day-1,}}">
                         <i class="voyager-double-left"></i> <span class="hidden-xs hidden-sm"></span>
                     </router-link>
-                    <button class="btn btn-sm disabled" style="padding: 4px 15px;">{{ dateNow | moment("dddd, Do MM YY") }}</button>
+                    <button class="btn btn-sm disabled"
+                        style="padding: 4px 15px;">{{ dateNow | moment("dddd, Do MM YY") }}</button>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-bordered">
                             <div class="panel-body">
-                                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
-                                <div class="table-responsive">
-                                    <table id="dataTable" class="table table-hover dataTable no-footer">
-                                        <thead>
-                                            <tr>
-                                                <th>{{ trans('attendance.Students') }}</th>
-                                                <!-- <th>Lecture</th> -->
-                                                <th>{{ trans('attendance.Date') }}</th>
-                                                <th>{{ trans('attendance.Status') }}</th>
-                                                <th class="actions text-right">{{ trans('table.Actions') }}</th>
-                                            </tr>
-                                        </thead>
-                                        <transition-group tag="tbody" name="list" mode="in-out">
-                                                <tr v-for="(item, index) in attendances" :key="index">
+                                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> -
+                                    <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
+                                <div class="row">
+                                    <div class="col-md-6 pull-right">
+                                        <Search @performSearch="searchResults" :items="attendances" ></Search>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table id="dataTable" class="table table-hover dataTable no-footer">
+                                                <thead>
+                                                    <tr>
+                                                        <th>{{ trans('attendance.Students') }}</th>
+                                                        <!-- <th>Lecture</th> -->
+                                                        <th>{{ trans('attendance.Date') }}</th>
+                                                        <th>{{ trans('attendance.Status') }}</th>
+                                                        <th class="actions text-right">{{ trans('table.Actions') }}</th>
+                                                    </tr>
+                                                </thead>
+                                                <transition-group tag="tbody" name="list" mode="in-out">
+                                                    <tr v-for="(item, index) in retriveSearch" :key="index">
 
-                                                    <td v-if="$auth.gender == 1 && item.users"><img :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
-                                                    <td v-else-if="item.users"><img :src="link + '/storage/' + item.users.avatar" class="img-avatar"> {{ item.users.name }} {{ item.users.last_name }}</td>
+                                                        <td v-if="$auth.gender == 1 && item.users"><img
+                                                                :src="link + '/storage/' + (item.users.mask == 1 ? 'users/default.png' : item.users.avatar)"
+                                                                class="img-avatar"> {{ item.users.name }}
+                                                            {{ item.users.last_name }}</td>
+                                                        <td v-else-if="item.users"><img
+                                                                :src="link + '/storage/' + item.users.avatar"
+                                                                class="img-avatar"> {{ item.users.name }}
+                                                            {{ item.users.last_name }}</td>
 
-                                                    <td>{{ item.attend_date }}</td>
-                                                    <td>
-                                                        <transition name="fade" mode="in-out">
-                                                            <span v-if="item.status == 3" class="label label-danger">{{ trans('attendance.Absent') }}</span>
-                                                        </transition>
-                                                        <transition name="fade" mode="in-out">
-                                                            <span v-if="item.status == 2" class="label label-primary">{{ trans('attendance.Holiday') }}</span>
-                                                        </transition>
-                                                        <transition name="fade" mode="in-out">
-                                                            <span v-if="item.status == 1" class="label label-success">{{ trans('attendance.Existing') }}</span>
-                                                        </transition>
-                                                    </td>
-                                                    <td class="no-sort no-click" id="bread-actions">
+                                                        <td>{{ item.attend_date }}</td>
+                                                        <td>
+                                                            <transition name="fade" mode="in-out">
+                                                                <span v-if="item.status == 3"
+                                                                    class="label label-danger">{{ trans('attendance.Absent') }}</span>
+                                                            </transition>
+                                                            <transition name="fade" mode="in-out">
+                                                                <span v-if="item.status == 2"
+                                                                    class="label label-primary">{{ trans('attendance.Holiday') }}</span>
+                                                            </transition>
+                                                            <transition name="fade" mode="in-out">
+                                                                <span v-if="item.status == 1"
+                                                                    class="label label-success">{{ trans('attendance.Existing') }}</span>
+                                                            </transition>
+                                                        </td>
+                                                        <td class="no-sort no-click" id="bread-actions">
 
-                                                            <a v-show="item.status != 3" :title="trans('attendance.Absent')" @click="action(item, 3)" class="btn btn-sm btn-danger pull-right delete"
+                                                            <a v-show="item.status != 3"
+                                                                :title="trans('attendance.Absent')"
+                                                                @click="action(item, 3)"
+                                                                class="btn btn-sm btn-danger pull-right delete"
                                                                 data-id="2" id="delete-2">
-                                                                <i class="voyager-skull"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
+                                                                <i class="voyager-skull"></i> <span
+                                                                    class="hidden-xs hidden-sm">{{ trans('attendance.Absent') }}</span>
                                                             </a>
-                                                            <a v-show="item.status != 2" :title="trans('attendance.Holiday')"
-                                                                class="btn btn-sm  btn-primary pull-right edit" @click="action(item, 2)">
-                                                                <i class="voyager-exclamation"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Holiday') }}</span>
+                                                            <a v-show="item.status != 2"
+                                                                :title="trans('attendance.Holiday')"
+                                                                class="btn btn-sm  btn-primary pull-right edit"
+                                                                @click="action(item, 2)">
+                                                                <i class="voyager-exclamation"></i> <span
+                                                                    class="hidden-xs hidden-sm">{{ trans('attendance.Holiday') }}</span>
                                                             </a>
-                                                            <a v-show="item.status != 1" :title="trans('attendance.Existing')" class="btn btn-sm btn-success pull-right view" @click="action(item, 1)">
-                                                                <i class="voyager-check"></i> <span class="hidden-xs hidden-sm">{{ trans('attendance.Existing') }}</span>
+                                                            <a v-show="item.status != 1"
+                                                                :title="trans('attendance.Existing')"
+                                                                class="btn btn-sm btn-success pull-right view"
+                                                                @click="action(item, 1)">
+                                                                <i class="voyager-check"></i> <span
+                                                                    class="hidden-xs hidden-sm">{{ trans('attendance.Existing') }}</span>
                                                             </a>
-                                                    </td>
-                                                </tr>
-                                        </transition-group>
-                                    </table>
+                                                        </td>
+                                                    </tr>
+                                                </transition-group>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +138,8 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="close"><span
+                                aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title"><i class="voyager-trash"></i> delete qutions?</h4>
                     </div>
                     <div class="modal-footer">
@@ -117,9 +157,11 @@
 </template>
 <script>
     import Fab from './fab/Fab'
+    import Search from './table/Search'
     export default {
         components: {
-            Fab
+            Fab,
+            Search
         },
         props: ['link'],
         data() {
@@ -154,6 +196,8 @@
                 day: 0,
                 dateNow: '',
                 count: '',
+                searchItems: [],
+                query: ''
             }
         },
         mounted() {
@@ -161,9 +205,19 @@
             this.getUsers()
         },
         computed: {
-
+            retriveSearch() {
+                if (this.query.length == 0) {
+                    return this.attendances
+                } else {
+                    return this.searchItems
+                }
+            }
         },
         methods: {
+            searchResults(result, query) {
+                this.searchItems = result
+                this.query = query
+            },
             parsist(stageEdu, classEdu, classRoom) {
                 this.stageEdu = stageEdu
                 this.classEdu = classEdu
@@ -173,36 +227,51 @@
             },
             fetch() {
                 this.$store.dispatch('retriveAttendanceTwo', {
-                    get: this.get,
-                    day: this.day,
-                    stageEdu: this.stageEdu,
-                    classEdu: this.classEdu,
-                    classRoom: this.classRoom,
-                })
-                .then(response => {
-                    this.attendances = response.data.attendances
-                    this.count = response.data.count
-                    this.dateNow = response.data.date
-                })
+                        get: this.get,
+                        day: this.day,
+                        stageEdu: this.stageEdu,
+                        classEdu: this.classEdu,
+                        classRoom: this.classRoom,
+                    })
+                    .then(response => {
+                        this.attendances = response.data.attendances
+                        this.count = response.data.count
+                        this.dateNow = response.data.date
+                    })
             },
             getUsers() {
                 this.$store.dispatch('retriveUser', {
-                    get: this.getUser,
-                    classRoom: this.classRoom,
-                    classEdu: this.classEdu
-                })
-                .then(response => {
-                    this.user = response.data
-                })
+                        get: this.getUser,
+                        classRoom: this.classRoom,
+                        classEdu: this.classEdu
+                    })
+                    .then(response => {
+                        this.user = response.data
+                    })
             },
             submit(value) {
                 this.$validator.validateAll().then((result) => {
-                    if(result) {
+                    if (result) {
                         this.$store.dispatch('submitForm', {
-                        post: this.postTwo,
-                        status: value,
-                        stageEdu: this.stageEdu,
-                        classEdu: this.classEdu,
+                                post: this.postTwo,
+                                status: value,
+                                stageEdu: this.stageEdu,
+                                classEdu: this.classEdu,
+                                classRoom: this.classRoom,
+                                day: this.day
+                            })
+                            .then(response => {
+                                this.$toast.success({
+                                    title: response.data
+                                })
+                                this.fetch()
+                            })
+                    }
+                })
+            },
+            sendSMS() {
+                this.$store.dispatch('submitForm', {
+                        post: this.sms,
                         classRoom: this.classRoom,
                         day: this.day
                     })
@@ -212,21 +281,6 @@
                         })
                         this.fetch()
                     })
-                    }
-                })
-            },
-            sendSMS() {
-                this.$store.dispatch('submitForm', {
-                    post: this.sms,
-                    classRoom: this.classRoom,
-                    day: this.day
-                })
-                .then(response => {
-                    this.$toast.success({
-                        title: response.data
-                    })
-                    this.fetch()
-                })
             },
             action(item, value) {
                 this.$store.dispatch('submitForm', {
@@ -270,26 +324,42 @@
         margin-bottom: 5px;
         float: right;
     }
+
     .attend-button {
         margin-bottom: 5px;
         float: left;
     }
-    .fade-enter-active, .fade-leave-active {
+
+    .fade-enter-active,
+    .fade-leave-active {
         transition: opacity .5s
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+
+    .fade-enter,
+    .fade-leave-to
+
+    /* .fade-leave-active in <2.1.8 */
+        {
         opacity: 0
     }
+
     .list-item {
-    display: inline-block;
-    margin-right: 3px;
+        display: inline-block;
+        margin-right: 3px;
     }
-    .list-enter-active, .list-leave-active {
-    transition: all 0.5s;
+
+    .list-enter-active,
+    .list-leave-active {
+        transition: all 0.5s;
     }
-    .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateY(30px);
+
+    .list-enter,
+    .list-leave-to
+
+    /* .list-leave-active below version 2.1.8 */
+        {
+        opacity: 0;
+        transform: translateY(30px);
     }
 
     .img-avatar {

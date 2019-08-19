@@ -7,30 +7,46 @@
                     <div class="col-md-12">
                         <div class="panel panel-bordered">
                             <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table id="dataTable" class="table table-hover dataTable no-footer">
-                                        <thead>
-                                            <tr>
-                                                <th><input type="checkbox"></th>
-                                                <th>{{ trans('expenses.Students')}}</th>
-                                                <th class="actions text-right">{{ trans('table.Actions') }}</th>
-                                            </tr>
-                                        </thead>
-                                        <transition-group tag="tbody" name="list" mode="in-out">
-                                                <tr v-for="(item, index) in usersFilter" :key="index">
-                                                    <td><input type="checkbox"></td>
-                                                    <td v-if="$auth.gender == 1"><img :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
-                                                    <td v-else><img :src="link + '/storage/' + item.avatar" class="img-avatar"> {{ item.name }} {{ item.last_name }}</td>
+                                <div class="row">
+                                    <div class="col-md-6 pull-right">
+                                        <Search @performSearch="searchResults" :items="users"></Search>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table id="dataTable" class="table table-hover dataTable no-footer">
+                                                <thead>
+                                                    <tr>
+                                                        <th><input type="checkbox"></th>
+                                                        <th>{{ trans('expenses.Students')}}</th>
+                                                        <th class="actions text-right">{{ trans('table.Actions') }}</th>
+                                                    </tr>
+                                                </thead>
+                                                <transition-group tag="tbody" name="list" mode="in-out">
+                                                    <tr v-for="(item, index) in retriveSearch" :key="index">
+                                                        <td><input type="checkbox"></td>
+                                                        <td v-if="$auth.gender == 1"><img
+                                                                :src="link + '/storage/' + (item.mask == 1 ? 'users/default.png' : item.avatar)"
+                                                                class="img-avatar"> {{ item.name }} {{ item.last_name }}
+                                                        </td>
+                                                        <td v-else><img :src="link + '/storage/' + item.avatar"
+                                                                class="img-avatar"> {{ item.name }} {{ item.last_name }}
+                                                        </td>
 
-                                                    <td class="no-sort no-click" id="bread-actions">
-                                                        <router-link tag="a" :to="{ name: 'singleStudentRepoShow', params: {id: item.id} }" :title="trans('reports.Show Reports')" class="btn btn-sm btn-info pull-right add"
-                                                            data-id="2" id="add-2">
-                                                                <i class="voyager-eye"></i> <span class="hidden-xs hidden-sm">{{ trans('reports.Show Reports') }}</span>
-                                                        </router-link>
-                                                    </td>
-                                                </tr>
-                                        </transition-group>
-                                    </table>
+                                                        <td class="no-sort no-click" id="bread-actions">
+                                                            <router-link tag="a"
+                                                                :to="{ name: 'singleStudentRepoShow', params: {id: item.id} }"
+                                                                :title="trans('reports.Show Reports')"
+                                                                class="btn btn-sm btn-info pull-right add" data-id="2"
+                                                                id="add-2">
+                                                                <i class="voyager-eye"></i> <span
+                                                                    class="hidden-xs hidden-sm">{{ trans('reports.Show Reports') }}</span>
+                                                            </router-link>
+                                                        </td>
+                                                    </tr>
+                                                </transition-group>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -42,10 +58,12 @@
     </div>
 </template>
 <script>
+    import Search from '../table/Search'
     import Fab from '../fab/Fab'
     export default {
         components: {
             Fab,
+            Search,
         },
         props: ['link'],
         data() {
@@ -63,25 +81,38 @@
                 stageEdu: localStorage.stageEdu,
                 classEdu: localStorage.classEdu,
                 classRoom: localStorage.classRoom,
+                searchItems: [],
+                query: ''
             }
         },
         mounted() {
             this.fetch()
         },
         computed: {
-            usersFilter() {
-                return this.users.filter(item => {
-                    return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
-                        item.classroom_id == this.classRoom && item.job == 1
-                })
-            },
+            retriveSearch() {
+                if (this.query.length == 0) {
+                     return this.users.filter(item => {
+                        return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
+                            item.classroom_id == this.classRoom && item.job == 1
+                    })
+                } else {
+                     return this.searchItems.filter(item => {
+                        return item.stage_id == this.stageEdu && item.class_id == this.classEdu &&
+                            item.classroom_id == this.classRoom && item.job == 1
+                    })
+                }
+            }
         },
         methods: {
+            searchResults(result, query) {
+                this.searchItems = result
+                this.query = query
+            },
             fetch() {
                 this.$store.dispatch('retriveOptions', this.get)
-                .then(response => {
-                    this.users = response.data.users
-                })
+                    .then(response => {
+                        this.users = response.data.users
+                    })
             },
             parsist(stageEdu, classEdu, classRoom) {
                 this.stageEdu = stageEdu
@@ -99,26 +130,42 @@
         margin-bottom: 5px;
         float: right;
     }
+
     .attend-button {
         margin-bottom: 5px;
         float: left;
     }
-    .fade-enter-active, .fade-leave-active {
+
+    .fade-enter-active,
+    .fade-leave-active {
         transition: opacity .5s
     }
-    .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+
+    .fade-enter,
+    .fade-leave-to
+
+    /* .fade-leave-active in <2.1.8 */
+        {
         opacity: 0
     }
+
     .list-item {
-    display: inline-block;
-    margin-right: 3px;
+        display: inline-block;
+        margin-right: 3px;
     }
-    .list-enter-active, .list-leave-active {
-    transition: all 0.5s;
+
+    .list-enter-active,
+    .list-leave-active {
+        transition: all 0.5s;
     }
-    .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateY(30px);
+
+    .list-enter,
+    .list-leave-to
+
+    /* .list-leave-active below version 2.1.8 */
+        {
+        opacity: 0;
+        transform: translateY(30px);
     }
 
     .img-avatar {

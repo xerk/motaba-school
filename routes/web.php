@@ -36,6 +36,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('single_emp_reports', 'SingleEmpReportController@index')->name('school.single.emp.report.index')->middleware('admin.user');
     Route::get('suppliers/{supplier}/pay', 'SupplierController@pay')->name('voyager.suppliers.pay')->middleware('admin.user');
     Route::post('suppliers/{supplier}/pay', 'SupplierController@store')->name('voyager.suppliers.pay.store')->middleware('admin.user');
+    Route::get('upgrade_students', 'UpgradeStudentsController@index')->name('school.upgrade')->middleware('admin.user');
+    Route::get('report_designer', 'ReportDesignerController@index')->name('school.report.designer')->middleware('admin.user');
 
     Route::resource('users-2', 'UsersController')->middleware('admin.user');
     Route::resource('setting_numbers', 'SettingNumberController')->middleware('admin.user');
