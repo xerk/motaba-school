@@ -4,7 +4,7 @@ import axios from 'axios'
 import {SchoolConfigs} from './configs/schoolConfigs'
 
 Vue.use(Vuex)
-axios.defaults.baseURL = 'https://kamel-ouda.com/api/'
+axios.defaults.baseURL = 'https://kamelouda.com/api/'
 
 
 

@@ -25,7 +25,7 @@ class CouchDBHandlerTest extends TestCase
         try {
             $handler->handle($record);
         } catch (\RuntimeException $e) {
-            $this->markTestSkipped('Could not connect to couchdb server on https://kamel-ouda.com:5984');
+            $this->markTestSkipped('Could not connect to couchdb server on https://kamelouda.com:5984');
         }
     }
 }
