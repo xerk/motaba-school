@@ -29,7 +29,7 @@ class UpgradeStudentsController extends Controller
     public function upgradeData(Request $request)
     {
         $classEdus = ClassEdu::with(['users' => function ($q) {
-            $q->where('classroom_id', null);
+            $q->whereNull('classroom_id')->where('job', 1);
         }, 'classRoom' => function ($q) {
             $q->with('users');
         }])->where('id', $request->id)->first() ;
