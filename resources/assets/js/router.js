@@ -18,9 +18,16 @@ import SingleEmpRepo from './components/reports/SingleEmpRepo'
 import SingleEmpRepoShow from './components/reports/single/ShowEmp'
 import SupplierPay from './components/SupplierPay'
 import ShowSupplier from './components/storages/ShowSupplier'
+import UserBrowse from './components/users/Browse'
 
 
 const router = [
+    {
+        path: '/admin/users',
+        name: 'userBrowes',
+        components: {"content-viewport" : UserBrowse},
+        props: true
+    },
     {
         path: '/admin/suppliers/:id/pay/storage',
         name: 'showSupplier',

@@ -15,7 +15,7 @@ class SetRequestForConsole
      */
     public function bootstrap(Application $app)
     {
-        $uri = $app->make('config')->get('app.url', 'https://kamelouda.com');
+        $uri = $app->make('config')->get('app.url', 'https://kame-ouda.com');
 
         $components = parse_url($uri);
 

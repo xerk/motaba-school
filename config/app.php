@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://kamelouda.com'),
+    'url' => env('APP_URL', 'https://kame-ouda.com'),
 
     /*
     |--------------------------------------------------------------------------

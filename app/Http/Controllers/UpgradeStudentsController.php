@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Configs\ClassEdu;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use App\Http\Controllers\Controller;
@@ -20,68 +22,49 @@ class UpgradeStudentsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function upgradeData(Request $request)
     {
-        //
+        $classEdus = ClassEdu::with(['users' => function ($q) {
+            $q->where('classroom_id', null);
+        }, 'classRoom' => function ($q) {
+            $q->with('users');
+        }])->where('id', $request->id)->first() ;
+
+        return response()->json([
+            'classEdus' => $classEdus
+        ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function updateEmptyClass(Request $request)
+    {   
+        // $result = '';
+        foreach ($request->users as $user) {
+            User::where('id', $user['id'])->update(['classroom_id' => null]);
+        }
+        return response()->json('نجحة العملية');
     }
 
     /**
-     * Display the specified resource.
+     * Display a listing of the resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function updateAddToRoom(Request $request)
+    {   
+        // $result = '';
+        foreach ($request->users as $user) {
+            User::where('id', $user['id'])->update(['classroom_id' => $request->id]);
+        }
+        return response()->json('نجحة العملية');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

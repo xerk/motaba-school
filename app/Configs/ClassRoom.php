@@ -39,5 +39,15 @@ class ClassRoom extends Model
     public function timetables()
     {
         return $this->hasMany('App\Timetable', 'class_room_id');
+    }
+    
+    /**
+     * Show the ClassRoom Has Many Users.
+     *
+     * @return App\User
+     */
+    public function users()
+    {
+        return $this->hasMany('App\User', 'classroom_id');
     } 
 }

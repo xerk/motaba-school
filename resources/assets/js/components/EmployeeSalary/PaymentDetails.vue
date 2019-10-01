@@ -4,7 +4,7 @@
             <div class="content-header" style="display: none">
                 <div class="row">
                     <div class="col-print-4 pull-left" style="padding-left: 10px">
-                        <img src="https://kamelouda.com/images/logo/PNG-24.png" alt="Logo" style="width:75px" class='img-responsive' />
+                        <img src="https://kame-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:75px" class='img-responsive' />
                     </div>
                     <div class="col-print-4 text-center">
                         <h3 class="text-center" v-if="user"><span>{{ user.name }} {{ user.last_name }} سجل راتب</span></h3>
@@ -39,7 +39,7 @@
                         </ul>
                     </div>
                 </div>
-                <span style="position: fixed;bottom: 0;font-size: 12px;padding: 3px;font-weight: 400;"><img src="https://kamelouda.com/images/logo/motawer-black.png" alt="Logo" style="width:32px;display: inline;margin-right: 5px;" class='img-responsive' /> Powered by MOTAWER</span>
+                <span style="position: fixed;bottom: 0;font-size: 12px;padding: 3px;font-weight: 400;"><img src="https://kame-ouda.com/images/logo/motawer-black.png" alt="Logo" style="width:32px;display: inline;margin-right: 5px;" class='img-responsive' /> Powered by MOTAWER</span>
             </div>
             <div class="col-md-3">
                 <form @submit.prevent="validateBeforeSubmit" action="">

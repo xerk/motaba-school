@@ -3,10 +3,10 @@
         <div class="content-header" style="display: none">
             <div class="row">
                 <div class="col-print-4 col-sm-4 pull-left" style="padding-left: 10px">
-                    <img src="https://kamelouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                    <img src="https://kame-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                 </div>
                 <div class="col-print-4 col-sm-4 text-center">
-                    <h3 class="text-center">كشف موظفين</h3>
+                    <h3 class="text-center">{{reportName}}</h3>
                     <!-- <h3><span v-if="classRoom != ''">{{user.class_room.name}} من</span> <span v-if="classEdu != ''">{{user.class_edu.name}}</span> عام {{ new Date() | moment("YYYY") }}/{{ new Date() | moment("add", "1 year","YYYY") }} م</h3> -->
                 </div>
                 <div class='col-print-4 col-sm-4' style="padding-right: 10px">
@@ -23,22 +23,36 @@
                 <div class="col-print-6 col-sm-6 text-center" style="padding-left: 10px">
                     <ul class="list-unstyled">
                         <li>عميد المعهد</li>
-                        <li>أ/سعيد عيسي</li>
+                        <li>أ/{{seg1}}</li>
                     </ul>
                 </div>
                 <div class='col-print-6 col-sm-6 text-center' style="padding-right: 10px">
                     <ul class="list-unstyled">
                         <li>شئون العاملين</li>
-                        <li>أ/عبير السيد</li>
+                        <li>أ/{{seg2}}</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
+                <div class="form-group  col-md-4">
+                    <label for="name">اسم الكشف</label>                                            
+                    <input @keyup="segenSave" required="" type="text" v-model="reportName" class="form-control" name="title" placeholder="اسم الكشف" value="">
+                </div>
+                <div class="form-group  col-md-4">
+                    <label for="name">توقيع العميد</label>                                            
+                    <input @keyup="segenSave" required="" type="text" v-model="seg1" class="form-control" name="title" placeholder="توقيع العميد" value="">
+                </div>
+                <div class="form-group  col-md-4">
+                    <label for="name">التوقيع الثاني</label>                                            
+                    <input @keyup="segenSave" required="" type="text" v-model="seg2" class="form-control" name="title" placeholder="التوقيع الثاني" value="">
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        <h3 class="text-center">كشف موظفين</h3>
+                        <h3 class="text-center">{{reportName}}</h3>
                         <div class="table-responsive">
                             <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
                                 <thead>
@@ -65,10 +79,32 @@
 <script>
 export default {
 
+    data() {
+        return {
+            reportName: '',
+            seg1: '',
+            seg2: '',
+        }
+    },
     mounted() {
         this.fetch()
+
+        if (localStorage.reportName) {
+            this.reportName = localStorage.reportNameEmployee;
+        }
+        if (localStorage.seg1Employee) {
+            this.seg1 = localStorage.seg1Employee;
+        }
+        if (localStorage.seg2Employee) {
+            this.seg2 = localStorage.seg2Employee;
+        }
     },
     methods: {
+        segenSave() {
+            localStorage.reportNameEmployee = this.reportName
+            localStorage.seg1Employee = this.seg1
+            localStorage.seg2Employee = this.seg2
+        },
         fetch() {
             var classEdu = this.classEdu
             var classRoom = this.classRoom
@@ -165,7 +201,7 @@ export default {
                     processing: false,
                     serverSide: false,
                     select: true,
-                    ajax: `https://kamelouda.com/admin/get-employee`,
+                    ajax: `https://kame-ouda.com/admin/get-employee`,
                     columns: [
                         { data: 'name', name: 'name' },
                         { data: 'last_name', name: 'last_name' },

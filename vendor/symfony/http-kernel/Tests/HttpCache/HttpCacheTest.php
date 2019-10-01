@@ -679,7 +679,7 @@ class HttpCacheTest extends HttpCacheTestCase
         $r = new \ReflectionObject($this->store);
         $m = $r->getMethod('save');
         $m->setAccessible(true);
-        $m->invoke($this->store, 'md'.hash('sha256', 'https://kamelouda.com/'), serialize($tmp));
+        $m->invoke($this->store, 'md'.hash('sha256', 'https://kame-ouda.com/'), serialize($tmp));
 
         $this->request('GET', '/');
         $this->assertHttpKernelIsCalled();
@@ -729,7 +729,7 @@ class HttpCacheTest extends HttpCacheTestCase
         $r = new \ReflectionObject($this->store);
         $m = $r->getMethod('save');
         $m->setAccessible(true);
-        $m->invoke($this->store, 'md'.hash('sha256', 'https://kamelouda.com/'), serialize($tmp));
+        $m->invoke($this->store, 'md'.hash('sha256', 'https://kame-ouda.com/'), serialize($tmp));
 
         $this->request('GET', '/');
         $this->assertHttpKernelIsCalled();
@@ -789,7 +789,7 @@ class HttpCacheTest extends HttpCacheTestCase
         $r = new \ReflectionObject($this->store);
         $m = $r->getMethod('save');
         $m->setAccessible(true);
-        $m->invoke($this->store, 'md'.hash('sha256', 'https://kamelouda.com/'), serialize($tmp));
+        $m->invoke($this->store, 'md'.hash('sha256', 'https://kame-ouda.com/'), serialize($tmp));
 
         // build subsequent request; should be found but miss due to freshness
         $this->request('GET', '/');

@@ -33,6 +33,7 @@ import EmployeeRepo from './components/reports/Employee'
 import GenderRepo from './components/reports/Gender'
 import RepoDesigner from './components/reports/ReportDesigner'
 import UpgradeStudents from './components/upgradeStudents/Upgrade'
+import StatusStudents from './components/statusStudents/Status'
 const _ = require('lodash')
 import SecretNumber from './components/SecretNumber'
 import AddExpense from './components/AddExpense'
@@ -50,6 +51,7 @@ import Datetime from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
 import vSelect from 'vue-select'
 import VueFuse from 'vue-fuse'
+import Vddl from 'vddl';
 
 window.Vue = require('vue');
 window.EventBus = new Vue()
@@ -72,6 +74,7 @@ Vue.use(Croppa)
 Vue.use(Datetime)
 Vue.use(vSelect)
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
+Vue.use(Vddl);
 
 const router = new VueRouter({
     routes,
@@ -92,7 +95,7 @@ Vue.prototype.trans = local => _.get(window.i18n, local)
 const app = new Vue({
     created() {
         let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', 'https://kamelouda.com/js/lang.js')
+        recaptchaScript.setAttribute('src', 'https://kame-ouda.com/js/lang.js')
         document.head.appendChild(recaptchaScript)
         this.$store.dispatch('retrieveAuth')
     },
@@ -136,6 +139,7 @@ const app = new Vue({
         Timetables,
         AbsentEmpMonthRepo,
         UpgradeStudents,
+        StatusStudents,
         RepoDesigner,
     },
 

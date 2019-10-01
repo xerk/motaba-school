@@ -1,0 +1,193 @@
+<template>
+    <div class="page-content browse container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-bordered">
+                    <div class="panel-body">
+                        <section>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" @click="emptyAll" class="pull-right btn btn-danger"><i class="voyager-trash"></i> تفريغ الجميع </button>
+                                </div>
+                                <div class="left-area col-md-6">
+                                    <div style="padding-bottom: 12px">
+                                        <span class="h4" style="font-wghit:bold">
+                                            {{classEdus.name}}
+                                        </span>
+                                        <span class="text-right pull-right">
+                                            <label class="label label-primary"
+                                                v-if="classEdus.users">{{classEdus.users.length}}</label>
+                                        </span>
+                                    </div>
+                                    <div class="listbox">
+                                        <input type="text" class="form-control search-input" placeholder="Search">
+                                        <draggable group="people" tag="ul" id="ss_elem_list"
+                                            @change="updateOriginal(classEdus)" class="list-group dragArea"
+                                            style="height: 650px;" v-model="classEdus.users">
+                                            <transition-group type="transition" tag="div" class="dragArea"
+                                                :name="'flip-list'">
+                                                <li v-for="element in classEdus.users" :key="element.id">
+                                                    <a class="list-group-item list-group-item-action"><span>{{ element.name }}
+                                                            {{ element.last_name }}</span></a>
+                                                </li>
+                                            </transition-group>
+                                        </draggable>
+                                    </div>
+                                </div>
+                                <div class="left-area col-md-6" v-for="(status,key) in statusStudents" :key="key">
+                                    <div style="padding-bottom: 12px">
+                                        <span class="h5">
+                                            {{status.name}}
+                                        </span>
+                                        <span class="text-right pull-right">
+                                            <label class="label label-primary">{{status.users.length}}</label>
+                                        </span>
+                                    </div>
+                                    <div class="listbox">
+                                        <draggable tag="ul" group="people" class="dragArea list-group"
+                                            v-model="status.users" @change="update(status)">
+                                            <transition-group tag="div" id="ss_elem_list" type="transition"
+                                                style="height: 200px;" class="dragArea" :name="'flip-list'">
+                                                <li v-for="element in status.users" :key="element.id">
+                                                    <a class="list-group-item list-group-item-action"><span>{{ element.name }}
+                                                            {{ element.last_name }}</span></a>
+                                                </li>
+                                            </transition-group>
+                                        </draggable>
+                                    </div>
+                                    <button @click="empty(status)" type="submit"
+                                        class="btn btn-danger pull-right btn-small"><i class="voyager-trash"></i></button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
+        </div>
+        <fab @parsist="parsist"></fab>
+    </div>
+</template>
+
+<script>
+    import Fab from '../fab/FabUpgrade'
+    import draggable from "vuedraggable";
+    export default {
+        components: {
+            draggable,
+            Fab
+        },
+        data() {
+            return {
+                get: {
+                    apiURL: 'statusData',
+                },
+                statusStudents: [],
+                classEdus: [],
+                controlOnStart: true,
+                stageEdu: localStorage.stageEdu,
+                classEdu: localStorage.classEdu,
+            };
+        },
+        mounted() {
+            this.fetch()
+        },
+        methods: {
+            orderList() {
+                this.list1 = this.list1.sort((one, two) => {
+                    return one.name - two.name;
+                });
+            },
+            fetch() {
+                this.$store.dispatch('retriveAttendtion', {
+                        get: this.get,
+                        id: this.classEdu
+                    })
+                    .then(response => {
+                        this.statusStudents = response.data.statusStudents
+                        this.classEdus = response.data.classEdus
+                    })
+            },
+            parsist(stageEdu, classEdu) {
+                this.stageEdu = stageEdu
+                this.classEdu = classEdu
+                this.fetch()
+            },
+            updateOriginal(classUpdate) {
+                classUpdate.users.map((user, index) => {
+                    user.status_id = null
+                })
+
+                axios.put('/updateEmptyStatus', {
+                    users: this.classEdus.users
+                }).then((response) => {
+                    this.$toast.success({
+                        title: response.data,
+                    })
+                })
+            },
+            update(status) {
+                status.users.map((user, index) => {
+                    user.status_id = status.id
+                })
+
+                axios.put('/updateAddToStatus', {
+                    users: status.users,
+                    id: status.id
+                }).then((response) => {
+                    this.$toast.success({
+                        title: response.data,
+                    })
+                })
+            },
+            empty(status) {
+                status.users.map((user, index) => {
+                    this.classEdus.users.push(user)
+                })
+                status.users = []
+
+                axios.put('/updateEmptyStatus', {
+                    users: this.classEdus.users
+                }).then((response) => {
+                    this.$toast.success({
+                        title: response.data,
+                    })
+                })
+            },
+            emptyAll() {
+                this.statusStudents.forEach((status) => {
+                    status.users.map((user, index) => {
+                        this.classEdus.users.push(user)
+                    })
+                    status.users = []
+                })
+
+                axios.put('/updateEmptyStatus', {
+                    users: this.classEdus.users
+                }).then((response) => {
+                    this.$toast.success({
+                        title: response.data,
+                    })
+                })
+            },
+        }
+    };
+
+</script>
+<style scoped>
+    .flip-list-move {
+        transition: transform 0.5s;
+    }
+
+    .search-input {
+        border: none;
+        border-bottom: 1px solid #cecaca;
+        border-radius: 0;
+    }
+
+    .dragArea {
+        min-height: 100%;
+    }
+
+</style>

@@ -12,7 +12,7 @@
     <div class="content-header" style="display: none">
         <div class="row">
             <div class="col-sm-4 col-print-4 pull-left">
-                <img src="https://kamelouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                <img src="https://kame-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
             </div>
             <div class="col-sm-4 col-print-4 text-center">
                 <h3>كشف رواتب الموظفين لشهر {{ new Date() | moment("add", month+" months", "MM - YYYY") }}</h3>
@@ -157,7 +157,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamelouda.com/admin/get-salary?month=${month}`,
+                    ajax: `https://kame-ouda.com/admin/get-salary?month=${month}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },

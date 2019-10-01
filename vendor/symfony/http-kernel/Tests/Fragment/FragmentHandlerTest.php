@@ -57,7 +57,7 @@ class FragmentHandlerTest extends TestCase
 
     /**
      * @expectedException \RuntimeException
-     * @expectedExceptionMessage Error when rendering "https://kamelouda.com/" (Status code is 404).
+     * @expectedExceptionMessage Error when rendering "https://kame-ouda.com/" (Status code is 404).
      */
     public function testDeliverWithUnsuccessfulResponse()
     {

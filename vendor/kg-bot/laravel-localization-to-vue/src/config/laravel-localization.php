@@ -11,7 +11,7 @@ return [
     'routes' => [
 
         /*
-         * Route prefix, example of route https://kamelouda.com/js/localizations.js
+         * Route prefix, example of route https://kame-ouda.com/js/localizations.js
          *
          */
         'prefix'     => env('LARAVEL_LOCALIZATION_PREFIX', '/js/localization.js'),

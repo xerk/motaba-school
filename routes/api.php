@@ -94,3 +94,13 @@ Route::get('timetables', 'TimetablesController@index');
 Route::post('timetables-update', 'TimetablesController@update');
 // Route::delete('timetables/{id}', 'ExpenseController@destroy');
 
+
+// Upgrade Students
+Route::get('upgradeData', 'UpgradeStudentsController@upgradeData');
+Route::put('updateEmptyClass', 'UpgradeStudentsController@updateEmptyClass');
+Route::put('updateAddToRoom', 'UpgradeStudentsController@updateAddToRoom');
+
+// Status Students
+Route::get('statusData', 'StatusStudentsController@statusData');
+Route::put('updateEmptyStatus', 'StatusStudentsController@updateEmptyStatus');
+Route::put('updateAddToStatus', 'StatusStudentsController@updateAddToStatus');

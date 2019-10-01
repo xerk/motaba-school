@@ -63,8 +63,8 @@ class RouterListenerTest extends TestCase
     public function getPortData()
     {
         return array(
-            array(80, 443, 'https://kamelouda.com/', 80, 443),
-            array(80, 443, 'https://kamelouda.com:90/', 90, 443),
+            array(80, 443, 'https://kame-ouda.com/', 80, 443),
+            array(80, 443, 'https://kame-ouda.com:90/', 90, 443),
             array(80, 443, 'https://localhost/', 80, 443),
             array(80, 443, 'https://localhost:90/', 80, 90),
         );
@@ -90,7 +90,7 @@ class RouterListenerTest extends TestCase
     public function testRequestMatcher()
     {
         $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock();
-        $request = Request::create('https://kamelouda.com/');
+        $request = Request::create('https://kame-ouda.com/');
         $event = new GetResponseEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST);
 
         $requestMatcher = $this->getMockBuilder('Symfony\Component\Routing\Matcher\RequestMatcherInterface')->getMock();
@@ -106,7 +106,7 @@ class RouterListenerTest extends TestCase
     public function testSubRequestWithDifferentMethod()
     {
         $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock();
-        $request = Request::create('https://kamelouda.com/', 'post');
+        $request = Request::create('https://kame-ouda.com/', 'post');
         $event = new GetResponseEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST);
 
         $requestMatcher = $this->getMockBuilder('Symfony\Component\Routing\Matcher\RequestMatcherInterface')->getMock();
@@ -122,7 +122,7 @@ class RouterListenerTest extends TestCase
 
         // sub-request with another HTTP method
         $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock();
-        $request = Request::create('https://kamelouda.com/', 'get');
+        $request = Request::create('https://kame-ouda.com/', 'get');
         $event = new GetResponseEvent($kernel, $request, HttpKernelInterface::SUB_REQUEST);
 
         $listener->onKernelRequest($event);
@@ -146,7 +146,7 @@ class RouterListenerTest extends TestCase
             ->with($this->equalTo($log), $this->equalTo($parameters));
 
         $kernel = $this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock();
-        $request = Request::create('https://kamelouda.com/');
+        $request = Request::create('https://kame-ouda.com/');
 
         $listener = new RouterListener($requestMatcher, $this->requestStack, new RequestContext(), $logger);
         $listener->onKernelRequest(new GetResponseEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST));
@@ -155,8 +155,8 @@ class RouterListenerTest extends TestCase
     public function getLoggingParameterData()
     {
         return array(
-            array(array('_route' => 'foo'), 'Matched route "{route}".', array('route' => 'foo', 'route_parameters' => array('_route' => 'foo'), 'request_uri' => 'https://kamelouda.com/', 'method' => 'GET')),
-            array(array(), 'Matched route "{route}".', array('route' => 'n/a', 'route_parameters' => array(), 'request_uri' => 'https://kamelouda.com/', 'method' => 'GET')),
+            array(array('_route' => 'foo'), 'Matched route "{route}".', array('route' => 'foo', 'route_parameters' => array('_route' => 'foo'), 'request_uri' => 'https://kame-ouda.com/', 'method' => 'GET')),
+            array(array(), 'Matched route "{route}".', array('route' => 'n/a', 'route_parameters' => array(), 'request_uri' => 'https://kame-ouda.com/', 'method' => 'GET')),
         );
     }
 
@@ -176,7 +176,7 @@ class RouterListenerTest extends TestCase
 
         $kernel = new HttpKernel($dispatcher, new ControllerResolver(), $requestStack, new ArgumentResolver());
 
-        $request = Request::create('https://kamelouda.com/');
+        $request = Request::create('https://kame-ouda.com/');
         $request->headers->set('host', '###');
         $response = $kernel->handle($request);
         $this->assertSame(400, $response->getStatusCode());
@@ -198,7 +198,7 @@ class RouterListenerTest extends TestCase
 
         $kernel = new HttpKernel($dispatcher, new ControllerResolver(), $requestStack, new ArgumentResolver());
 
-        $request = Request::create('https://kamelouda.com/');
+        $request = Request::create('https://kame-ouda.com/');
         $response = $kernel->handle($request);
         $this->assertSame(404, $response->getStatusCode());
         $this->assertContains('Welcome', $response->getContent());
