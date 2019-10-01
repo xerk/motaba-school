@@ -1,7 +1,7 @@
 <template>
     <div class="page-content browse container-fluid">
         <div class="attend-button">
-            <a :href="'https://kame-ouda.com/api/export-results?class_id='+ classEdu +'&classroom_id='+ classRoom +'&subject_id='+ supSubject +'&exam_id='+ exam" class="btn btn-sm  btn-primary pull-right delete">
+            <a :href="'https://kamel-ouda.com/api/export-results?class_id='+ classEdu +'&classroom_id='+ classRoom +'&subject_id='+ supSubject +'&exam_id='+ exam" class="btn btn-sm  btn-primary pull-right delete">
                 <i class="voyager-download"></i> <span>{{ trans('table.Export') }}</span>
             </a>
         </div>
@@ -210,7 +210,7 @@ import { saveAs } from 'file-saver';
                     })
                     .then(response => {
                         var FileSaver = require('file-saver')
-                        FileSaver.saveAs(`https://kame-ouda.com/api/export-results`, 'results.xlsx')
+                        FileSaver.saveAs(`https://kamel-ouda.com/api/export-results`, 'results.xlsx')
                     })
             },
             importExcel() {

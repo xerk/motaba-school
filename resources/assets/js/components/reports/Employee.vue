@@ -3,7 +3,7 @@
         <div class="content-header" style="display: none">
             <div class="row">
                 <div class="col-print-4 col-sm-4 pull-left" style="padding-left: 10px">
-                    <img src="https://kame-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                    <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                 </div>
                 <div class="col-print-4 col-sm-4 text-center">
                     <h3 class="text-center">{{reportName}}</h3>
@@ -201,7 +201,7 @@ export default {
                     processing: false,
                     serverSide: false,
                     select: true,
-                    ajax: `https://kame-ouda.com/admin/get-employee`,
+                    ajax: `https://kamel-ouda.com/admin/get-employee`,
                     columns: [
                         { data: 'name', name: 'name' },
                         { data: 'last_name', name: 'last_name' },

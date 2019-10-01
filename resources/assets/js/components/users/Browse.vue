@@ -37,7 +37,7 @@
                                 </thead>
                                 <tbody>
                                     <tr class="users-table-row">
-                                        <td class="users-table-data"><img src="https://kame-ouda.com/storage/users/February2019/ljDltV8u7FHevt82msBW.png" class="avatar" alt="Admin avatar" width="32px"> Ahmed Mamdouh</td>
+                                        <td class="users-table-data"><img src="https://kamel-ouda.com/storage/users/February2019/ljDltV8u7FHevt82msBW.png" class="avatar" alt="Admin avatar" width="32px"> Ahmed Mamdouh</td>
                                         <td class="users-table-data">XerK</td>
                                         <td class="users-table-data">201111981716</td>
                                         <td class="users-table-data">Male</td>

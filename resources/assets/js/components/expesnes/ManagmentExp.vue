@@ -214,7 +214,7 @@
     export default {
         created() {
             let recaptchaScript = document.createElement('script')
-            recaptchaScript.setAttribute('src', 'https://kame-ouda.com/js/lang.js')
+            recaptchaScript.setAttribute('src', 'https://kamel-ouda.com/js/lang.js')
             document.head.appendChild(recaptchaScript)
         },
         components: {

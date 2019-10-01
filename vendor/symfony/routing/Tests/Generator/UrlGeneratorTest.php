@@ -25,7 +25,7 @@ class UrlGeneratorTest extends TestCase
         $routes = $this->getRoutes('test', new Route('/testing'));
         $url = $this->getGenerator($routes)->generate('test', array(), UrlGeneratorInterface::ABSOLUTE_URL);
 
-        $this->assertEquals('https://kame-ouda.com/app.php/testing', $url);
+        $this->assertEquals('https://kamel-ouda.com/app.php/testing', $url);
     }
 
     public function testAbsoluteSecureUrlWithPort443()
@@ -41,7 +41,7 @@ class UrlGeneratorTest extends TestCase
         $routes = $this->getRoutes('test', new Route('/testing'));
         $url = $this->getGenerator($routes, array('httpPort' => 8080))->generate('test', array(), UrlGeneratorInterface::ABSOLUTE_URL);
 
-        $this->assertEquals('https://kame-ouda.com:8080/app.php/testing', $url);
+        $this->assertEquals('https://kamel-ouda.com:8080/app.php/testing', $url);
     }
 
     public function testAbsoluteSecureUrlWithNonStandardPort()
@@ -115,7 +115,7 @@ class UrlGeneratorTest extends TestCase
         $routes = $this->getRoutes('test', new Route('/testing'));
         $url = $this->getGenerator($routes)->generate('test', array('foo' => 'bar'), UrlGeneratorInterface::ABSOLUTE_URL);
 
-        $this->assertEquals('https://kame-ouda.com/app.php/testing?foo=bar', $url);
+        $this->assertEquals('https://kamel-ouda.com/app.php/testing?foo=bar', $url);
     }
 
     public function testUrlWithNullExtraParameters()
@@ -123,7 +123,7 @@ class UrlGeneratorTest extends TestCase
         $routes = $this->getRoutes('test', new Route('/testing'));
         $url = $this->getGenerator($routes)->generate('test', array('foo' => null), UrlGeneratorInterface::ABSOLUTE_URL);
 
-        $this->assertEquals('https://kame-ouda.com/app.php/testing', $url);
+        $this->assertEquals('https://kamel-ouda.com/app.php/testing', $url);
     }
 
     public function testUrlWithExtraParametersFromGlobals()
@@ -267,7 +267,7 @@ class UrlGeneratorTest extends TestCase
         $this->assertEquals('https://localhost/app.php/', $this->getGenerator($routes)->generate('test'));
 
         $routes = $this->getRoutes('test', new Route('/', array(), array(), array(), '', array('http')));
-        $this->assertEquals('https://kame-ouda.com/app.php/', $this->getGenerator($routes, array('scheme' => 'https'))->generate('test'));
+        $this->assertEquals('https://kamel-ouda.com/app.php/', $this->getGenerator($routes, array('scheme' => 'https'))->generate('test'));
     }
 
     public function testSchemeRequirementCreatesUrlForFirstRequiredScheme()

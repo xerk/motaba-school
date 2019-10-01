@@ -68,7 +68,7 @@ Second way would be to request it over HTTP just like any other file
 
 ```
 <script>
-let messages = axios.get('https://kame-ouda.com/js/lang.js') // This is default route which can be changed in config
+let messages = axios.get('https://kamel-ouda.com/js/lang.js') // This is default route which can be changed in config
 </script>
 ```
 
@@ -105,7 +105,7 @@ Vue.prototype.trans = new Lang( { messages, locale: default_locale, fallback: fa
 
 ## Routing
 
-This package exposes one route `https://kame-ouda.com/js/lang.js` by default but you can change the prefix to anything you whish in config file.  
+This package exposes one route `https://kamel-ouda.com/js/lang.js` by default but you can change the prefix to anything you whish in config file.  
 
 You can also have a nice route name for blade templates or any other route calls, it's `route('assets.lang')` by default but it's customizable by config/environment file.
 
