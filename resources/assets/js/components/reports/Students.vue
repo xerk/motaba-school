@@ -56,6 +56,7 @@
                                 <th>{{ trans('reports.Father Mobile')}}تليفون الأب</th>
                                 <th>{{ trans('reports.Mother Mobile')}}تليفون الأم</th>
                                 <th>{{ trans('reports.Joining Date')}}وظيفة الأب</th>
+                                <th>{{ trans('reports.Joining Date')}}الرقم القومي</th>
                             </tr>
                             <tr>
                                 <th></th>
@@ -75,6 +76,7 @@
                                 <th>تليفون الأب</th>
                                 <th>تليفون الأم</th>
                                 <th>وظيفة الأب</th>
+                                <th>الرقم القومي</th>
 
                             </tr>
                         </thead>
@@ -220,21 +222,7 @@ export default {
                                 var oct = new Date(today.getFullYear() + '-10-1')
                                 return oct.getFullYear() - birth.getFullYear();
                             } },
-                        { data: 'status', name: 'status',
-                            "render": function (val, type, row) {
-                                if (val == 1) {
-                                    return "مستجد";
-                                } else if (val == 2) {
-                                    return "منقول";
-                                } else if (val == 3) {
-                                    return "وافد";
-                                } else if (val == 4) {
-                                    return "محول";
-                                } else if (val == 5) {
-                                    return "راسب";
-                                }
-                            }
-                        },
+                        { data: 'status_students.name', defaultContent: ''},
                         { data: 'nationality', name: 'nationality' },
                         { data: 'joining_date', name: 'joining_date',
                             "render": function (val, type, row) {
@@ -254,6 +242,7 @@ export default {
                         { data: 'father_mobile', name: 'father_mobile' },
                         { data: 'mother_mobile', name: 'mother_mobile' },
                         { data: 'father_job', name: 'father_job' },
+                        { data: 'national_id', name: 'national_id' },
 
 
                     ],

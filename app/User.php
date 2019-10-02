@@ -153,4 +153,14 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsTo('App\Configs\ClassRoom', 'classroom_id', 'id');
     }
+
+    /**
+     * Show the User Belongs To StatusStudents.
+     *
+     * @return App\StatusStudents
+     */
+    public function statusStudents()
+    {
+        return $this->belongsTo('App\StatusStudent', 'status_id');
+    }
 }

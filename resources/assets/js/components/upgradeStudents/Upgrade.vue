@@ -10,6 +10,8 @@
                                     <button type="submit" @click="emptyAll" class="pull-right btn btn-danger"><i class="voyager-trash"></i> تفريغ الجميع </button>
                                 </div>
                                 <div class="left-area col-md-6">
+                                    <button type="submit" :class="gender ? 'btn btn-danger' : 'btn btn-primary'" @click="gender = !gender">{{ gender ? 'انثى' : 'ذكر' }}</button>
+                                    <button type="submit" :class="gender == 'all' ? 'btn btn-info' : 'btn btn-muted'" :disabled="gender == 'all'" @click="gender = 'all'">{{ gender == 'all' ? 'الكل' : 'أضغط للكل' }}</button>
                                     <div style="padding-bottom: 12px">
                                         <span class="h4" style="font-wghit:bold">
                                             {{classEdus.name}}
@@ -20,13 +22,21 @@
                                         </span>
                                     </div>
                                     <div class="listbox">
-                                        <input type="text" class="form-control search-input" placeholder="Search">
+                                        <input 
+                                            type="text"
+                                            class="form-control fuse-search"
+                                            placeholder="بحث"
+                                            ref="search"
+                                            v-model="query"
+                                            @keyup="performSearch"
+                                            @keydown="performSearch">
+                                        <i class="voyager-sort" @click="orderList"></i>
                                         <draggable group="people" tag="ul" id="ss_elem_list"
                                             @change="updateOriginal(classEdus)" class="list-group dragArea"
                                             style="height: 650px;" v-model="classEdus.users">
                                             <transition-group type="transition" tag="div" class="dragArea"
                                                 :name="'flip-list'">
-                                                <li v-for="element in classEdus.users" :key="element.id">
+                                                <li v-for="element in retriveSearch " :key="element.id">
                                                     <a class="list-group-item list-group-item-action"><span>{{ element.name }}
                                                             {{ element.last_name }}</span></a>
                                                 </li>
@@ -93,6 +103,19 @@
                 controlOnStart: true,
                 stageEdu: localStorage.stageEdu,
                 classEdu: localStorage.classEdu,
+                query: '',
+                searchResults: [],
+                sorted: false,
+                gender: 'all',
+                options: {
+                    shouldSort: true,
+                    threshold: 0.5,
+                    location: 0,
+                    distance: 500,
+                    maxPatternLength: 32,
+                    minMatchCharLength: 1,
+                    keys: ['users.name', 'users.last_name', 'name', 'last_name'],
+                },
             };
         },
         mounted() {
@@ -100,9 +123,7 @@
         },
         methods: {
             orderList() {
-                this.list1 = this.list1.sort((one, two) => {
-                    return one.name - two.name;
-                });
+
             },
             fetch() {
                 this.$store.dispatch('retriveAttendtion', {
@@ -181,7 +202,38 @@
             putFunction(room) {
                 if (room.users.length >= room.maximum) return false
             },
-        }
+            performSearch() {
+                this.$search(this.query, this.classEdus.users, this.options)
+                    .then(results => {
+                        this.searchResults = results
+                    })
+            }
+        },
+        computed: {
+            retriveSearch() {
+                if (this.query.length == 0) {
+                    return this.classEdus.users.filter(item => {
+                        if (this.gender == 'all') {
+                            return true
+                        } else if (this.gender) {
+                            return item.gender == 1
+                        } else {
+                            return item.gender == 0
+                        }
+                    })
+                } else {
+                    return this.searchResults.filter(item => {
+                        if (this.gender == 'all') {
+                            return true
+                        } else if (this.gender) {
+                            return item.gender == 1
+                        } else {
+                            return item.gender == 0
+                        }
+                    })
+                }
+            }
+        },
     };
 
 </script>

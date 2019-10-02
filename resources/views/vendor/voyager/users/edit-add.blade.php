@@ -235,14 +235,20 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="status">{{__('Status')}}</label>
-                                        <select class="form-control select2" id="status" name="status">
+                                        <label for="status_id">{{__('Status')}}</label>
+                                        @php
+                                            if (isset($dataTypeContent->status_id)) {
+                                                $selected_status = $dataTypeContent->status_id;
+                                            } else {
+                                                $selected_status = '';
+                                            }
+                                        @endphp
+                                        <select class="form-control select2" id="status_id" name="status_id">
                                             <option {{ ($selected_status == null ? 'selected' : '') }} value="">{{ __('voyager::generic.none')}}</option>
-                                            <option {{ ($selected_status == 1 ? 'selected' : '') }} value="1">{{__('New')}}</option>
-                                            <option {{ ($selected_status == 2 ? 'selected' : '') }} value="2">{{__('Transported')}}</option>
-                                            <option {{ ($selected_status == 3 ? 'selected' : '') }} value="3">{{__('Newcomer')}}</option>
-                                            <option {{ ($selected_status == 3 ? 'selected' : '') }} value="4">{{__('Transfer')}}</option>
-                                            <option {{ ($selected_status == 3 ? 'selected' : '') }} value="5">{{__('Failure')}}</option>
+                                            @foreach (App\StatusStudent::all() as $status)
+                                                <option value="{{ $status->id }}"
+                                                {{ ($status->id == $selected_status ? 'selected' : '') }}>{{ $status->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -449,9 +455,21 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="specialty">{{__('Specialty')}}</label>
-                                        <input type="text" class="form-control" id="specialty" name="specialty" placeholder="{{__('Specialty')}}"
-                                                value="@if(isset($dataTypeContent->specialty)){{ $dataTypeContent->specialty }}@endif">
+                                        <label for="specialty_id">{{__('Specialty')}}</label>
+                                        @php
+                                            if (isset($dataTypeContent->specialty_id_id)) {
+                                                $selected_specialty_id = $dataTypeContent->specialty_id_id;
+                                            } else {
+                                                $selected_specialty_id = '';
+                                            }
+                                        @endphp
+                                        <select class="form-control select2" id="specialty_id" name="specialty_id">
+                                            <option {{ ($selected_specialty_id == null ? 'selected' : '') }} value="">{{ __('voyager::generic.none')}}</option>
+                                            @foreach (App\Specialty::all() as $specialty_id)
+                                                <option value="{{ $specialty_id->id }}"
+                                                {{ ($specialty_id->id == $selected_specialty_id ? 'selected' : '') }}>{{ $specialty_id->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">

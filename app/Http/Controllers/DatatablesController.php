@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Html\Builder;
 use TCG\Voyager\Facades\Voyager;
+use Yajra\Datatables\Html\Builder;
+use Yajra\DataTables\Facades\DataTables;
+use App\StatusStudent;
 
 class DatatablesController extends Controller
 {
@@ -51,16 +52,20 @@ class DatatablesController extends Controller
     public function anyData(Request $request)
     {   
         if ($request->classroom != '') {
-            $users = User::where(function ($query) use ($request) {
+            $users = User::with('statusStudents')->where(function ($query) use ($request) {
                 $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1);
             });
         } elseif ($request->class != '') {
-            $users = User::where(function ($query) use ($request) {
+            $users = User::with('statusStudents')->where(function ($query) use ($request) {
                 $query->where('class_id', '=', $request->class)->where('job', '=', 1);
             });
         } else {
-            $users = User::where('job', 1);
+            $users = User::with('statusStudents')->where('job', 1);
         }
-        return Datatables::of($users)->toJson();
+        return DataTables::eloquent($users)
+        ->addColumn('statusStudents', function (User $user) {
+            return $user->statusStudents;
+        })
+                ->make(true);
     }
 }
