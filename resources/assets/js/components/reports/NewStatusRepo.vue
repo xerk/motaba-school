@@ -15,7 +15,7 @@
                             <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
                         <div class="col-sm-4 text-center">
-                            <h3 class="text-center">إحصائية المستجدين</h3>
+                            <h3 class="text-center">إحصائية {{status != 'all' ? status.name : 'جميع الحالات'}}</h3>
                             <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
                         </div>
                         <div class='col-sm-4' style="font-size: 18px">
