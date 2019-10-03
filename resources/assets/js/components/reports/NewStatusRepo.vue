@@ -3,11 +3,11 @@
     <div class="col-md-12">
         <div class="panel panel-bordered">
             <div class="panel-body">
-                <h3 class="text-center">إحصائية المستجدين</h3>
+                <h3 class="text-center">إحصائية {{status != 'all' ? status.name : 'جميع الحالات'}}</h3>
                 <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
                 <select v-model="status" @change="changeStatus" class="form-control select-status" id="">
                     <option value="all">الكل</option>
-                    <option v-for="item in statusStudents" :key="item.id" :value="item.id">{{item.name}}</option>
+                    <option v-for="item in statusStudents" :key="item.id" :value="item">{{item.name}}</option>
                 </select>
                 <div class="content-header" style="display: none">
                     <div class="row">
@@ -187,7 +187,7 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-new-status?class=${classEdu}&classroom=${classRoom}&status=${status}`,
+                    ajax: `https://kamel-ouda.com/admin/get-new-status?class=${classEdu}&classroom=${classRoom}&status=${status == 'all' ? status : status.id}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
