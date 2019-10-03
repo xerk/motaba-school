@@ -192,7 +192,7 @@ export default {
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
                         { data: 'last_name', name: 'last_name' },
-                        { data: 'statusStudents.name', defaultContent: '' },
+                        { data: 'status_students.name', defaultContent: '' },
                         { data: "nationality", name: 'nationality'},
                         { data: 'birth_date', name: 'birth_date' },
                         { data: 'national_id', name: 'national_id' },
