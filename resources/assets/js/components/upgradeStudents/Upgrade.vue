@@ -30,7 +30,7 @@
                                             v-model="query"
                                             @keyup="performSearch"
                                             @keydown="performSearch">
-                                        <i class="voyager-sort" @click="orderList"></i>
+                                        <button type="submit" class="btn btn-sm btn-primary" @click="orderList">ترتيب</button>
                                         <draggable group="people" tag="ul" id="ss_elem_list"
                                             @change="updateOriginal(classEdus)" class="list-group dragArea"
                                             style="height: 650px;" v-model="classEdus.users">
@@ -93,7 +93,7 @@
                 get: {
                     apiURL: 'upgradeData',
                 },
-                classEdus: [],
+                classEdus: {},
                 list2: [],
                 controlOnStart: true,
                 stageEdu: localStorage.stageEdu,
@@ -118,7 +118,7 @@
         },
         methods: {
             orderList() {
-
+                this.classEdus.users = _.sortBy(this.classEdus.users, ['name', 'last_name']);
             },
             fetch() {
                 this.$store.dispatch('retriveAttendtion', {

@@ -30,6 +30,7 @@
                                             v-model="query"
                                             @keyup="performSearch"
                                             @keydown="performSearch">
+                                        <button type="submit" class="btn btn-sm btn-primary" @click="orderList">ترتيب</button>
                                         <draggable group="people" tag="ul" id="ss_elem_list"
                                             @change="updateOriginal(classEdus)" class="list-group dragArea"
                                             style="height: 650px;" v-model="classEdus.users">
@@ -117,9 +118,7 @@
         },
         methods: {
             orderList() {
-                this.list1 = this.list1.sort((one, two) => {
-                    return one.name - two.name;
-                });
+                this.classEdus.users = _.sortBy(this.classEdus.users, ['name', 'last_name']);                
             },
             fetch() {
                 this.$store.dispatch('retriveAttendtion', {
