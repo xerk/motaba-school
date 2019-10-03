@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use TCG\Voyager\Facades\Voyager;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Html\Builder;
 use Illuminate\Support\Carbon;
+use TCG\Voyager\Facades\Voyager;
+use Yajra\Datatables\Html\Builder;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
 
 class NewStatusReportController extends Controller
 {
@@ -30,19 +30,21 @@ class NewStatusReportController extends Controller
      */
     public function anyData(Request $request)
     {   
-        if ($request->classroom != '') {
-            $users = User::where(function ($query) use ($request) {
-                $query->where('classroom_id', '=', $request->classroom)->where('job', '=', 1)->where('status', '=', 1);
-            })->with('stageEdu', 'classEdu');
-        } elseif ($request->class != '') {
-            $users = User::where(function ($query) use ($request) {
-                $query->where('class_id', '=', $request->class)->where('job', '=', 1)->where('status', '=', 1);
-            })->with('stageEdu', 'classEdu');
+        
+        if ($request->status != 'all') {
+            $users = User::with('statusStudents', 'stageEdu', 'classEdu')->where('job', 1)->where('status_id', $request->status);
         } else {
-            $users = User::where(function ($query) use ($request) {
-                $query->where('job', '=', 1)->where('status', '=', 1);
-            })->with('stageEdu', 'classEdu');
+            $users = User::with('statusStudents', 'stageEdu', 'classEdu')->where('job', 1);
         }
-        return Datatables::of($users)->toJson();
+        if ($request->classroom != '') {
+            $users->where('classroom_id', '=', $request->classroom);
+        } elseif ($request->class != '') {
+            $users->where('class_id', '=', $request->class);
+        }
+        return DataTables::eloquent($users)
+                    ->addColumn('statusStudents', function (User $user) {
+                        return $user->statusStudents;
+                    })
+                    ->make(true);
     }
 }

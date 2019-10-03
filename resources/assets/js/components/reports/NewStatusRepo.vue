@@ -5,6 +5,10 @@
             <div class="panel-body">
                 <h3 class="text-center">إحصائية المستجدين</h3>
                 <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
+                <select v-model="status" @change="changeStatus" class="form-control select-status" id="">
+                    <option value="all">الكل</option>
+                    <option v-for="item in statusStudents" :key="item.id" :value="item.id">{{item.name}}</option>
+                </select>
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-sm-4 pull-left">
@@ -48,6 +52,7 @@
                                 <th></th>
                                 <th>أسم الطالب</th>
                                 <th> الأسم الاخير</th>
+                                <th>الحالة</th>
                                 <th>الجنسية</th>
                                 <th>تاريخ الميلاد</th>
                                 <th>الرقم الفومى</th>
@@ -82,6 +87,8 @@ export default {
                     name: ''
                 }
             },
+            statusStudents: null,
+            status: 'all',
             stageEdu: localStorage.stageEdu,
             classEdu: localStorage.classEdu,
             classRoom: localStorage.classRoom,
@@ -107,12 +114,19 @@ export default {
                 classEdu: this.classEdu,
             })
             .then(response => {
-                this.user = response.data
+                this.user = response.data.user
+                this.statusStudents = response.data.statusStudents
             })
+        },
+        changeStatus() {
+            $('#users-table').DataTable().destroy();
+            this.fetch()
+            this.getUsers()
         },
         fetch() {
             var classEdu = this.classEdu
             var classRoom = this.classRoom
+            var status = this.status
             $(function() {
                 var t = $('#users-table').DataTable({
                     dom: 'Bfrtip',
@@ -173,11 +187,12 @@ export default {
                     } ],
                     processing: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-new-status?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `https://kamel-ouda.com/admin/get-new-status?class=${classEdu}&classroom=${classRoom}&status=${status}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
                         { data: 'last_name', name: 'last_name' },
+                        { data: 'statusStudents.name', defaultContent: '' },
                         { data: "nationality", name: 'nationality'},
                         { data: 'birth_date', name: 'birth_date' },
                         { data: 'national_id', name: 'national_id' },
@@ -215,3 +230,13 @@ export default {
     },
 }
 </script>
+
+<style>
+.select-status {
+    width: 300px;
+    position: relative;
+    bottom: 2px;
+    margin: 10px 0;
+    height: 40px;
+}
+</style>

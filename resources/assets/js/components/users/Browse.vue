@@ -57,7 +57,20 @@
 
 <script>
     export default {
+        data () {
+            return {
+                items: '',
+            }
+        },
+        mounted() {
 
+        },
+        methods: {
+
+        },
+        computed: {
+
+        }
     }
 
 </script>

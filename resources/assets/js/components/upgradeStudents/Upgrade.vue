@@ -83,12 +83,7 @@
 <script>
     import Fab from '../fab/FabUpgrade'
     import draggable from "vuedraggable";
-    let idGlobal = 8;
     export default {
-        name: "clone-on-control",
-        display: "Clone on Control",
-        instruction: "Press Ctrl to clone element from list 1",
-        order: 4,
         components: {
             draggable,
             Fab
