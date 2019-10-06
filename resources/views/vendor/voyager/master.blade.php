@@ -17,6 +17,7 @@
 
 
     <!-- App CSS -->
+    {{-- <link rel="stylesheet" href="{{ mix('css/main.css') }}"> --}}
     <link rel="stylesheet" href="{{ voyager_asset('css/app.css') }}">
     @if (Auth::user()->settings['locale'] == 'ar')
         <style>
@@ -57,6 +58,7 @@
             margin-right: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
             border-radius: 100%;
+            display: inline;
         }
     </style>
 

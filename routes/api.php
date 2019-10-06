@@ -104,3 +104,6 @@ Route::put('updateAddToRoom', 'UpgradeStudentsController@updateAddToRoom');
 Route::get('statusData', 'StatusStudentsController@statusData');
 Route::put('updateEmptyStatus', 'StatusStudentsController@updateEmptyStatus');
 Route::put('updateAddToStatus', 'StatusStudentsController@updateAddToStatus');
+
+// Users
+Route::get('users', 'UsersController@get');

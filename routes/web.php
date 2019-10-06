@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('distribution_status_students', 'StatusStudentsController@index')->name('school.status_students')->middleware('admin.user');
     Route::get('report_designer', 'ReportDesignerController@index')->name('school.report.designer')->middleware('admin.user');
 
-    Route::resource('users-2', 'UsersController')->middleware('admin.user');
+    // Route::resource('users-2', 'UsersController')->middleware('admin.user');
     Route::resource('setting_numbers', 'SettingNumberController')->middleware('admin.user');
     Route::resource('secret_numbers', 'SecretNumberController')->middleware('admin.user');
     Route::resource('committees', 'CommitteeController')->middleware('admin.user');

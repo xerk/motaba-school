@@ -2,10 +2,11 @@
     <div class="page-content browse container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-bordered">
+                <h3 class="text-center"><span v-if="classEdus">{{classEdus.name}}</span></h3>
+                <div class="panel panel-bordered" >
                     <div class="panel-body">
                         <section>
-                            <div class="row">
+                            <div class="row" v-if="classEdus">
                                 <div class="col-md-12">
                                     <button type="submit" @click="emptyAll" class="pull-right btn btn-danger"><i class="voyager-trash"></i> تفريغ الجميع </button>
                                 </div>
@@ -67,6 +68,11 @@
                                     </div>
                                     <button @click="empty(room)" type="submit"
                                         class="btn btn-danger pull-right btn-small"><i class="voyager-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="row" v-else>
+                                <div class="col-md-12">
+                                    <h3 class="text-center">من فضلك أختر الصف أو الفصل لي يتم التحكم ف حالات الطلاب</h3>
                                 </div>
                             </div>
                         </section>

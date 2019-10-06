@@ -1,23 +1,39 @@
 <template>
     <div class="page-content browse container-fluid">
         <div class="row">
-            <div class="col-md-12 col-md-offset-4">
-                <input type="text" placeholder='Search the docs (Press "/" to focus)' class="users-button-search">
-                <div class="users-icon-search">
-                    <svg class="" width="20px" height="20px" ><path class="search-color" d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path></svg>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <input type="text" v-model.lazy="query" v-debounce="500" @keyup="fetch" placeholder='Search the docs (Press "/" to focus)' class="users-button-search">
+                    <div class="users-icon-search">
+                        <svg class="" width="20px" height="20px">
+                            <path class="search-color"
+                                d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
+                            </path>
+                        </svg>
+                    </div>
                 </div>
-                <select name="" id="" class="users-select-box">
-                    <option value="1">Role</option>
-                </select>
-                <select name="" id="" class="users-select-box">
-                    <option value="1">Gender</option>
-                </select>
-                <select name="" id="" class="users-select-box">
-                    <option value="1">Job</option>
-                </select>
-                <select name="" id="" class="users-select-box">
-                    <option value="1">Status</option>
-                </select>
+                <div class="col-md-6">
+                    <select @change="jobChange" v-model="job" class="users-select-box">
+                        <option value="">نوع الوظيفة</option>
+                        <option value="1">طالب</option>
+                        <option value="0">موظف</option>
+                    </select>
+                    <select @change="fetch" v-model="gender" class="users-select-box">
+                        <option value="">النوع</option>
+                        <option value="1">ذكر</option>
+                        <option value="0">إنثى</option>
+                    </select>
+                    <select @change="fetch" v-model="specialty" v-if="job == 0 && job != ''" class="users-select-box">
+                        <option value="">التخصص</option>
+                        <option v-for="(item, index) in specialties" :key="index" :value="item.id">{{item.name}}
+                        </option>
+                    </select>
+                    <select @change="fetch" v-model="status" v-if="job == 1" class="users-select-box">
+                        <option value="">الحالة</option>
+                        <option v-for="(item, index) in statusStudents" :key="index" :value="item.id">{{item.name}}
+                        </option>
+                    </select>
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="panel panel-bordered">
@@ -30,23 +46,44 @@
                                         <th>Username</th>
                                         <th>Phone</th>
                                         <th>Gender</th>
-                                        <th>Status</th>
-                                        <th>Stage & Class</th>
+                                        <th v-if="job == 0 && job != ''">specialty</th>
+                                        <th v-else>Status</th>
+                                        <th v-if="job == 0 && job != ''">qualification</th>
+                                        <th v-else>Stage & Class</th>
                                         <th class="actions text-right">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="users-table-row">
-                                        <td class="users-table-data"><img src="https://kamel-ouda.com/storage/users/February2019/ljDltV8u7FHevt82msBW.png" class="avatar" alt="Admin avatar" width="32px"> Ahmed Mamdouh</td>
-                                        <td class="users-table-data">XerK</td>
-                                        <td class="users-table-data">201111981716</td>
-                                        <td class="users-table-data">Male</td>
-                                        <td class="users-table-data">New</td>
-                                        <td class="users-table-data">1/3 ع</td>
-                                        <td><button type="submit" class="btn btn-primary">Edit</button></td>
+                                <transition-group tag="tbody" name="list" mode="in-out" v-if="!isLoading">
+                                    <tr class="users-table-row" v-for="(item, index) in users.data" :key="index">
+                                        <td class="users-table-data"><img :src="link + '/storage/' + item.avatar"
+                                                class="img-avatar" alt="Admin avatar" width="32px"> {{item.full_name}}
+                                        </td>
+                                        <td class="users-table-data">{{ item.username }}</td>
+                                        <td class="users-table-data">{{ item.mobile }}</td>
+                                        <td class="users-table-data">{{ item.gender == 1 ? 'ذكر' : 'إنثى'}}</td>
+                                        <td class="users-table-data" v-if="job == 0 && job != ''">
+                                            {{ item.specialy ? item.specialy.name : 'لا يوجد' }}</td>
+                                        <td class="users-table-data" v-else>
+                                            {{ item.status_students ? item.status_students.name : 'لا يوجد' }}</td>
+                                        <td v-if="job == 0 && job != ''" class="users-table-data">{{ item.qualification }}</td>
+                                        <td v-else class="users-table-data">{{ item.full_stage ? item.full_stage : 'لا يوجد'}}</td>
+                                        <td><a :href="link + '/admin/users/' + item.id + '/edit'" class="btn btn-primary">Edit</a></td>
+                                    </tr>
+                                </transition-group>
+                                <tbody v-else>
+                                    <tr>
+                                        <loading :active.sync="isLoading" v-if="isLoading" :height="64" :width="64" loader="dots"
+                                            :is-full-page="false">
+                                        </loading>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="pull-left" v-if="!isLoading">
+                            <div role="status" class="show-res" aria-live="polite">عرض {{users.from}} إلى {{users.to}} من {{users.total}} عنصر</div>
+                        </div>
+                        <div class="pull-right" v-if="!isLoading">
+                            <pagination :data="users" :limit="3" @pagination-change-page="fetch"></pagination>
                         </div>
                     </div>
                 </div>
@@ -56,17 +93,57 @@
 </template>
 
 <script>
+    // Import component
+    import Loading from 'vue-loading-overlay';
+    import pagination from 'laravel-vue-pagination';
+    // Import stylesheet
+    import 'vue-loading-overlay/dist/vue-loading.css';
+    import debounce from '../../index'
     export default {
-        data () {
+        props: ['link'],
+        components: {
+            Loading,
+            pagination,
+        },
+        directives: {debounce},
+        data() {
             return {
-                items: '',
+                get: {
+                    apiURL: 'users',
+                },
+                specialties: null,
+                statusStudents: null,
+                users: null,
+                job: '',
+                gender: '',
+                specialty: '',
+                status: '',
+                isLoading: true,
+                suggestionAttribute: 'original_title',
+                query: '',
             }
         },
         mounted() {
-
+            this.fetch()
         },
         methods: {
-
+            fetch(page) {
+                this.isLoading = true
+                setTimeout(() => {
+                        axios.get(`users?page=${page}&job=${this.job}&gender=${this.gender}&specialty=${this.specialty}&status_id=${this.status}&value=${this.query}`)
+                        .then(response => {
+                            this.users = response.data.users
+                            this.statusStudents = response.data.statusStudents
+                            this.specialties = response.data.specialties
+                            this.isLoading = false
+                        });
+                }, 1000);
+            },
+            jobChange() {
+                this.specialty = ''
+                this.status = ''
+                this.fetch()
+            }
         },
         computed: {
 
@@ -77,7 +154,7 @@
 
 <style>
     .users-button-search {
-        width: 672px;
+        width: 350px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06) !important;
         padding-left: 3rem !important;
         padding-right: 1rem !important;
@@ -95,6 +172,7 @@
         font-size: 16px;
         height: 50px;
     }
+
     .users-select-box {
         width: 200px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06) !important;
@@ -110,25 +188,29 @@
         color: #718096;
         font-size: 16px;
         height: 50px;
-        margin-top: 10px;
-        margin-right: 10px;
     }
+
     .users-icon-search {
         position: absolute;
         top: 16px;
         left: 30px;
     }
+
     .search-color {
         fill: #718096;
     }
+
     .users-table-row {
         cursor: pointer;
     }
+
     .users-table-row:hover {
         background-color: #f3f3f3;
     }
+
     .users-table-data {
         vertical-align: middle !important;
         color: #718096;
     }
+
 </style>

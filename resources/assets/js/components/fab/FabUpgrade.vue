@@ -3,16 +3,18 @@
         <modal v-if="showModal" @close="showModal = false">
             <div slot="body">
             <label for="stage">{{ trans('fab.Stage Education')}}</label>
-            <select id="m_stage" class="form-control" v-model="stageSelect" @change="changeStage" name="stage">
+            <select id="m_stage" v-validate="'required'" class="form-control" v-model="stageSelect" @change="changeStage" name="stage">
                 <option value="" selected="selected">{{ trans('fab.Choose Stage')}}</option>
                 <option v-for="(stage, key) in model.stageEdu" :key="key" :value="stage.id">{{ stage.name }}</option>
             </select>
+            <span v-show="errors.has('stage')" class="help-block" style="color:#f96868">{{ errors.first('stage') }}</span>
             <br>
             <label for="class">{{ trans('fab.Class Education')}}</label>
-            <select id="m_class" class="form-control" v-model="classSelect" name="class">
+            <select id="m_class" v-validate="'required'" class="form-control" v-model="classSelect" name="class">
                 <option value="" selected="selected">{{ trans('fab.Choose Class')}}</option>
                 <option v-for="(classItem, key) in classEduFilter" :key="key" :value="classItem.id">{{ classItem.name }}</option>
             </select>
+            <span v-show="errors.has('class')" class="help-block" style="color:#f96868">{{ errors.first('class') }}</span>
             <br>
             </div>
             <h3 slot="header"><i class="voyager-tree"></i> <span style="margin-left: 10px;vertical-align: text-bottom;">{{ trans('fab.Select student filter')}}.</span></h3>
@@ -105,10 +107,14 @@
         },
         methods: {
             parsist() {
-                this.$emit('parsist', this.stageSelect, this.classSelect)
-                localStorage.stageEdu = this.stageSelect;
-                localStorage.classEdu = this.classSelect;
-                this.showModal = false
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        this.$emit('parsist', this.stageSelect, this.classSelect)
+                        localStorage.stageEdu = this.stageSelect;
+                        localStorage.classEdu = this.classSelect;
+                        this.showModal = false
+                    }
+                })
             },
             changeStage() {
                 this.$emit('changeS')

@@ -2,22 +2,24 @@
 
 namespace App;
 
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends \TCG\Voyager\Models\User
+class User extends \TCG\Voyager\Models\User implements Searchable
 {
     use Notifiable;
 
-
+    protected $appends = ['full_name', 'full_stage'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'class_id', 'status_id'
+        'name', 'email', 'password', 'class_id', 'status_id', 'job'
     ];
 
     /**
@@ -145,13 +147,13 @@ class User extends \TCG\Voyager\Models\User
     }
 
     /**
-     * Show the User Belongs To ClassEdu.
+     * Show the User Belongs To ClassRoom.
      *
-     * @return App\ClassEdu
+     * @return App\ClassRoom
      */
     public function classRoom()
     {
-        return $this->belongsTo('App\Configs\ClassRoom', 'classroom_id', 'id');
+        return $this->belongsTo('App\Configs\ClassRoom', 'classroom_id');
     }
 
     /**
@@ -162,5 +164,54 @@ class User extends \TCG\Voyager\Models\User
     public function statusStudents()
     {
         return $this->belongsTo('App\StatusStudent', 'status_id');
+    }
+
+    /**
+     * Show the User Belongs To Specialty.
+     *
+     * @return App\Specialty
+     */
+    public function specialy()
+    {
+        return $this->belongsTo('App\Specialty', 'specialty_id');
+    }
+
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->last_name}";
+    }
+
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullStageAttribute()
+    {
+        return ($this->stageEdu ? $this->stageEdu->shorten : '') . ' ' . ($this->classEdu ? $this->classEdu->shorten : '') . '/' . ($this->classRoom ? $this->classRoom->shorten : '');
+    }
+
+    public function getSearchResult(): SearchResult
+     {
+        $id = $this->id;
+     
+         return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->name,
+            $id
+         );
+     }
+
+     public function scopeSearch($query, $searchTerm) {
+        return $query
+            ->where('name', 'like', "%" . $searchTerm . "%")
+            ->orWhere('last_name', 'like', "%" . $searchTerm . "%")
+            ->orWhere('username', 'like', "%" . $searchTerm . "%")
+            ->orWhere('email', 'like', "%" . $searchTerm . "%");
     }
 }

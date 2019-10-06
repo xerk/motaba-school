@@ -30,11 +30,9 @@ class NewStatusReportController extends Controller
      */
     public function anyData(Request $request)
     {   
-        
+        $users = User::with('statusStudents', 'stageEdu', 'classEdu')->withTrashed()->where('job', 1)->whereNotNull('status_id');
         if ($request->status != 'all') {
-            $users = User::with('statusStudents', 'stageEdu', 'classEdu')->where('job', 1)->where('status_id', $request->status);
-        } else {
-            $users = User::with('statusStudents', 'stageEdu', 'classEdu')->where('job', 1);
+            $users->where('status_id', $request->status);
         }
         if ($request->classroom != '') {
             $users->where('classroom_id', '=', $request->classroom);

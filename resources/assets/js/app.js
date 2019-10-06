@@ -52,6 +52,9 @@ import 'vue-datetime/dist/vue-datetime.css'
 import vSelect from 'vue-select'
 import VueFuse from 'vue-fuse'
 import Vddl from 'vddl';
+import 'vue-instant/dist/vue-instant.css'
+import VueInstant from 'vue-instant'
+Vue.use(VueInstant)
 
 window.Vue = require('vue');
 window.EventBus = new Vue()

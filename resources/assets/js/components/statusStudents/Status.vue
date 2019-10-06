@@ -2,6 +2,7 @@
     <div class="page-content browse container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <h3 class="text-center"><span v-if="classEdus">{{classEdus.name}}</span></h3>
                 <div class="panel panel-bordered">
                     <div class="panel-body">
                         <section>

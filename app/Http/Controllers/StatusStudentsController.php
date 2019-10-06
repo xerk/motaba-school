@@ -51,6 +51,7 @@ class StatusStudentsController extends Controller
     {   
         foreach ($request->users as $user) {
             User::where('id', $user['id'])->update(['status_id' => null]);
+            User::onlyTrashed()->where('id', $user['id'])->restore();
         }
         return response()->json('نجحة العملية');
     }
@@ -62,10 +63,14 @@ class StatusStudentsController extends Controller
      */
     public function updateAddToStatus(Request $request)
     {   
-        // $result = '';
+        $statusStudent = StatusStudent::find($request->id);
         foreach ($request->users as $user) {
             User::where('id', $user['id'])->update(['status_id' => $request->id]);
+            if ($statusStudent->trash == true) {
+                User::destroy($user['id']);
+            }
         }
+
         return response()->json('نجحة العملية');
     }
 }
