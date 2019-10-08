@@ -30,10 +30,10 @@ class StatusStudentsController extends Controller
     public function statusData(Request $request)
     {
         $statusStudents = StatusStudent::with(['users' => function($q) use($request) {
-            $q->where('class_id', $request->id);
+            $q->withTrashed()->where('class_id', $request->id);
         }])->get();
         $classEdus = ClassEdu::with(['users' => function ($q) {
-            $q->whereNull('status_id');
+            $q->withTrashed()->whereNull('status_id');
         }])->where('id', $request->id)->first();
 
         return response()->json([
