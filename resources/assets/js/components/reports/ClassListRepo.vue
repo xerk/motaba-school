@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="content-footer" style="display:none">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-print-6 text-center" style="padding-left: 10px">
                             <ul class="list-unstyled">
                                 <li>عميد المعهد</li>
@@ -37,7 +37,7 @@
                                 <li>أ/جيهان عبد الحميد&nbsp; أ/عطيلت عز الرجال</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover dataTable no-footer display nowrap" id="users-table">
