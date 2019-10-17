@@ -206,21 +206,40 @@ export default {
                             var birth = new Date(val); // Year From BirthDate
                             var today = new Date();
                             var oct = new Date(today.getFullYear() + '/10/1');
-                            return birth.getDate() - oct.getDate();
+                            var b  = moment(birth, "YYYY-MM-DD");
+                            var a = moment(today.getFullYear() + "-10-01", "YYYY-MM-DD");
+                            var years = a.diff(b, 'year');
+                            b.add(years, 'years');
+                            var months = a.diff(b, 'months');
+                            b.add(months, 'months');
+                            var days = a.diff(b, 'days');
+                            return days;
                         } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
                                 var today = new Date();
-                                var oct = new Date(today.getFullYear() + '/10/1');
-                                return Math.abs(oct.getMonth() - birth.getMonth());
+                                var b  = moment(birth, "YYYY-MM-DD");
+                                var a = moment(today.getFullYear() + "-10-01", "YYYY-MM-DD");
+                                var years = a.diff(b, 'year');
+                                b.add(years, 'years');
+                                var months = a.diff(b, 'months');
+                                b.add(months, 'months');
+                                var days = a.diff(b, 'days');
+                                return months;
                             } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
                                 var today = new Date()
-                                var oct = new Date(today.getFullYear() + '-10-1')
-                                return oct.getFullYear() - birth.getFullYear();
+                                 var b  = moment(birth, "YYYY-MM-DD");
+                                var a = moment(today.getFullYear() + "-10-01", "YYYY-MM-DD");
+                                var years = a.diff(b, 'year');
+                                b.add(years, 'years');
+                                var months = a.diff(b, 'months');
+                                b.add(months, 'months');
+                                var days = a.diff(b, 'days');
+                                return years;
                             } },
                         { data: 'status_students.name', defaultContent: ''},
                         { data: 'nationality', name: 'nationality' },
