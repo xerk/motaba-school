@@ -4,15 +4,13 @@
         <div class="panel panel-bordered">
             <div class="panel-body">
                 <h3 class="text-center">سجل الطلاب</h3>
-                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-sm-4 pull-left">
-                            <img src="https://kamel-ouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
+                            <img src="https://kamelouda.com/images/logo/PNG-24.png" alt="Logo" style="width:100px" class='img-responsive' />
                         </div>
                         <div class="col-sm-4 text-center">
                             <h3 class="text-center">سجل الطلاب</h3>
-                            <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
                         </div>
                         <div class='col-sm-4' style="font-size: 18px">
                             <ul class="list-unstyled text-center pull-right">
@@ -91,6 +89,7 @@
 
 <script>
 import Fab from '../fab/Fab'
+import moment from 'moment'
 export default {
     components: {Fab},
     data() {
@@ -114,6 +113,15 @@ export default {
     mounted() {
         this.fetch()
         this.getUsers()
+        var b  = moment("2017-01-26", "YYYY-MM-DD");
+        var a = moment("2019-10-01", "YYYY-MM-DD");
+        var years = a.diff(b, 'year');
+        b.add(years, 'years');
+        var months = a.diff(b, 'months');
+        b.add(months, 'months');
+        var days = a.diff(b, 'days');
+        console.log(years + ' years ' + months + ' months ' + days + ' days');
+                
     },
     methods: {
         parsist(stageEdu, classEdu, classRoom) {
@@ -151,10 +159,8 @@ export default {
                                     .css('font-size', '11px')
                                 $(win.document.body).find('div').first()
                                     .prepend( $( ".content-header" ).clone().css('display', 'block') )
-
                                 $(win.document.body).find('div').last()
                                     .prepend( $( ".content-footer" ).clone().css('display', 'block') )
-
                                 $(win.document.body).find('h1')
                                     .css('display', 'none')
                                 $(win.document.body).find('th')
@@ -166,7 +172,6 @@ export default {
                                 $(win.document.body).find('table')
                                     .addClass('compact')
                                     .css('direction', 'rtl')
-
                             }
                         },
                         {
@@ -195,7 +200,7 @@ export default {
                     processing: false,
                     paging: false,
                     serverSide: false,
-                    ajax: `https://kamel-ouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
+                    ajax: `https://kamelouda.com/admin/get-students?class=${classEdu}&classroom=${classRoom}`,
                     columns: [
                         { data: length, defaultContent: '' },
                         { data: 'name', name: 'name' },
@@ -262,8 +267,6 @@ export default {
                         { data: 'mother_mobile', name: 'mother_mobile' },
                         { data: 'father_job', name: 'father_job' },
                         { data: 'national_id', name: 'national_id' },
-
-
                     ],
                     "columnDefs": [
                         {
@@ -279,7 +282,6 @@ export default {
                             },
                             "targets": 1
                         },
-
                         { "visible": false,  "targets": [ 2 ] },
                     ],
                 });
@@ -301,5 +303,3 @@ export default {
     }
 }
 </style>
-
-
