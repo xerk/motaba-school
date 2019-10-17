@@ -4,7 +4,6 @@
         <div class="panel panel-bordered">
             <div class="panel-body">
                 <h3 class="text-center">سجل الطلاب</h3>
-                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-sm-4 pull-left">
@@ -12,7 +11,6 @@
                         </div>
                         <div class="col-sm-4 text-center">
                             <h3 class="text-center">سجل الطلاب</h3>
-                            <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
                         </div>
                         <div class='col-sm-4' style="font-size: 18px">
                             <ul class="list-unstyled text-center pull-right">
@@ -91,6 +89,7 @@
 
 <script>
 import Fab from '../fab/Fab'
+import moment from 'moment'
 export default {
     components: {Fab},
     data() {
@@ -114,6 +113,19 @@ export default {
     mounted() {
         this.fetch()
         this.getUsers()
+        var b  = moment("2017-01-26", "YYYY-MM-DD");
+        var a = moment("2019-10-01", "YYYY-MM-DD");
+
+        var years = a.diff(b, 'year');
+        b.add(years, 'years');
+
+        var months = a.diff(b, 'months');
+        b.add(months, 'months');
+
+        var days = a.diff(b, 'days');
+
+        console.log(years + ' years ' + months + ' months ' + days + ' days');
+                
     },
     methods: {
         parsist(stageEdu, classEdu, classRoom) {
@@ -206,21 +218,52 @@ export default {
                             var birth = new Date(val); // Year From BirthDate
                             var today = new Date();
                             var oct = new Date(today.getFullYear() + '/10/1');
-                            return birth.getDate() - oct.getDate();
+                            var b  = moment(birth, "YYYY-MM-DD");
+                            var a = moment(today.getFullYear() + "-10-01", "YYYY-MM-DD");
+
+                            var years = a.diff(b, 'year');
+                            b.add(years, 'years');
+
+                            var months = a.diff(b, 'months');
+                            b.add(months, 'months');
+
+                            var days = a.diff(b, 'days');
+
+                            return days;
                         } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
                                 var today = new Date();
-                                var oct = new Date(today.getFullYear() + '/10/1');
-                                return Math.abs(oct.getMonth() - birth.getMonth());
+                                var b  = moment(birth, "YYYY-MM-DD");
+                                var a = moment(today.getFullYear() + "-10-01", "YYYY-MM-DD");
+
+                                var years = a.diff(b, 'year');
+                                b.add(years, 'years');
+
+                                var months = a.diff(b, 'months');
+                                b.add(months, 'months');
+
+                                var days = a.diff(b, 'days');
+
+                                return months;
                             } },
                         { data: 'birth_date', name: 'birth_date',
                             'render': function (val, type, row) {
                                 var birth = new Date(val); // Year From BirthDate
                                 var today = new Date()
-                                var oct = new Date(today.getFullYear() + '-10-1')
-                                return oct.getFullYear() - birth.getFullYear();
+                                 var b  = moment(birth, "YYYY-MM-DD");
+                                var a = moment(today.getFullYear() + "-10-01", "YYYY-MM-DD");
+
+                                var years = a.diff(b, 'year');
+                                b.add(years, 'years');
+
+                                var months = a.diff(b, 'months');
+                                b.add(months, 'months');
+
+                                var days = a.diff(b, 'days');
+
+                                return years;
                             } },
                         { data: 'status_students.name', defaultContent: ''},
                         { data: 'nationality', name: 'nationality' },
