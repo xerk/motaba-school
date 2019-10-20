@@ -26,9 +26,17 @@
                 </div>
                 <div class="uk-width-expand@m uk-width-1-2@s">
                     <h3 class="uk-h5">{{ __('Contact Us') }}</h3>
-                    <div class="">01147096818</div>
-                    <div class="">0237775917 - 02377775918</div>
-                    <div class="">contact@kamel-ouda.com</div>
+                    <div class="">
+                        @foreach (App\Configs\Mobile::all() as $item)
+                            {{$item->mobile ." - "}}
+                        @endforeach
+                    </div>
+                    <div class="">
+                    @foreach (App\Configs\Telephone::all() as $item)
+                        {{$item->tel}} @if(!$loop->last) <span> - </span> @endif
+                    @endforeach
+                    </div>
+                    <div class="">contact@kamelouda.com</div>
                     <div class="uk-margin">
                         <div class="uk-child-width-auto uk-grid-medium uk-grid uk-social" uk-grid>
                             <a uk-icon="icon: youtube; ratio: 0.8" href="#" target="_blank"
