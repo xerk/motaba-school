@@ -4,7 +4,7 @@
         <div class="panel panel-bordered">
             <div class="panel-body">
                 <h3 class="text-center">قائمة طلاب</h3>
-                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
+                <h3 class="text-center"><span v-if="classEdu != ''">{{user.user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.user.class_room.name}}</span></h3>
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-print-4 pull-left" style="padding-left: 10px">
@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-print-4 text-center">
                             <h3 class="text-center">قائمة طلاب</h3>
-                            <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
+                            <h3 class="text-center"><span v-if="classEdu != ''">{{user.user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.user.class_room.name}}</span></h3>
                         </div>
                         <div class='col-print-4' style="padding-right: 10px">
                             <ul class="list-unstyled text-center pull-right">
@@ -67,11 +67,13 @@ export default {
                 apiURL: 'report-users',
             },
             user: {
-                class_room: {
+                user: {
+                    class_room: {
                     name: ''
-                },
-                class_edu: {
-                    name: ''
+                    },
+                    class_edu: {
+                        name: ''
+                    }
                 }
             },
             stageEdu: localStorage.stageEdu,
