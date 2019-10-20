@@ -4,8 +4,8 @@
             <div class="uk-grid-large uk-grid-margin-large uk-grid" uk-grid="">
                 <div class="uk-width-expand@m uk-width-1-2@s uk-first-column uk-footer-logo">
                     <div class="uk-margin">
-                        <a href="/"><img src="{{ asset('images/logo/logo.PNG') }}"
-                                data-src="{{ asset('images/logo/logo.PNG') }}"
+                        <a href="/"><img src="{{ Voyager::image(setting('site.logo_colored')) }}"
+                                data-src="{{ Voyager::image(setting('site.logo_colored')) }}"
                                 alt="Kamel Ouda" style="height:128px;"></a>
                     </div>
                 </div>
