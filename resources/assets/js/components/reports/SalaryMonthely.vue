@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="content-footer" style="display:none">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-4 col-print-4 text-center" style="font-size: 18px">
                 <ul class="list-unstyled">
                     <li>عميد المعهد</li>
@@ -46,7 +46,7 @@
                     <li>أ/عبير السيد</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="row">
         <div class="col-md-12">
