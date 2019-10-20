@@ -35,7 +35,7 @@ style="box-sizing: border-box;">
 y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
    <style type="text/css">
        .wave-svg {
-           fill: #1683FB;
+           fill: #f49c19;
        }
    </style>
    <g id="wave" transform="translate(720.000000, 75.000000) scale(1, -1) translate(-720.000000, -75.000000) " fill-rule="nonzero">
@@ -66,7 +66,7 @@ y="0px" viewBox="0 0 1440 126" style="enable-background:new 0 0 1440 126;" xml:s
 y="0px" viewBox="0 0 1440 156" style="enable-background:new 0 0 1440 126;" xml:space="preserve">
    <style type="text/css">
        .wave-svg {
-           fill: #1683FB;
+           fill: #f49c19;
        }
    </style>
    <g id="wave" fill-rule="nonzero">

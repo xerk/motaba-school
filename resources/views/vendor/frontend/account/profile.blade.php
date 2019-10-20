@@ -15,7 +15,7 @@
     .uk-subnav-pill>.uk-active>a {
         background-color: #fff;
         color: #000;
-        border-bottom: 2px solid #1e87f0;
+        border-bottom: 2px solid #f39200;
     }
 
     .show-result {
