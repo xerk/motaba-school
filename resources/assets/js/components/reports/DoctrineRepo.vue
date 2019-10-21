@@ -4,7 +4,7 @@
         <div class="panel panel-bordered">
             <div class="panel-body">
                 <h3 class="text-center">إحصائية المذاهب</h3>
-                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
+                <h3 class="text-center"><span v-if="classEdu != ''">{{user.user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.user.class_room.name}}</span></h3>
                 <div class="content-header" style="display: none">
                     <div class="row">
                         <div class="col-sm-4 pull-left">
@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-sm-4 text-center">
                             <h3 class="text-center">إحصائية المذاهب</h3>
-                            <h3 class="text-center" v-if="user"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
+                            <h3 class="text-center"><span v-if="classEdu != ''">{{user.user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.user.class_room.name}}</span></h3>
                         </div>
                         <div class='col-sm-4' style="font-size: 18px">
                             <ul class="list-unstyled text-center pull-right">
