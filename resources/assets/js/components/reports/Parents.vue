@@ -80,12 +80,14 @@
                     apiURL: 'report-users',
                 },
                 user: {
+                    user: {
                     class_room: {
-                        name: ''
+                    name: ''
                     },
                     class_edu: {
                         name: ''
                     }
+                }
                 },
                 stageEdu: localStorage.stageEdu,
                 classEdu: localStorage.classEdu,

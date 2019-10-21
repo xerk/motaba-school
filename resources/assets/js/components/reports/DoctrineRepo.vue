@@ -76,11 +76,13 @@ export default {
                 apiURL: 'report-users',
             },
             user: {
-                class_room: {
+                 user: {
+                    class_room: {
                     name: ''
-                },
-                class_edu: {
-                    name: ''
+                    },
+                    class_edu: {
+                        name: ''
+                    }
                 }
             },
             stageEdu: localStorage.stageEdu,
