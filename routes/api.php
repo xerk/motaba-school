@@ -107,3 +107,4 @@ Route::put('updateAddToStatus', 'StatusStudentsController@updateAddToStatus');
 
 // Users
 Route::get('users', 'UsersController@get');
+Route::delete('users/{id}', 'UsersController@destroy');

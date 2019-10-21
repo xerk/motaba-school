@@ -67,7 +67,12 @@
                                             {{ item.status_students ? item.status_students.name : 'لا يوجد' }}</td>
                                         <td v-if="job == 0 && job != ''" class="users-table-data">{{ item.qualification }}</td>
                                         <td v-else class="users-table-data">{{ item.full_stage ? item.full_stage : 'لا يوجد'}}</td>
-                                        <td><a :href="link + '/admin/users/' + item.id + '/edit'" class="btn btn-primary">Edit</a></td>
+                                        <td>
+                                            <a :href="link + '/admin/users/' + item.id + '/edit'" class="btn btn-primary">Edit</a>
+                                            <a href.prevent="" @click="openModal(item)" class="btn btn-sm btn-danger">
+                                                <i class="voyager-trash"></i> {{ trans('table.Delete') }}
+                                            </a>
+                                        </td>
                                     </tr>
                                 </transition-group>
                                 <tbody v-else>
@@ -89,11 +94,13 @@
                 </div>
             </div>
         </div>
+        <modal-system :selectRow="selectRow" @confirm="removeOption" v-if="showModal" @close="showModal = false"></modal-system>
     </div>
 </template>
 
 <script>
     // Import component
+    import ModalSystem from '../modal/ModalSystem'
     import Loading from 'vue-loading-overlay';
     import pagination from 'laravel-vue-pagination';
     // Import stylesheet
@@ -104,6 +111,7 @@
         components: {
             Loading,
             pagination,
+            ModalSystem,
         },
         directives: {debounce},
         data() {
@@ -111,6 +119,11 @@
                 get: {
                     apiURL: 'users',
                 },
+                delete: {
+                    apiURL: 'users',
+                },
+                showModal: false,
+                selectRow: null,
                 specialties: null,
                 statusStudents: null,
                 users: null,
@@ -127,6 +140,10 @@
             this.fetch()
         },
         methods: {
+            openModal(value) {
+                this.showModal = true
+                this.selectRow = value
+            },
             fetch(page) {
                 this.isLoading = true
                 setTimeout(() => {
@@ -143,6 +160,21 @@
                 this.specialty = ''
                 this.status = ''
                 this.fetch()
+            },
+            removeOption() {
+                this.showModal = false
+                let index = this.users.data.indexOf(this.selectRow);
+                this.$store.dispatch('delete', {
+                    delete: this.delete,
+                    id: this.selectRow.id
+                })
+                .then(response => {
+                    this.$toast.success({
+                            title: response.data,
+                        })
+                        this.fetch()
+                })
+                this.selectRow = null;
             }
         },
         computed: {

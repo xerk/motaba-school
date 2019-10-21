@@ -56,4 +56,10 @@ class UsersController extends Controller
             'specialties' => $specialties
         ]);
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $user = User::destroy($id);
+        return 'تمت العملية بنجاح';
+    }
 }
