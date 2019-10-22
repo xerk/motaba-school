@@ -50,13 +50,13 @@
                                 <th>{{ trans('reports.Birth')}}تاريخ الميلاد</th>
                                 <th colspan="3">{{ trans('reports.Data Oct')}}السن في أول اكتوبر</th>
                                 <th>{{ trans('reports.Situation')}}الحالة</th>
+                                <th>{{ trans('reports.Joining Date')}}الرقم القومي</th>
                                 <th>{{ trans('reports.National')}}الجنسية</th>
                                 <th>{{ trans('reports.Gender')}}النوع</th>
                                 <th>{{ trans('reports.Address')}}العنوان</th>
                                 <th>{{ trans('reports.Father Mobile')}}تليفون الأب</th>
                                 <th>{{ trans('reports.Mother Mobile')}}تليفون الأم</th>
                                 <th>{{ trans('reports.Joining Date')}}وظيفة الأب</th>
-                                <th>{{ trans('reports.Joining Date')}}الرقم القومي</th>
                             </tr>
                             <tr>
                                 <th></th>
@@ -251,6 +251,7 @@ export default {
                                 return years;
                             } },
                         { data: 'status_students.name', defaultContent: ''},
+                        { data: 'national_id', name: 'national_id' },
                         { data: 'nationality', name: 'nationality' },
                         { data: 'joining_date', name: 'joining_date',
                             "render": function (val, type, row) {
@@ -270,7 +271,6 @@ export default {
                         { data: 'father_mobile', name: 'father_mobile' },
                         { data: 'mother_mobile', name: 'mother_mobile' },
                         { data: 'father_job', name: 'father_job' },
-                        { data: 'national_id', name: 'national_id' },
                     ],
                     "columnDefs": [
                         {
