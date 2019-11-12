@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                        <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> <span v-if="classRoom != ''">- {{user.class_room.name}}</span></h3>
+                        <h3 class="text-center"><span v-if="user.user.classEdu != ''">{{user.user.class_edu.name}}</span> <span v-if="user.user.classRoom != ''">- {{user.user.class_room.name}}</span></h3>
                         <section>
                             <table id="example" class="display table" cellspacing="0" width="100%">
                                 <thead>

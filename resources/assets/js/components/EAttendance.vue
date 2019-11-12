@@ -61,8 +61,9 @@
                                                         <th>{{ trans('attendance.Employees') }}</th>
                                                         <!-- <th>Lecture</th> -->
                                                         <th>{{ trans('attendance.Date') }}</th>
-                                                        <th>{{ trans('attendance.Created At') }}</th>
+                                                        <!-- <th>{{ trans('attendance.Created At') }}</th> -->
                                                         <th>{{ trans('attendance.Status') }}</th>
+                                                        <th class="actions text-right">{{ trans('attendance.Status') }}</th>
                                                         <th class="actions text-right">{{ trans('table.Actions') }}</th>
                                                     </tr>
                                                 </thead>
@@ -80,7 +81,7 @@
 
                                                         <!-- <td><span class="label label-info">{{ item.lectures.name }}</span></td> -->
                                                         <td>{{ item.attend_date }}</td>
-                                                        <td>{{ item.created_at }}</td>
+                                                        <!-- <td>{{ item.created_at }}</td> -->
                                                         <td>
                                                             <transition name="fade" mode="in-out">
                                                                 <span v-if="item.status == 7"
@@ -109,6 +110,17 @@
                                                             <transition name="fade" mode="in-out">
                                                                 <span v-if="item.status == 1"
                                                                     class="label label-success">{{ trans('attendance.Existing') }}</span>
+                                                            </transition>
+                                                        </td>
+                                                        <td>
+                                                            <transition name="slide" >
+                                                                <div v-if="item.status == 4 && item.late_min == null" :class="{'has-error': errors.has('late_min') }">
+                                                                    <button type="submit" @click="lateTime(item.id)" class="btn-attend btn btn-sm btn-primary"><i class="voyager-check"></i></button>
+                                                                    <input placeholder="وقت" v-model="lateMin" v-validate="'required'" name="late_min"  type="number" class="attend_input">
+                                                                    <span v-show="errors.has('late_min')" class="help-block" style="color:#f96868">{{ errors.first('late_min') }}</span>
+                                                                </div>
+                                                                <span v-else-if="item.late_min > 0 && item.status == 4">{{item.late_min}} دقيقة</span>
+
                                                             </transition>
                                                         </td>
                                                         <td class="no-sort no-click" id="bread-actions">
@@ -190,6 +202,7 @@ import Search from './table/Search'
         props: ['link'],
         data() {
             return {
+                input_show: false,
                 get: {
                     apiURL: 'eattendance',
                 },
@@ -199,13 +212,17 @@ import Search from './table/Search'
                 postTwo: {
                     apiURL: 'eattendance-post',
                 },
+                postThree: {
+                    apiURL: 'eattendance-post-3',
+                },
                 attendances: [],
                 // lectures: [],
                 // lecture: '',
                 day: 0,
                 dateNow: '',
                 searchItems: [],
-                query: ''
+                query: '',
+                lateMin: null,
             }
         },
         computed: {
@@ -242,6 +259,24 @@ import Search from './table/Search'
                                 post: this.postTwo,
                                 status: value,
                                 day: this.day
+                            })
+                            .then(response => {
+                                this.$toast.success({
+                                    title: response.data
+                                })
+                                this.fetch()
+                            })
+                    }
+                })
+            },
+            lateTime(value) {
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        console.log(value)
+                        this.$store.dispatch('submitForm', {
+                                post: this.postThree,
+                                late: this.lateMin,
+                                id: value,
                             })
                             .then(response => {
                                 this.$toast.success({
@@ -312,6 +347,16 @@ import Search from './table/Search'
         margin-bottom: 5px;
         float: left;
     }
+    .slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
 
     .fade-enter-active,
     .fade-leave-active {
@@ -351,5 +396,31 @@ import Search from './table/Search'
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
         border-radius: 100%;
     }
+    .attend_input {
+        width: 100px;
+        height: 30px;   
+        border: 1px solid #fff;
+        border-radius: 25px;
+        padding: 0 40px 0 14px;
+        text-align: center;
+        float: right;
+        box-shadow: 2px 4px 6px -1px rgba(0, 0, 0, 0.25), 2px 2px 4px -1px rgba(0, 0, 0, 0.09);
+    }
+    .btn-attend {
+        height: 28px;
+        margin-right: 0px;
+        border-radius: 25px !important;
+        width: 28px;
+        padding: 0;
+        margin: 0;
+        float: right;
+        position: relative;
+        top: 1px;
+        right: 29px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 </style>

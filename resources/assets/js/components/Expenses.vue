@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="panel panel-bordered">
                             <div class="panel-body">
-                                <h3 class="text-center"><span v-if="classEdu != ''">{{user.class_edu.name}}</span> - <span v-if="classRoom != ''">{{user.class_room.name}}</span></h3>
+                                <h3 class="text-center"><span v-if="user.user.classEdu != ''">{{user.user.class_edu.name}}</span> - <span v-if="user.user.classRoom != ''">{{user.class_room.name}}</span></h3>
                                 <div class="row">
                                     <div class="col-md-6 pull-right">
                                         <Search @performSearch="searchResults" :items="users" ></Search>
@@ -80,11 +80,13 @@
                 classEdu: localStorage.classEdu,
                 classRoom: localStorage.classRoom,
                 user: {
-                    class_room: {
+                    user: {
+                        class_room: {
                         name: ''
                     },
                     class_edu: {
                         name: ''
+                    }
                     }
                 },
                 getUser: {

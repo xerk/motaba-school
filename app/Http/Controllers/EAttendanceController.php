@@ -65,6 +65,20 @@ class EAttendanceController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function lateTime(Request $request)
+    {
+        $attend = Attendance::find($request->id);
+        $attend->late_min = $request->late;
+        $attend->save();
+
+        return 'نجحت العملية';
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

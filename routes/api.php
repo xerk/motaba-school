@@ -41,6 +41,7 @@ Route::post('attendance-post', 'AttendanceController@store');
 Route::get('eattendance', 'EAttendanceController@getEmployees');
 Route::post('eattendance', 'EAttendanceController@update');
 Route::post('eattendance-post', 'EAttendanceController@store');
+Route::post('eattendance-post-3', 'EAttendanceController@lateTime');
 
 Route::delete('attention/{id}', 'AttentionController@destroy');
 Route::delete('gattention/{id}', 'AttentionGroupController@destroy');

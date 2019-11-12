@@ -167,3 +167,15 @@ Route::get('/js/lang.js', function () {
 Route::get('api/get-auth', function () {
     return Auth::user();
 })->middleware('admin.user');
+
+Route::get('/facePassword', function () {
+    // echo $a = mt_rand(100000,999999); 
+    for ($i= 0; $i<= 3000; $i++) {
+        $value = rand(10000000, 99999999);
+
+        // odd number
+        if ($value % 2 != 0) {
+           echo $value.'<br> ';
+        } 
+    }
+});

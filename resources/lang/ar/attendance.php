@@ -26,5 +26,5 @@ return [
     'Send SMS' => 'إرسالة رسالة نصية',
     'Absence of patients' => 'غياب مرضى',
     'Delayed supervision' => 'تأخير أشراف',
-    'Delay permissions' => 'تأخير أذونات',
+    'Delay permissions' => 'إذونات صباحي',
 ];
