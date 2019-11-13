@@ -166,6 +166,7 @@ DataTable.Editor.display.semanticui = $.extend( true, {}, DataTable.Editor.model
 
 		$(self._dom.modal)
 			.modal( 'setting', {
+				autofocus: false,
 				dimmerSettings: {
 					closable: false
 				},
