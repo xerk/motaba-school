@@ -44,7 +44,7 @@ class AbstractSessionHandlerTest extends TestCase
     {
         $context = array('http' => array('header' => "Cookie: sid=123abc\r\n"));
         $context = stream_context_create($context);
-        $result = file_get_contents(sprintf('https://kamel-ouda.com:8053/%s.php', $fixture), false, $context);
+        $result = file_get_contents(sprintf('https://old.schoolver.com:8053/%s.php', $fixture), false, $context);
 
         $this->assertStringEqualsFile(__DIR__.sprintf('/Fixtures/%s.expected', $fixture), $result);
     }

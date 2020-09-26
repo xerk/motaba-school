@@ -8,7 +8,7 @@
 <meta name="robots" content="index,follow">
 <meta name="googlebot" content="index,follow">
 
-    <meta name="url" content="https://kamel-ouda.com/">
+    <meta name="url" content="https://old.schoolver.com/">
 
 
 <link href="{{ asset('themes/uikit/css/app.css') }}" rel="stylesheet">

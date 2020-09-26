@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://kamel-ouda.com'),
+    'url' => env('APP_URL', 'https://old.schoolver.com'),
 
     /*
     |--------------------------------------------------------------------------

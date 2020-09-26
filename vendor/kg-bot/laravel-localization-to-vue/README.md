@@ -23,18 +23,20 @@ composer require kg-bot/laravel-localization-to-vue
 Laravel 5.5 uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
 
 If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
-``` 
+
+```
 KgBot\LaravelLocalization\LaravelLocalizationServiceProvider::class
 ```
 
 and if you want alias add this inside aliases array in config/app.php
+
 ```
 "ExportLocalization" => "KgBot\\LaravelLocalization\\Facades\\ExportLocalizations"
 ```
 
 ## Settings and configuration
 
-You can export config by running 
+You can export config by running
 
 ```
 php artisan vendor:publish --provider=KgBot\LaravelLocalization\LaravelLocalizationServiceProvider --tag=config
@@ -68,12 +70,12 @@ Second way would be to request it over HTTP just like any other file
 
 ```
 <script>
-let messages = axios.get('https://kamel-ouda.com/js/lang.js') // This is default route which can be changed in config
+let messages = axios.get('https://old.schoolver.com/js/lang.js') // This is default route which can be changed in config
 </script>
 ```
 
 You can also export messages to ECMAScript 6 standard JavaScript module with artisan command
-```` php artisan export:messages ````
+`php artisan export:messages`
 
 ## Some examples why would you use this package and messages over Laravel standard localization
 
@@ -101,11 +103,11 @@ Vue.prototype.trans = new Lang( { messages, locale: default_locale, fallback: fa
 <b-input v-model="query"
                  type="text"
                  :placeholder="trans.get('search.placeholder')"></b-input>
-``` 
+```
 
 ## Routing
 
-This package exposes one route `https://kamel-ouda.com/js/lang.js` by default but you can change the prefix to anything you whish in config file.  
+This package exposes one route `https://old.schoolver.com/js/lang.js` by default but you can change the prefix to anything you whish in config file.
 
 You can also have a nice route name for blade templates or any other route calls, it's `route('assets.lang')` by default but it's customizable by config/environment file.
 
@@ -115,7 +117,7 @@ Everything of this is highly welcome and appreciated
 
 ## To-Do
 
-+ Create exclude configuration so not files/directories are collected
+-   Create exclude configuration so not files/directories are collected
 
 Anything else you can think of please leave me comments, mail me, create issue, whatever you prefer.
 

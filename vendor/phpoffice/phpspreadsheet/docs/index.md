@@ -8,18 +8,18 @@ spreadsheet file formats, like Excel and LibreOffice Calc.
 
 ## File formats supported
 
-|Format                                      |Reading|Writing|
-|--------------------------------------------|:-----:|:-----:|
-|Open Document Format/OASIS (.ods)           |   ✓   |   ✓   |
-|Office Open XML (.xlsx) Excel 2007 and above|   ✓   |   ✓   |
-|BIFF 8 (.xls) Excel 97 and above            |   ✓   |   ✓   |
-|BIFF 5 (.xls) Excel 95                      |   ✓   |       |
-|SpreadsheetML (.xml) Excel 2003             |   ✓   |       |
-|Gnumeric                                    |   ✓   |       |
-|HTML                                        |   ✓   |   ✓   |
-|SYLK                                        |   ✓   |       |
-|CSV                                         |   ✓   |   ✓   |
-|PDF (using either the TCPDF, Dompdf or mPDF libraries, which need to be installed separately)|       |   ✓   |
+| Format                                                                                        | Reading | Writing |
+| --------------------------------------------------------------------------------------------- | :-----: | :-----: |
+| Open Document Format/OASIS (.ods)                                                             |    ✓    |    ✓    |
+| Office Open XML (.xlsx) Excel 2007 and above                                                  |    ✓    |    ✓    |
+| BIFF 8 (.xls) Excel 97 and above                                                              |    ✓    |    ✓    |
+| BIFF 5 (.xls) Excel 95                                                                        |    ✓    |         |
+| SpreadsheetML (.xml) Excel 2003                                                               |    ✓    |         |
+| Gnumeric                                                                                      |    ✓    |         |
+| HTML                                                                                          |    ✓    |    ✓    |
+| SYLK                                                                                          |    ✓    |         |
+| CSV                                                                                           |    ✓    |    ✓    |
+| PDF (using either the TCPDF, Dompdf or mPDF libraries, which need to be installed separately) |         |    ✓    |
 
 # Getting started
 
@@ -28,9 +28,9 @@ spreadsheet file formats, like Excel and LibreOffice Calc.
 The following software is required to develop using PhpSpreadsheet:
 
 -   PHP version 5.6 or newer
--   PHP extension php\_zip enabled
--   PHP extension php\_xml enabled
--   PHP extension php\_gd2 enabled (if not compiled in)
+-   PHP extension php_zip enabled
+-   PHP extension php_xml enabled
+-   PHP extension php_gd2 enabled (if not compiled in)
 
 ### PHP version support
 
@@ -78,7 +78,7 @@ php -S localhost:8000 -t vendor/phpoffice/phpspreadsheet/samples
 
 Then point your browser to:
 
-> https://kamel-ouda.com/
+> https://old.schoolver.com/
 
 The samples may also be run directly from the command line, for example:
 

@@ -818,10 +818,10 @@ class Request
      *
      * Suppose this request is instantiated from /mysite on localhost:
      *
-     *  * https://kamel-ouda.com/mysite              returns an empty string
-     *  * https://kamel-ouda.com/mysite/about        returns '/about'
-     *  * https://kamel-ouda.com/mysite/enco%20ded   returns '/enco%20ded'
-     *  * https://kamel-ouda.com/mysite/about?var=1  returns '/about'
+     *  * https://old.schoolver.com/mysite              returns an empty string
+     *  * https://old.schoolver.com/mysite/about        returns '/about'
+     *  * https://old.schoolver.com/mysite/enco%20ded   returns '/enco%20ded'
+     *  * https://old.schoolver.com/mysite/about?var=1  returns '/about'
      *
      * @return string The raw path (i.e. not urldecoded)
      */
@@ -839,10 +839,10 @@ class Request
      *
      * Suppose that an index.php file instantiates this request object:
      *
-     *  * https://kamel-ouda.com/index.php         returns an empty string
-     *  * https://kamel-ouda.com/index.php/page    returns an empty string
-     *  * https://kamel-ouda.com/web/index.php     returns '/web'
-     *  * https://kamel-ouda.com/we%20b/index.php  returns '/we%20b'
+     *  * https://old.schoolver.com/index.php         returns an empty string
+     *  * https://old.schoolver.com/index.php/page    returns an empty string
+     *  * https://old.schoolver.com/web/index.php     returns '/web'
+     *  * https://old.schoolver.com/we%20b/index.php  returns '/we%20b'
      *
      * @return string The raw path (i.e. not urldecoded)
      */

@@ -10,6 +10,7 @@
 </p>
 
 # **V**oyager - The Missing Laravel Admin
+
 Made with ❤️ by [The Control Group](https://www.thecontrolgroup.com)
 
 ![Voyager Screenshot](https://s3.amazonaws.com/thecontrolgroup/voyager-screenshot.png)
@@ -50,7 +51,7 @@ DB_PASSWORD=secret
 You will also want to update your website URL inside of the `APP_URL` variable inside the .env file:
 
 ```
-APP_URL=https://kamel-ouda.com
+APP_URL=https://old.schoolver.com
 ```
 
 > Only if you are on Laravel 5.4 will you need to [Add the Service Provider.](https://voyager.readme.io/docs/adding-the-service-provider)
@@ -76,14 +77,13 @@ php artisan voyager:install --with-dummy
 
 And we're all good to go!
 
-Start up a local development server with `php artisan serve` And, visit [https://kamel-ouda.com/admin](https://kamel-ouda.com/admin).
+Start up a local development server with `php artisan serve` And, visit [https://old.schoolver.com/admin](https://old.schoolver.com/admin).
 
 ## Creating an Admin User
 
 If you did go ahead with the dummy data, a user should have been created for you with the following login credentials:
 
->**email:** `admin@admin.com`
->**password:** `password`
+> **email:** `admin@admin.com` >**password:** `password`
 
 NOTE: Please note that a dummy user is **only** created if there are no current users in your database.
 
